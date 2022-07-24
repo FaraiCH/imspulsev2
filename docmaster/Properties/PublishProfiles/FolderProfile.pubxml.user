@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Testing\imspulsev2\docmaster\bin\Release\publish\</_PublishTargetUrl>
-    <History>True|2022-07-24T10:52:40.7238340Z;True|2022-07-24T11:28:46.8420564+02:00;</History>
+    <History>True|2022-07-24T14:08:31.4675530Z;True|2022-07-24T12:52:40.7238340+02:00;True|2022-07-24T11:28:46.8420564+02:00;</History>
   </PropertyGroup>
 </Project>
