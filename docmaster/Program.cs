@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using docmaster.Data;
 using docmaster.Areas.Identity.Data;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 var connetionString = builder.Configuration.GetConnectionString("Default");
@@ -29,6 +30,14 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+// using Microsoft.AspNetCore.HttpOverrides;
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseAuthentication();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
