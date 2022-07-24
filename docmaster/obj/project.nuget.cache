@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GwMRZZj8QyX5deReFn672lKnUgw9irz3OXt4aJ5ptOns85tz361JbP8Rp9Mxf8+JI7Wx8o8At1VgA+mJ3sP6Fw==",
+  "dgSpecHash": "l1e/T1oZVvL5YLibEj8/3SghfXla3GZdMRGHmUOgW5XUVwRk74Wbx56JQQnZnsl6MUxi2CWJHrjxCSIAcsS/hw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\source\\repos\\docmaster\\docmaster\\docmaster.csproj",
+  "projectFilePath": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
