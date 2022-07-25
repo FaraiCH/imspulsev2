@@ -17,6 +17,34 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+    <PackageReference Include="SkiaSharp" Version="2.88.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Diagram">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Diagram.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Email">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Email.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.HTML">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.HTML.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.OCR">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.PDF">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.PDF.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Slides">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Slides.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Words.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
