@@ -17,30 +17,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using docmaster.Areas.Identity.Data;
 
 namespace docmaster.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserStore<IdentityUser> _userStore;
-        private readonly IUserEmailStore<IdentityUser> _emailStore;
+        private readonly SignInManager<docmasterUser> _signInManager;
+        private readonly UserManager<docmasterUser> _userManager;
+        private readonly IUserStore<docmasterUser> _userStore;
+        private readonly IUserEmailStore<docmasterUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<IdentityUser> signInManager,
-            UserManager<IdentityUser> userManager,
-            IUserStore<IdentityUser> userStore,
+            SignInManager<docmasterUser> signInManager,
+            UserManager<docmasterUser> userManager,
+            IUserStore<docmasterUser> userStore,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = GetEmailStore();
+            _emailStore = (IUserEmailStore<docmasterUser>)GetEmailStore();
             _logger = logger;
             _emailSender = emailSender;
         }
@@ -151,11 +152,9 @@ namespace docmaster.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+               var user = new docmasterUser { UserName = Input.Email, Email = Input.Email};
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
+           
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
