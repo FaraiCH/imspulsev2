@@ -17,11 +17,6 @@
           "Pomelo.EntityFrameworkCore.MySql": "6.0.1",
           "SkiaSharp": "2.88.0",
           "Aspose.Cells": "20.1.0.0",
-          "Aspose.Diagram": "20.1.0.0",
-          "Aspose.Email": "19.12.0.0",
-          "Aspose.HTML": "20.1.0.0",
-          "Aspose.OCR": "17.6.0.0",
-          "Aspose.PDF": "20.1.0.0",
           "Aspose.Slides": "20.1.0.0",
           "Aspose.Words": "20.1.0.0"
         },
@@ -2382,46 +2377,6 @@
           }
         }
       },
-      "Aspose.Diagram/20.1.0.0": {
-        "runtime": {
-          "Aspose.Diagram.dll": {
-            "assemblyVersion": "20.1.0.0",
-            "fileVersion": "20.1.0.0"
-          }
-        }
-      },
-      "Aspose.Email/19.12.0.0": {
-        "runtime": {
-          "Aspose.Email.dll": {
-            "assemblyVersion": "19.12.0.0",
-            "fileVersion": "19.12.0.0"
-          }
-        }
-      },
-      "Aspose.HTML/20.1.0.0": {
-        "runtime": {
-          "Aspose.HTML.dll": {
-            "assemblyVersion": "20.1.0.0",
-            "fileVersion": "20.1.0.0"
-          }
-        }
-      },
-      "Aspose.OCR/17.6.0.0": {
-        "runtime": {
-          "Aspose.OCR.dll": {
-            "assemblyVersion": "17.6.0.0",
-            "fileVersion": "17.6.0.0"
-          }
-        }
-      },
-      "Aspose.PDF/20.1.0.0": {
-        "runtime": {
-          "Aspose.PDF.dll": {
-            "assemblyVersion": "20.1.0.0",
-            "fileVersion": "20.1.0.0"
-          }
-        }
-      },
       "Aspose.Slides/20.1.0.0": {
         "runtime": {
           "Aspose.Slides.dll": {
@@ -3742,31 +3697,6 @@
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
     "Aspose.Cells/20.1.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aspose.Diagram/20.1.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aspose.Email/19.12.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aspose.HTML/20.1.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aspose.OCR/17.6.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aspose.PDF/20.1.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
