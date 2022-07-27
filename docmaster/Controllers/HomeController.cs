@@ -36,7 +36,7 @@ namespace docmaster.Controllers
             paragraphFormat.KeepTogether = true;
 
             builder.Writeln("A whole paragraph.");
-            doc.Save(@"/var/www/html/imspulse/myone.doc");
+            doc.Save(@"/var/www/html/imspulse/danny.doc");
             return View();
         }
 
