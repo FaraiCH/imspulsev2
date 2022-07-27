@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "yWpmK9fClK+18SXgOAE8Qwd9R8TFfwSeNr7luK/ulmbYtZGV0qARGRPkNGTlnECiPsDOqPjfLFCv3bFcuOuXcw==",
+  "dgSpecHash": "PNs5xM71avwdRxGrHOMB8AUbZq8EQkX/J+IaOHJYLilxsBv6AngSIk2xLWTVGRLVoJPn7l7jU1bdlUsHroT+Rg==",
   "success": true,
   "projectFilePath": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\harfbuzzsharp\\2.8.2-preview.209\\harfbuzzsharp.2.8.2-preview.209.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2-preview.209\\harfbuzzsharp.nativeassets.macos.2.8.2-preview.209.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2-preview.209\\harfbuzzsharp.nativeassets.win32.2.8.2-preview.209.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
@@ -108,8 +111,32 @@
     "C:\\Users\\User\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\skiasharp\\2.88.0\\skiasharp.2.88.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.0-preview.209\\skiasharp.harfbuzz.2.88.0-preview.209.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.0-preview.209\\skiasharp.nativeassets.linux.2.88.0-preview.209.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.0\\skiasharp.nativeassets.macos.2.88.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.0\\skiasharp.nativeassets.win32.2.88.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.compression.base\\20.2.0.36\\syncfusion.compression.base.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.compression.net.core\\20.2.0.36\\syncfusion.compression.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.docio.net.core\\20.2.0.36\\syncfusion.docio.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.dociorenderer.net.core\\20.2.0.36\\syncfusion.dociorenderer.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.aspnet.core\\20.2.0.36\\syncfusion.ej2.aspnet.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.gridexport.core\\20.2.0.36\\syncfusion.ej2.gridexport.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.javascript\\20.2.0.36\\syncfusion.ej2.javascript.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.pdfviewer.aspnet.core.linux\\20.2.0.36\\syncfusion.ej2.pdfviewer.aspnet.core.linux.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.spellchecker.aspnet.core\\20.2.0.36\\syncfusion.ej2.spellchecker.aspnet.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.spreadsheet.aspnet.core\\20.2.0.36\\syncfusion.ej2.spreadsheet.aspnet.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.ej2.wordeditor.aspnet.core\\20.2.0.36\\syncfusion.ej2.wordeditor.aspnet.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.licensing\\20.2.0.36\\syncfusion.licensing.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.officechart.net.core\\20.2.0.36\\syncfusion.officechart.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.pdf.imaging.net.core\\20.2.0.36\\syncfusion.pdf.imaging.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.pdf.net.core\\20.2.0.36\\syncfusion.pdf.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.presentation.net.core\\20.2.0.36\\syncfusion.presentation.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.presentationrenderer.net.core\\20.2.0.36\\syncfusion.presentationrenderer.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.skiasharphelper.net.core\\20.2.0.36\\syncfusion.skiasharphelper.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xlsio.aspnet\\20.2.0.36\\syncfusion.xlsio.aspnet.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xlsio.net.core\\20.2.0.36\\syncfusion.xlsio.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xlsiorenderer.net.core\\20.2.0.36\\syncfusion.xlsiorenderer.net.core.20.2.0.36.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xpstopdfconverter.net.core\\20.2.0.36\\syncfusion.xpstopdfconverter.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
@@ -190,5 +217,16 @@
     "C:\\Users\\User\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Syncfusion.XlsIO.AspNet 20.2.0.36' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Syncfusion.XlsIO.AspNet",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
