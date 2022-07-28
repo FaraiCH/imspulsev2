@@ -18,6 +18,7 @@ namespace  docmaster.Areas.Identity.Pages.Account.Manage
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public static string Index => "Index";
+        public static string Manager => "Manager";
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -66,6 +67,7 @@ namespace  docmaster.Areas.Identity.Pages.Account.Manage
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
+        public static string ManagerNavClass(ViewContext viewContext) => PageNavClass(viewContext, Manager);
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
