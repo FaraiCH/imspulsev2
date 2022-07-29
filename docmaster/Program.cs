@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Syncfusion.EJ2;
 
 
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("ORg4AjUWIQA/Gnt2VVhiQlFadVlJXmJWf1FpTGpQdk5yd19DaVZUTX1dQl9hSXlTckVmXHtfcHNVRGM=");
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("OTk5NkAzMjMwMkUzMjJFMzBNWndBMi9jT0t0OVJ4Q2FFSGlhSGJ6aW8vTkhhS1FBSjd4dmw2eGZsTTFNPQ==");
+
 
 
 var builder = WebApplication.CreateBuilder(args);
