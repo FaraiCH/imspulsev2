@@ -38,15 +38,12 @@
         function menuClick(args) {
             if (args.item.text === 'Preview') {
                 alert('You have clicked custom menu item');
-
-            document.getElementById("element").addEventListener('click', function () {
-                var filemanager = document.getElementById("file").ej2_instances[0];
-                var files = filemanager.getSelectedFiles();
-                for (var i = 0; i < files.length; i++) {
-                    var path = files[i].filterPath + files[i].name;
-                    alert(path);
-                }
-            });
+            var filemanager = document.getElementById("file").ej2_instances[0];
+            var files = filemanager.getSelectedFiles();
+            for (var i = 0; i < files.length; i++) {
+                var path = files[i].filterPath + files[i].name;
+                alert(path);
+            }
         }
 }
     
