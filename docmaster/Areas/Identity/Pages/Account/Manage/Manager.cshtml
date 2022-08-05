@@ -1,14 +1,15 @@
 ﻿@page
 @model docmaster.Areas.Identity.Pages.Account.Manage.ManagerModel
 @{
-         string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt", "|", "Preview" };
+    string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt", "|", "Preview" };
     string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename", "|", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
+    string myPath = "/HJ/";
 }
 
 <div class="control-section">
     <div class="sample-container" style="padding:10px">
-            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@path" cssClass="filemanager">   
+            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager">   
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
                                         uploadUrl="/Home/Upload"
@@ -18,18 +19,7 @@
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
     </div>
-@{ 
-    public string path { get; set; } 
-    public string user = "user1"; 
-    protected override void OnInitialized() 
-    { 
-        base.OnInitialized(); 
-        if (user == "user1") 
-        { 
-            path = "/HJ/"; 
-        }
-    }
-} 
+ 
     <script>
         function created() {
             var filemanager = document.getElementById("file").ej2_instances[0];
