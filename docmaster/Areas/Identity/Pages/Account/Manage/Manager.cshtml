@@ -22,24 +22,24 @@
 
 <div class="control-section">
     <div class="sample-container" style="padding:10px">
-            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager">
+            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" menuClick="menuClick">
                 <e-filemanager-navigationpanesettings hidden="true"></e-filemanager-navigationpanesettings>
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
                                         uploadUrl="/Home/Upload"
                                         getImageUrl="/Home/GetImage">
             </e-filemanager-ajaxsettings>
-               <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" onclick="toolbarClick">
+               <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" >
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
     </div>
  
     <script>
-         function toolbarClick(args) {
-            if (args.item.text === 'Preview') {
-                alert('You have clicked custom toolbar item');
-            }
+        function menuClick(args) {
+            if (args.item.text === 'Custom') {
+                alert('You have clicked custom menu item')
         }
+}
         document.getElementById("element").addEventListener('click', function () {
             var filemanager = document.getElementById("file").ej2_instances[0];
             var files = filemanager.getSelectedFiles();
