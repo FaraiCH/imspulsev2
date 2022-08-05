@@ -22,14 +22,14 @@
 
 <div class="control-section">
     <div class="sample-container" style="padding:10px">
-            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="toolbarClick">
+            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager">
                 <e-filemanager-navigationpanesettings hidden="true"></e-filemanager-navigationpanesettings>
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
                                         uploadUrl="/Home/Upload"
                                         getImageUrl="/Home/GetImage">
             </e-filemanager-ajaxsettings>
-               <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout">
+               <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" onclick="toolbarClick">
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
     </div>
