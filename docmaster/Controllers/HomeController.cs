@@ -23,7 +23,7 @@ namespace docmaster.Controllers
         {
             this.basePath = hostingEnvironment.ContentRootPath;
             this.operation = new PhysicalFileProvider();
-            this.operation.RootFolder("C:\\Testing\\");
+            this.operation.RootFolder("https://imspulse.com/bunch-box");
         }
 
         public IActionResult Index()
@@ -248,9 +248,9 @@ namespace docmaster.Controllers
             stream.Position = 0;
 
             //Download Word document in the browser
-             return File(stream, "application/msword", "Sample.docx");
+            File(stream, "application/msword", "Sample.docx");
 
-            //return View();
+            return View();
         }
 
         public IActionResult Privacy()
