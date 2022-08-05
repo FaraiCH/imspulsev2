@@ -8,7 +8,7 @@
 
 <div class="control-section">
     <div class="sample-container" style="padding:10px">
-            <ejs-filemanager id="filemanager" allowDragAndDrop="true">   
+            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@path" cssClass="filemanager">   
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
                                         uploadUrl="/Home/Upload"
@@ -18,7 +18,18 @@
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
     </div>
-
+@{ 
+    public string path { get; set; } 
+    public string user = "user1"; 
+    protected override void OnInitialized() 
+    { 
+        base.OnInitialized(); 
+        if (user == "user1") 
+        { 
+            path = "/HJ/"; 
+        }
+    }
+} 
     <script>
         function created() {
             var filemanager = document.getElementById("file").ej2_instances[0];
@@ -37,5 +48,25 @@
         .e-empty-inner-content {
             display: none;
         }
+
+          /*Style to hide the root folder from navigation pane*/ 
+        .filemanager .e-treeview .e-list-item.e-level-1 > .e-text-content { 
+            display: none; 
+        } 
+ 
+        /*Style to hide the root folder from breadcrumb*/ 
+        .filemanager .e-address .e-address-list-item:nth-child(1) { 
+            display: none; 
+        } 
+ 
+        /*Style to hide the icon from breadcrumb*/ 
+        .filemanager .e-address .e-address-list-item:nth-child(2) .e-icons { 
+            display: none; 
+        } 
+ 
+        /*Style to hide all other child folders except Subfolder1*/ 
+        ul li:nth-of-type(1n+2) { 
+            display: none; 
+        } 
     </style>
 </div>
