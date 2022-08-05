@@ -16,14 +16,14 @@ namespace docmaster.Controllers
        
 
         public PhysicalFileProvider operation;
-        public string basePath;
+        public string basePath = "/var/www/html/imspulse/bunch-box";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment)
         {
-            this.basePath = hostingEnvironment.ContentRootPath;
+           
             this.operation = new PhysicalFileProvider();
-            this.operation.RootFolder("https://imspulse.com/bunch-box");
+            this.operation.RootFolder(this.basePath);
         }
 
         public IActionResult Index()
@@ -265,7 +265,7 @@ namespace docmaster.Controllers
         }
         public object FileOperations([FromBody] FileManagerDirectoryContent args)
         {
-            var fullPath = (this.basePath + "\\" + this.root + args.Path).Replace("/", "\\");
+            var fullPath = this.basePath.Replace('\\', '/') + args.Path;
             if (args.Action == "delete" || args.Action == "rename")
             {
                 if ((args.TargetPath == null) && (args.Path == ""))
