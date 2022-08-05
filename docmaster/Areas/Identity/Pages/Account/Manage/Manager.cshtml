@@ -1,10 +1,23 @@
 ﻿@page
 @model docmaster.Areas.Identity.Pages.Account.Manage.ManagerModel
+@using Microsoft.AspNetCore.Identity
+@using docmaster.Areas.Identity.Data
+@inject SignInManager<docmasterUser> SignInManager
+@inject UserManager<docmasterUser> UserManager
 @{
     string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt", "|", "Preview" };
     string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename", "|", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
-    string myPath = "/HJ/";
+    string myPath = null;
+    @if (SignInManager.IsSignedIn(User))
+    {   
+        myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
+    }
+    else
+    {
+        myPath = "";
+    }
+
 }
 
 <div class="control-section">
