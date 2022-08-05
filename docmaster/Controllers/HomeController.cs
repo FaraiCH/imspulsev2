@@ -1,8 +1,6 @@
 ﻿
-using docmaster.Areas.Identity.Data;
 using docmaster.Models;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.DocIO;
@@ -15,18 +13,17 @@ namespace docmaster.Controllers
 {
     public class HomeController : Controller
     {
-
-        UserManager<docmasterUser> UserManager;
-        public PhysicalFileProvider operation;
        
+
+        public PhysicalFileProvider operation;
+        public string basePath = "/var/www/html/imspulse/bunch-box";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment)
         {
-
-            string basePath = "/var/www/html/imspulse/bunch-box/" + UserManager.GetUserAsync(User).Result.Company;
+           
             this.operation = new PhysicalFileProvider();
-            this.operation.RootFolder(basePath);
+            this.operation.RootFolder(this.basePath);
         }
 
         public IActionResult Index()
@@ -268,8 +265,7 @@ namespace docmaster.Controllers
         }
         public object FileOperations([FromBody] FileManagerDirectoryContent args)
         {
-            string basePath = "/var/www/html/imspulse/bunch-box/" + UserManager.GetUserAsync(User).Result.Company;
-            var fullPath = basePath.Replace('\\', '/') + args.Path;
+            var fullPath = this.basePath.Replace('\\', '/') + args.Path;
             if (args.Action == "delete" || args.Action == "rename")
             {
                 if ((args.TargetPath == null) && (args.Path == ""))
