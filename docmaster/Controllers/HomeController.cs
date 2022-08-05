@@ -25,7 +25,17 @@ namespace docmaster.Controllers
         {
            
             this.operation = new PhysicalFileProvider();
-            this.operation.RootFolder(this.basePath);
+            var company = UserManager.GetUserAsync(User).Result.Company;
+            string fullpath = null;
+            if (SignInManager.IsSignedIn(User))
+            {
+                this.operation.RootFolder("/var/www/html/impulse/bunch-box/" + company);
+            }
+            else
+            {
+                this.operation.RootFolder(this.basePath);
+            }
+            
         }
 
         public IActionResult Index()
