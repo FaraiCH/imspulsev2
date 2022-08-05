@@ -1,8 +1,6 @@
 ﻿
-using docmaster.Areas.Identity.Data;
 using docmaster.Models;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.DocIO;
@@ -15,8 +13,8 @@ namespace docmaster.Controllers
 {
     public class HomeController : Controller
     {
-        UserManager<docmasterUser> UserManager;
-        SignInManager<docmasterUser> SignInManager;
+       
+
         public PhysicalFileProvider operation;
         public string basePath = "/var/www/html/imspulse/bunch-box";
         string root = @"wwwroot";
@@ -25,17 +23,7 @@ namespace docmaster.Controllers
         {
            
             this.operation = new PhysicalFileProvider();
-            var company = UserManager.GetUserAsync(User).Result.Company;
-        
-            if (SignInManager.IsSignedIn(User))
-            {
-                this.operation.RootFolder("/var/www/html/impulse/bunch-box/" + company);
-            }
-            else
-            {
-                this.operation.RootFolder(this.basePath);
-            }
-            
+            this.operation.RootFolder(this.basePath);
         }
 
         public IActionResult Index()
@@ -277,17 +265,7 @@ namespace docmaster.Controllers
         }
         public object FileOperations([FromBody] FileManagerDirectoryContent args)
         {
-            var company = UserManager.GetUserAsync(User).Result.Company;
-            
-            if (SignInManager.IsSignedIn(User))
-            {
-                var fullpath = ("/var/www/html/impulse/bunch-box/" + company).Replace('\\', '/') + args.Path;
-            }
-            else
-            {
-                var fullpath = this.basePath.Replace('\\', '/') + args.Path;
-            }
-          
+            var fullPath = this.basePath.Replace('\\', '/') + args.Path;
             if (args.Action == "delete" || args.Action == "rename")
             {
                 if ((args.TargetPath == null) && (args.Path == ""))
