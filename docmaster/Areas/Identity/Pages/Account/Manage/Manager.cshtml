@@ -22,7 +22,7 @@
 
 <div class="control-section">
     <div class="sample-container" style="padding:10px">
-            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager">
+            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="toolbarClick">
                 <e-filemanager-navigationpanesettings hidden="true"></e-filemanager-navigationpanesettings>
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
@@ -35,9 +35,10 @@
     </div>
  
     <script>
-        function created() {
-            var filemanager = document.getElementById("file").ej2_instances[0];
-            filemanager.uploadObj.dropArea = null;
+         function toolbarClick(args) {
+            if (args.item.text === 'Preview') {
+                alert('You have clicked custom toolbar item');
+            }
         }
         document.getElementById("element").addEventListener('click', function () {
             var filemanager = document.getElementById("file").ej2_instances[0];

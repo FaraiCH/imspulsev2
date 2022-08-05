@@ -6912,7 +6912,7 @@
       ]
     },
     "Syncfusion.Compression.Net.Core/20.2.0.36": {
-      "sha512": "/Un3zcED6Rq+OWlsJAvo+lziMEdqtBO3q55lAAEg5I36KHj2lyn8NopxAxDIHqUQtqmZhaCKGyHfBabtZsdOtA==",
+      "sha512": "xORXF/kVJxHtOemhLV7g5RRZUdFPpBz32WL7Cm4RdzeoQuakkzQt4tjC5vrug7KCUlPnGVaSc6WFCZjjTtpnXg==",
       "type": "package",
       "path": "syncfusion.compression.net.core/20.2.0.36",
       "files": [
@@ -6933,7 +6933,7 @@
       ]
     },
     "Syncfusion.DocIO.Net.Core/20.2.0.36": {
-      "sha512": "HX5O3j9bTh087SAX8aig0x2mkI3LdeUxfK3mz9C72rjD2m43KEKGisRnsUasPkGZ9U+R9ha2tzJY+sP35Ls5oQ==",
+      "sha512": "OWButHwD/0v3cqP9AgZgrEpwtiv6WVj+tPcRJ/51W7OYopyzscjKDXHNhSfUY5RHeDPKQsKg2w1PQL8CZVYxkw==",
       "type": "package",
       "path": "syncfusion.docio.net.core/20.2.0.36",
       "files": [
@@ -6955,7 +6955,7 @@
       ]
     },
     "Syncfusion.DocIORenderer.Net.Core/20.2.0.36": {
-      "sha512": "a4Al8uuDhwptPQpFYAXSWxFDNwn0PE6CyYF0uiPxVJh/11tn18xen60EO1kW201gVgq8eMppz3qurowpP1NUSg==",
+      "sha512": "2C42oYdQ6Q9OXJ2TQ01qZiRfAzXyCKc8HfQtN3qmctmS1GbXx1iBe9CAZHadfwMijMPuNXeBNfl/31lFo/f2XQ==",
       "type": "package",
       "path": "syncfusion.dociorenderer.net.core/20.2.0.36",
       "files": [
@@ -6975,7 +6975,7 @@
       ]
     },
     "Syncfusion.EJ2.AspNet.Core/20.2.0.36": {
-      "sha512": "qdfOSE+6m+g/oVo7R+j84kNKl+XsCDo6WQ+TdNwXwHdJW5KzGkekymlDXidbhqpKxLYgI/NhbbzlbHQ4f+INSw==",
+      "sha512": "WSVO9dW2uFRREhlzyhyjyCIgNf5K9SabLmtm10Fv164G1usyY7GgCW7h80vmXc/eJCQRnGhqgtXkIS0Q/QQWMQ==",
       "type": "package",
       "path": "syncfusion.ej2.aspnet.core/20.2.0.36",
       "files": [
@@ -6993,7 +6993,7 @@
       ]
     },
     "Syncfusion.EJ2.GridExport.Core/20.2.0.36": {
-      "sha512": "I5+A9dMdYsO6LGIV2YPbjc9YicNQJ7uTMcjR44eF0ccWsUZg0Js5CMSf3iqEQFL74bdHBRXINPcIAA+1dSNWow==",
+      "sha512": "yB7MGZPp4TJ6lSh8F/bT+NFFtowtndmV3AvtdS+dG+VvOZywYp2SNVguPDzMQBN7XECPyzh4iaCqBurGebHXaw==",
       "type": "package",
       "path": "syncfusion.ej2.gridexport.core/20.2.0.36",
       "files": [
@@ -7011,7 +7011,7 @@
       ]
     },
     "Syncfusion.EJ2.JavaScript/20.2.0.36": {
-      "sha512": "Ahgyjm/c7DbTzGNP7hG6rv957wy90nKsquXb3/va54t2rPp8X9hpivRpcNvFmViUNbrvQbNpOFxAgRlOR061WA==",
+      "sha512": "KAfcdu/+5etSz0orpyo4sKiQIOCztRDwMsxblTdSYR1OpuBilbmdB1dBijuyMT+tWX4DGftV7qI+trM7I650zg==",
       "type": "package",
       "path": "syncfusion.ej2.javascript/20.2.0.36",
       "files": [
@@ -7051,7 +7051,7 @@
       ]
     },
     "Syncfusion.EJ2.PdfViewer.AspNet.Core.Linux/20.2.0.36": {
-      "sha512": "s9cvXRniwDWteCXCBLMWCY6Nd+trji5FNjlzL0PvSdfTFtuMvm5mL/obmh9B5b/j0XYrQGLXqKNEhCQbOsTdxA==",
+      "sha512": "/6LgVcwL2caqWtq0nrsK6wodfvCU6AOW1tzIu8HfPsnJOqWpIeWqdVt4nH6DfbrLJI/swS6hkS7OdaTN9QToAQ==",
       "type": "package",
       "path": "syncfusion.ej2.pdfviewer.aspnet.core.linux/20.2.0.36",
       "files": [
@@ -7071,7 +7071,7 @@
       ]
     },
     "Syncfusion.EJ2.SpellChecker.AspNet.Core/20.2.0.36": {
-      "sha512": "HgXAWDOHARu5D0saqL97K6idPJt8n+o/UIxBbzV32d/7vcJZ+nSckBfLTmARRMjaHe1+jge+x8OpwhRDSyD/ZA==",
+      "sha512": "mIK6tOa5IfNy0fGw7IPzIKU4P11gyV3MlYOIf/CZS1AHFbP7ADGweE2BitWrJNkS53I4MQlGDK0yJNbiM6+XZQ==",
       "type": "package",
       "path": "syncfusion.ej2.spellchecker.aspnet.core/20.2.0.36",
       "files": [
@@ -7091,7 +7091,7 @@
       ]
     },
     "Syncfusion.EJ2.Spreadsheet.AspNet.Core/20.2.0.36": {
-      "sha512": "DHPaOPS3rB5mJN5leSPQeEp80mnHfP1D2b/bSwoTQqlsmA4CO4sKEhZtPys37jwXxDnXg87XAzD30CpOWHIRww==",
+      "sha512": "U3MAeTJFYAG5sgaEw54SNHxp0wjKtc9JXWzloNSqVrGlPiOMV98NSpFTyuNCIWG42NLtj5daX4r3iqOp1SlB8w==",
       "type": "package",
       "path": "syncfusion.ej2.spreadsheet.aspnet.core/20.2.0.36",
       "files": [
@@ -7107,7 +7107,7 @@
       ]
     },
     "Syncfusion.EJ2.WordEditor.AspNet.Core/20.2.0.36": {
-      "sha512": "6BOa8C9Rk3JVnUdk1eVkYVFp6WeaK44+FXvz5KV6N9puhu6eKZTF4o0IwaWKcNkuVoE/q6PoDp1VQj4CqWMvHA==",
+      "sha512": "MrIhoJ7fJeXA5oczfn+8OfH70xzMAFgTiXQZK/U09OQoDpIwO1pCv1apbm0FGyz5YSBaVKYJhdITudKGq7aWyg==",
       "type": "package",
       "path": "syncfusion.ej2.wordeditor.aspnet.core/20.2.0.36",
       "files": [
@@ -7127,7 +7127,7 @@
       ]
     },
     "Syncfusion.Licensing/20.2.0.36": {
-      "sha512": "+tqb0Bl9Ip1/hu1tDOUbJx524q3G3nY46vSXbUBQpJKE7nuWSkTDHLycvnK4/aw32Amn8FP4yPS59iXXZKIBew==",
+      "sha512": "J91BSHE2vXfCO6N8SEm+8b3AvjUJuuAim8v0jP3W4r+Lz6hWJDwZXsUM+3lPAcbqDs9BCVui1tmzqMJaj1/g0A==",
       "type": "package",
       "path": "syncfusion.licensing/20.2.0.36",
       "files": [
@@ -7159,7 +7159,7 @@
       ]
     },
     "Syncfusion.OfficeChart.Net.Core/20.2.0.36": {
-      "sha512": "+NluaORn3HjJ8QIS/mkt/fDxuGrhRT12wM2P8S93zuPq94k3cbTLDcYs7aITKIzs6tVmf6xXJlrAI+QXsQOfwQ==",
+      "sha512": "EqEUym+LjbIqW/xs1rmREiH0iB7EpAJvC1MsZV7KW+M1KiSrOvsipBjO7QjOhMubRLhwb02tBwtXaTruRalUiA==",
       "type": "package",
       "path": "syncfusion.officechart.net.core/20.2.0.36",
       "files": [
@@ -7180,7 +7180,7 @@
       ]
     },
     "Syncfusion.Pdf.Imaging.Net.Core/20.2.0.36": {
-      "sha512": "pPcM4Pkfa1ki1X2yJt5si2PUynHM5VRFwp1be2WQ7bn2uXd8Meu0sZszAgMuLJEe9HDhw0IT+9O37SDCaE3bkw==",
+      "sha512": "T79Rbx/VVJxbg75Aa3k6U8UjYCDScl87HyZRwhXc6D8xgisL+FD9rb2F6juFbJkSIbOgkQUihlUXpJ6uYjKhiQ==",
       "type": "package",
       "path": "syncfusion.pdf.imaging.net.core/20.2.0.36",
       "files": [
@@ -7198,7 +7198,7 @@
       ]
     },
     "Syncfusion.Pdf.Net.Core/20.2.0.36": {
-      "sha512": "qUzKNbsxgm2QC2q4JZBU4tDpCo4SELNl5D0afyBYoRTOUqg7RcF27GAgKKbyFqE8BDE0AWQEWvaTsXtj9KvBtQ==",
+      "sha512": "c7AkUbMajC8SK+VVgBdhMEtTVQbaj4clW8XwBkRB1ZtNFbhNJ0uIkmTKHm0dDyOskPfvZiN3Sj+u0AjntLhj/Q==",
       "type": "package",
       "path": "syncfusion.pdf.net.core/20.2.0.36",
       "files": [
@@ -7220,7 +7220,7 @@
       ]
     },
     "Syncfusion.Presentation.Net.Core/20.2.0.36": {
-      "sha512": "JY+bnzG0iAoFCqH4k1m5bwArXTGCPzMHn6i1kjadHQ+t0X/CjJayIxKFciLqRaeTzpFkYbaRBTmoCIhzmI8POw==",
+      "sha512": "Qd6ddK2vLQ5r6Egmrk6kgCmYdT2aLqmP5ZJljHttRf5tGRLunm5n5AOTO4Xh20S6vHeMrf/ex2h0RCUJBdXWfA==",
       "type": "package",
       "path": "syncfusion.presentation.net.core/20.2.0.36",
       "files": [
@@ -7242,7 +7242,7 @@
       ]
     },
     "Syncfusion.PresentationRenderer.Net.Core/20.2.0.36": {
-      "sha512": "AbwfDyOlFaNMtT2JEpNau5fqoUuvNKqbrL49Io/Ph9VyIFf39zNBzwBGMLuFjCPUo9nZlls2D30dOe22C8YjJw==",
+      "sha512": "Utt974La4cQ9bmjmQOoE/QG6gJj9uMqXxr2E7P70TwMPyNuL4bW+8RH2jvMrql1ZrfZfh+bk2R9F8A9M/tOreQ==",
       "type": "package",
       "path": "syncfusion.presentationrenderer.net.core/20.2.0.36",
       "files": [
@@ -7262,7 +7262,7 @@
       ]
     },
     "Syncfusion.SkiaSharpHelper.Net.Core/20.2.0.36": {
-      "sha512": "gLu5k8tna9rnbvbvAif76rFdew01USCSrNPiwXmtWV6pPGaXTcvSCE3eWrWJUVksuzaRGY1Hd2yXdlKmLekOzA==",
+      "sha512": "QlpMtGtdbq1rbAJNyN/HFcFDsPVLx3vC/jTjSTSERHb9xOcuTXl8ry4Jr0BTqNCbVRjlRxhc4b2INjwhap6O3w==",
       "type": "package",
       "path": "syncfusion.skiasharphelper.net.core/20.2.0.36",
       "files": [
@@ -7281,7 +7281,7 @@
       ]
     },
     "Syncfusion.XlsIO.AspNet/20.2.0.36": {
-      "sha512": "HLrHxAUHkWIazLA044TS+RhcoOLUn7xx9Wr1d0IGTa57cUhQKPc4vo0ZjyHaJLtRX3WxihorwIwqcyri7pWgfg==",
+      "sha512": "x8pLBi40dtTnZ/m8jQeh3ekLzeN2a55GQrZPj3HTiLpzam3bXIzFHfIo/vcnwoSYAEj7c8AqxB6CNnnoC97q7w==",
       "type": "package",
       "path": "syncfusion.xlsio.aspnet/20.2.0.36",
       "files": [
@@ -7311,7 +7311,7 @@
       ]
     },
     "Syncfusion.XlsIO.Net.Core/20.2.0.36": {
-      "sha512": "Bf5etrNelhN181874Fyvecuhmm9icFJmWYSsTUnlVqL5noyGy4Xeqs795VOahZd/HLrSKeIauNlloppGInxksw==",
+      "sha512": "Tedrb6wxxoNiSL8KtaBHdYwFtTzRhyPVjvgz7g0ywb3fg0Pds3StnXZ4Omvtu6I89ofnw02aimck1hrkEzadfw==",
       "type": "package",
       "path": "syncfusion.xlsio.net.core/20.2.0.36",
       "files": [
@@ -7333,7 +7333,7 @@
       ]
     },
     "Syncfusion.XlsIORenderer.Net.Core/20.2.0.36": {
-      "sha512": "z+lSh5QZ+oDHHMu1bRbgOej877S2xzoe4zfBqsEwweOzBuzo2Zbdo1OfueOh0lRV2IpWlsLge+oVNYcGnDLxxg==",
+      "sha512": "8p14SActknSNiP+u8BTgMeDfE39JTh7o2OrlhZ2raDxDflN4t0ohdz7qWW9I/mWl1pbW1lbZvQ9G4nuJztUS0w==",
       "type": "package",
       "path": "syncfusion.xlsiorenderer.net.core/20.2.0.36",
       "files": [
@@ -7353,7 +7353,7 @@
       ]
     },
     "Syncfusion.XpsToPdfConverter.Net.Core/20.2.0.36": {
-      "sha512": "71Q2l2wCBhaE6psADAnOEHT0t+x4G8zIRu7ScBIT5i3BFcUjqKCSFwUvvnWbgSXW8ts2eNkakSLtt1H3GbLwbw==",
+      "sha512": "kl1ABzfmh1jvVb4idkQbY7U7wFDZc4STj6QS6/dQ4+pxkC/ZAJd1Z58aXB7YtiwOa/xham7yQWekciqNZDVqfA==",
       "type": "package",
       "path": "syncfusion.xpstopdfconverter.net.core/20.2.0.36",
       "files": [
@@ -11134,34 +11134,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Farai Chakarisa BT\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\testing\\imspulsev2\\docmaster\\docmaster.csproj",
+      "projectUniqueName": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
       "projectName": "docmaster",
-      "projectPath": "C:\\testing\\imspulsev2\\docmaster\\docmaster.csproj",
-      "packagesPath": "C:\\Users\\Farai Chakarisa BT\\.nuget\\packages\\",
-      "outputPath": "C:\\testing\\imspulsev2\\docmaster\\obj\\",
+      "projectPath": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Testing\\imspulsev2\\docmaster\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Farai Chakarisa BT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
-        "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\Flutter\\18.3.0.47\\NuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
