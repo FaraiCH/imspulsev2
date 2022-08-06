@@ -36,9 +36,13 @@
             <e-content-template>
 
                 <form>
-                <div class='form-group'><label for='name'>Password:</label><input type='password' value='' class='form-control' id='password'></div>
-            </form>
+                    <div class='form-group'><label for='name'>Password:</label><input type='password' value='' class='form-control' id='password'></div>
+                </form>
             </e-content-template>
+                <e-dialog-buttons>
+                    <e-dialog-dialogbutton title="Protect" click="dlgButtonClick"></e-dialog-dialogbutton>
+                    <e-dialog-dialogbutton title="Return" click="returnClick"></e-dialog-dialogbutton>
+        </e-dialog-buttons>
         </ejs-dialog>
     </div>
 
