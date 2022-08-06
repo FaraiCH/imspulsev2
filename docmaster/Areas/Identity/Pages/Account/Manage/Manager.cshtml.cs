@@ -27,10 +27,10 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
             return Page();
         }
-        public IActionResult OnPost()
+        public void OnPost()
         {
-            var password =  Request.Form["password"];
-            return Content(password);
+            var password =  Request.Form["path"];
+            ViewData["Message"] = password;          
         }
     }
 }

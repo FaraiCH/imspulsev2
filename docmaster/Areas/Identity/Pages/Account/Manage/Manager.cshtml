@@ -68,6 +68,15 @@
 }
     
     </script>
+
+    @if (ViewData["Message"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewData["Message"]');
+            };
+        </script>
+    }
     <style>
         .e-empty-inner-content {
             display: none;
