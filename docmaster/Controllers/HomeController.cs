@@ -342,9 +342,6 @@ namespace docmaster.Controllers
             return this.operation.GetImage(args.Path, args.Id, false, null, null);
         }
 
-        public IActionResult fileOpen([FromBody] FileManagerDirectoryContent args)
-        {
-            return operation.Download(args.Path, args.Names, args.Data);
-        }
+    
     }
 }
