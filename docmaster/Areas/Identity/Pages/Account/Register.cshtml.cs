@@ -165,7 +165,12 @@ namespace docmaster.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
+            string folderName = @"/var/www/html/imspulse/bunch-box/" + _userManager.GetUserAsync(User).Result.Company;
+            // If directory does not exist, create it
+            if (!Directory.Exists(folderName))
+            {
+                Directory.CreateDirectory(folderName);
+            }
             // If we got this far, something failed, redisplay form
             return Page();
         }
