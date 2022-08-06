@@ -32,12 +32,12 @@
                <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" >
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
-        \  <ejs-dialog id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="About SYNCFUSION succintly series">
+         <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="About SYNCFUSION succintly series">
             <e-content-template>
-                <p>
-                    In the Succinctly series, Syncfusion created a robust, free library of more than 130 technical e - books formatted for PDF,
-                    Kindle, and EPUB.The Succinctly series was born in 2012 out of a desire to provide concise technical e-books for software developers.Each title in the Succinctly series is written by a carefully chosen expert and provides essential content in about 100 pages.
-                </p>
+
+                <form>
+                <div class='form-group'><label for='name'>Password:</label><input type='password' value='' class='form-control' id='password'></div>
+            </form>
             </e-content-template>
         </ejs-dialog>
     </div>
@@ -53,7 +53,7 @@
             }
         });
         function menuClick(args) {
-            if (args.item.text === 'Preview') {
+            if (args.item.text === 'Encrypt') {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
                 dialog.show();
                 alert(args.fileDetails[0].filterPath);
