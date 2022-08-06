@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using Syncfusion.EJ2.FileManager;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
 using System.Diagnostics;
@@ -341,9 +342,9 @@ namespace docmaster.Controllers
             return this.operation.GetImage(args.Path, args.Id, false, null, null);
         }
 
-        public void Encrypt()
+        public IActionResult fileOpen([FromBody] FileManagerDirectoryContent args)
         {
-
+            return operation.Download(args.Path, args.Names, args.Data);
         }
     }
 }

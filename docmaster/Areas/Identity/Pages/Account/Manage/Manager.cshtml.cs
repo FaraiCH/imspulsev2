@@ -46,5 +46,6 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             ViewData["Message"] = path;
 
         }
+
     }
 }
