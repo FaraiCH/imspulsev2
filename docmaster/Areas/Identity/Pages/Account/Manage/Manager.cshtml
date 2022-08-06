@@ -68,7 +68,10 @@
     }
 
     function onFileOpen(args) {
-        alert(args.fileDetails.name + " is opened");
+        if (args.fileDetails.isFile) {
+            alert(args.fileDetails.name + " is opened");
+        }
+
     }
     
 </script>
