@@ -38,8 +38,8 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             //Encrypts the Word document with a password
             document.EncryptDocument(password);
             //Saves the Word document to MemoryStream
-            MemoryStream stream = new MemoryStream();
-            document.Save(stream, FormatType.Docx);
+            FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+            document.Save(outputStream, FormatType.Docx);
             //Closes the document
             document.Close();
 
