@@ -21,7 +21,7 @@
 }
 
 <div class="control-section">
-    <div class="sample-container" style="padding:10px">
+    <div class="sample-container" id="container" style="padding:10px">
             <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" menuClick="menuClick">
                 <e-filemanager-navigationpanesettings hidden="true"></e-filemanager-navigationpanesettings>
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
@@ -32,11 +32,7 @@
                <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" >
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
-    </div>
-
-    <div id="container" style="height:400px;">
-    
-        <ejs-dialog id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="About SYNCFUSION succintly series">
+        \  <ejs-dialog id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="About SYNCFUSION succintly series">
             <e-content-template>
                 <p>
                     In the Succinctly series, Syncfusion created a robust, free library of more than 130 technical e - books formatted for PDF,
@@ -45,6 +41,7 @@
             </e-content-template>
         </ejs-dialog>
     </div>
+
  
     <script>
         document.getElementById("element").addEventListener('click', function () {
