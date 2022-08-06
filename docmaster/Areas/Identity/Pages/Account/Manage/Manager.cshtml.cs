@@ -2,6 +2,8 @@ using docmaster.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
 
 namespace docmaster.Areas.Identity.Pages.Account.Manage
 {
@@ -27,9 +29,22 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
             return Page();
         }
-        public void OnPost(string path)
+        public void OnPost(string path, string password)
         {
-            ViewData["Message"] = path;          
+            
+            //Opens an existing document from stream through constructor of WordDocument class
+            FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path , FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
+            //Encrypts the Word document with a password
+            document.EncryptDocument(password);
+            //Saves the Word document to MemoryStream
+            MemoryStream stream = new MemoryStream();
+            document.Save(stream, FormatType.Docx);
+            //Closes the document
+            document.Close();
+
+            ViewData["Message"] = path;
+
         }
     }
 }
