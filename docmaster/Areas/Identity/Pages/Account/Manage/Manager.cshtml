@@ -32,12 +32,14 @@
                <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" >
             </e-filemanager-contextmenusettings>
         </ejs-filemanager>
-         <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="About SYNCFUSION succintly series">
+         <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
 
                 <form>
                     <div class='form-group'><label for='name'>Password:</label><input type='password' value='' class='form-control' id='password'></div>
                     <div class='form-group'><label for='name'>Path:</label><input type='text' value='' class='form-control' id='path'></div>
+
+                    <button class="btn btn-outline-primary float-end">Protect</button>
                 </form>
             </e-content-template>
       
@@ -57,7 +59,7 @@
         function menuClick(args) {
             if (args.item.text === 'Encrypt') {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
-                document.getElementById("path").setAttribute("value", args.fileDetails[0].filterPath + "/" + args.fileDetails[0].name);
+                document.getElementById("path").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
                 dialog.show();
               
           
