@@ -7,6 +7,7 @@
 @{
     string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt", "|", "Preview" };
     string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename", "|", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt" };
+    string[] items = new string[] { "NewFolder", "Refresh", "View", "Details", "Rename", "Cut", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
     string myPath = null;
     @if (SignInManager.IsSignedIn(User))
@@ -31,6 +32,7 @@
             </e-filemanager-ajaxsettings>
                <e-filemanager-contextmenusettings file="files" folder="folder" layout="layout" >
             </e-filemanager-contextmenusettings>
+            <e-filemanager-toolbarsettings items="@items"></e-filemanager-toolbarsettings>
         </ejs-filemanager>
          <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
