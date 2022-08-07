@@ -80,15 +80,15 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 }
                
             }
-            else if (path.Contains(".ppt"))
+            else if(path.Contains(".ppt"))
             {
-                FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                FileStream fileStreamPath = new FileStream("C:/Testing" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 using (IPresentation presentation = Presentation.Open(fileStreamPath))
                 {
                     //Protects the file with password.
                     presentation.Encrypt(password);
                     //Save the PowerPoint Presentation as stream.
-                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream outputStream = new FileStream("C:/Testing" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                     presentation.Save(outputStream);
                     outputStream.Dispose();
@@ -98,7 +98,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             }
             else if(path.Contains(".pdf"))
             {
-                FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                FileStream fileStreamPath = new FileStream("C:/Testing" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath);
 
                 //PDF document security 
@@ -117,7 +117,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                 //Save the document into stream.
 
-                FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                FileStream outputStream = new FileStream("C:/Testing" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                 document.Save(outputStream);
                 outputStream.Dispose();
