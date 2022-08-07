@@ -83,18 +83,18 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             else if (path.Contains(".ppt"))
             {
                 FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                IPresentation presentation = Presentation.Open(fileStreamPath);
-                
-                //Protects the file with password.
-                presentation.Encrypt(password);
-                //Save the PowerPoint Presentation as stream.
-                FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                
-                presentation.Save(outputStream);
+                using (IPresentation presentation = Presentation.Open(fileStreamPath))
+                {
+                    //Protects the file with password.
+                    presentation.Encrypt(password);
+                    //Save the PowerPoint Presentation as stream.
+                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
-                presentation.Close();
-
-                ViewData["Message"] = path;
+                    presentation.Save(outputStream);
+                    outputStream.Dispose();
+                    ViewData["Message"] = path;
+                }   
+             
             }
             else if(path.Contains(".pdf"))
             {
@@ -120,7 +120,8 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                 document.Save(outputStream);
-                document.Close();
+                outputStream.Dispose();
+                document.Close(true);
             }
             else
             {
