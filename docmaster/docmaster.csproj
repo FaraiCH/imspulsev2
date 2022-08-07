@@ -35,7 +35,6 @@
     <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="20.2.0.36" />
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="20.2.0.36" />
     <PackageReference Include="Syncfusion.SkiaSharpHelper.Net.Core" Version="20.2.0.36" />
-    <PackageReference Include="Syncfusion.XlsIO.AspNet" Version="20.2.0.36" />
     <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.2.0.36" />
     <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="20.2.0.36" />
     <PackageReference Include="Syncfusion.XpsToPdfConverter.Net.Core" Version="20.2.0.36" />

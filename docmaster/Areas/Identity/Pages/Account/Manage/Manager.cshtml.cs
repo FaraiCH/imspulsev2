@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using Syncfusion.XlsIO;
 
 namespace docmaster.Areas.Identity.Pages.Account.Manage
 {
@@ -47,6 +48,27 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 document.Close();
 
                 ViewData["Message"] = path;
+            }
+            else if(path.Contains(".xls"))
+            {
+                using (ExcelEngine excelEngine = new ExcelEngine())
+                {
+                    IApplication application = excelEngine.Excel;
+                    application.DefaultVersion = ExcelVersion.Excel2013;
+                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+                    IWorkbook workbook = application.Workbooks.Open(fileStreamPath);
+
+  
+                    //Set the workbook as read-only
+                    workbook.Protect(true, true, password);
+
+                    //Saving the workbook as stream
+                    workbook.SaveAs(fileStreamPath);
+
+                    ViewData["Message"] = path;
+                }
+               
             }
             else
             {

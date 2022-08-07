@@ -277,7 +277,6 @@ C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\runtimes\win-x64\native\libSk
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\HarfBuzzSharp.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\SkiaSharp.HarfBuzz.dll
-C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.Compression.Base.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.Compression.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.DocIO.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.DocIORenderer.Portable.dll
@@ -294,7 +293,6 @@ C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.Pdf.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.Presentation.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.PresentationRenderer.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.SkiaSharpHelper.Portable.dll
-C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.XlsIO.Base.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.XlsIO.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.XlsIORenderer.Portable.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Syncfusion.XpsToPdfConverter.Portable.dll

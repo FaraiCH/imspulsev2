@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PNs5xM71avwdRxGrHOMB8AUbZq8EQkX/J+IaOHJYLilxsBv6AngSIk2xLWTVGRLVoJPn7l7jU1bdlUsHroT+Rg==",
+  "dgSpecHash": "kt3e0DP1yaSbL/jlHcQ02ntisVw6M/SWNrICM33bp1DMQ8NcPYjIy9IrTLAmOVCmulRtxcYVPZAUdUHC8Bahkg==",
   "success": true,
   "projectFilePath": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
   "expectedPackageFiles": [
@@ -115,7 +115,6 @@
     "C:\\Users\\User\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.0-preview.209\\skiasharp.nativeassets.linux.2.88.0-preview.209.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.0\\skiasharp.nativeassets.macos.2.88.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.0\\skiasharp.nativeassets.win32.2.88.0.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\syncfusion.compression.base\\20.2.0.36\\syncfusion.compression.base.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.compression.net.core\\20.2.0.36\\syncfusion.compression.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.docio.net.core\\20.2.0.36\\syncfusion.docio.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.dociorenderer.net.core\\20.2.0.36\\syncfusion.dociorenderer.net.core.20.2.0.36.nupkg.sha512",
@@ -133,7 +132,6 @@
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.presentation.net.core\\20.2.0.36\\syncfusion.presentation.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.presentationrenderer.net.core\\20.2.0.36\\syncfusion.presentationrenderer.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.skiasharphelper.net.core\\20.2.0.36\\syncfusion.skiasharphelper.net.core.20.2.0.36.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xlsio.aspnet\\20.2.0.36\\syncfusion.xlsio.aspnet.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.xlsio.net.core\\20.2.0.36\\syncfusion.xlsio.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.xlsiorenderer.net.core\\20.2.0.36\\syncfusion.xlsiorenderer.net.core.20.2.0.36.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.xpstopdfconverter.net.core\\20.2.0.36\\syncfusion.xpstopdfconverter.net.core.20.2.0.36.nupkg.sha512",
@@ -217,16 +215,5 @@
     "C:\\Users\\User\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Syncfusion.XlsIO.AspNet 20.2.0.36' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Syncfusion.XlsIO.AspNet",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

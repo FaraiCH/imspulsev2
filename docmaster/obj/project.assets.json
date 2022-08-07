@@ -2054,15 +2054,6 @@
           }
         }
       },
-      "Syncfusion.Compression.Base/20.2.0.36": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/Syncfusion.Compression.Base.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/Syncfusion.Compression.Base.dll": {}
-        }
-      },
       "Syncfusion.Compression.Net.Core/20.2.0.36": {
         "type": "package",
         "compile": {
@@ -2280,19 +2271,6 @@
         },
         "runtime": {
           "lib/net6.0/Syncfusion.SkiaSharpHelper.Portable.dll": {}
-        }
-      },
-      "Syncfusion.XlsIO.AspNet/20.2.0.36": {
-        "type": "package",
-        "dependencies": {
-          "Syncfusion.Compression.Base": "20.2.0.36",
-          "Syncfusion.Licensing": "20.2.0.36"
-        },
-        "compile": {
-          "lib/net46/Syncfusion.XlsIO.Base.dll": {}
-        },
-        "runtime": {
-          "lib/net46/Syncfusion.XlsIO.Base.dll": {}
         }
       },
       "Syncfusion.XlsIO.Net.Core/20.2.0.36": {
@@ -6882,35 +6860,6 @@
         "skiasharp.nativeassets.win32.nuspec"
       ]
     },
-    "Syncfusion.Compression.Base/20.2.0.36": {
-      "sha512": "LzTFeITcAuWp0Yv204Mdq0kisafkqzar/AlTnOV8SC4+HNISy04/AboY4jNIWTHHH3j7FnBHBgRaqI2a+A7pwQ==",
-      "type": "package",
-      "path": "syncfusion.compression.base/20.2.0.36",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "lib/net20/Syncfusion.Compression.Base.dll",
-        "lib/net20/Syncfusion.Compression.Base.xml",
-        "lib/net35/Syncfusion.Compression.Base.dll",
-        "lib/net35/Syncfusion.Compression.Base.xml",
-        "lib/net40/Syncfusion.Compression.Base.dll",
-        "lib/net40/Syncfusion.Compression.Base.xml",
-        "lib/net45/Syncfusion.Compression.Base.dll",
-        "lib/net45/Syncfusion.Compression.Base.xml",
-        "lib/net451/Syncfusion.Compression.Base.dll",
-        "lib/net451/Syncfusion.Compression.Base.xml",
-        "lib/net46/Syncfusion.Compression.Base.dll",
-        "lib/net46/Syncfusion.Compression.Base.xml",
-        "lib/net5.0/Syncfusion.Compression.Base.dll",
-        "lib/net5.0/Syncfusion.Compression.Base.xml",
-        "lib/netcoreapp3.1/Syncfusion.Compression.Base.dll",
-        "lib/netcoreapp3.1/Syncfusion.Compression.Base.xml",
-        "syncfusion.compression.base.20.2.0.36.nupkg.sha512",
-        "syncfusion.compression.base.nuspec",
-        "syncfusion_logo.png"
-      ]
-    },
     "Syncfusion.Compression.Net.Core/20.2.0.36": {
       "sha512": "xORXF/kVJxHtOemhLV7g5RRZUdFPpBz32WL7Cm4RdzeoQuakkzQt4tjC5vrug7KCUlPnGVaSc6WFCZjjTtpnXg==",
       "type": "package",
@@ -7277,36 +7226,6 @@
         "lib/netstandard2.0/Syncfusion.SkiaSharpHelper.Portable.xml",
         "syncfusion.skiasharphelper.net.core.20.2.0.36.nupkg.sha512",
         "syncfusion.skiasharphelper.net.core.nuspec",
-        "syncfusion_logo.png"
-      ]
-    },
-    "Syncfusion.XlsIO.AspNet/20.2.0.36": {
-      "sha512": "x8pLBi40dtTnZ/m8jQeh3ekLzeN2a55GQrZPj3HTiLpzam3bXIzFHfIo/vcnwoSYAEj7c8AqxB6CNnnoC97q7w==",
-      "type": "package",
-      "path": "syncfusion.xlsio.aspnet/20.2.0.36",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "README.md",
-        "content/net40/web.config.install.xdt",
-        "content/net40/web.config.uninstall.xdt",
-        "content/net45/web.config.install.xdt",
-        "content/net45/web.config.uninstall.xdt",
-        "content/net451/web.config.install.xdt",
-        "content/net451/web.config.uninstall.xdt",
-        "content/net46/web.config.install.xdt",
-        "content/net46/web.config.uninstall.xdt",
-        "lib/net40/Syncfusion.XlsIO.Base.dll",
-        "lib/net40/Syncfusion.XlsIO.Base.xml",
-        "lib/net45/Syncfusion.XlsIO.Base.dll",
-        "lib/net45/Syncfusion.XlsIO.Base.xml",
-        "lib/net451/Syncfusion.XlsIO.Base.dll",
-        "lib/net451/Syncfusion.XlsIO.Base.xml",
-        "lib/net46/Syncfusion.XlsIO.Base.dll",
-        "lib/net46/Syncfusion.XlsIO.Base.xml",
-        "syncfusion.xlsio.aspnet.20.2.0.36.nupkg.sha512",
-        "syncfusion.xlsio.aspnet.nuspec",
         "syncfusion_logo.png"
       ]
     },
@@ -11127,7 +11046,6 @@
       "Syncfusion.Presentation.Net.Core >= 20.2.0.36",
       "Syncfusion.PresentationRenderer.Net.Core >= 20.2.0.36",
       "Syncfusion.SkiaSharpHelper.Net.Core >= 20.2.0.36",
-      "Syncfusion.XlsIO.AspNet >= 20.2.0.36",
       "Syncfusion.XlsIO.Net.Core >= 20.2.0.36",
       "Syncfusion.XlsIORenderer.Net.Core >= 20.2.0.36",
       "Syncfusion.XpsToPdfConverter.Net.Core >= 20.2.0.36"
@@ -11275,10 +11193,6 @@
             "target": "Package",
             "version": "[20.2.0.36, )"
           },
-          "Syncfusion.XlsIO.AspNet": {
-            "target": "Package",
-            "version": "[20.2.0.36, )"
-          },
           "Syncfusion.XlsIO.Net.Core": {
             "target": "Package",
             "version": "[20.2.0.36, )"
@@ -11313,17 +11227,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Syncfusion.XlsIO.AspNet 20.2.0.36' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Syncfusion.XlsIO.AspNet",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

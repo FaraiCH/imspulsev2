@@ -143,10 +143,6 @@
               "target": "Package",
               "version": "[20.2.0.36, )"
             },
-            "Syncfusion.XlsIO.AspNet": {
-              "target": "Package",
-              "version": "[20.2.0.36, )"
-            },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
               "version": "[20.2.0.36, )"

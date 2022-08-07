@@ -33,7 +33,6 @@
           "Syncfusion.Presentation.Net.Core": "20.2.0.36",
           "Syncfusion.PresentationRenderer.Net.Core": "20.2.0.36",
           "Syncfusion.SkiaSharpHelper.Net.Core": "20.2.0.36",
-          "Syncfusion.XlsIO.AspNet": "20.2.0.36",
           "Syncfusion.XlsIO.Net.Core": "20.2.0.36",
           "Syncfusion.XlsIORenderer.Net.Core": "20.2.0.36",
           "Syncfusion.XpsToPdfConverter.Net.Core": "20.2.0.36"
@@ -1687,14 +1686,6 @@
           }
         }
       },
-      "Syncfusion.Compression.Base/20.2.0.36": {
-        "runtime": {
-          "lib/net5.0/Syncfusion.Compression.Base.dll": {
-            "assemblyVersion": "20.2500.0.36",
-            "fileVersion": "20.2500.0.36"
-          }
-        }
-      },
       "Syncfusion.Compression.Net.Core/20.2.0.36": {
         "runtime": {
           "lib/net6.0/Syncfusion.Compression.Portable.dll": {
@@ -1893,18 +1884,6 @@
           "lib/net6.0/Syncfusion.SkiaSharpHelper.Portable.dll": {
             "assemblyVersion": "20.2600.0.36",
             "fileVersion": "20.2600.0.36"
-          }
-        }
-      },
-      "Syncfusion.XlsIO.AspNet/20.2.0.36": {
-        "dependencies": {
-          "Syncfusion.Compression.Base": "20.2.0.36",
-          "Syncfusion.Licensing": "20.2.0.36"
-        },
-        "runtime": {
-          "lib/net46/Syncfusion.XlsIO.Base.dll": {
-            "assemblyVersion": "20.2460.0.36",
-            "fileVersion": "20.2460.0.36"
           }
         }
       },
@@ -3514,13 +3493,6 @@
       "path": "skiasharp.nativeassets.win32/2.88.0",
       "hashPath": "skiasharp.nativeassets.win32.2.88.0.nupkg.sha512"
     },
-    "Syncfusion.Compression.Base/20.2.0.36": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LzTFeITcAuWp0Yv204Mdq0kisafkqzar/AlTnOV8SC4+HNISy04/AboY4jNIWTHHH3j7FnBHBgRaqI2a+A7pwQ==",
-      "path": "syncfusion.compression.base/20.2.0.36",
-      "hashPath": "syncfusion.compression.base.20.2.0.36.nupkg.sha512"
-    },
     "Syncfusion.Compression.Net.Core/20.2.0.36": {
       "type": "package",
       "serviceable": true,
@@ -3639,13 +3611,6 @@
       "sha512": "sha512-QlpMtGtdbq1rbAJNyN/HFcFDsPVLx3vC/jTjSTSERHb9xOcuTXl8ry4Jr0BTqNCbVRjlRxhc4b2INjwhap6O3w==",
       "path": "syncfusion.skiasharphelper.net.core/20.2.0.36",
       "hashPath": "syncfusion.skiasharphelper.net.core.20.2.0.36.nupkg.sha512"
-    },
-    "Syncfusion.XlsIO.AspNet/20.2.0.36": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-x8pLBi40dtTnZ/m8jQeh3ekLzeN2a55GQrZPj3HTiLpzam3bXIzFHfIo/vcnwoSYAEj7c8AqxB6CNnnoC97q7w==",
-      "path": "syncfusion.xlsio.aspnet/20.2.0.36",
-      "hashPath": "syncfusion.xlsio.aspnet.20.2.0.36.nupkg.sha512"
     },
     "Syncfusion.XlsIO.Net.Core/20.2.0.36": {
       "type": "package",
