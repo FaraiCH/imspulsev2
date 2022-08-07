@@ -12,8 +12,8 @@
     string myPath = null;
     @if (SignInManager.IsSignedIn(User))
     {   
-        //myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
-        myPath = "";
+        myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
+        //myPath = "";
     }
     else
     {
@@ -117,8 +117,8 @@
             display: none; 
         } 
 
-  /*      ul.e-list-parent.e-ul .e-level-2 { 
+        ul.e-list-parent.e-ul .e-level-2 { 
             display: none; 
-        } */
+        } 
     </style>
 </div>
