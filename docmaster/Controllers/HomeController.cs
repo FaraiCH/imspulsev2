@@ -30,7 +30,6 @@ namespace docmaster.Controllers
         public IActionResult Index()
         {
   
-
             return View();
         }
 
