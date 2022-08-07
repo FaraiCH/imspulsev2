@@ -38,11 +38,11 @@
          <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
 
-                <form method="post">
+                <form method="post" data-a>
                     <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password" class='form-control' id='password'></div>
                     <div class='form-group'><label for='name'>Path:</label><input type='text' value='' name="path" class='form-control' id='path'></div>
 
-                    <button class="btn btn-outline-primary float-end">Protect</button>
+                    <button id="submit" class="btn btn-outline-primary float-end">Protect</button>
                 </form>
             </e-content-template>
       
@@ -87,7 +87,16 @@
 
     }
     
+    $(function () {
+        $('#submit').on('click', function (evt) {
+            evt.preventDefault();
+            $.post('', $('form').serialize(), function () {
+                alert('Posted using jQuery');
+            });
+        });
+    });
 </script>
+
 
     @if (ViewData["Message"] != null)
     {
