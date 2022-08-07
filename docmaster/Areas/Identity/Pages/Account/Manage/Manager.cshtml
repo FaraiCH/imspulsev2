@@ -74,7 +74,7 @@
 
     function onFileOpen(args) {
         if (args.fileDetails.isFile) {
-            if (args.fileDetails.name.includes == 'pdf') {
+            if (args.fileDetails.name.includes('pdf') === true) {
                 window.open('https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name, '_blank');
 
             }else{
