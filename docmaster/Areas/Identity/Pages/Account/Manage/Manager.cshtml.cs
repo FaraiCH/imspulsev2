@@ -102,7 +102,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 }
                 else if (path.Contains(".pdf"))
                 {
-                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                     PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath, true);
 
                     //PDF document security 
@@ -121,7 +121,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                     //Save the document into stream.
 
-                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                     document.Save(outputStream);
 
