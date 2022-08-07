@@ -135,7 +135,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             catch (Exception ex)
             {
 
-                ViewData["Message"] = ex;
+                ViewData["Message"] = ex.Message;
             }
 
         }
