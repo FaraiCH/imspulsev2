@@ -74,8 +74,14 @@
 
     function onFileOpen(args) {
         if (args.fileDetails.isFile) {
-            document.getElementById('my_iframe').src = 'https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name;
-            alert(args.fileDetails.name + " is opened");
+            if (args.fileDetails.name.includes == 'pdf') {
+                window.open('https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name, '_blank');
+
+            }else{
+                document.getElementById('my_iframe').src = 'https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name;
+                alert(args.fileDetails.name + " is opened");
+            }
+  
         }
 
     }
