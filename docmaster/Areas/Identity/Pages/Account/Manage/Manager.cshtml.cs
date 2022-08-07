@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Security;
+using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
+using IShape = Syncfusion.Presentation.IShape;
 
 namespace docmaster.Areas.Identity.Pages.Account.Manage
 {
@@ -38,12 +42,12 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                 //Opens an existing document from stream through constructor of WordDocument class
                 FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
+                WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic);
                 //Encrypts the Word document with a password
                 document.EncryptDocument(password);
                 //Saves the Word document to MemoryStream
                 FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                document.Save(outputStream, FormatType.Docx);
+                document.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
                 //Closes the document
                 document.Close();
 
@@ -54,25 +58,73 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 using (ExcelEngine excelEngine = new ExcelEngine())
                 {
                     IApplication application = excelEngine.Excel;
-                    application.DefaultVersion = ExcelVersion.Excel2013;
+              
                     FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
                     IWorkbook workbook = application.Workbooks.Open(fileStreamPath);
 
-  
+                    //Encrypt the workbook with password
+                    workbook.PasswordToOpen = password;
+
+                    //Set the password to modify the workbook
+                    workbook.SetWriteProtectionPassword("modify_password");
+
                     //Set the workbook as read-only
-                    workbook.Protect(true, true, password);
+                    workbook.ReadOnlyRecommended = true;
 
                     //Saving the workbook as stream
-                    workbook.SaveAs(fileStreamPath);
-
+                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    workbook.SaveAs(outputStream);
+                    workbook.Close();
                     ViewData["Message"] = path;
                 }
                
             }
+            else if (path.Contains(".ppt"))
+            {
+                FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                IPresentation presentation = Presentation.Open(fileStreamPath);
+                
+                //Protects the file with password.
+                presentation.Encrypt(password);
+                //Save the PowerPoint Presentation as stream.
+                FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                
+                presentation.Save(outputStream);
+
+                presentation.Close();
+
+                ViewData["Message"] = path;
+            }
+            else if(path.Contains(".pdf"))
+            {
+                FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath);
+
+                //PDF document security 
+
+                PdfSecurity security = document.Security;
+
+                //Specifies encryption key size, algorithm and permission. 
+
+                security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+                security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+                //Provide owner and user password.
+
+                security.UserPassword = password;
+
+                //Save the document into stream.
+
+                FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                document.Save(outputStream);
+                document.Close();
+            }
             else
             {
-                ViewData["Message"] = "File Cannot be encrypted";
+                ViewData["Message"] = "File Does Not Support Encrypting.";
             }
         }
 
