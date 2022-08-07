@@ -61,9 +61,11 @@
     });
     function menuClick(args) {
         if (args.item.text === 'Encrypt') {
-            var dialog = document.getElementById("default_dialog").ej2_instances[0];
-            document.getElementById("path").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
-            dialog.show();          
+            if (args.fileDetails[0].isFile) {
+                var dialog = document.getElementById("default_dialog").ej2_instances[0];
+                document.getElementById("path").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
+                dialog.show();
+            }
           
         }   
 
