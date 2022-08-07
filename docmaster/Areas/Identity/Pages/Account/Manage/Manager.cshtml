@@ -86,15 +86,21 @@
         }
 
     }
-    
-    $(function () {
-        $('#submit').on('click', function (evt) {
-            evt.preventDefault();
-            $.post('', $('form').serialize(), function () {
-                alert('Posted using jQuery');
-            });
+   
+</script>
+
+<script>
+    document.forms[0].onsubmit = () => {
+        let formData = new FormData(document.forms[0]);
+        fetch('', {
+            method: 'post',
+            body: new URLSearchParams(formData ) 
+        })
+        .then(() => {
+            alert('Posted using Fetch');
         });
-    });
+        return false;
+    };
 </script>
 
     <style>
