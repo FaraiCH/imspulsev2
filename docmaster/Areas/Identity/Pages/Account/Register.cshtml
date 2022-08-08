@@ -50,6 +50,18 @@
     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
 </form>
 
+@{
+    if(ViewData["Data"] != null)
+    {
+        
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewData["Data"]');
+            };
+        </script>
+        
+    }
+}
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
