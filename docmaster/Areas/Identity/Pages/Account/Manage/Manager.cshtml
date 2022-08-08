@@ -74,7 +74,7 @@
 
      function onCreate(args) {
         for (var i = 0; i < args.items.length; i++) {
-            if (args.items[i].id === this.element.id + '_tb_custom') {
+            if (args.items[i].text == 'Encrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
             }
         }
