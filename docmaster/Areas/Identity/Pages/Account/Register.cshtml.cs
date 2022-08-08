@@ -136,6 +136,12 @@ namespace docmaster.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    string folderName = "/var/www/html/imspulse/bunch-box/" + _userManager.GetUserAsync(User).Result.Company;
+                    // If directory does not exist, create it
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -165,12 +171,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            string folderName = @"/var/www/html/imspulse/bunch-box/" + _userManager.GetUserAsync(User).Result.Company;
-            // If directory does not exist, create it
-            if (!Directory.Exists(folderName))
-            {
-                Directory.CreateDirectory(folderName);
-            }
+         
             // If we got this far, something failed, redisplay form
             return Page();
         }

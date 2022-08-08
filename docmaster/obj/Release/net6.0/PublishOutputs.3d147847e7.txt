@@ -70,7 +70,6 @@ C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.Versioning.d
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\SkiaSharp.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\SkiaSharp.HarfBuzz.dll
-C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.Compression.Base.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.Compression.Portable.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.DocIO.Portable.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.DocIORenderer.Portable.dll
@@ -87,7 +86,6 @@ C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.Pdf.Por
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.Presentation.Portable.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.PresentationRenderer.Portable.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.SkiaSharpHelper.Portable.dll
-C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.XlsIO.Base.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.XlsIO.Portable.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.XlsIORenderer.Portable.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.XpsToPdfConverter.Portable.dll
