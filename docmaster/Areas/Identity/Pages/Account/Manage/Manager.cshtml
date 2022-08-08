@@ -23,7 +23,7 @@
 
 <div class="control-section">
     <div class="sample-container" id="container" style="padding:10px">
-            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="menuClick" menuClick="menuClick" fileOpen="onFileOpen">
+            <ejs-filemanager id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="menuClick" toolbarCreate="onCreate" menuClick="menuClick" menuOpen="onMenu" fileOpen="onFileOpen">
                 <e-filemanager-navigationpanesettings hidden="true"></e-filemanager-navigationpanesettings>
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
@@ -72,6 +72,14 @@
 
     }
 
+     function onCreate(args) {
+        for (var i = 0; i < args.items.length; i++) {
+            if (args.items[i].id === this.element.id + '_tb_custom') {
+                args.items[i].prefixIcon = 'e-icons e-fe-lock';
+            }
+        }
+    }
+
     function onFileOpen(args) {
         if (args.fileDetails.isFile) {
             if (args.fileDetails.name.includes('pdf')) {
@@ -96,7 +104,11 @@
             };
         </script>
     }
-    <style>
+    <style>       
+        .e-fe-lock::before {
+            content: '\e735';
+        }
+
         .e-empty-inner-content {
             display: none;
         }
