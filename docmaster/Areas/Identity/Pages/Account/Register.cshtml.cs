@@ -138,7 +138,7 @@ namespace docmaster.Areas.Identity.Pages.Account
 
                     if (result.Succeeded)
                     {
-                        string folderName = "/var/www/html/imspulse/bunch-box/" + _userManager.GetUserAsync(User).Result.Company;
+                        string folderName = "/var/www/html/imspulse/bunch-box/" + Input.Company;
                         // If directory does not exist, create it
                         if (!Directory.Exists(folderName))
                         {
