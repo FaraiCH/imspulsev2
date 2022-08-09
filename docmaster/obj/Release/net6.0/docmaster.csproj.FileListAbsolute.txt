@@ -308,3 +308,5 @@ C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Cells.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Words.dll
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Cells.xml
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Words.xml
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Slides.dll
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Slides.xml
