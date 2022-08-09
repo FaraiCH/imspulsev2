@@ -35,13 +35,14 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
             return Page();
         }
-        public void OnPost(string path, string password, string password2, string path2)
+        public void OnPost(string path, string password, string state)
         {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string basepath = "/var/www/html/imspulse/bunch-box";
             //string basepath = "C:/Testing";
             try
             {
-                if(password2 == null)
+                if (state == "encrypt")
                 {
                     if (path.Contains(".doc"))
                     {
@@ -51,7 +52,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                         opt.Password = password;
                         Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password };
-                        Aspose.Words.Document docu = new Aspose.Words.Document(path, getum12);
+                        Aspose.Words.Document docu = new Aspose.Words.Document(basepath + path, getum12);
 
                         docu.Save(basepath + path, opt);
                     }
@@ -59,7 +60,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                     {
                         Aspose.Cells.LoadOptions getum3 = new Aspose.Cells.LoadOptions { Password = password };
                         Workbook workt = new Workbook(basepath + path, getum3);
-                        workt.Settings.WriteProtection.Password = password;
+                        workt.Settings.Password = password;
                         workt.Save(basepath + path);
                     }
                 }
@@ -67,70 +68,21 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 {
                     if (path.Contains(".doc"))
                     {
-                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password2 };
+                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password };
                         Aspose.Words.Document docu = new Aspose.Words.Document(basepath + path, getum12);
                         docu.Unprotect();
-                        docu.Save(basepath + path2);
+                        docu.Save(basepath + path);
                     }
                     if (path.Contains(".xls"))
                     {
-                        Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = password2 };
+                        Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = password };
                         Workbook worsk = new Workbook(basepath + path, getums);
 
                         worsk.Settings.Password = null;
 
-                        worsk.Save(basepath + path2);
+                        worsk.Save(basepath + path);
                     }
                 }
-
-         
-                //else if (path.Contains(".ppt"))
-                //{
-                //    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                //    using (IPresentation presentation = Presentation.Open(fileStreamPath))
-                //    {
-                //        //Protects the file with password.
-                //        presentation.Encrypt(password);
-
-                //        //Save the PowerPoint Presentation as stream.
-
-                //        using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-                //        {
-                //            presentation.Save(outputStream);
-                //        }
-
-                //        ViewData["Message"] = path;
-                //    }
-
-                //}
-                //else if (path.Contains(".pdf"))
-                //{
-                //    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                //    PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath, true);
-
-                //    //PDF document security 
-
-                //    PdfSecurity security = document.Security;
-
-                //    //Specifies encryption key size, algorithm and permission. 
-
-                //    security.KeySize = PdfEncryptionKeySize.Key256Bit;
-
-                //    security.Algorithm = PdfEncryptionAlgorithm.AES;
-
-                //    //Provide owner and user password.
-
-                //    security.UserPassword = password;
-
-                //    //Save the document into stream.
-
-                //    FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-
-                //    document.Save(outputStream);
-
-                //    document.Close(true);
-                //}
-             
             }
             catch (Exception ex)
             {
