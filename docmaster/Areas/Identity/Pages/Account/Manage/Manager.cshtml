@@ -5,9 +5,9 @@
 @inject SignInManager<docmasterUser> SignInManager
 @inject UserManager<docmasterUser> UserManager
 @{
-    string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "|", "Preview" };
-    string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename", "|", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|" };
-    string[] items = new string[] { "NewFolder", "Refresh", "Upload", "View", "Details", "Rename", "Cut", "Copy", "Paste", "Encrypt", "SortBy" };
+    string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrypt", "|", "Preview" };
+    string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename", "|", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
+    string[] items = new string[] { "NewFolder", "Refresh", "Upload", "View", "Details", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
     string myPath = null;
     @if (SignInManager.IsSignedIn(User))
@@ -46,6 +46,17 @@
             </e-content-template>
       
         </ejs-dialog>
+            <ejs-dialog visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
+            <e-content-template>
+                <form method="post">
+                    <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password2" class='form-control' id='password2'></div>
+                    <div class='form-group'><label for='name'>Path:</label><input type='text' value='' name="path" class='form-control' id='path'></div>
+
+                    <button class="btn btn-outline-warning float-end">Unprotect</button>
+                </form>
+            </e-content-template>
+      
+        </ejs-dialog>
     </div>
     <iframe id="my_iframe" style="display:none;"></iframe>
 
@@ -67,7 +78,15 @@
                 dialog.show();
             }
           
-        }   
+        }
+         if (args.item.text === 'Decrypt') {
+            if (args.fileDetails[0].isFile) {
+                var dialog = document.getElementById("default_dialog2").ej2_instances[0];
+                document.getElementById("path").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
+                dialog.show();
+            }
+          
+        }
   
 
     }

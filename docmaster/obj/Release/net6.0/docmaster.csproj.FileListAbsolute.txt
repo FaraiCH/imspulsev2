@@ -304,3 +304,7 @@ C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\runtimes\linux-arm\native\lib
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\runtimes\linux-arm64\native\libSkiaSharp.so
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\runtimes\linux-musl-x64\native\libSkiaSharp.so
 C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\runtimes\linux-x64\native\libSkiaSharp.so
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Cells.dll
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Words.dll
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Cells.xml
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Words.xml

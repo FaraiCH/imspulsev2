@@ -1,3 +1,4 @@
+using Aspose.Cells;
 using docmaster.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -34,178 +35,107 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
             return Page();
         }
-        public void OnPost(string path, string password)
+        public void OnPost(string path, string password, string password2)
         {
             string basepath = "/var/www/html/imspulse/bunch-box";
             //string basepath = "C:/Testing";
             try
             {
-               
-                if (path.Contains(".doc"))
-                {
-
-                    //Opens an existing document from stream through constructor of WordDocument class
-                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic);
-                    //Encrypts the Word document with a password
-                    document.EncryptDocument(password);
-                    //Saves the Word document to MemoryStream
-                    FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    document.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
-                    //Closes the document
-                    document.Close();
-
-                    ViewData["Message"] = path;
-                }
-                else if (path.Contains(".xls"))
-                {
-                    using (ExcelEngine excelEngine = new ExcelEngine())
-                    {
-                        IApplication application = excelEngine.Excel;
-
-                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-                        IWorkbook workbook = application.Workbooks.Open(fileStreamPath);
-
-                        //Encrypt the workbook with password
-                        workbook.PasswordToOpen = password;
-
-                        //Set the password to modify the workbook
-                        workbook.SetWriteProtectionPassword("modify_password");
-
-                        //Set the workbook as read-only
-                        workbook.ReadOnlyRecommended = true;
-
-                        //Saving the workbook as stream
-                        FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                        workbook.SaveAs(outputStream);
-                        workbook.Close();
-                        ViewData["Message"] = path;
-                    }
-
-                }
-                else if (path.Contains(".ppt"))
-                {
-                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    using (IPresentation presentation = Presentation.Open(fileStreamPath))
-                    {
-                        //Protects the file with password.
-                        presentation.Encrypt(password);
-
-                        //Save the PowerPoint Presentation as stream.
-
-                        using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-                        {
-                            presentation.Save(outputStream);
-                        }
-
-                        ViewData["Message"] = path;
-                    }
-
-                }
-                else if (path.Contains(".pdf"))
-                {
-                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath, true);
-
-                    //PDF document security 
-
-                    PdfSecurity security = document.Security;
-
-                    //Specifies encryption key size, algorithm and permission. 
-
-                    security.KeySize = PdfEncryptionKeySize.Key256Bit;
-
-                    security.Algorithm = PdfEncryptionAlgorithm.AES;
-
-                    //Provide owner and user password.
-
-                    security.UserPassword = password;
-
-                    //Save the document into stream.
-
-                    FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-
-                    document.Save(outputStream);
-
-                    document.Close(true);
-                }
-                else
-                {
-                    ViewData["Message"] = "File Does Not Support Encrypting.";
-                }
-            }
-            catch (Exception ex)
-            {
-                try
+                if(password2 == null)
                 {
                     if (path.Contains(".doc"))
                     {
+                        Aspose.Words.Saving.OoxmlSaveOptions opt = new Aspose.Words.Saving.OoxmlSaveOptions(Aspose.Words.SaveFormat.Docx);
 
-                        //Opens an existing document from stream through constructor of WordDocument class
-                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                        WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic, password);
-                        //Encrypts the Word document with a password
-                        document.RemoveEncryption();
-                        //Saves the Word document to MemoryStream
-                        FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                        document.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
-                        //Closes the document
-                        document.Close();
+                        opt.Compliance = Aspose.Words.Saving.OoxmlCompliance.Iso29500_2008_Transitional;
 
-                        ViewData["Message"] = path;
+                        opt.Password = password;
+                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password };
+                        Aspose.Words.Document docu = new Aspose.Words.Document(path, getum12);
+
+                        docu.Save(basepath + path, opt);
                     }
                     else if (path.Contains(".xls"))
                     {
-                        using (ExcelEngine excelEngine = new ExcelEngine())
-                        {
-                            IApplication application = excelEngine.Excel;
-                            application.DefaultVersion = ExcelVersion.Excel2007;
-
-                            FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-
-                            IWorkbook workbook = application.Workbooks.Open(fileStreamPath, ExcelParseOptions.Default, true, password);
-
-                            //Encrypt the workbook with password
-                            workbook.PasswordToOpen = string.Empty;
-
-                            //Saving the workbook as stream
-                            FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                            workbook.SaveAs(outputStream);
-                            workbook.Close();
-                            ViewData["Message"] = path;
-                        }
-
-                    }
-                    else if (path.Contains(".ppt"))
-                    {
-                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                        using (IPresentation presentation = Presentation.Open(fileStreamPath, password))
-                        {
-                            //Protects the file with password.
-                            presentation.RemoveEncryption();
-
-                            //Save the PowerPoint Presentation as stream.
-
-                            using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-                            {
-                                presentation.Save(outputStream);
-                            }
-
-                            ViewData["Message"] = path;
-                        }
-
+                        Aspose.Cells.LoadOptions getum3 = new Aspose.Cells.LoadOptions { Password = password };
+                        Workbook workt = new Workbook(basepath + path, getum3);
+                        workt.Settings.WriteProtection.Password = password;
+                        workt.Save(basepath + path);
                     }
                 }
-                catch (Exception bx)
+                else
                 {
+                    if (path.Contains(".doc"))
+                    {
+                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password };
+                        Aspose.Words.Document docu = new Aspose.Words.Document(basepath + path, getum12);
+                        docu.Unprotect();
+                        docu.Save(basepath + path);
+                    }
+                    if (path.Contains(".xls"))
+                    {
+                        Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = password };
+                        Workbook worsk = new Workbook(basepath + path, getums);
 
-                    ViewData["Message"] = bx.Message;
+                        worsk.Settings.Password = null;
+
+                        worsk.Save(basepath + path);
+                    }
                 }
-    
-          
 
-               
+         
+                //else if (path.Contains(".ppt"))
+                //{
+                //    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                //    using (IPresentation presentation = Presentation.Open(fileStreamPath))
+                //    {
+                //        //Protects the file with password.
+                //        presentation.Encrypt(password);
+
+                //        //Save the PowerPoint Presentation as stream.
+
+                //        using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                //        {
+                //            presentation.Save(outputStream);
+                //        }
+
+                //        ViewData["Message"] = path;
+                //    }
+
+                //}
+                //else if (path.Contains(".pdf"))
+                //{
+                //    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                //    PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath, true);
+
+                //    //PDF document security 
+
+                //    PdfSecurity security = document.Security;
+
+                //    //Specifies encryption key size, algorithm and permission. 
+
+                //    security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+                //    security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+                //    //Provide owner and user password.
+
+                //    security.UserPassword = password;
+
+                //    //Save the document into stream.
+
+                //    FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                //    document.Save(outputStream);
+
+                //    document.Close(true);
+                //}
+             
+            }
+            catch (Exception ex)
+            {
+
+                ViewData["Message"] = ex.Message;
             }
 
         }
