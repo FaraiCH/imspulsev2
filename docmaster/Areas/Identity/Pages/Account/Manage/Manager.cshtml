@@ -39,8 +39,8 @@
 
                 <form method="post">
                     <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password" class='form-control' id='password'></div>
-                    <div class='form-group'><label for='name'>Path:</label><input type='hidden' value='' name="path" class='form-control' id='path'></div>
-                    <div class='form-group'><label for='name'>State:</label><input type='hidden' value='encrypt' name="state" class='form-control' id='state'></div>
+                    <input type='hidden' value='' name="path" class='form-control' id='path'>
+                    <input type='hidden' value='encrypt' name="state" class='form-control' id='state'>
 
                     <button class="btn btn-outline-primary float-end">Protect</button>
                 </form>
@@ -51,8 +51,8 @@
             <e-content-template>
                 <form method="post">
                     <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password" class='form-control' id='password2'></div>
-                    <div class='form-group'><label for='name'>Path:</label><input type='hidden' value='' name="path" class='form-control' id='path2'></div>
-                    <div class='form-group'><label for='name'>State:</label><input type='hidden' value='decrypt' name="state" class='form-control' id='state'></div>
+                    <input type='hidden' value='' name="path" class='form-control' id='path2'>
+                    <input type='hidden' value='decrypt' name="state" class='form-control' id='state'>
                     <button class="btn btn-outline-warning float-end">Unprotect</button>
                 </form>
             </e-content-template>
