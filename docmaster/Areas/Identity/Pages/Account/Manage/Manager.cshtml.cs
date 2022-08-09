@@ -36,18 +36,21 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
         }
         public void OnPost(string path, string password)
         {
+            //string basepath = "/var/www/html/imspulse/bunch-box";
+            string basepath = "C:/Testing";
             try
             {
+               
                 if (path.Contains(".doc"))
                 {
 
                     //Opens an existing document from stream through constructor of WordDocument class
-                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                     WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic);
                     //Encrypts the Word document with a password
                     document.EncryptDocument(password);
                     //Saves the Word document to MemoryStream
-                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
                     document.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
                     //Closes the document
                     document.Close();
@@ -60,7 +63,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                     {
                         IApplication application = excelEngine.Excel;
 
-                        FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
                         IWorkbook workbook = application.Workbooks.Open(fileStreamPath);
 
@@ -74,7 +77,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                         workbook.ReadOnlyRecommended = true;
 
                         //Saving the workbook as stream
-                        FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                        FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
                         workbook.SaveAs(outputStream);
                         workbook.Close();
                         ViewData["Message"] = path;
@@ -83,7 +86,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 }
                 else if (path.Contains(".ppt"))
                 {
-                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                     using (IPresentation presentation = Presentation.Open(fileStreamPath))
                     {
                         //Protects the file with password.
@@ -91,7 +94,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                         //Save the PowerPoint Presentation as stream.
 
-                        using (FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                        using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                         {
                             presentation.Save(outputStream);
                         }
@@ -102,7 +105,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 }
                 else if (path.Contains(".pdf"))
                 {
-                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                     PdfLoadedDocument document = new PdfLoadedDocument(fileStreamPath, true);
 
                     //PDF document security 
@@ -121,7 +124,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                     //Save the document into stream.
 
-                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                     document.Save(outputStream);
 
@@ -134,72 +137,73 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             }
             catch (Exception ex)
             {
-                if (path.Contains(".doc"))
+                try
                 {
-
-                    //Opens an existing document from stream through constructor of WordDocument class
-                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                    WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic, password);
-                    //Encrypts the Word document with a password
-                    document.RemoveEncryption();
-                    //Saves the Word document to MemoryStream
-                    FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    document.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
-                    //Closes the document
-                    document.Close();
-
-                    ViewData["Message"] = path;
-                }
-                else if (path.Contains(".xls"))
-                {
-                    using (ExcelEngine excelEngine = new ExcelEngine())
+                    if (path.Contains(".doc"))
                     {
-                        IApplication application = excelEngine.Excel;
 
-                        FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        //Opens an existing document from stream through constructor of WordDocument class
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        WordDocument document = new WordDocument(fileStreamPath, password);
+                        //Encrypts the Word document with a password
+                        document.RemoveEncryption();
+                        //Saves the Word document to MemoryStream
+                        FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                        document.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
+                        //Closes the document
+                        document.Close();
 
-                        IWorkbook workbook = application.Workbooks.Open(fileStreamPath, ExcelParseOptions.Default, true, password);
-
-                        //Encrypt the workbook with password
-                        workbook.PasswordToOpen = password;
-
-                        //Set the password to modify the workbook
-                        workbook.SetWriteProtectionPassword("modify_password");
-
-                        //Set the workbook as read-only
-                        workbook.ReadOnlyRecommended = true;
-
-                        //Saving the workbook as stream
-                        FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-                        workbook.SaveAs(outputStream);
-                        workbook.Close();
                         ViewData["Message"] = path;
                     }
-
-                }
-                else if (path.Contains(".ppt"))
-                {
-                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
-                    using (IPresentation presentation = Presentation.Open(fileStreamPath, password))
+                    else if (path.Contains(".xls"))
                     {
-                        //Protects the file with password.
-                        presentation.RemoveEncryption();
-
-                        //Save the PowerPoint Presentation as stream.
-
-                        using (FileStream outputStream = new FileStream("/var/www/html/imspulse/bunch-box" + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                        using (ExcelEngine excelEngine = new ExcelEngine())
                         {
-                            presentation.Save(outputStream);
+                            IApplication application = excelEngine.Excel;
+                            application.DefaultVersion = ExcelVersion.Excel2007;
+
+                            FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+                            IWorkbook workbook = application.Workbooks.Open(fileStreamPath, ExcelParseOptions.Default, true, password);
+
+                            //Encrypt the workbook with password
+                            workbook.PasswordToOpen = "";
+
+                            //Saving the workbook as stream
+                            FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                            workbook.SaveAs(outputStream);
+                            workbook.Close();
+                            ViewData["Message"] = path;
                         }
 
-                        ViewData["Message"] = path;
                     }
+                    else if (path.Contains(".ppt"))
+                    {
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath, password))
+                        {
+                            //Protects the file with password.
+                            presentation.RemoveEncryption();
 
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                            }
+
+                            ViewData["Message"] = path;
+                        }
+
+                    }
                 }
-                else
+                catch (Exception bx)
                 {
-                    ViewData["Message"] = ex.Message;
+
+                    ViewData["Message"] = bx.Message;
                 }
+    
+          
 
                
             }
