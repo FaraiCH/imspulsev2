@@ -45,7 +45,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 {
 
                     //Opens an existing document from stream through constructor of WordDocument class
-                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                     WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic);
                     //Encrypts the Word document with a password
                     document.EncryptDocument(password);
@@ -143,7 +143,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                     {
 
                         //Opens an existing document from stream through constructor of WordDocument class
-                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
                         WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic, password);
                         //Encrypts the Word document with a password
                         document.RemoveEncryption();
@@ -162,12 +162,12 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                             IApplication application = excelEngine.Excel;
                             application.DefaultVersion = ExcelVersion.Excel2007;
 
-                            FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                            FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
 
                             IWorkbook workbook = application.Workbooks.Open(fileStreamPath, ExcelParseOptions.Default, true, password);
 
                             //Encrypt the workbook with password
-                            workbook.PasswordToOpen = "";
+                            workbook.PasswordToOpen = string.Empty;
 
                             //Saving the workbook as stream
                             FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
