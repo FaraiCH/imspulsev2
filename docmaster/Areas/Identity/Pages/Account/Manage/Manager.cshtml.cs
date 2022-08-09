@@ -86,6 +86,23 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                         workt.Settings.Password = password;
                         workt.Save(basepath + path);
                     }
+                    else if (path.Contains(".ppt"))
+                    {
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath))
+                        {
+                            //Protects the file with password.
+                            presentation.Encrypt(password);
+
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                            }
+                        }
+
+                    }
                 }
                 else
                 {
@@ -104,6 +121,24 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                         worsk.Settings.Password = null;
 
                         worsk.Save(basepath + path);
+                    }
+                    else if (path.Contains(".ppt"))
+                    {
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath, password))
+                        {
+                            //Protects the file with password.
+                            presentation.RemoveEncryption();
+
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                            }
+
+                        }
+
                     }
                 }
             }
