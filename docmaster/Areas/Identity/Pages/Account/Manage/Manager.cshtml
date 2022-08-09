@@ -7,7 +7,7 @@
 @{
     string[] files = new string[] { "Open", "|", "Details", "|", "Rename", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt", "|", "Preview" };
     string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename", "|", "|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrupt" };
-    string[] items = new string[] { "NewFolder", "Refresh", "Upload", "View", "Details", "Rename", "Cut", "Copy", "Paste", "Encrypt", "SortBy" };
+    string[] items = new string[] { "NewFolder", "Refresh", "Upload", "View", "Details", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
     string myPath = null;
     @if (SignInManager.IsSignedIn(User))
@@ -68,6 +68,14 @@
             }
           
         }   
+        if (args.item.text === 'Decrupt') {
+            if (args.fileDetails[0].isFile) {
+                var dialog = document.getElementById("default_dialog").ej2_instances[0];
+                document.getElementById("path").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
+                dialog.show();
+            }
+          
+        }
 
 
     }
@@ -75,6 +83,9 @@
      function onCreate(args) {
         for (var i = 0; i < args.items.length; i++) {
             if (args.items[i].text == 'Encrypt') {
+                args.items[i].prefixIcon = 'e-icons e-fe-lock';
+            }
+            if (args.items[i].text == 'Decrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
             }
         }
