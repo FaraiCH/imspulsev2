@@ -1,5 +1,4 @@
 using Aspose.Cells;
-using Aspose.Slides;
 using docmaster.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +7,7 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Security;
-
+using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
 using System.Diagnostics;
 using IShape = Syncfusion.Presentation.IShape;
@@ -87,16 +86,22 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                         workt.Settings.Password = password;
                         workt.Save(basepath + path);
                     }
-                    if (path.Contains(".ppt"))
+                    else if (path.Contains(".ppt"))
                     {
-                        Aspose.Slides.LoadOptions getpere = new Aspose.Slides.LoadOptions { Password = password };
-
-                        using (Presentation presentation = new Presentation(basepath + path))
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath))
                         {
-                            presentation.ProtectionManager.Encrypt(password);
+                            //Protects the file with password.
+                            presentation.Encrypt(password);
 
-                            presentation.Save(path, Aspose.Slides.Export.SaveFormat.Pptx);
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                            }
                         }
+
                     }
                 }
                 else
@@ -108,7 +113,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                         docu.Unprotect();
                         docu.Save(basepath + path);
                     }
-                    if (path.Contains(".xls"))
+                    else if (path.Contains(".xls"))
                     {
                         Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = password };
                         Workbook worsk = new Workbook(basepath + path, getums);
@@ -119,12 +124,19 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                     }
                     else if (path.Contains(".ppt"))
                     {
-                        Aspose.Slides.LoadOptions getpere = new Aspose.Slides.LoadOptions { Password = password };
-
-                        using (Presentation presentation = new Presentation(basepath + path, getpere))
+                        FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath, password))
                         {
-                            presentation.ProtectionManager.RemoveEncryption();
-                            presentation.Save(basepath + path, Aspose.Slides.Export.SaveFormat.Pptx);
+                            //Protects the file with password.
+                            presentation.RemoveEncryption();
+
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                            }
+
                         }
 
                     }
