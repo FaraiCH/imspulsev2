@@ -35,7 +35,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
             return Page();
         }
-        public void OnPost(string path, string password, string password2)
+        public void OnPost(string path, string password, string password2, string path2)
         {
             string basepath = "/var/www/html/imspulse/bunch-box";
             //string basepath = "C:/Testing";
@@ -70,7 +70,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                         Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password };
                         Aspose.Words.Document docu = new Aspose.Words.Document(basepath + path, getum12);
                         docu.Unprotect();
-                        docu.Save(basepath + path);
+                        docu.Save(basepath + path2);
                     }
                     if (path.Contains(".xls"))
                     {
@@ -79,7 +79,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                         worsk.Settings.Password = null;
 
-                        worsk.Save(basepath + path);
+                        worsk.Save(basepath + path2);
                     }
                 }
 
