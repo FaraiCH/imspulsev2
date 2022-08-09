@@ -144,7 +144,7 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
                         //Opens an existing document from stream through constructor of WordDocument class
                         FileStream fileStreamPath = new FileStream(basepath + path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                        WordDocument document = new WordDocument(fileStreamPath, password);
+                        WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic, password);
                         //Encrypts the Word document with a password
                         document.RemoveEncryption();
                         //Saves the Word document to MemoryStream
