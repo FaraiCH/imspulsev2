@@ -36,8 +36,8 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
         }
         public void OnPost(string path, string password)
         {
-            //string basepath = "/var/www/html/imspulse/bunch-box";
-            string basepath = "C:/Testing";
+            string basepath = "/var/www/html/imspulse/bunch-box";
+            //string basepath = "C:/Testing";
             try
             {
                
