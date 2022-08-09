@@ -9,6 +9,7 @@ using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Security;
 using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
+using System.Diagnostics;
 using IShape = Syncfusion.Presentation.IShape;
 
 namespace docmaster.Areas.Identity.Pages.Account.Manage
@@ -25,6 +26,26 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        public static void Exec(string cmd)
+        {
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+
+            using var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{escapedArgs}\""
+                }
+            };
+
+            process.Start();
+            process.WaitForExit();
+        }
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -35,8 +56,10 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
 
             return Page();
         }
+
         public void OnPost(string path, string password, string state)
         {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string basepath = "/var/www/html/imspulse/bunch-box";
             //string basepath = "C:/Testing";
