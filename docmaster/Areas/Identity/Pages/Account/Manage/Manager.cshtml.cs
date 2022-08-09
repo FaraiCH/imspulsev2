@@ -67,14 +67,14 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
                 {
                     if (path.Contains(".doc"))
                     {
-                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password };
+                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = password2 };
                         Aspose.Words.Document docu = new Aspose.Words.Document(basepath + path, getum12);
                         docu.Unprotect();
                         docu.Save(basepath + path2);
                     }
                     if (path.Contains(".xls"))
                     {
-                        Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = password };
+                        Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = password2 };
                         Workbook worsk = new Workbook(basepath + path, getums);
 
                         worsk.Settings.Password = null;
