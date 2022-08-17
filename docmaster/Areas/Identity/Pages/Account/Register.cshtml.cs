@@ -139,10 +139,25 @@ namespace docmaster.Areas.Identity.Pages.Account
                     if (result.Succeeded)
                     {
                         string folderName = "/var/www/html/imspulse/bunch-box/" + Input.Company;
+                        string QMSName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/QMS";
+                        string OperationsName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Operations";
+                        string ResourcesName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Resources";
                         // If directory does not exist, create it
                         if (!Directory.Exists(folderName))
                         {
                             Directory.CreateDirectory(folderName);
+                            if (!Directory.Exists(QMSName))
+                            {
+                                Directory.CreateDirectory(QMSName);
+                            }
+                            if (!Directory.Exists(OperationsName))
+                            {
+                                Directory.CreateDirectory(OperationsName);
+                            }
+                            if (!Directory.Exists(ResourcesName))
+                            {
+                                Directory.CreateDirectory(ResourcesName);
+                            }
                         }
                         _logger.LogInformation("User created a new account with password.");
 
