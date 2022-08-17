@@ -103,7 +103,7 @@ namespace docmaster.Controllers
    
             FileManagerResponse uploadResponse;
             double fCount = GetDirectorySize(this.basePath + path);
-            if (this.User.IsInRole("Master"))
+            if (!this.User.IsInRole("Master"))
             {
                 if (this.User.IsInRole("Basic"))
                 {
