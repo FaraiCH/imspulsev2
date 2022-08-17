@@ -6,7 +6,7 @@ using docmaster.Data;
 using docmaster.Areas.Identity.Data;
 using Microsoft.AspNetCore.HttpOverrides;
 using Syncfusion.EJ2;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("OTk5NkAzMjMwMkUzMjJFMzBNWndBMi9jT0t0OVJ4Q2FFSGlhSGJ6aW8vTkhhS1FBSjd4dmw2eGZsTTFNPQ==");
 
@@ -26,7 +26,7 @@ var connetionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
 
-builder.Services.AddDefaultIdentity<docmasterUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<docmasterUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>();
 
 // Add services to the container.
@@ -73,4 +73,16 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+ 
+    var context = services.GetRequiredService<AuthDbContext>();
+    var userManager = services.GetRequiredService<UserManager<docmasterUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    await ContextSeed.SeedSuperAdminAsync(userManager, roleManager);
+ 
+}
 app.Run();

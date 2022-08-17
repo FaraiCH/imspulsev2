@@ -11,8 +11,15 @@
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
     string myPath = null;
     @if (SignInManager.IsSignedIn(User))
-    {   
-        myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
+    {   if(User.IsInRole("Master"))
+        {
+            myPath = "";
+        }
+        else
+        {
+            myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
+        }
+
     }
     else
     {
@@ -150,9 +157,14 @@
         .filemanager .e-address .e-address-list-item:nth-child(2) .e-icons { 
             display: none; 
         } 
-
-        ul.e-list-parent.e-ul .e-level-2 { 
-            display: none; 
-        } 
+     
+       
     </style>
+       @if (!User.IsInRole("Master")){
+           <style>
+                ul.e-list-parent.e-ul .e-level-2 { 
+                display: none; 
+            } 
+           </style>         
+        }
 </div>

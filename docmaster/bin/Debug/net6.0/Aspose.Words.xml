@@ -4572,7 +4572,8 @@ of the source node is created.</p>
         <p>Use one of the Save method overloads to save the document in any of the 
             <see cref="T:Aspose.Words.SaveFormat" /> formats.</p>
         <para>To draw document pages directly onto a <b>Graphics</b> object use 
-            <see cref="M:Aspose.Words.Document.RenderToScale(System.Int32,SkiaSharp.SKCanvas,System.Single,System.Single,System.Single)" /> or <see cref="M:Aspose.Words.Document.RenderToSize(System.Int32,SkiaSharp.SKCanvas,System.Single,System.Single,System.Single,System.Single)" /> method.</para>
+            <see cref="M:Aspose.Words.Document.RenderToScale(System.Int32,System.Drawing.Graphics,System.Single,System.Single,System.Single)" /> or <see cref="M:Aspose.Words.Document.RenderToSize(System.Int32,System.Drawing.Graphics,System.Single,System.Single,System.Single,System.Single)" /> method.</para>
+        <para>To print the document, use one of the <see cref="M:Aspose.Words.Document.Print(System.String)" /> methods.</para>
         <p>
           <see cref="P:Aspose.Words.Document.MailMerge" /> is the Aspose.Words's reporting engine that allows to populate
             reports designed in Microsoft Word with data from various data sources quickly and easily.
@@ -4779,6 +4780,22 @@ Accepts a visitor.
       <param name="stream">Stream where to save the document.</param>
       <param name="saveOptions">Specifies the options that control how the document is saved. Can be null.
             If this is null, the document will be saved in the binary DOC format.</param>
+      <returns>Additional information that you can optionally use.</returns>
+    </member>
+    <member name="M:Aspose.Words.Document.Save(System.Web.HttpResponse,System.String,Aspose.Words.ContentDisposition,Aspose.Words.Saving.SaveOptions)">
+      <summary>
+            Sends the document to the client browser.
+            </summary>
+      <remarks>
+        <para>Internally, this method saves to a memory stream first and then copies to the response stream
+            because the response stream does not support seek.</para>
+      </remarks>
+      <param name="response">Response object where to save the document.</param>
+      <param name="fileName">The name for the document that will appear at the client browser.
+            The name should not contain path.</param>
+      <param name="contentDisposition">A <see cref="T:Aspose.Words.ContentDisposition" /> value that
+            specifies how the document is presented at the client browser.</param>
+      <param name="saveOptions">Specifies the options that control how the document is saved. Can be null.</param>
       <returns>Additional information that you can optionally use.</returns>
     </member>
     <member name="M:Aspose.Words.Document.EnsureMinimum">
@@ -5085,9 +5102,9 @@ The page layout-related fields are updated when you render a document or call <s
             rendering again.</para>
       </remarks>
     </member>
-    <member name="M:Aspose.Words.Document.RenderToScale(System.Int32,SkiaSharp.SKCanvas,System.Single,System.Single,System.Single)">
+    <member name="M:Aspose.Words.Document.RenderToScale(System.Int32,System.Drawing.Graphics,System.Single,System.Single,System.Single)">
       <summary>
-            Renders a document page into a <see cref="T:SkiaSharp.SKCanvas" /> object to a specified scale.
+            Renders a document page into a <see cref="T:System.Drawing.Graphics" /> object to a specified scale.
             </summary>
       <param name="pageIndex">The 0-based page index.</param>
       <param name="graphics">The object where to render to.</param>
@@ -5096,14 +5113,51 @@ The page layout-related fields are updated when you render a document or call <s
       <param name="scale">The scale for rendering the page (1.0 is 100%).</param>
       <returns>The width and height (in world units) of the rendered page.</returns>
     </member>
-    <member name="M:Aspose.Words.Document.RenderToSize(System.Int32,SkiaSharp.SKCanvas,System.Single,System.Single,System.Single,System.Single)">
-            Renders a document page into a <see cref="T:SkiaSharp.SKCanvas" /> object to a specified size.
+    <member name="M:Aspose.Words.Document.RenderToSize(System.Int32,System.Drawing.Graphics,System.Single,System.Single,System.Single,System.Single)">
+            Renders a document page into a <see cref="T:System.Drawing.Graphics" /> object to a specified size.
             <param name="pageIndex">The 0-based page index.</param><param name="graphics">The object where to render to.</param><param name="x">The X coordinate (in world units) of the top left corner of the rendered page.</param><param name="y">The Y coordinate (in world units) of the top left corner of the rendered page.</param><param name="width">The maximum width (in world units) that can be occupied by the rendered page.</param><param name="height">The maximum height (in world units) that can be occupied by the rendered page.</param><returns>The scale that was automatically calculated for the rendered page to fit the specified size.</returns></member>
     <member name="M:Aspose.Words.Document.GetPageInfo(System.Int32)">
       <summary>
             Gets the page size, orientation and other information about a page that might be useful for printing or rendering.
             </summary>
       <param name="pageIndex">The 0-based page index.</param>
+    </member>
+    <member name="M:Aspose.Words.Document.Print">
+      <overloads>Prints the document without bringing up any user interface forms.</overloads>
+      <summary>
+            Prints the whole document to the default printer.
+            </summary>
+    </member>
+    <member name="M:Aspose.Words.Document.Print(System.String)">
+      <summary>
+            Print the whole document to the specified printer, 
+            using the standard (no User Interface) print controller.
+            </summary>
+      <param name="printerName">The name of the printer.</param>
+    </member>
+    <member name="M:Aspose.Words.Document.Print(System.Drawing.Printing.PrinterSettings)">
+      <summary>
+            Prints the document according to the specified printer settings, 
+            using the standard (no User Interface) print controller.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:System.Drawing.Printing.PrinterSettings" /> 
+            object allows you to specify the printer to print on, the range of pages of to print and other options.</para>
+      </remarks>
+      <param name="printerSettings">The printer settings to use.</param>
+    </member>
+    <member name="M:Aspose.Words.Document.Print(System.Drawing.Printing.PrinterSettings,System.String)">
+      <summary>
+            Prints the document according to the specified printer settings, 
+            using the standard (no User Interface) print controller and a document name.
+            </summary>
+      <remarks>
+        <para>The <see cref="T:System.Drawing.Printing.PrinterSettings" /> 
+            object allows you to specify the printer to print on, the range of pages of to print and other options.</para>
+      </remarks>
+      <param name="printerSettings">The printer settings to use.</param>
+      <param name="documentName">The document name to display (for example, in a print status dialog
+            box or printer queue) while printing the document.</param>
     </member>
     <member name="M:Aspose.Words.Document.UpdateThumbnail(Aspose.Words.Rendering.ThumbnailGeneratingOptions)">
       <summary>
@@ -5884,10 +5938,10 @@ The page layout-related fields are updated when you render a document or call <s
       <param name="referenceMark">Specifies the custom reference mark of the footnote.</param>
       <returns>Returns a footnote object that was just created.</returns>
     </member>
-    <member name="M:Aspose.Words.DocumentBuilder.InsertImage(SkiaSharp.SKBitmap)">
+    <member name="M:Aspose.Words.DocumentBuilder.InsertImage(System.Drawing.Image)">
       <overloads>Inserts an image into the document.</overloads>
       <summary>
-            Inserts an image from a .NET <see cref="T:SkiaSharp.SKBitmap" />
+            Inserts an image from a .NET <see cref="T:System.Drawing.Image" />
             object into the document. The image is inserted inline and at 100% scale.
             </summary>
       <param name="image">The image to insert into the document.</param>
@@ -5933,9 +5987,9 @@ The page layout-related fields are updated when you render a document or call <s
 <see cref="T:Aspose.Words.Drawing.Shape" /> object returned by this method.</p>
       </remarks>
     </member>
-    <member name="M:Aspose.Words.DocumentBuilder.InsertImage(SkiaSharp.SKBitmap,System.Double,System.Double)">
+    <member name="M:Aspose.Words.DocumentBuilder.InsertImage(System.Drawing.Image,System.Double,System.Double)">
       <summary>
-            Inserts an inline image from a .NET <see cref="T:SkiaSharp.SKBitmap" />
+            Inserts an inline image from a .NET <see cref="T:System.Drawing.Image" />
             object into the document and scales it to the specified size.
             </summary>
       <param name="image">The image to insert into the document.</param>
@@ -5986,9 +6040,9 @@ The page layout-related fields are updated when you render a document or call <s
 <see cref="T:Aspose.Words.Drawing.Shape" /> object returned by this method.</p>
       </remarks>
     </member>
-    <member name="M:Aspose.Words.DocumentBuilder.InsertImage(SkiaSharp.SKBitmap,Aspose.Words.Drawing.RelativeHorizontalPosition,System.Double,Aspose.Words.Drawing.RelativeVerticalPosition,System.Double,System.Double,System.Double,Aspose.Words.Drawing.WrapType)">
+    <member name="M:Aspose.Words.DocumentBuilder.InsertImage(System.Drawing.Image,Aspose.Words.Drawing.RelativeHorizontalPosition,System.Double,Aspose.Words.Drawing.RelativeVerticalPosition,System.Double,System.Double,System.Double,Aspose.Words.Drawing.WrapType)">
       <summary>
-            Inserts an image from a .NET <see cref="T:SkiaSharp.SKBitmap" />
+            Inserts an image from a .NET <see cref="T:System.Drawing.Image" />
             object at the specified position and size.
             </summary>
       <param name="image">The image to insert into the document.</param>
@@ -6059,7 +6113,7 @@ The page layout-related fields are updated when you render a document or call <s
 <see cref="T:Aspose.Words.Drawing.Shape" /> object returned by this method.</p>
       </remarks>
     </member>
-    <member name="M:Aspose.Words.DocumentBuilder.InsertOleObject(System.IO.Stream,System.String,System.Boolean,SkiaSharp.SKBitmap)">
+    <member name="M:Aspose.Words.DocumentBuilder.InsertOleObject(System.IO.Stream,System.String,System.Boolean,System.Drawing.Image)">
       <summary>
             Inserts an embedded OLE object from a stream into the document.
             </summary>
@@ -6069,7 +6123,7 @@ The page layout-related fields are updated when you render a document or call <s
       <param name="presentation">Image presentation of OLE object. If value is null Aspose.Words will use one of the predefined images.</param>
       <returns>Shape node containing Ole object and inserted at the current Builder position.</returns>
     </member>
-    <member name="M:Aspose.Words.DocumentBuilder.InsertOleObject(System.String,System.Boolean,System.Boolean,SkiaSharp.SKBitmap)">
+    <member name="M:Aspose.Words.DocumentBuilder.InsertOleObject(System.String,System.Boolean,System.Boolean,System.Drawing.Image)">
       <summary>
             Inserts an embedded or linked OLE object from a file into the document. Detects OLE object type using file extension. 
             </summary>
@@ -6079,7 +6133,7 @@ The page layout-related fields are updated when you render a document or call <s
       <param name="presentation">Image presentation of OLE object. If value is null Aspose.Words will use one of the predefined images.</param>
       <returns>Shape node containing Ole object and inserted at the current Builder position.</returns>
     </member>
-    <member name="M:Aspose.Words.DocumentBuilder.InsertOleObject(System.String,System.String,System.Boolean,System.Boolean,SkiaSharp.SKBitmap)">
+    <member name="M:Aspose.Words.DocumentBuilder.InsertOleObject(System.String,System.String,System.Boolean,System.Boolean,System.Drawing.Image)">
       <summary>
             Inserts an embedded or linked OLE object from a file into the document. Detects OLE object type using given progID parameter.
             </summary>
@@ -16726,6 +16780,42 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
              Field names are not case sensitive.
              If a field name that is not found in the document is encountered, it is ignored.</param>
     </member>
+    <member name="M:Aspose.Words.MailMerging.MailMerge.ExecuteADO(System.Object)">
+      <summary>
+             Performs mail merge from an ADO Recordset object into the document.
+             </summary>
+      <remarks>
+        <p>This method is useful when you intend to use Aspose.Words classes as
+             COM objects from unmanaged code such as an application built using
+             ASP or Visual Basic 6.0.</p>
+        <p>This method ignores the <see cref="F:Aspose.Words.MailMerging.MailMergeCleanupOptions.RemoveUnusedRegions" /> option.</p>
+        <p>For more information see description of MailMerge.Execute(DataTable).</p>
+      </remarks>
+      <example>
+        <code>
+             [VBScript]
+            
+             Dim RS
+             Set RS = CreateObject("ADODB.Recordset")
+             RS.Open _
+                 "SELECT TOP 50 * FROM Customers ORDER BY Country, CompanyName", _
+                 "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Northwind.mdb"
+            
+             Dim License
+             Set License = CreateObject("Aspose.Words.License")
+             License.SetLicense "C:\MyPath\MyLicense.lic"
+            
+             Dim Helper
+             Set Helper = CreateObject("Aspose.Words.ComHelper")
+             Dim Doc
+             Set Doc = Helper.Open("CustomerLabels.doc")
+            
+             Doc.MailMerge.ExecuteADO RS
+             Doc.Save "C:\MyPath\CustomerLabels Out VBScript.doc"
+             </code>
+      </example>
+      <param name="recordset">ADO Recordset or Record object.</param>
+    </member>
     <member name="M:Aspose.Words.MailMerging.MailMerge.Execute(System.Data.IDataReader)">
       <summary>
              Performs mail merge from IDataReader into the document.
@@ -16860,6 +16950,39 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
       </remarks>
       <param name="dataTable">Data source for the mail merge operation. The table must
              have its <b>TableName</b> property set.</param>
+    </member>
+    <member name="M:Aspose.Words.MailMerging.MailMerge.ExecuteWithRegionsADO(System.Object,System.String)">
+      <summary>
+             Performs mail merge from an ADO Recordset object into the document with mail merge regions.
+             </summary>
+      <remarks>
+        <p>This method is useful when you intend to use Aspose.Words classes as
+             COM objects from unmanaged code such as an application built using
+             ASP or Visual Basic 6.0.</p>
+        <p>For more information see description of MailMerge.ExecuteWithRegions(DataTable).</p>
+      </remarks>
+      <example>
+        <code>
+             [VBScript]
+            
+             Dim RS
+             Set RS = CreateObject("ADODB.Recordset")
+             RS.Open _
+                 "SELECT * FROM AsposeWordOrderDetails WHERE OrderId = 10444 ORDER BY ProductID", _
+                 "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Northwind.mdb"
+            
+             Dim Helper
+             Set Helper = CreateObject("Aspose.Words.ComHelper")
+            
+             Dim Doc
+             Set Doc = Helper.Open("Invoice.doc")
+            
+             Doc.MailMerge.ExecuteWithRegionsADO RS, "OrderDetails"
+             Doc.Save "Invoice Out VBScript.doc"
+             </code>
+      </example>
+      <param name="recordset">ADO Recordset or Record object.</param>
+      <param name="tableName">Name of the mail merge region in the document to populate.</param>
     </member>
     <member name="M:Aspose.Words.MailMerging.MailMerge.ExecuteWithRegions(System.Data.DataView)">
       <summary>
@@ -17235,7 +17358,7 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
       <remarks>
         <p>This event occurs during mail merge when an image mail merge
              field is encountered in the document. You can respond to this event to return a
-             file name, stream, or an <see cref="T:SkiaSharp.SKBitmap" /> object to the mail merge
+             file name, stream, or an <see cref="T:System.Drawing.Image" /> object to the mail merge
              engine so it is inserted into the document.</p>
         <p>There are three properties available <see cref="P:Aspose.Words.MailMerging.ImageFieldMergingArgs.ImageFileName" />,
              <see cref="P:Aspose.Words.MailMerging.ImageFieldMergingArgs.ImageStream" /> and <see cref="P:Aspose.Words.MailMerging.ImageFieldMergingArgs.Image" /> to specify where the image must be taken from.
@@ -17396,9 +17519,9 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
       <param name="verticalDpi">The vertical resolution to convert from points to pixels (dots per inch).</param>
       <returns>The opaque rectangle of the shape in pixels.</returns>
     </member>
-    <member name="M:Aspose.Words.Rendering.NodeRendererBase.RenderToScale(SkiaSharp.SKCanvas,System.Single,System.Single,System.Single)">
+    <member name="M:Aspose.Words.Rendering.NodeRendererBase.RenderToScale(System.Drawing.Graphics,System.Single,System.Single,System.Single)">
       <summary>
-            Renders the shape into a <see cref="T:SkiaSharp.SKCanvas" />
+            Renders the shape into a <see cref="T:System.Drawing.Graphics" />
              object to a specified scale.
             </summary>
       <param name="graphics">The object where to render to.</param>
@@ -17407,9 +17530,9 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
       <param name="scale">The scale for rendering the shape (1.0 is 100%).</param>
       <returns>The width and height (in world units) of the rendered shape.</returns>
     </member>
-    <member name="M:Aspose.Words.Rendering.NodeRendererBase.RenderToSize(SkiaSharp.SKCanvas,System.Single,System.Single,System.Single,System.Single)">
+    <member name="M:Aspose.Words.Rendering.NodeRendererBase.RenderToSize(System.Drawing.Graphics,System.Single,System.Single,System.Single,System.Single)">
       <summary>
-            Renders the shape into a <see cref="T:SkiaSharp.SKCanvas" />
+            Renders the shape into a <see cref="T:System.Drawing.Graphics" />
              object to a specified size.
             </summary>
       <param name="graphics">The object where to render to.</param>
@@ -17473,6 +17596,35 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
             Initializes a new instance of this class.
             </summary>
       <param name="math">The OfficeMath object that you want to render.</param>
+    </member>
+    <member name="T:Aspose.Words.Rendering.PrinterSettingsContainer">
+      <summary>
+            Represent a storage for some parameters of <see cref="T:System.Drawing.Printing.PrinterSettings" /> object.
+            <remarks>
+            Access to data of <see cref="T:System.Drawing.Printing.PrinterSettings" /> takes long time.
+            <see cref="T:Aspose.Words.Rendering.PrinterSettingsContainer" /> caches parameters from <see cref="T:System.Drawing.Printing.PrinterSettings" />,
+            so printing works faster.
+            </remarks></summary>
+    </member>
+    <member name="M:Aspose.Words.Rendering.PrinterSettingsContainer.#ctor(System.Drawing.Printing.PrinterSettings)">
+      <summary>
+            Creates a container for <see cref="T:System.Drawing.Printing.PrinterSettings" />.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Rendering.PrinterSettingsContainer.PaperSizes">
+      <summary>
+            See <see cref="P:System.Drawing.Printing.PrinterSettings.PaperSizes" />.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Rendering.PrinterSettingsContainer.DefaultPageSettingsPaperSource">
+      <summary>
+            See <see cref="T:System.Drawing.Printing.PaperSource" /> of <see cref="P:System.Drawing.Printing.PrinterSettings.DefaultPageSettings" />.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Rendering.PrinterSettingsContainer.PaperSources">
+      <summary>
+            See <see cref="P:System.Drawing.Printing.PrinterSettings.PaperSources" />.
+            </summary>
     </member>
     <member name="T:Aspose.Words.Rendering.ThumbnailGeneratingOptions">
       <summary>
@@ -17544,6 +17696,26 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
       <param name="verticalDpi">The vertical resolution to convert from points to pixels (dots per inch).</param>
       <returns>The size of the page in pixels.</returns>
     </member>
+    <member name="M:Aspose.Words.Rendering.PageInfo.GetDotNetPaperSize(System.Drawing.Printing.PrinterSettings.PaperSizeCollection)">
+      <summary>
+            Gets the <see cref="T:System.Drawing.Printing.PaperSize" /> object suitable for printing
+            the page represented by this <see cref="T:Aspose.Words.Rendering.PageInfo" />.
+            </summary>
+      <param name="paperSizes">Available paper sizes.</param>
+      <returns>An object that you can use in the .NET printing framework to specify the paper size.</returns>
+    </member>
+    <member name="M:Aspose.Words.Rendering.PageInfo.GetSpecifiedPrinterPaperSource(System.Drawing.Printing.PrinterSettings.PaperSourceCollection,System.Drawing.Printing.PaperSource)">
+      <summary>
+            Gets the <see cref="T:System.Drawing.Printing.PaperSource" /> object suitable for printing
+            the page represented by this <see cref="T:Aspose.Words.Rendering.PageInfo" />.
+            </summary>
+      <param name="paperSources">Available paper sources.</param>
+      <param name="defaultPageSettingsPaperSource">Paper source defined in default printer settings.</param>
+      <returns>An object that you can use in the .NET printing framework to specify the paper source.</returns>
+      <remarks>
+        <para>This method requires .NET Framework 2.0 or later.</para>
+      </remarks>
+    </member>
     <member name="P:Aspose.Words.Rendering.PageInfo.PaperSize">
       <summary>
             Gets the paper size as enumeration.
@@ -17574,6 +17746,40 @@ glossary document, you need to call <see cref="M:Aspose.Words.BuildingBlocks.Glo
       <summary>
             Returns true if the page orientation specified in the document for this page is landscape.
             </summary>
+    </member>
+    <member name="T:Aspose.Words.Rendering.AsposeWordsPrintDocument">
+      <summary>
+             Provides a default implementation for printing of a <see cref="T:Aspose.Words.Document" /> within
+             the .NET printing framework.
+             </summary>
+      <remarks>
+        <para>
+          <see cref="T:Aspose.Words.Rendering.AsposeWordsPrintDocument" /> overrides <see cref="M:System.Drawing.Printing.PrintDocument.OnBeginPrint(System.Drawing.Printing.PrintEventArgs)" />
+             to print the range of pages that is specified in <see cref="P:System.Drawing.Printing.PrintDocument.PrinterSettings" />.</para>
+        <para>A single Word document can consist of multiple sections that specify pages with different sizes,
+             orientation and paper trays. <see cref="T:Aspose.Words.Rendering.AsposeWordsPrintDocument" /> overrides
+             <see cref="M:System.Drawing.Printing.PrintDocument.OnQueryPageSettings(System.Drawing.Printing.QueryPageSettingsEventArgs)" /> to properly select paper size, orientation
+             and paper source when printing a Word document.</para>
+        <para>Microsoft Word stores printer specific values for paper trays in a Word document and therefore, 
+             only printing on the same printer model as the one that was selected when the user specified the paper trays
+             will result in printing from the correct trays. If you print a document on a different printer, then most likely
+             the default paper tray will be used, not the trays specified in the document.</para>
+      </remarks>
+    </member>
+    <member name="M:Aspose.Words.Rendering.AsposeWordsPrintDocument.#ctor(Aspose.Words.Document)">
+      <summary>
+            Initializes a new instance of this class.
+            </summary>
+      <param name="document">The document to print.</param>
+    </member>
+    <member name="M:Aspose.Words.Rendering.AsposeWordsPrintDocument.CachePrinterSettings">
+      <summary>
+            Reads and caches some fields of <see cref="T:System.Drawing.Printing.PrinterSettings" />
+            to reduce printing time.
+            </summary>
+      <remarks>
+            This method is called before the printing starts if it wasn't executed previously.
+            </remarks>
     </member>
     <member name="T:Aspose.Words.Math.OfficeMathDisplayType">
       <summary>
@@ -20243,6 +20449,15 @@ For example -1 means the last item, -2 means the second before last and so on.</
         <para>The default value is 128.</para>
       </remarks>
     </member>
+    <member name="P:Aspose.Words.Saving.ImageSaveOptions.GraphicsQualityOptions">
+      <summary>
+            Allows to specify rendering mode and quality for the <see cref="T:System.Drawing.Graphics" /> object.
+            </summary>
+      <remarks>
+        <para>Use this property to override the Graphics settings provided by Aspose.Words engine by default.</para>
+        <para>It will take effect only when a document is being saved to an image-like format.</para>
+      </remarks>
+    </member>
     <member name="P:Aspose.Words.Saving.ImageSaveOptions.UseGdiEmfRenderer">
       <summary>
             Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
@@ -20465,6 +20680,42 @@ Default is <see cref="F:System.Int32.MaxValue" /> which means all pages of the d
     <member name="F:Aspose.Words.Saving.HtmlVersion.Html5">
       <summary>
             Saves the document in compliance with the HTML 5 standard. 
+            </summary>
+    </member>
+    <member name="T:Aspose.Words.Saving.GraphicsQualityOptions">
+      <summary>
+            Allows to specify additional <see cref="T:System.Drawing.Graphics" /> quality options.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Saving.GraphicsQualityOptions.StringFormat">
+      <summary>
+            Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations 
+            (such as ellipsis insertion and national digit substitution) and OpenType features.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Saving.GraphicsQualityOptions.CompositingMode">
+      <summary>
+            Gets or sets a value that specifies how composited images are drawn to this Graphics.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Saving.GraphicsQualityOptions.CompositingQuality">
+      <summary>
+            Gets or sets the rendering quality of composited images drawn to this Graphics.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Saving.GraphicsQualityOptions.InterpolationMode">
+      <summary>
+            Gets or sets the interpolation mode associated with this Graphics.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Saving.GraphicsQualityOptions.SmoothingMode">
+      <summary>
+            Gets or sets the rendering quality for this Graphics.
+            </summary>
+    </member>
+    <member name="P:Aspose.Words.Saving.GraphicsQualityOptions.TextRenderingHint">
+      <summary>
+            Gets or sets the rendering mode for text associated with this Graphics.
             </summary>
     </member>
     <member name="T:Aspose.Words.Saving.HtmlOfficeMathOutputMode">
@@ -31891,12 +32142,12 @@ Accepts a visitor.
             You do not create instances of the <see cref="T:Aspose.Words.Drawing.ImageData" /> class directly.</p>
         <p>An image can be stored inside a shape, linked to external file or both (linked and stored in the document).</p>
         <p>Regardless of whether the image is stored inside the shape or linked, you can always access the actual
-image using the <see cref="M:Aspose.Words.Drawing.ImageData.ToByteArray" />, <see cref="M:Aspose.Words.Drawing.ImageData.ToStream" /> or <see cref="M:Aspose.Words.Drawing.ImageData.Save(System.String)" /> methods.
+image using the <see cref="M:Aspose.Words.Drawing.ImageData.ToByteArray" />, <see cref="M:Aspose.Words.Drawing.ImageData.ToStream" />, <see cref="M:Aspose.Words.Drawing.ImageData.ToImage" /> or <see cref="M:Aspose.Words.Drawing.ImageData.Save(System.String)" /> methods.
 If the image is stored inside the shape, you can also directly access it using the <see cref="P:Aspose.Words.Drawing.ImageData.ImageBytes" /> property.</p>
         <p>To store an image inside a shape use the <see cref="M:Aspose.Words.Drawing.ImageData.SetImage(System.String)" /> method. To link an image to a shape, set the <see cref="P:Aspose.Words.Drawing.ImageData.SourceFullName" /> property.</p>
       </remarks>
     </member>
-    <member name="M:Aspose.Words.Drawing.ImageData.SetImage(SkiaSharp.SKBitmap)">
+    <member name="M:Aspose.Words.Drawing.ImageData.SetImage(System.Drawing.Image)">
       <summary>
             Sets the image that the shape displays.
             </summary>
@@ -31917,12 +32168,12 @@ If the image is stored inside the shape, you can also directly access it using t
     </member>
     <member name="M:Aspose.Words.Drawing.ImageData.ToImage">
       <summary>
-            Gets the image stored in the shape as a <see cref="T:SkiaSharp.SKBitmap" /> object.
+            Gets the image stored in the shape as a <see cref="T:System.Drawing.Image" /> object.
             </summary>
       <returns>
       </returns>
       <remarks>
-        <p>A new <see cref="T:SkiaSharp.SKBitmap" /> object is created every time this method is called.</p>
+        <p>A new <see cref="T:System.Drawing.Image" /> object is created every time this method is called.</p>
         <p>It is the responsibility of the caller to dispose the image object.</p>
       </remarks>
     </member>
@@ -31973,6 +32224,7 @@ Gets or sets the raw bytes of the image stored in the shape.
         <p>Returns <c>null</c> if the image is not stored in the document (e.g the image is probably linked in this case).</p>
         <seealso cref="M:Aspose.Words.Drawing.ImageData.SetImage(System.String)" />
         <seealso cref="M:Aspose.Words.Drawing.ImageData.ToByteArray" />
+        <seealso cref="M:Aspose.Words.Drawing.ImageData.ToImage" />
         <seealso cref="M:Aspose.Words.Drawing.ImageData.ToStream" />
         <seealso cref="M:Aspose.Words.Drawing.ImageData.Save(System.String)" />
       </remarks>

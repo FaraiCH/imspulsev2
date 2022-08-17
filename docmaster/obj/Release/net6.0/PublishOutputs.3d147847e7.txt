@@ -281,4 +281,10 @@ C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\n
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Cells.dll
+C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Slides.dll
+C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Words.dll
+C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Cells.xml
+C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Slides.xml
+C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Words.xml
 C:\testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\docmaster.deps.json
