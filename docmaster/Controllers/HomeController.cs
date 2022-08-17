@@ -1,6 +1,8 @@
 ﻿
+using docmaster.Areas.Identity.Data;
 using docmaster.Models;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.DocIO;
@@ -14,8 +16,8 @@ namespace docmaster.Controllers
 {
     public class HomeController : Controller
     {
-       
 
+        UserManager<docmasterUser> userManager;
         public PhysicalFileProvider operation;
         public string basePath = "/var/www/html/imspulse/bunch-box";
         //public string basePath = "C:/Testing";
@@ -30,7 +32,7 @@ namespace docmaster.Controllers
 
         public IActionResult Index()
         {
-  
+            
             return View();
         }
 
@@ -95,17 +97,81 @@ namespace docmaster.Controllers
         }
 
         // uploads the file(s) into a specified path
-        public IActionResult Upload(string path, IList<IFormFile> uploadFiles, string action)
+        public async Task<IActionResult> Upload(string path, IList<IFormFile> uploadFiles, string action)
         {
+          
+   
             FileManagerResponse uploadResponse;
-            uploadResponse = operation.Upload(path, uploadFiles, action, null);
-            if (uploadResponse.Error != null)
+            double fCount = GetDirectorySize(this.basePath + path);
+            if (this.User.IsInRole("Master"))
             {
-                Response.Clear();
-                Response.ContentType = "application/json; charset=utf-8";
-                Response.StatusCode = Convert.ToInt32(uploadResponse.Error.Code);
-                Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = uploadResponse.Error.Message;
+                if (this.User.IsInRole("Basic"))
+                {
+                   
+                    if (fCount > 20)
+                    {
+                        Response.Clear();
+                        Response.ContentType = "application/json; charset=utf-8";
+                        Response.StatusCode = Convert.ToInt32("1111");
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "User Has Basic Level Upload";
+                    }
+                    else
+                    {
+                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                    }
+
+             
+                }
+                else if (this.User.IsInRole("Premium"))
+                {
+                    if (fCount > 100)
+                    {
+                        Response.Clear();
+                        Response.ContentType = "application/json; charset=utf-8";
+                        Response.StatusCode = Convert.ToInt32("1111");
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "User Has Basic Level Upload";
+                    }
+                    else
+                    {
+                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                    }
+                  
+                }
+                else if (this.User.IsInRole("Ultimate"))
+                {
+                    if (fCount > 500)
+                    {
+                        Response.Clear();
+                        Response.ContentType = "application/json; charset=utf-8";
+                        Response.StatusCode = Convert.ToInt32("1111");
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "User Has Basic Level Upload";
+                    }
+                    else
+                    {
+                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                    }
+                }
+                else
+                {
+                  
+                    Response.Clear();
+                    Response.StatusCode = 1114;
+                    Response.Headers.Add("status","Custome Message");
+                   
+                }
             }
+            else
+            {
+                uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                if (uploadResponse.Error != null)
+                {
+                    Response.Clear();
+                    Response.ContentType = "application/json; charset=utf-8";
+                    Response.StatusCode = Convert.ToInt32(uploadResponse.Error.Code);
+                    Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = uploadResponse.Error.Message;
+                }
+            }
+        
             return Content("");
         }
 
@@ -122,6 +188,17 @@ namespace docmaster.Controllers
             return this.operation.GetImage(args.Path, args.Id, false, null, null);
         }
 
-    
+        private double GetDirectorySize(string path)
+        {
+            DirectoryInfo info = new DirectoryInfo(path);
+            long size = 0;
+            foreach (string file in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
+            {
+                size += new FileInfo(file).Length;
+            }
+            return Math.Round((double)size / (double)(1024 * 1024), 2);
+        }
+
+
     }
 }
