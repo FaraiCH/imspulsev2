@@ -21,9 +21,9 @@
         {
             myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
 
-            DirectoryInfo info = new DirectoryInfo(@"/var/www/html" + myPath);
+            DirectoryInfo info = new DirectoryInfo(@"/var/www/html/imspulse/bunch-box" + myPath);
             long size = 0;
-            foreach (string file in Directory.GetFiles(@"/var/www/html" + myPath, "*.*", SearchOption.AllDirectories))
+            foreach (string file in Directory.GetFiles(@"/var/www/html/imspulse/bunch-box" + myPath, "*.*", SearchOption.AllDirectories))
             {
                 size += new FileInfo(file).Length;
             }
