@@ -40,7 +40,7 @@
 
 }
 
- if(User.IsInRole("Admin"))
+ @if(User.IsInRole("Admin"))
 {
         <div class="alert alert-warning" role="alert">
           <p>Your company has currently used @num MB of space.</p>
