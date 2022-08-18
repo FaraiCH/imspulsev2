@@ -1,5 +1,6 @@
 ﻿using docmaster.Areas.Identity.Data;
 using docmaster.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ namespace docmaster.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -35,7 +37,7 @@ namespace docmaster.Controllers
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
