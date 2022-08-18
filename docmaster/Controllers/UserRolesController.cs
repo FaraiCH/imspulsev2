@@ -18,7 +18,7 @@ namespace docmaster.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
-            var userRolesViewModel = new List<UserRolesViewModel>();
+            var userRolesViewModel = new List<UserRolesViewModel>().ToList();
             foreach (docmasterUser user in users)
             {
                 var thisViewModel = new UserRolesViewModel();
@@ -46,8 +46,8 @@ namespace docmaster.Controllers
                 return View("NotFound");
             }
             ViewBag.UserName = user.UserName;
-            var model = new List<ManageUserRolesViewModel>();
-            foreach (var role in _roleManager.Roles)
+            var model = new List<ManageUserRolesViewModel>().ToList();
+            foreach (var role in _roleManager.Roles.ToList())
             {
                 var userRolesViewModel = new ManageUserRolesViewModel
                 {
