@@ -10,6 +10,8 @@
     string[] items = new string[] { "NewFolder", "Refresh", "Upload", "View", "Details", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
     string myPath = null;
+    var num = 0.00;
+
     @if (SignInManager.IsSignedIn(User))
     {   if(User.IsInRole("Master"))
         {
@@ -18,6 +20,14 @@
         else
         {
             myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
+
+        DirectoryInfo info = new DirectoryInfo("https://imspulse.com/bunch-box" + myPath);
+        long size = 0;
+        foreach (string file in Directory.GetFiles("https://imspulse.com/bunch-box" + myPath, "*.*", SearchOption.AllDirectories))
+        {
+            size += new FileInfo(file).Length;
+        }
+            num = Math.Round((double)size / (double)(1024 * 1024), 2);
         }
 
     }
@@ -26,8 +36,12 @@
         myPath = "";
     }
 
-}
 
+
+}
+<div class="alert alert-warning" role="alert">
+  <p>Your company has currently used @num MB of space.</p>
+</div>
 <div class="control-section">
     <div class="sample-container" id="container" style="padding:10px">
             <ejs-filemanager maxFileSize="233332" id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="menuClick" toolbarCreate="onCreate" menuClick="menuClick" fileOpen="onFileOpen">
