@@ -97,7 +97,7 @@
         
     </div>
     <div>
-        <ejs-documenteditorcontainer id="doccontainer" created="onCreated" height="600px"></ejs-documenteditorcontainer>
+        <ejs-documenteditorcontainer id="doccontainer" created="onCreated" hidden height="600px"></ejs-documenteditorcontainer>
     </div>
     <iframe id="my_iframe" style="display:none;"></iframe>
 
@@ -132,8 +132,9 @@
         }
         if (args.item.text === 'Edit') {
              var documenteditorElement = document.getElementById("doccontainer");
+            documenteditorElement.removeAttribute("hidden");
             container = documenteditorElement.ej2_instances[0];
-            container.removeAttribute("hidden");
+    
           
         }
   
@@ -143,7 +144,7 @@
     function onCreated(args){
         var documenteditorElement = document.getElementById("doccontainer");
         container = documenteditorElement.ej2_instances[0];
-        container.setAttribute("hidden");
+  
    
     }
 
