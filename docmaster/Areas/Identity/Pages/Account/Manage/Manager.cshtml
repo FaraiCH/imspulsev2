@@ -13,7 +13,7 @@
     var num = 0.00;
 
     @if (SignInManager.IsSignedIn(User))
-    {   if(User.IsInRole("Master"))
+    {   if(User.IsInRole("Admin"))
         {
             myPath = "";
         }
@@ -21,13 +21,13 @@
         {
             myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
 
-            //DirectoryInfo info = new DirectoryInfo("https://imspulse.com/bunch-box" + myPath);
-            //long size = 0;
-            //foreach (string file in Directory.GetFiles("https://imspulse.com/bunch-box" + myPath, "*.*", SearchOption.AllDirectories))
-            //{
-            //    size += new FileInfo(file).Length;
-            //}
-            //num = Math.Round((double)size / (double)(1024 * 1024), 2);
+            DirectoryInfo info = new DirectoryInfo(@"/var/www/html" + myPath);
+            long size = 0;
+            foreach (string file in Directory.GetFiles(@"/var/www/html" + myPath, "*.*", SearchOption.AllDirectories))
+            {
+                size += new FileInfo(file).Length;
+            }
+            num = Math.Round((double)size / (double)(1024 * 1024), 2);
         }
 
     }
@@ -39,9 +39,17 @@
 
 
 }
-@*<div class="alert alert-warning" role="alert">
-  <p>Your company has currently used @num MB of space.</p>
-</div>*@
+
+ if(User.IsInRole("Admin"))
+{
+        <div class="alert alert-warning" role="alert">
+          <p>Your company has currently used @num MB of space.</p>
+        </div>
+}else{
+     <div class="alert alert-info" role="alert">
+          <p>You are the administrator. You have full access to all company documents</p>
+        </div>
+}
 <div class="control-section">
     <div class="sample-container" id="container" style="padding:10px">
             <ejs-filemanager maxFileSize="233332" id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="menuClick" toolbarCreate="onCreate" menuClick="menuClick" fileOpen="onFileOpen">
