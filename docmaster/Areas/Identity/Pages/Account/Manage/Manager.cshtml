@@ -108,6 +108,15 @@
 <script>
 
      var container;
+         document.addEventListener('DOMContentLoaded', function () {        
+        documenteditor =  document.getElementById("doccontainer").ej2_instances[0];        
+        var button = document.getElementById('dialog');
+       
+        button.addEventListener('click', function () {
+            // To open Table Dialog
+            documenteditor.showDialog('Table');
+        });
+    });
     document.getElementById("element").addEventListener('click', function () {
     var filemanager = document.getElementById("file").ej2_instances[0];
     var files = filemanager.getSelectedFiles();
