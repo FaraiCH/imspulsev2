@@ -17,15 +17,15 @@ namespace docmaster.Controllers
     public class HomeController : Controller
     {
 
-        UserManager<docmasterUser> userManager;
+        UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
         public string basePath = "/var/www/html/imspulse/bunch-box";
         //public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
-        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment)
+        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
         {
-           
+            _userManager = userManager;
             this.operation = new PhysicalFileProvider();
             this.operation.RootFolder(this.basePath);
         }
@@ -102,7 +102,8 @@ namespace docmaster.Controllers
           
    
             FileManagerResponse uploadResponse;
-            double fCount = GetDirectorySize(this.basePath + path);
+            var user = await _userManager.GetUserAsync(this.User);
+            double fCount = GetDirectorySize(this.basePath + "/" + user.Company);
             if (!this.User.IsInRole("Master"))
             {
                 if (this.User.IsInRole("Basic"))
