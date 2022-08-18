@@ -108,12 +108,12 @@ namespace docmaster.Controllers
                 if (this.User.IsInRole("Basic"))
                 {
                    
-                    if (fCount > 20)
+                    if (fCount > 50)
                     {
                         Response.Clear();
                         Response.ContentType = "application/json; charset=utf-8";
                         Response.StatusCode = Convert.ToInt32("1111");
-                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "User Has Basic Level Upload";
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached the maximum uploads allowed on Basic Subscription. Upgrade plan";
                     }
                     else
                     {
@@ -124,12 +124,12 @@ namespace docmaster.Controllers
                 }
                 else if (this.User.IsInRole("Premium"))
                 {
-                    if (fCount > 100)
+                    if (fCount > 350)
                     {
                         Response.Clear();
                         Response.ContentType = "application/json; charset=utf-8";
                         Response.StatusCode = Convert.ToInt32("1111");
-                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "User Has Basic Level Upload";
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached the maximum uploads allowed on Premium Subscription. Upgrade plan";
                     }
                     else
                     {
@@ -139,12 +139,12 @@ namespace docmaster.Controllers
                 }
                 else if (this.User.IsInRole("Ultimate"))
                 {
-                    if (fCount > 500)
+                    if (fCount > 1000)
                     {
                         Response.Clear();
                         Response.ContentType = "application/json; charset=utf-8";
                         Response.StatusCode = Convert.ToInt32("1111");
-                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "User Has Basic Level Upload";
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached your limit";
                     }
                     else
                     {
@@ -153,11 +153,12 @@ namespace docmaster.Controllers
                 }
                 else
                 {
-                  
+
                     Response.Clear();
-                    Response.StatusCode = 1114;
-                    Response.Headers.Add("status","Custome Message");
-                   
+                    Response.ContentType = "application/json; charset=utf-8";
+                    Response.StatusCode = Convert.ToInt32("1111");
+                    Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You do not have permissions to upload anything.";
+
                 }
             }
             else
