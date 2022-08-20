@@ -106,7 +106,7 @@
 <div id="docedit">
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
-            <ejs-documenteditorcontainer enableToolbar="false" height="600px" id="doccontainer"></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer enableToolbar="false" showPropertiesPane="false" height="600px" id="doccontainer"></ejs-documenteditorcontainer>
         </e-content-template>
       
     </ejs-dialog>
@@ -150,7 +150,7 @@
                 success: function (result) {
                     var documenteditorElement = document.getElementById("doccontainer");
                     container = documenteditorElement.ej2_instances[0];
-                
+                    
                     container.documentEditor.open(result);   
                     
                     var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
