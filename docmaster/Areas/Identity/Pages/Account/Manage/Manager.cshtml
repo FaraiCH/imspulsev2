@@ -83,7 +83,8 @@
             </e-content-template>
       
         </ejs-dialog>
-            <ejs-dialog visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
+        
+             <ejs-dialog visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
             <e-content-template>
                 <form method="post">
                     <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password" class='form-control' id='password2'></div>
@@ -92,31 +93,26 @@
                     <button class="btn btn-outline-warning float-end">Unprotect</button>
                 </form>
             </e-content-template>
+            
       
         </ejs-dialog>
 
-            <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#container" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick" open="dlgopen" showCloseIcon="true" header="Edit Document">
-            <e-content-template>
-              <ejs-documenteditorcontainer height="600px" id="doccontainer"></ejs-documenteditorcontainer>
-            </e-content-template>
-      
-        </ejs-dialog>
+   
     </div>
     <iframe id="my_iframe" style="display:none;"></iframe>
 
+</div>
+
+<div id="docedit">
+    <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
+        <e-content-template>
+            <ejs-documenteditorcontainer  enableToolbar="false" height="600px" id="doccontainer"></ejs-documenteditorcontainer>
+        </e-content-template>
+      
+    </ejs-dialog>
+</div>
  
 <script>
-
-     var container;
-         document.addEventListener('DOMContentLoaded', function () {        
-        documenteditor =  document.getElementById("doccontainer").ej2_instances[0];        
-        var button = document.getElementById('dialog');
-       
-        button.addEventListener('click', function () {
-            // To open Table Dialog
-            documenteditor.showDialog('Table');
-        });
-    });
     document.getElementById("element").addEventListener('click', function () {
     var filemanager = document.getElementById("file").ej2_instances[0];
     var files = filemanager.getSelectedFiles();
@@ -138,30 +134,37 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog2").ej2_instances[0];
                 document.getElementById("path2").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
+                
                 dialog.show();
             }
           
         }
         if (args.item.text === 'Edit') {
-            if (args.fileDetails[0].isFile) {
-                var dialog = document.getElementById("default_dialog3").ej2_instances[0];
-                dialog.show();
-             
-            }
+            var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
+            var payload = { fullName: fullName }; // change name
+            $.ajax({
+                type: 'POST',
+                url: '/Home/Demo2/',
+                // contentType: 'application/json', // remove this line
+                data: payload, //remove JSON.stringify
+                success: function (result) {
+                    var documenteditorElement = document.getElementById("doccontainer");
+                    container = documenteditorElement.ej2_instances[0];
+                
+                    container.documentEditor.open(result);   
+                    
+                    var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
+                    dialog.show();
+                    
+                }
+            });
           
         }
   
 
     }
 
-
-    function onCreate2(args){
-        var documenteditorElement = document.getElementById("doccontainer");
-        container = documenteditorElement.ej2_instances[0];
-        var sfdt = { "sections": [{ "sectionFormat": { "pageWidth": 612, "pageHeight": 792, "leftMargin": 72, "rightMargin": 72, "topMargin": 72, "bottomMargin": 72, "differentFirstPage": false, "differentOddAndEvenPages": false, "headerDistance": 36, "footerDistance": 36, "bidi": false }, "blocks": [{ "paragraphFormat": { "afterSpacing": 30, "styleName": "Heading 1", "listFormat": {} }, "characterFormat": {}, "inlines": [{ "characterFormat": {}, "text": "Adventure Works Cycles" }] }], "headersFooters": { "header": { "blocks": [{ "paragraphFormat": { "listFormat": {} }, "characterFormat": {}, "inlines": [] }] }, "footer": { "blocks": [{ "paragraphFormat": { "listFormat": {} }, "characterFormat": {}, "inlines": [] }] } } }], "characterFormat": { "bold": false, "italic": false, "fontSize": 11, "fontFamily": "Calibri", "underline": "None", "strikethrough": "None", "baselineAlignment": "Normal", "highlightColor": "NoColor", "fontColor": "empty", "fontSizeBidi": 11, "fontFamilyBidi": "Calibri", "allCaps": false }, "paragraphFormat": { "leftIndent": 0, "rightIndent": 0, "firstLineIndent": 0, "textAlignment": "Left", "beforeSpacing": 0, "afterSpacing": 0, "lineSpacing": 1.0791666507720947, "lineSpacingType": "Multiple", "listFormat": {}, "bidi": false }, "defaultTabWidth": 36, "trackChanges": false, "enforcement": false, "hashValue": "", "saltValue": "", "formatting": false, "protectionType": "NoProtection", "dontUseHTMLParagraphAutoSpacing": false, "formFieldShading": true, "styles": [{ "name": "Normal", "type": "Paragraph", "paragraphFormat": { "lineSpacing": 1.149999976158142, "lineSpacingType": "Multiple", "listFormat": {} }, "characterFormat": { "fontFamily": "Calibri" }, "next": "Normal" }, { "name": "Default Paragraph Font", "type": "Character", "characterFormat": {} }, { "name": "Heading 1 Char", "type": "Character", "characterFormat": { "fontSize": 16, "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Default Paragraph Font" }, { "name": "Heading 1", "type": "Paragraph", "paragraphFormat": { "beforeSpacing": 12, "afterSpacing": 0, "outlineLevel": "Level1", "listFormat": {} }, "characterFormat": { "fontSize": 16, "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Normal", "link": "Heading 1 Char", "next": "Normal" }, { "name": "Heading 2 Char", "type": "Character", "characterFormat": { "fontSize": 13, "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Default Paragraph Font" }, { "name": "Heading 2", "type": "Paragraph", "paragraphFormat": { "beforeSpacing": 2, "afterSpacing": 6, "outlineLevel": "Level2", "listFormat": {} }, "characterFormat": { "fontSize": 13, "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Normal", "link": "Heading 2 Char", "next": "Normal" }, { "name": "Heading 3", "type": "Paragraph", "paragraphFormat": { "leftIndent": 0, "rightIndent": 0, "firstLineIndent": 0, "textAlignment": "Left", "beforeSpacing": 2, "afterSpacing": 0, "lineSpacing": 1.0791666507720947, "lineSpacingType": "Multiple", "outlineLevel": "Level3", "listFormat": {} }, "characterFormat": { "fontSize": 12, "fontFamily": "Calibri Light", "fontColor": "#1F3763" }, "basedOn": "Normal", "link": "Heading 3 Char", "next": "Normal" }, { "name": "Heading 3 Char", "type": "Character", "characterFormat": { "fontSize": 12, "fontFamily": "Calibri Light", "fontColor": "#1F3763" }, "basedOn": "Default Paragraph Font" }, { "name": "Heading 4", "type": "Paragraph", "paragraphFormat": { "leftIndent": 0, "rightIndent": 0, "firstLineIndent": 0, "textAlignment": "Left", "beforeSpacing": 2, "afterSpacing": 0, "lineSpacing": 1.0791666507720947, "lineSpacingType": "Multiple", "outlineLevel": "Level4", "listFormat": {} }, "characterFormat": { "italic": true, "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Normal", "link": "Heading 4 Char", "next": "Normal" }, { "name": "Heading 4 Char", "type": "Character", "characterFormat": { "italic": true, "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Default Paragraph Font" }, { "name": "Heading 5", "type": "Paragraph", "paragraphFormat": { "leftIndent": 0, "rightIndent": 0, "firstLineIndent": 0, "textAlignment": "Left", "beforeSpacing": 2, "afterSpacing": 0, "lineSpacing": 1.0791666507720947, "lineSpacingType": "Multiple", "outlineLevel": "Level5", "listFormat": {} }, "characterFormat": { "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Normal", "link": "Heading 5 Char", "next": "Normal" }, { "name": "Heading 5 Char", "type": "Character", "characterFormat": { "fontFamily": "Calibri Light", "fontColor": "#2F5496" }, "basedOn": "Default Paragraph Font" }, { "name": "Heading 6", "type": "Paragraph", "paragraphFormat": { "leftIndent": 0, "rightIndent": 0, "firstLineIndent": 0, "textAlignment": "Left", "beforeSpacing": 2, "afterSpacing": 0, "lineSpacing": 1.0791666507720947, "lineSpacingType": "Multiple", "outlineLevel": "Level6", "listFormat": {} }, "characterFormat": { "fontFamily": "Calibri Light", "fontColor": "#1F3763" }, "basedOn": "Normal", "link": "Heading 6 Char", "next": "Normal" }, { "name": "Heading 6 Char", "type": "Character", "characterFormat": { "fontFamily": "Calibri Light", "fontColor": "#1F3763" }, "basedOn": "Default Paragraph Font" }], "lists": [], "abstractLists": [], "comments": [], "revisions": [], "customXml": [] };
-        // open the default document.
-        container.open(JSON.stringify(sfdt));
-    }
+    
 
      function onCreate(args) {
         for (var i = 0; i < args.items.length; i++) {
@@ -175,12 +178,7 @@
     }
 
     function onOverlayClick() {
-        var dialog = document.getElementById("default_dialog3").ej2_instances[0];
-        dialog.hide();
-    }
-    function dlgopen() {
-        var RTE = document.getElementById("doccontainer").ej2_instances[0];
-        RTE.refresh();
+       
     }
 
     function onFileOpen(args) {
@@ -198,6 +196,7 @@
     }
     
 </script>
+
 
     @if (ViewData["Message"] != null)
     {
@@ -241,13 +240,14 @@
         #default_dialog3 {
             height: 100%;
             width: 100%;
-            position: absolute;
-            padding: 20px;
+      
+            padding: 0px;
             margin: 0px;
             left: 0px;
             right: 0px;
             bottom: 0px;
             top: 0px;
+            z-index: 0
         }
        
     </style>
@@ -258,4 +258,3 @@
             } 
            </style>         
         }
-</div>

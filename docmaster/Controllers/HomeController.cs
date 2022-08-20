@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
+using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
@@ -19,8 +18,8 @@ namespace docmaster.Controllers
 
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
-        public string basePath = "/var/www/html/imspulse/bunch-box";
-        //public string basePath = "C:/Testing";
+        //public string basePath = "/var/www/html/imspulse/bunch-box";
+        public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
@@ -192,6 +191,8 @@ namespace docmaster.Controllers
 
         private double GetDirectorySize(string path)
         {
+
+
             DirectoryInfo info = new DirectoryInfo(path);
             long size = 0;
             foreach (string file in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
@@ -202,5 +203,58 @@ namespace docmaster.Controllers
         }
 
 
+     
+        [AcceptVerbs("Post")]
+        public string Import(IFormCollection data)
+        {
+            return "Hello" + data.Files.Count;
+        }
+
+        [HttpPost]
+        public IActionResult Demo2(string fullName)
+        {
+            if (fullName == null)
+                return null;
+    
+            int index = fullName.LastIndexOf('.');
+            string type = index > -1 && index < fullName.Length - 1 ?
+            fullName.Substring(index) : ".docx";
+            FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+            string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+            document.Dispose();
+            return new JsonResult(sfdt);
+        }
+        internal static FormatType GetFormatType(string format)
+        {
+            if (string.IsNullOrEmpty(format))
+                throw new NotSupportedException("EJ2 DocumentEditor does not support this file format.");
+            switch (format.ToLower())
+            {
+                case ".dotx":
+                case ".docx":
+                case ".docm":
+                case ".dotm":
+                    return FormatType.Docx;
+                case ".dot":
+                case ".doc":
+                    return FormatType.Doc;
+                case ".rtf":
+                    return FormatType.Rtf;
+                case ".txt":
+                    return FormatType.Txt;
+                case ".xml":
+                    return FormatType.WordML;
+                default:
+                    throw new NotSupportedException("EJ2 DocumentEditor does not support this file format.");
+            }
+        }
+
+
+    }
+
+    public class Datam
+    {
+        public string datapack { get; set; }
     }
 }

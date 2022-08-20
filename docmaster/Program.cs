@@ -7,6 +7,8 @@ using docmaster.Areas.Identity.Data;
 using Microsoft.AspNetCore.HttpOverrides;
 using Syncfusion.EJ2;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore.Http.Json;
 
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("OTk5NkAzMjMwMkUzMjJFMzBNWndBMi9jT0t0OVJ4Q2FFSGlhSGJ6aW8vTkhhS1FBSjd4dmw2eGZsTTFNPQ==");
 
@@ -22,7 +24,10 @@ new Aspose.Words.License().SetLicense(stream2);
 new Aspose.Slides.License().SetLicense(stream3);
 var builder = WebApplication.CreateBuilder(args);
 var connetionString = builder.Configuration.GetConnectionString("Default");
-
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.PropertyNameCaseInsensitive = true;
+});
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
 
