@@ -18,8 +18,8 @@ namespace docmaster.Controllers
 
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
-        //public string basePath = "/var/www/html/imspulse/bunch-box";
-        public string basePath = "C:/Testing";
+        public string basePath = "/var/www/html/imspulse/bunch-box";
+        //public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
