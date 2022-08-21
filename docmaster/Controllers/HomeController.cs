@@ -236,16 +236,26 @@ namespace docmaster.Controllers
             Exec("sudo chmod 775 -R " + fullName);
             if (fullName == null)
                 return null;
-    
-            int index = fullName.LastIndexOf('.');
-            string type = index > -1 && index < fullName.Length - 1 ?
-            fullName.Substring(index) : ".docx";
-            FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
-            string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
-            document.Dispose();
-            fileStreamPath.Close();
-            return new JsonResult(sfdt);
+            try
+            {
+                Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
+
+                int index = fullName.LastIndexOf('.');
+                string type = index > -1 && index < fullName.Length - 1 ?
+                fullName.Substring(index) : ".docx";
+                FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+                string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+                document.Dispose();
+                fileStreamPath.Close();
+                return new JsonResult(sfdt);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+          
         }
 
         public IActionResult Demo(object blob)
