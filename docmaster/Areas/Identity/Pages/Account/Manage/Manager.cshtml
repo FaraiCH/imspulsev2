@@ -160,7 +160,7 @@
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
                 container.saveAsBlob('Docx').then(function (exportedDocument, fullName) {
                     var payload = { fullName: fullName, exportBlob: exportedDocument}; // change name
-                    alert(payload)          
+                    alert(fullName)          
                 });               
             });
           
