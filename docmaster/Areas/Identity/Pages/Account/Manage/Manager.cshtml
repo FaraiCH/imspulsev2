@@ -113,6 +113,16 @@
 </div>
  
 <script>
+
+    var documenteditor;
+    document.addEventListener('DOMContentLoaded', function () {
+        var documenteditorElement = document.getElementById("container");        
+        documenteditor = documenteditorElement.ej2_instances[0];
+        documenteditor.resize();
+        document.getElementById('export').addEventListener('click', function () {
+            documenteditor.save('sample', 'Docx');
+        });
+    }); 
     document.getElementById("element").addEventListener('click', function () {
     var filemanager = document.getElementById("file").ej2_instances[0];
     var files = filemanager.getSelectedFiles();
