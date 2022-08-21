@@ -226,10 +226,10 @@ namespace docmaster.Controllers
             return new JsonResult(sfdt);
         }
 
-        public IActionResult Demo(string fullName, string blob)
+        public IActionResult Demo(string fullName)
         {
      
-            return new JsonResult(blob);
+            return new JsonResult(fullName);
         }
         internal static FormatType GetFormatType(string format)
         {
