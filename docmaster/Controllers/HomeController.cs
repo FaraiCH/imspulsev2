@@ -226,10 +226,10 @@ namespace docmaster.Controllers
             return new JsonResult(sfdt);
         }
 
-        public IActionResult Demo(string fullName)
+        public IActionResult Demo([FromBody] ThisIsTheWay data)
         {
      
-            return new JsonResult(fullName);
+            return new JsonResult(data.fullName);
         }
         internal static FormatType GetFormatType(string format)
         {
@@ -259,8 +259,8 @@ namespace docmaster.Controllers
 
     }
 
-    public class Datam
+    public class ThisIsTheWay
     {
-        public string datapack { get; set; }
+        public string fullName { get; set; }
     }
 }
