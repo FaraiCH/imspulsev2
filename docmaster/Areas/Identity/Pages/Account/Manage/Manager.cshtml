@@ -160,8 +160,16 @@
                
                 container.saveAsBlob('Docx').then(function (exportedDocument) {
                     var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
-                    var payload = { fullName: fullName, exportBlob: exportedDocument}; // change name
-                    alert(fullName)          
+                    var payload = { fullName: fullName, exportedDocument: exportedDocument}; // change name
+                      $.ajax({
+                        type: 'POST',
+                        url: '/Home/Demo/',
+                        // contentType: 'application/json', // remove this line
+                        data: payload, //remove JSON.stringify
+                        success: function (result) {                           
+                            alert(result)                   
+                        }
+                    });        
                 });               
             });
           
