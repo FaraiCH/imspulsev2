@@ -159,6 +159,7 @@
                 container = documenteditorElement.ej2_instances[0];
                
                 container.saveAsBlob('Docx').then(function (exportedDocument) {
+                    alert(exportedDocumen);
                     var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
                     var payload = { fullName: fullName }; // change name
                       $.ajax({
