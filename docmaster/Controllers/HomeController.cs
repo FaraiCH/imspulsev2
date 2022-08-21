@@ -226,7 +226,7 @@ namespace docmaster.Controllers
             return new JsonResult(sfdt);
         }
 
-        public IActionResult Demo(string fullName, string exportedDocument)
+        public IActionResult Demo(string fullName)
         {
      
             return new JsonResult(fullName);
