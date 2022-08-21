@@ -155,7 +155,9 @@
             });
 
             document.getElementById("element").addEventListener('click', function () {
-                alert("I got clicked");
+                   var documenteditorElement = document.getElementById("doccontainer");
+                    container = documenteditorElement.ej2_instances[0];            
+                    container.save("Sample", "Docx"); 
             });
           
         }
