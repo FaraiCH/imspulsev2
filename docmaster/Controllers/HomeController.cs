@@ -225,6 +225,21 @@ namespace docmaster.Controllers
             document.Dispose();
             return new JsonResult(sfdt);
         }
+
+        public IActionResult Demo(string fullName)
+        {
+            if (fullName == null)
+                return null;
+
+            int index = fullName.LastIndexOf('.');
+            string type = index > -1 && index < fullName.Length - 1 ?
+            fullName.Substring(index) : ".docx";
+            FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+            string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+            document.Dispose();
+            return new JsonResult(sfdt);
+        }
         internal static FormatType GetFormatType(string format)
         {
             if (string.IsNullOrEmpty(format))

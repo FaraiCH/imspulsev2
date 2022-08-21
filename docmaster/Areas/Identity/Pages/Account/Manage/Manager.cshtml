@@ -155,20 +155,22 @@
             });
 
             document.getElementById("element").addEventListener('click', function () {
-                   var documenteditorElement = document.getElementById("doccontainer");
-                    container = documenteditorElement.ej2_instances[0];
-                    var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name
-                    alert(fullName);
-             
-                 
+                var documenteditorElement = document.getElementById("doccontainer");
+                container = documenteditorElement.ej2_instances[0];
+                var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
+                container.saveAsBlob('Docx').then(function (exportedDocument, fullName) {
+                    var payload = { fullName: fullName, exportBlob: exportedDocument}; // change name
+                    alert(payload)          
+                });               
             });
           
         }
-  
-
+ 
     }
 
-    
+function ExportStuff() {
+
+}
 
      function onCreate(args) {
         for (var i = 0; i < args.items.length; i++) {
