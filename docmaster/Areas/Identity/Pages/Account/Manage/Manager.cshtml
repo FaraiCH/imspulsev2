@@ -106,7 +106,7 @@
 <div id="docedit">
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
-
+      
             <ejs-documenteditor created="onCreated" isReadOnly=false enableEditor=true enableSelection=true enableSfdtExport=true enableWordExport=true height="600px" id="doccontainer"></ejs-documenteditor>
         </e-content-template>
       
@@ -115,6 +115,23 @@
  
 <script>
 
+    var documenteditor;
+    document.addEventListener('DOMContentLoaded', function () {
+        var documenteditorElement = document.getElementById("doccontainer");        
+        documenteditor = documenteditorElement.ej2_instances[0];
+        documenteditor.resize();
+        document.getElementById('export').addEventListener('click', function () {
+            documenteditor.save('sample', 'Docx');
+        });
+    }); 
+    document.getElementById("element").addEventListener('click', function () {
+    var filemanager = document.getElementById("file").ej2_instances[0];
+    var files = filemanager.getSelectedFiles();
+    for (var i = 0; i < files.length; i++) {
+        var path = files[i].filterPath + files[i].name;
+            alert(path);
+        }
+    });
     function menuClick(args) {
         if (args.item.text === 'Encrypt') {
             if (args.fileDetails[0].isFile) {
@@ -170,6 +187,9 @@
         }
     }
 
+    function onClick() {
+
+    }
 
     function onOverlayClick() {
        
