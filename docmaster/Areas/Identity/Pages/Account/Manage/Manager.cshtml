@@ -158,9 +158,9 @@
                 var documenteditorElement = document.getElementById("doccontainer");
                 container = documenteditorElement.ej2_instances[0];
                
-                container.saveAsBlob('Docx').then((blob) => {               
+                container.saveAsBlob('Docx').then((blob) => { 
                     var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
-                    var payload = { fullName: blob}; // change name
+                    var payload = { fullName: fullName }; // change name
                       $.ajax({
                         type: 'POST',
                         url: '/Home/Demo/',
