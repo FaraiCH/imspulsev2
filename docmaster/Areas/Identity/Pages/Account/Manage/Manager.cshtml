@@ -160,13 +160,14 @@
                
                 container.saveAsBlob('Docx').then(function (exportedDocument) {
                     var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
-                    var payload = { fullName: exportedDocument}; // change name
+                    var payload = { fullName: fullName }; // change name
                       $.ajax({
                         type: 'POST',
                         url: '/Home/Demo/',
                         // contentType: 'application/json', // remove this line
                         data: payload, //remove JSON.stringify
-                        success: function (result) {                           
+                        success: function (result) {
+                           
                             alert(result)                   
                         }
                     });        
