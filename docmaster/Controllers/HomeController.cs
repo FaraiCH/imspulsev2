@@ -210,9 +210,30 @@ namespace docmaster.Controllers
             return "Hello" + data.Files.Count;
         }
 
+        public static void Exec(string cmd)
+        {
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+
+            using var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{escapedArgs}\""
+                }
+            };
+
+            process.Start();
+            process.WaitForExit();
+        }
         [HttpPost]
         public IActionResult Demo2(string fullName)
         {
+            Exec("sudo chmod 775 -R " + fullName);
             if (fullName == null)
                 return null;
     
@@ -223,6 +244,7 @@ namespace docmaster.Controllers
             WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
             string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
             document.Dispose();
+            fileStreamPath.Close();
             return new JsonResult(sfdt);
         }
 
