@@ -161,13 +161,12 @@
                 container.saveAsBlob('Docx').then(function (exportedDocument) {
                     // The blob can be processed further
                     var formData = new FormData();
-                    formData.append('fileName', 'sample.docx');
-                    formData.append('data', exportedDocument);
+                    var payload = { fullName: fullName }; // change
                      $.ajax({
                         type: 'POST',
                         url: '/Home/Demo/',
                         // contentType: 'application/json', // remove this line
-                        data: formData, //remove JSON.stringify
+                        data: payload, //remove JSON.stringify
                         success: function (result) {
                             //var documenteditorElement = document.getElementById("doccontainer");
                             //container = documenteditorElement.ej2_instances[0];

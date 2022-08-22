@@ -258,10 +258,10 @@ namespace docmaster.Controllers
           
         }
 
-        public IActionResult Demo(string fileName, string data)
+        public IActionResult Demo(string fullName)
         {
      
-            return new JsonResult(data);
+            return new JsonResult(fullName);
         }
         internal static FormatType GetFormatType(string format)
         {
