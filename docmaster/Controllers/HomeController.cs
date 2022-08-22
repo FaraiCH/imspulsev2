@@ -258,11 +258,32 @@ namespace docmaster.Controllers
           
         }
 
-        public IActionResult Demo(string fullName)
+        public string Save([FromBody] CustomParameter param)
         {
-     
-            return new JsonResult(fullName);
+            string path = "/var/" + "/www/" + param.fileName;
+            Byte[] byteArray = Convert.FromBase64String(param.documentData);
+            Stream stream = new MemoryStream(byteArray);
+          
+            try
+            {
+                FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+
+                Syncfusion.DocIO.DLS.WordDocument document = new Syncfusion.DocIO.DLS.WordDocument(stream, Syncfusion.DocIO.FormatType.Docx);
+                document.Save(fileStream, Syncfusion.DocIO.FormatType.Docx);
+                document.Close();
+           
+                stream.Dispose();
+                fileStream.Dispose();
+                return "Sucess";
+            }
+            catch
+            {
+                Console.WriteLine("err");
+                return "Failure";
+            }
         }
+
+
         internal static FormatType GetFormatType(string format)
         {
             if (string.IsNullOrEmpty(format))
@@ -291,8 +312,26 @@ namespace docmaster.Controllers
 
     }
 
-    public class Datam
+    public class CustomParams
     {
-        public string datapack { get; set; }
+        public string fileName
+        {
+            get;
+            set;
+        }
+    }
+
+    public class CustomParameter
+    {
+        public string fileName
+        {
+            get;
+            set;
+        }
+        public string documentData
+        {
+            get;
+            set;
+        }
     }
 }
