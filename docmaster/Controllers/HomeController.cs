@@ -258,22 +258,10 @@ namespace docmaster.Controllers
           
         }
 
-        public HttpResponseMessage Demo()
+        public IActionResult Demo(string fileName, string data)
         {
-
-            IFormFileCollection files = HttpContext.Request.Form.Files;
-            IFormFile file = files[0];
-
-            MemoryStream stream = new MemoryStream();
-            file.CopyTo(stream);
-
-            //Opens document stream
-            Aspose.Words.Document docu = new Aspose.Words.Document(stream);
-
-            //Converts document stream as RTF
-            docu.Save("Sample.docx");
-            stream.Position = 0;
-            return new HttpResponseMessage() { Content = new StreamContent(stream) };
+     
+            return new JsonResult(data);
         }
         internal static FormatType GetFormatType(string format)
         {
