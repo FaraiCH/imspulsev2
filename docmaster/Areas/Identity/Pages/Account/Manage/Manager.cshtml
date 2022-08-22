@@ -158,7 +158,7 @@
                 var documenteditorElement = document.getElementById("doccontainer");
                 container = documenteditorElement.ej2_instances[0];
                
-                     documenteditor.saveAsBlob('Docx').then(function (exportedDocument) {
+                container.saveAsBlob('Docx').then(function (exportedDocument) {
                     // The blob can be processed further
                     var formData = new FormData();
                     formData.append('fileName', 'sample.docx');
@@ -171,26 +171,26 @@
  
     }
 
-  function saveAsRtf(formData) {
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open('POST', '/Home/Demo', true);
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState === 4) {
-                if (httpRequest.status === 200 || httpRequest.status === 304) {
-                    if (!(!navigator.msSaveBlob)) {
-                        navigator.msSaveBlob(httpRequest.response, 'sample.rtf');
-                    } else {
-                        var downloadLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-                        download('sample.rtf', 'rtf', httpRequest.response, downloadLink, 'download' in downloadLink);
-                    }
+function saveAsRtf(formData) {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('POST', '/Home/Demo', true);
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200 || httpRequest.status === 304) {
+                if (!(!navigator.msSaveBlob)) {
+                    navigator.msSaveBlob(httpRequest.response, 'sample.rtf');
                 } else {
-                    console.error(httpRequest.response);
+                    var downloadLink = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                    download('sample.rtf', 'rtf', httpRequest.response, downloadLink, 'download' in downloadLink);
                 }
+            } else {
+                console.error(httpRequest.response);
             }
         }
-        httpRequest.responseType = 'blob';
-        httpRequest.send(formData);
     }
+    httpRequest.responseType = 'blob';
+    httpRequest.send(formData);
+}
 
 function ExportStuff() {
 
