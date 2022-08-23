@@ -261,9 +261,9 @@ namespace docmaster.Controllers
 
         [HttpPost]
         [Consumes("application/json")]
-        public IActionResult Demo([FromBody] CustomParameter[] employees)
+        public IActionResult Demo([FromBody] CustomParameter employees)
         {
-            return new JsonResult(employees);
+            return new JsonResult(employees.fullName);
         }
 
 
