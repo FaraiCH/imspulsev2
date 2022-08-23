@@ -264,7 +264,7 @@ namespace docmaster.Controllers
         {
             Exec("sudo chmod 775 -R " + data.fullName);
             Stream document = WordDocument.Save(data.fullName, FormatType.Docx);
-            FileStream file = new FileStream("/var/www/html/sample22.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream file = new FileStream("/var/www/html/sample23.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             document.CopyTo(file);
             file.Close();
             document.Close();
