@@ -155,16 +155,20 @@
             });
 
             document.getElementById("element").addEventListener('click', function () {
-                    var documenteditorElement = document.getElementById("doccontainer");
-                    container = documenteditorElement.ej2_instances[0];
-                    var http = new XMLHttpRequest();
-                    http.open('POST', '/Home/SaveDocument');
-                    http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-                    http.responseType = 'json';
-                    //Serialize document content as SFDT.
-                    var sfdt = { content: container.serialize() };
-                    //Send the sfdt content to server side.
-                    http.send(JSON.stringify(sfdt));
+
+                var documenteditorElement = document.getElementById("doccontainer");
+                container = documenteditorElement.ej2_instances[0];
+                var fullName = container.serialize();
+                var payload = { fullName: fullName }; // change name
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/Demo/',
+                    // contentType: 'application/json', // remove this line
+                    data: payload, //remove JSON.stringify
+                    success: function (result) {
+                        alert(result);                  
+                    }
+                });
             });
           
         }

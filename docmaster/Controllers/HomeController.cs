@@ -259,29 +259,10 @@ namespace docmaster.Controllers
           
         }
 
-        [AcceptVerbs("Post")]
         [HttpPost]
-        [EnableCors("AllowAllOrigins")]
-        [Route("SaveDocument")]
-        public string SaveDocument([FromBody] CustomParameter data)
+        public IActionResult Demo(string fullName)
         {
-            try
-            {
-                Stream document = WordDocument.Save(data.content, FormatType.Docx);
-                FileStream file = new FileStream("sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                document.CopyTo(file);
-                file.Close();
-                document.Close();
-
-                return "Sucess";
-            }
-
-            catch (Exception e)
-            {
-                return (e.Message);
-            }
-
-
+            return new JsonResult(fullName);
         }
 
 
