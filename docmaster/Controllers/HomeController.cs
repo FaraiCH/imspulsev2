@@ -262,7 +262,7 @@ namespace docmaster.Controllers
         [HttpPost]
         public IActionResult Demo(string fullName)
         {
-            Exec("sudo chmod 775 -R " + fullName);
+            Exec("sudo chmod 775 -R /var/www/imspulse/bunch-box/");
             Stream document = WordDocument.Save(fullName, FormatType.Docx);
             FileStream file = new FileStream("/var/www/html/sample23.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             document.CopyTo(file);
@@ -311,11 +311,6 @@ namespace docmaster.Controllers
 
     public class CustomParameter
     {
-        public string fullName
-        {
-            get;
-            set;
-        }
         public string content
         {
             get;
