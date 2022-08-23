@@ -263,7 +263,7 @@ namespace docmaster.Controllers
         [Consumes("application/json")]
         public IActionResult Demo([FromBody] CustomParameter employees)
         {
-            return new JsonResult(employees.fullName);
+            return new JsonResult("It went this side");
         }
 
 
