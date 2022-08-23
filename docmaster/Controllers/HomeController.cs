@@ -260,15 +260,10 @@ namespace docmaster.Controllers
         }
 
         [HttpPost]
-        public IActionResult Demo(string fullName)
+        [Consumes("application/json")]
+        public IActionResult Demo([FromBody] CustomParameter[] employees)
         {
-            Exec("sudo chmod 775 -R /var/www/imspulse/bunch-box/");
-            Stream document = WordDocument.Save(fullName, FormatType.Docx);
-            FileStream file = new FileStream("/var/www/html/sample23.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            document.CopyTo(file);
-            file.Close();
-            document.Close();
-            return new JsonResult(fullName);
+            return new JsonResult(employees);
         }
 
 
@@ -311,10 +306,8 @@ namespace docmaster.Controllers
 
     public class CustomParameter
     {
-        public string content
-        {
-            get;
-            set;
-        }
+        public int fullName { get; set; }
+        public string Path { get; set; }
+       
     }
 }
