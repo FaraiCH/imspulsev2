@@ -263,7 +263,7 @@ namespace docmaster.Controllers
         [Consumes("application/json")]
         public IActionResult Demo([FromBody] CustomParameter employees)
         {
-            return Json(employees);
+            return Json(employees.fullName);
         }
 
         internal static FormatType GetFormatType(string format)
