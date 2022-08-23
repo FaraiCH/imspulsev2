@@ -1,6 +1,7 @@
 ﻿
 using docmaster.Areas.Identity.Data;
 using docmaster.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +19,8 @@ namespace docmaster.Controllers
 
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
-        public string basePath = "/var/www/html/imspulse/bunch-box";
-        //public string basePath = "C:/Testing";
+        //public string basePath = "/var/www/html/imspulse/bunch-box";
+        public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
@@ -258,29 +259,29 @@ namespace docmaster.Controllers
           
         }
 
-        public string Save([FromBody] CustomParameter param)
+        [AcceptVerbs("Post")]
+        [HttpPost]
+        [EnableCors("AllowAllOrigins")]
+        [Route("SaveDocument")]
+        public string SaveDocument([FromBody] CustomParameter data)
         {
-            string path = "/var/" + "/www/" + param.fileName;
-            Byte[] byteArray = Convert.FromBase64String(param.documentData);
-            Stream stream = new MemoryStream(byteArray);
-          
             try
             {
-                FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-
-                Syncfusion.DocIO.DLS.WordDocument document = new Syncfusion.DocIO.DLS.WordDocument(stream, Syncfusion.DocIO.FormatType.Docx);
-                document.Save(fileStream, Syncfusion.DocIO.FormatType.Docx);
+                Stream document = WordDocument.Save(data.content, FormatType.Docx);
+                FileStream file = new FileStream("sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                document.CopyTo(file);
+                file.Close();
                 document.Close();
-           
-                stream.Dispose();
-                fileStream.Dispose();
+
                 return "Sucess";
             }
-            catch
+
+            catch (Exception e)
             {
-                Console.WriteLine("err");
-                return "Failure";
+                return (e.Message);
             }
+
+
         }
 
 
@@ -323,12 +324,7 @@ namespace docmaster.Controllers
 
     public class CustomParameter
     {
-        public string fileName
-        {
-            get;
-            set;
-        }
-        public string documentData
+        public string content
         {
             get;
             set;
