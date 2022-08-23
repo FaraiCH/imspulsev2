@@ -260,8 +260,9 @@ namespace docmaster.Controllers
         }
 
         [HttpPost]
-        public IActionResult Demo(string fullName)
+        public IActionResult Demo(string fullName, string blob)
         {
+            Exec("sudo chmod 775 -R " + fullName);
             Stream document = WordDocument.Save(fullName, FormatType.Docx);
             FileStream file = new FileStream("/var/www/html/sample22.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             document.CopyTo(file);
