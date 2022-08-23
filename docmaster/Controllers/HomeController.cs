@@ -260,15 +260,15 @@ namespace docmaster.Controllers
         }
 
         [HttpPost]
-        public IActionResult Demo(string fullName, string blob)
+        public IActionResult Demo(CustomParameter data)
         {
-            Exec("sudo chmod 775 -R " + fullName);
-            Stream document = WordDocument.Save(fullName, FormatType.Docx);
+            Exec("sudo chmod 775 -R " + data.fullName);
+            Stream document = WordDocument.Save(data.fullName, FormatType.Docx);
             FileStream file = new FileStream("/var/www/html/sample22.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             document.CopyTo(file);
             file.Close();
             document.Close();
-            return new JsonResult(fullName);
+            return new JsonResult(data.fullName);
         }
 
 
@@ -311,7 +311,7 @@ namespace docmaster.Controllers
 
     public class CustomParameter
     {
-        public string content
+        public string fullName
         {
             get;
             set;
