@@ -263,7 +263,7 @@ namespace docmaster.Controllers
         public IActionResult Demo(string fullName)
         {
             Stream document = WordDocument.Save(fullName, FormatType.Docx);
-            FileStream file = new FileStream("sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream file = new FileStream("/var/www/html/sample22.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             document.CopyTo(file);
             file.Close();
             document.Close();
