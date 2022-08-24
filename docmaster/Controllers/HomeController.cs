@@ -52,6 +52,7 @@ namespace docmaster.Controllers
         }
         public object FileOperations([FromBody] FileManagerDirectoryContent args)
         {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             var fullPath = this.basePath.Replace('\\', '/') + args.Path;
             if (args.Action == "delete" || args.Action == "rename")
             {
@@ -103,8 +104,8 @@ namespace docmaster.Controllers
         // uploads the file(s) into a specified path
         public async Task<IActionResult> Upload(string path, IList<IFormFile> uploadFiles, string action)
         {
-          
-            
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
+
             FileManagerResponse uploadResponse;
             var user = await _userManager.GetUserAsync(this.User);
             double fCount = GetDirectorySize(this.basePath + "/" + user.Company);
@@ -303,6 +304,7 @@ namespace docmaster.Controllers
         [HttpPost]
         public IActionResult Demo([FromBody] PayloadModel payload)
         {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             try
             {
                 Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
