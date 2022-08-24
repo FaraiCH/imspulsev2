@@ -108,23 +108,9 @@ namespace docmaster.Controllers
             double fCount = GetDirectorySize(this.basePath + "/" + user.Company);
             foreach (var item in uploadFiles)
             {
-                if (!item.FileName.Contains(".doc") || !item.FileName.Contains(".xls") || !item.FileName.Contains(".xls") || !item.FileName.Contains(".ppt") || !item.FileName.Contains(".pdf") || !item.FileName.Contains(".vsd") || !item.FileName.Contains(".pub") || !item.FileName.Contains(".txt"))
-                {
-                    if (!this.User.IsInRole("Ultimate"))
-                    {
-                        Response.Clear();
-                        Response.ContentType = "application/json; charset=utf-8";
-                        Response.StatusCode = Convert.ToInt32("1111");
-                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "Only the Ultimate Plan allows to upload any file type. You are only limited to upload document file types";
-                    }
-                    else
-                    {
-                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
-                    }
-
-                }
-                else
-                {
+                if (item.FileName.Contains(".doc") || item.FileName.Contains(".xls") || item.FileName.Contains(".xls") || item.FileName.Contains(".csv") || item.FileName.Contains(".ppt") || item.FileName.Contains(".pdf") || item.FileName.Contains(".vsd") || item.FileName.Contains(".pub") || item.FileName.Contains(".txt"))
+                {          
+               
                     if (!this.User.IsInRole("Master"))
                     {
                         if (this.User.IsInRole("Basic"))
@@ -195,6 +181,13 @@ namespace docmaster.Controllers
                         }
                     }
 
+                }
+                else
+                {
+                    Response.Clear();
+                    Response.ContentType = "application/json; charset=utf-8";
+                    Response.StatusCode = Convert.ToInt32("1111");
+                    Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "The Document Manager does not support this file format.";
                 }
 
             }
