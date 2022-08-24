@@ -11,7 +11,9 @@ using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
+using Syncfusion.EJ2.Spreadsheet;
 using Syncfusion.Presentation;
+using Syncfusion.XlsIO;
 using System.Diagnostics;
 
 namespace docmaster.Controllers
@@ -253,26 +255,47 @@ namespace docmaster.Controllers
         public IActionResult Demo2(string fullName)
         {
             Exec("sudo chmod 775 -R " + fullName);
+         
             if (fullName == null)
                 return null;
             try
             {
-                Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
+                if (fullName.Contains(".doc"))
+                {
+                    Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
 
-                int index = fullName.LastIndexOf('.');
-                string type = index > -1 && index < fullName.Length - 1 ?
-                fullName.Substring(index) : ".docx";
-                FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
-                string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
-                document.Dispose();
-                fileStreamPath.Close();
-                return new JsonResult(sfdt);
+                    int index = fullName.LastIndexOf('.');
+                    string type = index > -1 && index < fullName.Length - 1 ?
+                    fullName.Substring(index) : ".docx";
+                    FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+                    string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+                    document.Dispose();
+                    fileStreamPath.Close();
+                    return new JsonResult(sfdt);
+                }
+                if (fullName.Contains(".xls"))
+                {
+
+                    ExcelEngine excelEngine = new ExcelEngine();
+                    IWorkbook workbook;
+                    FileStream fs = System.IO.File.Open(fullName, FileMode.Open); // converting excel file to stream 
+                    workbook = excelEngine.Excel.Workbooks.Open(fs, ExcelOpenType.Automatic); // coverting stream to XlsIO workbook 
+                    MemoryStream outputStream = new MemoryStream();
+                    workbook.SaveAs(outputStream);
+                    IFormFile formFile = new FormFile(outputStream, 0, outputStream.Length, "", ""); // converting MemoryStream to IFormFile 
+                    OpenRequest open = new OpenRequest();
+                    open.File = formFile;
+                    fs.Close();
+                    return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
+                }
+                return new JsonResult("");
+         
             }
             catch (Exception ex)
             {
 
-                return null;
+                return new JsonResult(ex.Message);
             }
           
         }
@@ -326,7 +349,7 @@ namespace docmaster.Controllers
                     else if (payload.path.Contains(".xls"))
                     {
                         Aspose.Cells.LoadOptions getum3 = new Aspose.Cells.LoadOptions { Password = payload.fullName };
-                        Workbook workt = new Workbook(basepath + payload.path, getum3);
+                        Aspose.Cells.Workbook workt = new Aspose.Cells.Workbook(basepath + payload.path, getum3);
                         workt.Settings.Password = payload.fullName;
                         workt.Save(basepath + payload.path);
                      
@@ -364,7 +387,7 @@ namespace docmaster.Controllers
                     else if (payload.path.Contains(".xls"))
                     {
                         Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = payload.fullName };
-                        Workbook worsk = new Workbook(basepath + payload.path, getums);
+                        Aspose.Cells.Workbook worsk = new Aspose.Cells.Workbook(basepath + payload.path, getums);
 
                         worsk.Settings.Password = null;
 

@@ -232,6 +232,45 @@
                 });
             }
 
+            if (args.fileDetails[0].name.includes('.xls')) {
+                var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
+                var payload = { fullName: fullName }; // change name
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/Demo2/',
+                    // contentType: 'application/json', // remove this line
+                    data: payload, //remove JSON.stringify
+                    success: function (result) {
+                        var spreedsheetElement = document.getElementById("spreedsheet");
+                        container = spreedsheetElement.ej2_instances[0];
+                                          
+                        container.open(result);   
+                    
+                        var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
+                        dialog.show();
+                
+                    }
+                });
+
+                document.getElementById("element").addEventListener('click', function () {
+
+                    var documenteditorElement = document.getElementById("doccontainer");
+                    container = documenteditorElement.ej2_instances[0];
+                    var fullName = container.serialize();
+                    var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
+                    var strJson = JSON.stringify(payload);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/Demo/',              
+                        contentType: 'application/json', // remove this line
+                        data: strJson, //remove JSON.stringify
+                        success: function (result) {
+                            alert(result);                  
+                        }
+                    });
+                });
+            }
+
 
           
         }
