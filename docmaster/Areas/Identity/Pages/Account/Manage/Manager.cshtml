@@ -159,14 +159,12 @@
                 var documenteditorElement = document.getElementById("doccontainer");
                 container = documenteditorElement.ej2_instances[0];
                 var fullName = container.serialize();
-                var payload = [{ "fullName": fullName, "path": "This is a path" }]; // change name
-                var strJson = JSON.stringify(payload);
+                var payload = { "fullName": fullName }; // change name   
                 $.ajax({
                     type: 'POST',
                     url: '/Home/Demo/',
-                    dataType: "json",
                     // contentType: 'application/json', // remove this line
-                    data: strJson, //remove JSON.stringify
+                    data: payload, //remove JSON.stringify
                     success: function (result) {
                         alert(result);                  
                     }
