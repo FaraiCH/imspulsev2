@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager;
 using Syncfusion.EJ2.FileManager.Base;
@@ -260,7 +261,7 @@ namespace docmaster.Controllers
         }
 
         [HttpPost]
-        public IActionResult Demo(string fullName)
+        public IActionResult Demo(JObject fullName)
         {
             return new JsonResult(fullName);
         }
