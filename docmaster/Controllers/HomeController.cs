@@ -265,6 +265,7 @@ namespace docmaster.Controllers
             try
             {
                 Stream document = WordDocument.Save(payload.fullName, FormatType.Docx);
+                System.IO.File.Delete(payload.path);
                 FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 document.CopyTo(file);
                 file.Close();
