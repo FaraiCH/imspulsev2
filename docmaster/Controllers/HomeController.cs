@@ -271,7 +271,7 @@ namespace docmaster.Controllers
                 file.Close();
                 document.Close();
 
-                return new JsonResult("Success");
+                return new JsonResult("Document Successfully Saved!");
             }
 
             catch (Exception e)
