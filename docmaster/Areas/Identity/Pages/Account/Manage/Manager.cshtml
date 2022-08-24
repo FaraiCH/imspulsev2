@@ -109,6 +109,13 @@
         </e-content-template>
       
     </ejs-dialog>
+    <ejs-dialog isModal="true" visible="false" id="default_dialog4" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
+        <e-content-template>
+            <ejs-button id="element" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
+            <ejs-spreadsheet id="spreadsheet" allowOpen ="true"></ejs-spreadsheet>
+        </e-content-template>
+      
+    </ejs-dialog>
 </div>
  
 <script>
@@ -163,61 +170,65 @@
           
         }
         if (args.item.text === 'Edit') {
-            var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
-            var payload = { fullName: fullName }; // change name
-            $.ajax({
-                type: 'POST',
-                url: '/Home/Demo2/',
-                // contentType: 'application/json', // remove this line
-                data: payload, //remove JSON.stringify
-                success: function (result) {
-                    var documenteditorElement = document.getElementById("doccontainer");
-                    container = documenteditorElement.ej2_instances[0];
-                    container.keyDown = function (args) {
-                        var keyCode = args.event.which || args.event.keyCode;
-
-                        var isCtrlKey = (args.event.ctrlKey || args.event.metaKey) ? true : ((keyCode === 17) ? true : false);
-
-                        var isAltKey = args.event.altKey ? args.event.altKey : ((keyCode === 18) ? true : false);
-
-                        // 83 is the character code for 'S'
-                        if (isCtrlKey && !isAltKey && keyCode === 83) {
-                            //To prevent default save operation, set the isHandled property to true
-                            args.isHandled = true;
-                            documentEditor.save(args.fileDetails[0].name, 'Docx');
-                            args.event.preventDefault();
-                        } else if (isCtrlKey && isAltKey && keyCode === 83) {
-                            documentEditor.save(args.fileDetails[0].name, 'Docx');
-                        }
-                    }
-                                    
-                    container.open(result);   
-                    
-                    var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
-                    dialog.show();
-
-                    
-                }
-            });
-
-
-            document.getElementById("element").addEventListener('click', function () {
-
-                var documenteditorElement = document.getElementById("doccontainer");
-                container = documenteditorElement.ej2_instances[0];
-                var fullName = container.serialize();
-                var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
-                var strJson = JSON.stringify(payload);
+            if (args.fileDetails[0].name.includes('.doc')) {
+                var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
+                var payload = { fullName: fullName }; // change name
                 $.ajax({
                     type: 'POST',
-                    url: '/Home/Demo/',              
-                    contentType: 'application/json', // remove this line
-                    data: strJson, //remove JSON.stringify
+                    url: '/Home/Demo2/',
+                    // contentType: 'application/json', // remove this line
+                    data: payload, //remove JSON.stringify
                     success: function (result) {
-                        alert(result);                  
+                        var documenteditorElement = document.getElementById("doccontainer");
+                        container = documenteditorElement.ej2_instances[0];
+                        container.keyDown = function (args) {
+                            var keyCode = args.event.which || args.event.keyCode;
+
+                            var isCtrlKey = (args.event.ctrlKey || args.event.metaKey) ? true : ((keyCode === 17) ? true : false);
+
+                            var isAltKey = args.event.altKey ? args.event.altKey : ((keyCode === 18) ? true : false);
+
+                            // 83 is the character code for 'S'
+                            if (isCtrlKey && !isAltKey && keyCode === 83) {
+                                //To prevent default save operation, set the isHandled property to true
+                                args.isHandled = true;
+                                documentEditor.save(args.fileDetails[0].name, 'Docx');
+                                args.event.preventDefault();
+                            } else if (isCtrlKey && isAltKey && keyCode === 83) {
+                                documentEditor.save(args.fileDetails[0].name, 'Docx');
+                            }
+                        }
+                                    
+                        container.open(result);   
+                    
+                        var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
+                        dialog.show();
+
+                    
                     }
                 });
-            });
+
+
+                document.getElementById("element").addEventListener('click', function () {
+
+                    var documenteditorElement = document.getElementById("doccontainer");
+                    container = documenteditorElement.ej2_instances[0];
+                    var fullName = container.serialize();
+                    var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
+                    var strJson = JSON.stringify(payload);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/Demo/',              
+                        contentType: 'application/json', // remove this line
+                        data: strJson, //remove JSON.stringify
+                        success: function (result) {
+                            alert(result);                  
+                        }
+                    });
+                });
+            }
+
+
           
         }
  
