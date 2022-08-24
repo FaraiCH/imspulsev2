@@ -128,9 +128,11 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog2").ej2_instances[0];
                 document.getElementById("path2").setAttribute("value", args.fileDetails[0].filterPath + args.fileDetails[0].name);
-                
                 dialog.show();
+            
             }
+
+             
           
         }
         if (args.item.text === 'Edit') {
@@ -154,18 +156,18 @@
                 }
             });
 
+
             document.getElementById("element").addEventListener('click', function () {
 
                 var documenteditorElement = document.getElementById("doccontainer");
                 container = documenteditorElement.ej2_instances[0];
                 var fullName = container.serialize();
-                var payload = [{ "fullName": fullName, "path": "This is a path" }]; // change name
+                var payload = { "fullName": fullName, "path": "This is a path" }; // change name
                 var strJson = JSON.stringify(payload);
                 $.ajax({
                     type: 'POST',
-                    url: '/Home/Demo/',
-                    dataType: "json",
-                    // contentType: 'application/json', // remove this line
+                    url: '/Home/Demo/',              
+                    contentType: 'application/json', // remove this line
                     data: strJson, //remove JSON.stringify
                     success: function (result) {
                         alert(result);                  

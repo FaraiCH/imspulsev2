@@ -260,10 +260,10 @@ namespace docmaster.Controllers
         }
 
         [HttpPost]
-        [Consumes("application/json")]
-        public IActionResult Demo([FromBody] CustomParameter[] employees)
+        public IActionResult Demo([FromBody] PayloadModel payload)
         {
-            return Json(employees);
+
+            return new JsonResult(payload.path);
         }
 
         internal static FormatType GetFormatType(string format)
@@ -303,10 +303,5 @@ namespace docmaster.Controllers
         }
     }
 
-    public class CustomParameter
-    {
-        public string fullName { get; set; }
-        public string path { get; set; }
-       
-    }
+
 }
