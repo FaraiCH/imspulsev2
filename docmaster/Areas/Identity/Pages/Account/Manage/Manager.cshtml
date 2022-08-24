@@ -162,7 +162,7 @@
                 var documenteditorElement = document.getElementById("doccontainer");
                 container = documenteditorElement.ej2_instances[0];
                 var fullName = container.serialize();
-                var payload = { "fullName": fullName, "path": "This is a path" }; // change name
+                var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
                 var strJson = JSON.stringify(payload);
                 $.ajax({
                     type: 'POST',

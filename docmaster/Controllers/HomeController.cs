@@ -262,8 +262,22 @@ namespace docmaster.Controllers
         [HttpPost]
         public IActionResult Demo([FromBody] PayloadModel payload)
         {
+            try
+            {
+                Stream document = WordDocument.Save(payload.fullName, FormatType.Docx);
+                FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                document.CopyTo(file);
+                file.Close();
+                document.Close();
 
-            return new JsonResult(payload.path);
+                return new JsonResult("Success");
+            }
+
+            catch (Exception e)
+            {
+                return new JsonResult(e.Message);
+            }
+          
         }
 
         internal static FormatType GetFormatType(string format)
