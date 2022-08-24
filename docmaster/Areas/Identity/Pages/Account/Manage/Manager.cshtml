@@ -73,7 +73,7 @@
          <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
                 <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password" class='form-control' id='password'></div>
-                <button id="enc" class="btn btn-outline-primary float-end">Protect</button>
+                <button id="encry" class="btn btn-outline-primary float-end">Protect</button>
                
             </e-content-template>
       
@@ -83,7 +83,7 @@
             <e-content-template>
              
                 <div class='form-group'><label for='name'>Password:</label><input type='password' value='' name="password" class='form-control' id='password2'></div>
-                <button id="dec" class="btn btn-outline-warning float-end">Unprotect</button>
+                <button id="decry" class="btn btn-outline-warning float-end">Unprotect</button>
               
             </e-content-template>
             
@@ -113,7 +113,7 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
                 dialog.show();
-                document.getElementById("enc").addEventListener('click', function() {
+                document.getElementById("encry").addEventListener('click', function() {
                     var pas2 = document.getElementById('password');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "encrypt" };
                     var strJson = JSON.stringify(formData)
@@ -124,6 +124,7 @@
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
                             alert(result);
+                            dialog.hide();
                         }
                     });
 
@@ -135,7 +136,7 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog2").ej2_instances[0];
                 dialog.show();
-                document.getElementById("dec").addEventListener('click', function() {
+                document.getElementById("decry").addEventListener('click', function() {
                     var pas2 = document.getElementById('password2');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "decrypt" };
                     var strJson = JSON.stringify(formData)
@@ -146,6 +147,7 @@
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
                             alert(result);
+                            dialog.hide();
                         }
                     });
 

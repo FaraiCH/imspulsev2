@@ -374,7 +374,7 @@ namespace docmaster.Controllers
                         }
        
                     }
-                    return new JsonResult("Encrypt Successful");
+                    return new JsonResult("Decrypt Successful");
                 }
             }
             catch (Exception ex)
