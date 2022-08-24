@@ -1,4 +1,5 @@
 ﻿
+using Aspose.Cells;
 using docmaster.Areas.Identity.Data;
 using docmaster.Models;
 using Microsoft.AspNetCore.Cors;
@@ -10,6 +11,7 @@ using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
+using Syncfusion.Presentation;
 using System.Diagnostics;
 
 namespace docmaster.Controllers
@@ -19,8 +21,8 @@ namespace docmaster.Controllers
 
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
-        public string basePath = "/var/www/html/imspulse/bunch-box";
-        //public string basePath = "C:/Testing";
+        //public string basePath = "/var/www/html/imspulse/bunch-box";
+        public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
@@ -264,7 +266,7 @@ namespace docmaster.Controllers
         {
             try
             {
-                Stream document = WordDocument.Save(payload.fullName, FormatType.Docx);
+                Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
                 System.IO.File.Delete(payload.path);
                 FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 document.CopyTo(file);
@@ -281,7 +283,109 @@ namespace docmaster.Controllers
           
         }
 
-        internal static FormatType GetFormatType(string format)
+        public IActionResult Protect([FromBody] ProtectModel payload)
+        {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string basepath = "/var/www/html/imspulse/bunch-box";
+            //string basepath = "C:/Testing";
+            try
+            {
+                if (payload.state == "encrypt")
+                {
+                    if (payload.path.Contains(".doc"))
+                    {
+                        Aspose.Words.Saving.OoxmlSaveOptions opt = new Aspose.Words.Saving.OoxmlSaveOptions(Aspose.Words.SaveFormat.Docx);
+
+                        opt.Compliance = Aspose.Words.Saving.OoxmlCompliance.Iso29500_2008_Transitional;
+
+                        opt.Password = payload.fullName;
+                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = payload.fullName };
+                        Aspose.Words.Document docu = new Aspose.Words.Document(basepath + payload.path, getum12);
+
+                        docu.Save(basepath + payload.path, opt);
+        
+
+                    }
+                    else if (payload.path.Contains(".xls"))
+                    {
+                        Aspose.Cells.LoadOptions getum3 = new Aspose.Cells.LoadOptions { Password = payload.fullName };
+                        Workbook workt = new Workbook(basepath + payload.path, getum3);
+                        workt.Settings.Password = payload.fullName;
+                        workt.Save(basepath + payload.path);
+                     
+                    }
+                    else if (payload.path.Contains(".ppt"))
+                    {
+                        FileStream fileStreamPath = new FileStream(basepath + payload.path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath))
+                        {
+                            //Protects the file with password.
+                            presentation.Encrypt(payload.fullName);
+
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + payload.path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                              
+                            }
+                        }
+                      
+                    }
+                    return new JsonResult("Encrypt Successful");
+                }
+                else
+                {
+                    if (payload.path.Contains(".doc"))
+                    {
+                        Aspose.Words.LoadOptions getum12 = new Aspose.Words.LoadOptions { Password = payload.fullName };
+                        Aspose.Words.Document docu = new Aspose.Words.Document(basepath + payload.path, getum12);
+                        docu.Unprotect();
+                        docu.Save(basepath + payload.path);
+                     
+                    }
+                    else if (payload.path.Contains(".xls"))
+                    {
+                        Aspose.Cells.LoadOptions getums = new Aspose.Cells.LoadOptions { Password = payload.fullName };
+                        Workbook worsk = new Workbook(basepath + payload.path, getums);
+
+                        worsk.Settings.Password = null;
+
+                        worsk.Save(basepath + payload.path);
+                    
+                    }
+                    else if (payload.path.Contains(".ppt"))
+                    {
+                        FileStream fileStreamPath = new FileStream(basepath + payload.path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        using (IPresentation presentation = Presentation.Open(fileStreamPath, payload.fullName))
+                        {
+                            //Protects the file with password.
+                            presentation.RemoveEncryption();
+
+                            //Save the PowerPoint Presentation as stream.
+
+                            using (FileStream outputStream = new FileStream(basepath + payload.path, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                presentation.Save(outputStream);
+                                
+                            }
+
+                        }
+       
+                    }
+                    return new JsonResult("Encrypt Successful");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new JsonResult(ex.Message);
+            }
+
+        }
+
+        internal static Syncfusion.EJ2.DocumentEditor.FormatType GetFormatType(string format)
         {
             if (string.IsNullOrEmpty(format))
                 throw new NotSupportedException("EJ2 DocumentEditor does not support this file format.");
@@ -291,16 +395,16 @@ namespace docmaster.Controllers
                 case ".docx":
                 case ".docm":
                 case ".dotm":
-                    return FormatType.Docx;
+                    return Syncfusion.EJ2.DocumentEditor.FormatType.Docx;
                 case ".dot":
                 case ".doc":
-                    return FormatType.Doc;
+                    return Syncfusion.EJ2.DocumentEditor.FormatType.Doc;
                 case ".rtf":
-                    return FormatType.Rtf;
+                    return Syncfusion.EJ2.DocumentEditor.FormatType.Rtf;
                 case ".txt":
-                    return FormatType.Txt;
+                    return Syncfusion.EJ2.DocumentEditor.FormatType.Txt;
                 case ".xml":
-                    return FormatType.WordML;
+                    return Syncfusion.EJ2.DocumentEditor.FormatType.WordML;
                 default:
                     throw new NotSupportedException("EJ2 DocumentEditor does not support this file format.");
             }
