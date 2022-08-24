@@ -73,7 +73,7 @@
          <ejs-dialog visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
                 <div>
-                    <div class='form-group'><label for='password'>Password:</label><input type='password' value='' name="password" class='form-control' id='password'></div>
+                    <div class='form-group'><label for='password'>Password:</label><input type='password' value='' name="mypass" class='form-control' id='mypassword'></div>
                     <button id="encry" class="btn btn-outline-primary float-end">Protect</button>
                 </div>
                
@@ -85,7 +85,7 @@
              <ejs-dialog visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
             <e-content-template>
              <div>
-                <div class='form-group'><label for='password'>Password:</label><input type='password' value='' name="password" class='form-control' id='password2'></div>
+                <div class='form-group'><label for='password'>Password:</label><input type='password' value='' name="mypass" class='form-control' id='mypassword2'></div>
                 <button id="decry" class="btn btn-outline-warning float-end">Unprotect</button>
              </div>
          
@@ -119,7 +119,7 @@
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
                 dialog.show();
                 document.getElementById("encry").addEventListener('click', function() {
-                    var pas2 = document.getElementById('password');
+                    var pas2 = document.getElementById('mypassword');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "encrypt" };
                     var strJson = JSON.stringify(formData)
                     $.ajax({
@@ -142,7 +142,7 @@
                 var dialog = document.getElementById("default_dialog2").ej2_instances[0];
                 dialog.show();
                 document.getElementById("decry").addEventListener('click', function() {
-                    var pas2 = document.getElementById('password2');
+                    var pas2 = document.getElementById('mypassword2');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "decrypt" };
                     var strJson = JSON.stringify(formData)
                     $.ajax({
