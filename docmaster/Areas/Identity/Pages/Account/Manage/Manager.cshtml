@@ -105,7 +105,7 @@
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             <ejs-button id="element" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
-            <ejs-documenteditor enableOptionsPane=true isReadOnly=false enableEditor=true enableContextMenu=true enableSelection=true enableSfdtExport=true enableWordExport=true height="600px" id="doccontainer"></ejs-documenteditor>
+            <ejs-documenteditorcontainer height="600px" id="doccontainer"></ejs-documenteditorcontainer>
         </e-content-template>
       
     </ejs-dialog>
@@ -185,7 +185,7 @@
                     success: function (result) {
                         var documenteditorElement = document.getElementById("doccontainer");
                         container = documenteditorElement.ej2_instances[0];
-                        container.keyDown = function (args) {
+                        container.documentEditor.keyDown = function (args) {
                             var keyCode = args.event.which || args.event.keyCode;
 
                             var isCtrlKey = (args.event.ctrlKey || args.event.metaKey) ? true : ((keyCode === 17) ? true : false);
@@ -196,14 +196,14 @@
                             if (isCtrlKey && !isAltKey && keyCode === 83) {
                                 //To prevent default save operation, set the isHandled property to true
                                 args.isHandled = true;
-                                documentEditor.save(args.fileDetails[0].name, 'Docx');
+                                container.documentEditor.save(args.fileDetails[0].name, 'Docx');
                                 args.event.preventDefault();
                             } else if (isCtrlKey && isAltKey && keyCode === 83) {
-                                documentEditor.save(args.fileDetails[0].name, 'Docx');
+                                container.documentEditor.save(args.fileDetails[0].name, 'Docx');
                             }
                         }
                                     
-                        container.open(result);   
+                        container.documentEditor.open(result);   
                     
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
                         dialog.show();
@@ -217,7 +217,7 @@
 
                     var documenteditorElement = document.getElementById("doccontainer");
                     container = documenteditorElement.ej2_instances[0];
-                    var fullName = container.serialize();
+                    var fullName = container.documentEditor.serialize();
                     var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
                     var strJson = JSON.stringify(payload);
                     $.ajax({
@@ -247,7 +247,7 @@
 
                 document.getElementById("elementsp").addEventListener('click', function () {
 
-                    var documenteditorElement = document.getElementById("doccontainer");
+                    var documenteditorElement = document.getElementById("spreadsheet");
                     container = documenteditorElement.ej2_instances[0];
                     var fullName = container.serialize();
                     var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
