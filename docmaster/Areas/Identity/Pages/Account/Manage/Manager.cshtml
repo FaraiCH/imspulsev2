@@ -244,6 +244,7 @@
                     success: function (result) {
                         var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');           
                         var file = new File([result], "Sample.xlsx"); //convert the blob into file
+                        alert(file);
                         spreadsheet.open({ file: file }); // open the file into Spreadsheet
                             
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
