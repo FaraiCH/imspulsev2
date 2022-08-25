@@ -116,7 +116,7 @@
         <ejs-dialog isModal="true" visible="false" id="default_dialog4" target="#spreedsheetedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             <ejs-button id="elementsp" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
-            <ejs-spreadsheet id="spreadsheet" openUrl="/Home/Opened" allowOpen ="true" created="created"></ejs-spreadsheet>
+            <ejs-spreadsheet id="spreadsheet" openUrl="/Home/Opened" allowOpen ="true"></ejs-spreadsheet>
         </e-content-template>
       
         </ejs-dialog>
@@ -124,16 +124,6 @@
  
 <script>
 
-    function created() {
-        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
-        fetch("https://js.syncfusion.com/demos/ejservices/data/Spreadsheet/LargeData.xlsx") // fetch the remote url
-            .then((response) => {
-                response.blob().then((fileBlob) => { // convert the excel file to blob
-                    var file = new File([fileBlob], "Sample.xlsx"); //convert the blob into file
-                    spreadsheet.open({ file: file }); // open the file into Spreadsheet
-                })
-            })
-    }
     function toolbarClick(args) {
         if (args.item.text === 'Encrypt') {
             if (args.fileDetails[0].isFile) {
@@ -252,7 +242,14 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-         
+                        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
+                        fetch("https://js.syncfusion.com/demos/ejservices/data/Spreadsheet/LargeData.xlsx") // fetch the remote url
+                            .then((response) => {
+                                response.blob().then((fileBlob) => { // convert the excel file to blob
+                                    var file = new File([fileBlob], "Sample.xlsx"); //convert the blob into file
+                                    spreadsheet.open({ file: file }); // open the file into Spreadsheet
+                                })
+                            })
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
                         dialog.show();               
                     }
