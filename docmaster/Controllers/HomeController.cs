@@ -288,7 +288,7 @@ namespace docmaster.Controllers
                     OpenRequest open = new OpenRequest();
                     open.File = formFile;
                     fs.Close();
-                    return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
+                    return Content(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
                 }
                 return new JsonResult("");
          
