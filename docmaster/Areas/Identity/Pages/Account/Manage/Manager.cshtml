@@ -242,6 +242,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
+                        alert("https://imspulse.com/bunch-box" + args.fileDetails[0].filterPath + args.fileDetails[0].name)
                         var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
                         fetch("https://imspulse.com/bunch-box" + args.fileDetails[0].filterPath + args.fileDetails[0].name) // fetch the remote url
                             .then((response) => {
@@ -249,7 +250,7 @@
                                     var file = new File([fileBlob], "Sample.xlsx"); //convert the blob into file
                                     spreadsheet.open({ file: file }); // open the file into Spreadsheet
                                 })
-                            })
+                            });
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
                         dialog.show();               
                     }
