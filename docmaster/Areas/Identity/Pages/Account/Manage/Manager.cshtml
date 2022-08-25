@@ -232,8 +232,7 @@
             }
 
             if (args.fileDetails[0].name.includes('.xls')) {
-                var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
-     
+               
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
@@ -242,6 +241,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
+                        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
                         spreadsheet.open(result);                
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
                         dialog.show();               
