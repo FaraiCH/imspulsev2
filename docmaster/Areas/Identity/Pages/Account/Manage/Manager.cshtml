@@ -124,6 +124,53 @@
  
 <script>
     function toolbarClick(args) {
+        if (args.item.text === 'Encrypt') {
+            if (args.fileDetails[0].isFile) {
+                var dialog = document.getElementById("default_dialog").ej2_instances[0];
+                dialog.show();
+                document.getElementById("encry").addEventListener('click', function() {
+                    var pas2 = document.getElementById('mypassword');
+                    var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "encrypt" };
+                    var strJson = JSON.stringify(formData)
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/Protect/',
+                        contentType: 'application/json', // remove this line
+                        data: strJson, //remove JSON.stringify
+                        success: function(result) {
+                            alert(result);
+                            dialog.hide();
+                        }
+                    });
+
+                });
+            }
+          
+        }
+        if (args.item.text === 'Decrypt') {
+            if (args.fileDetails[0].isFile) {
+                var dialog = document.getElementById("default_dialog2").ej2_instances[0];
+                dialog.show();
+                document.getElementById("decry").addEventListener('click', function() {
+                    var pas2 = document.getElementById('mypassword2');
+                    var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "decrypt" };
+                    var strJson = JSON.stringify(formData)
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/Protect/',
+                        contentType: 'application/json', // remove this line
+                        data: strJson, //remove JSON.stringify
+                        success: function(result) {
+                            alert(result);
+                            dialog.hide();
+                        }
+                    });
+
+                });
+            }
+         
+        }
+
         if (args.item.text === 'Edit') {
                    
             if (args.fileDetails[0].name.includes('.doc')) {
