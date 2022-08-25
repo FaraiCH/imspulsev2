@@ -255,7 +255,7 @@ namespace docmaster.Controllers
         [HttpPost]
         public IActionResult Demo2(string fullName)
         {
-            Exec("sudo chmod 775 -R " + fullName);
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
          
             if (fullName == null)
                 return null;
