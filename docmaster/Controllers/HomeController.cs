@@ -284,7 +284,7 @@ namespace docmaster.Controllers
                     workbook = excelEngine.Excel.Workbooks.Open(fs, ExcelOpenType.Automatic); // coverting stream to XlsIO workbook 
                     MemoryStream outputStream = new MemoryStream();
                     workbook.SaveAs(outputStream);
-                    IFormFile formFile = new FormFile(outputStream, 0, outputStream.Length, "", ""); // converting MemoryStream to IFormFile 
+                    IFormFile formFile = new FormFile(outputStream, 0, outputStream.Length, "", "sample.xlsx"); // converting MemoryStream to IFormFile 
                     OpenRequest open = new OpenRequest();
                     open.File = formFile;
                     fs.Close();
