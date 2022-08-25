@@ -243,7 +243,7 @@
                     success: function (result) {
                         var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');  
                         var file = new File([result], "Temp.xlsx"); //convert the blob into file
-                        spreadsheet.open({ file: file })
+                        spreadsheet.open(result)
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
                         dialog.show();               
                     }
