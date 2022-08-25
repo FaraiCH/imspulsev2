@@ -232,6 +232,8 @@
             }
 
             if (args.fileDetails[0].name.includes('.xls')) {
+                var documenteditorElement = document.getElementById("spreadsheet");
+                container = documenteditorElement.ej2_instances[0];
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
@@ -240,7 +242,10 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        alert(result);                
+                        container.open(result);   
+                    
+                        var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
+                        dialog.show();               
                     }
                 });
 
