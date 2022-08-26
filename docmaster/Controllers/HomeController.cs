@@ -314,12 +314,17 @@ namespace docmaster.Controllers
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             try
             {
-                Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
-                System.IO.File.Delete(payload.path);
-                FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                document.CopyTo(file);
-                file.Close();
-                document.Close();
+                if (payload.path.Contains(".doc"))
+                {
+                    Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
+                    System.IO.File.Delete(payload.path);
+                    FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                    document.CopyTo(file);
+                    file.Close();
+                    document.Close();
+                }
+  
+                
 
                 return new JsonResult("Document Successfully Saved!");
             }
@@ -331,6 +336,10 @@ namespace docmaster.Controllers
           
         }
 
+        public void SaveExcel(SaveSettings saveSettings)
+        {
+            Syncfusion.EJ2.Spreadsheet.Workbook.Save(saveSettings);
+        }
         public IActionResult Protect([FromBody] ProtectModel payload)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");
