@@ -301,6 +301,13 @@ namespace docmaster.Controllers
           
         }
 
+        public IActionResult Opened(IFormCollection openRequest)
+        {
+            OpenRequest open = new OpenRequest();
+            open.File = openRequest.Files[0];
+            return Content(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open));
+        }
+
         [HttpPost]
         public IActionResult Demo([FromBody] PayloadModel payload)
         {

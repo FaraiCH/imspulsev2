@@ -123,6 +123,7 @@
 </div>
  
 <script>
+
     function toolbarClick(args) {
         if (args.item.text === 'Encrypt') {
             if (args.fileDetails[0].isFile) {
@@ -241,9 +242,11 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
-                        var file = new File([result], "Temp.xlsx");
-                        spreadsheet.open({ file: fullName });
+                        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');           
+                        var file = new File([result], "Sample.xlsx"); //convert the blob into file
+                        
+                        spreadsheet.open(file); // open the file into Spreadsheet
+                            
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
                         dialog.show();               
                     }
@@ -503,7 +506,10 @@
             top: 0px;
             z-index: 0
         }
-        input{
+        #mypassword{
+             -webkit-text-security: disc;
+        }
+        #mypassword2{
              -webkit-text-security: disc;
         }
        
