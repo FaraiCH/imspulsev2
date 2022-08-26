@@ -322,6 +322,10 @@ namespace docmaster.Controllers
                     document.CopyTo(file);
                     file.Close();
                     document.Close();
+                }else if (payload.path.Contains(".xls"))
+                {
+
+
                 }
   
                 
@@ -338,8 +342,11 @@ namespace docmaster.Controllers
 
         public void SaveExcel(SaveSettings saveSettings)
         {
-            Syncfusion.EJ2.Spreadsheet.Workbook.Save(saveSettings);
+            ExcelEngine excelEngine = new ExcelEngine();
+            IApplication application = excelEngine.Excel;
+  
         }
+    
         public IActionResult Protect([FromBody] ProtectModel payload)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");

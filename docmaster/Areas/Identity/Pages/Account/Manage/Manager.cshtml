@@ -260,11 +260,11 @@
                     var strJson = JSON.stringify(payload);
                     $.ajax({
                         type: 'POST',
-                        url: '/Home/Demo/',              
+                        url: '/Home/SaveExcel/',              
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            alert(result);                  
+                                 spreadsheetObj.save({url: 'https://imspulse.com/bunch-box/HJ/Resources', fileName: "Sample", saveType: "Xlsx"});               
                         }
                     });
                 });
