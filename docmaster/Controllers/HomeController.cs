@@ -324,7 +324,19 @@ namespace docmaster.Controllers
                     document.Close();
                 }else if (payload.path.Contains(".xls"))
                 {
+                    using (ExcelEngine excelEngine = new ExcelEngine())
+                    {
+                        IApplication application = excelEngine.Excel;
+                        FileStream inputStream = new FileStream(payload.fullName, FileMode.Open, FileAccess.Read);
+                        IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
 
+                        //Save the workbook to stream
+                        FileStream fileStream = new FileStream("/var/html/www/Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                        workbook.SaveAs(fileStream);
+
+                        workbook.Close();
+                        excelEngine.Dispose();
+                    }
 
                 }
   
@@ -342,9 +354,8 @@ namespace docmaster.Controllers
 
         public void SaveExcel(SaveSettings saveSettings)
         {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-  
+         
+
         }
     
         public IActionResult Protect([FromBody] ProtectModel payload)
