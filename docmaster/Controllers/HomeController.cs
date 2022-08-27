@@ -337,6 +337,7 @@ namespace docmaster.Controllers
 
                         workbook.Close();
                         excelEngine.Dispose();
+                        return new JsonResult("Went all the way!");
                     }
 
                 }
