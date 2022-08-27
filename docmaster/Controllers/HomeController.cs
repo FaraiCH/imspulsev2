@@ -351,18 +351,28 @@ namespace docmaster.Controllers
           
         }
 
-        public void SaveExcel(SaveSettings saveSettings)
+        public IActionResult SaveExcel(SaveSettings saveSettings)
         {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-            // Convert Spreadsheet data as Stream 
-            Stream fileStream = Syncfusion.EJ2.Spreadsheet.Workbook.Save<Stream>(saveSettings);
-            IWorkbook workbook = application.Workbooks.Open(fileStream);
-            var filePath = "/var/www/html" + "/" + saveSettings.FileName + ".xlsx";
-            FileStream outputStream = new FileStream(filePath, FileMode.Create);
-            workbook.SaveAs(outputStream);
-            workbook.Close();
-            outputStream.Dispose();
+            try
+            {
+                ExcelEngine excelEngine = new ExcelEngine();
+                IApplication application = excelEngine.Excel;
+                // Convert Spreadsheet data as Stream 
+                Stream fileStream = Syncfusion.EJ2.Spreadsheet.Workbook.Save<Stream>(saveSettings);
+                IWorkbook workbook = application.Workbooks.Open(fileStream);
+                var filePath = "/var/www/html" + "/" + saveSettings.FileName + ".xlsx";
+                FileStream outputStream = new FileStream(filePath, FileMode.Create);
+                workbook.SaveAs(outputStream);
+                workbook.Close();
+                outputStream.Dispose();
+                return new JsonResult("Saved");
+            }
+            catch (Exception ex)
+            {
+
+                return new JsonResult(ex.Message);
+            }
+          
 
         }
     

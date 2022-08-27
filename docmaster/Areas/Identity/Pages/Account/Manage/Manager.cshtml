@@ -265,7 +265,7 @@
                         data: payload, //remove JSON.stringify
                         success: function (result) {
                             spreadsheet.save({ fileName: fileName }); 
-                            alert("Done");
+                            alert(result);
                         }
                     });
                 });
