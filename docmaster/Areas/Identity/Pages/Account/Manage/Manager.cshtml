@@ -253,16 +253,19 @@
                 });
 
                 document.getElementById("elementsp").addEventListener('click', function () {
+                    var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name
                     var ssObj = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet'); 
+                    var pdfSettings = { FitSheetOnOnePage: false }; 
                     ssObj.saveAsJson().then((response) => { 
                             var formData = new FormData(); 
                             formData.append('JSONData', JSON.stringify(response.jsonObject.Workbook)); 
                             formData.append('fileName', 'Sample'); 
-                        formData.append('saveType', 'Xlsx'); 
+                            formData.append('saveType', 'Xlsx'); 
+                           
                         $.ajax({ 
                             type: "POST", 
                             url: "/Home/SaveExcel", 
-                            data: { JSONData: JSON.stringify(response.jsonObject.Workbook), fileName: "Sample", saveType: "xlsx" }, 
+                            data: { JSONData: JSON.stringify(response.jsonObject.Workbook), fileName: args.fileDetails[0].name, saveType: "xlsx",  PDFLayoutSettings: JSON.stringify(pdfSettings), path: fullName }, 
                             success: function (result) { 
                                 alert(result);
                             } 

@@ -23,8 +23,8 @@ namespace docmaster.Controllers
 
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
-        public string basePath = "/var/www/html/imspulse/bunch-box";
-        //public string basePath = "C:/Testing";
+        //public string basePath = "/var/www/html/imspulse/bunch-box";
+        public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
@@ -234,23 +234,23 @@ namespace docmaster.Controllers
 
         public static void Exec(string cmd)
         {
-            var escapedArgs = cmd.Replace("\"", "\\\"");
+            //var escapedArgs = cmd.Replace("\"", "\\\"");
 
-            using var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = "/bin/bash",
-                    Arguments = $"-c \"{escapedArgs}\""
-                }
-            };
+            //using var process = new Process
+            //{
+            //    StartInfo = new ProcessStartInfo
+            //    {
+            //        RedirectStandardOutput = true,
+            //        UseShellExecute = false,
+            //        CreateNoWindow = true,
+            //        WindowStyle = ProcessWindowStyle.Hidden,
+            //        FileName = "/bin/bash",
+            //        Arguments = $"-c \"{escapedArgs}\""
+            //    }
+            //};
 
-            process.Start();
-            process.WaitForExit();
+            //process.Start();
+            //process.WaitForExit();
         }
         [HttpPost]
         public IActionResult Demo2(string fullName)
@@ -353,26 +353,20 @@ namespace docmaster.Controllers
 
         public IActionResult SaveExcel(SaveSettings saveSettings)
         {
-            try
-            {
+
                 ExcelEngine excelEngine = new ExcelEngine();
                 IApplication application = excelEngine.Excel;
-                // Convert Spreadsheet data as Stream 
+                System.IO.File.Delete(this.Request.Form["path"]);
+            // Convert Spreadsheet data as Stream 
                 Stream fileStream = Syncfusion.EJ2.Spreadsheet.Workbook.Save<Stream>(saveSettings);
                 IWorkbook workbook = application.Workbooks.Open(fileStream);
-                var filePath = "/var/www/html" + "/" + saveSettings.FileName + ".xlsx";
+                var filePath = this.Request.Form["path"];
                 FileStream outputStream = new FileStream(filePath, FileMode.Create);
                 workbook.SaveAs(outputStream);
                 workbook.Close();
                 outputStream.Dispose();
-                return new JsonResult("Saved");
-            }
-            catch (Exception ex)
-            {
-
-                return new JsonResult(ex.Message);
-            }
-          
+                return new JsonResult("Done");
+                     
 
         }
     
