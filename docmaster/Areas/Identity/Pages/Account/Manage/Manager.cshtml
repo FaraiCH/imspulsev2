@@ -253,11 +253,21 @@
                 });
 
                 document.getElementById("elementsp").addEventListener('click', function () {
+                    var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
+                    var payload = { fullName: fullName }; // change name
                     var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');             
-                    var fileName = "Sample.xlsx"; 
+                    var fileName = args.fileDetails[0].name; 
                     spreadsheet.save({ fileName: fileName });
-
-                    alert("Done");
+                     $.ajax({
+                        type: 'POST',
+                        url: '/Home/SaveExcel',
+                        // contentType: 'application/json', // remove this line
+                        data: payload, //remove JSON.stringify
+                        success: function (result) {
+                            spreadsheet.save({ fileName: fileName }); 
+                            alert("Done");
+                        }
+                    });
                 });
             }
 
