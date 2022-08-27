@@ -287,6 +287,7 @@ namespace docmaster.Controllers
                     IFormFile formFile = new FormFile(outputStream, 0, outputStream.Length, "", "Temp.xlsx"); // converting MemoryStream to IFormFile 
                     OpenRequest open = new OpenRequest();
                     open.File = formFile;
+                    workbook.Close();
                     fs.Close();
                     return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
                 }
@@ -324,24 +325,7 @@ namespace docmaster.Controllers
                     file.Close();
                     document.Close();
                 }
-                else if (payload.path.Contains(".xls"))
-                {
-                    using (ExcelEngine excelEngine = new ExcelEngine())
-                    {
-                        //IApplication application = excelEngine.Excel;
-                        //FileStream inputStream = new FileStream(payload.fullName, FileMode.Open, FileAccess.Read);
-                        //IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
 
-                        ////Save the workbook to stream
-                        //FileStream fileStream = new FileStream("/var/html/www/Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                        //workbook.SaveAs(fileStream);
-
-                        //workbook.Close();
-                        //excelEngine.Dispose();
-                        return new JsonResult(payload.fullName);
-                    }
-
-                }
                 return new JsonResult("Document Successfully Saved!");
             }
 
