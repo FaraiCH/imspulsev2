@@ -353,6 +353,7 @@ namespace docmaster.Controllers
 
         public IActionResult SaveExcel(SaveSettings saveSettings)
         {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             try
             {
                 var filepaths = this.Request.Form["path"];
