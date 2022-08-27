@@ -303,6 +303,7 @@ namespace docmaster.Controllers
 
         public IActionResult Opened(IFormCollection openRequest)
         {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             OpenRequest open = new OpenRequest();
             open.File = openRequest.Files[0];
             return Content(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open));
@@ -364,13 +365,13 @@ namespace docmaster.Controllers
                 Stream fileStream = Syncfusion.EJ2.Spreadsheet.Workbook.Save<Stream>(saveSettings);
                 IWorkbook workbook = application.Workbooks.Open(fileStream);
                 var filePath = filepaths;
-                FileStream outputStream = new FileStream(filePath, FileMode.Create);
+                FileStream outputStream = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
                 workbook.SaveAs(outputStream);
                 fileStream.Close();
                 workbook.Close();
                 outputStream.Dispose();
 
-                return new JsonResult("Done");
+                return new JsonResult("File saved successfully");
             }
             catch (Exception ex)
             {
