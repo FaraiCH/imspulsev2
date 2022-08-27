@@ -358,8 +358,8 @@ namespace docmaster.Controllers
             // Convert Spreadsheet data as Stream 
             Stream fileStream = Syncfusion.EJ2.Spreadsheet.Workbook.Save<Stream>(saveSettings);
             IWorkbook workbook = application.Workbooks.Open(fileStream);
-            var filePath = "/var/www/html/" + "Sample" + ".xlsx";
-            FileStream outputStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            var filePath = "/var/www/html" + "/" + saveSettings.FileName + ".xlsx";
+            FileStream outputStream = new FileStream(filePath, FileMode.Create);
             workbook.SaveAs(outputStream);
             workbook.Close();
             outputStream.Dispose();
