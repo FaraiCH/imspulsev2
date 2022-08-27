@@ -322,7 +322,8 @@ namespace docmaster.Controllers
                     document.CopyTo(file);
                     file.Close();
                     document.Close();
-                }else if (payload.path.Contains(".xls"))
+                }
+                else if (payload.path.Contains(".xls"))
                 {
                     using (ExcelEngine excelEngine = new ExcelEngine())
                     {
@@ -339,9 +340,6 @@ namespace docmaster.Controllers
                     }
 
                 }
-  
-                
-
                 return new JsonResult("Document Successfully Saved!");
             }
 
