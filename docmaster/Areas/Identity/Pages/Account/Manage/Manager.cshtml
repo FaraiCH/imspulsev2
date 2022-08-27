@@ -251,8 +251,8 @@
                         dialog.show();               
                     }
                 });
-
-                document.getElementById("elementsp").addEventListener('click', function () {
+                $("#elementsp").unbind('click').bind('click', function () { 
+                
                     var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name
                     var ssObj = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet'); 
                     var pdfSettings = { FitSheetOnOnePage: false }; 
@@ -271,7 +271,12 @@
                             } 
                         }) 
                     }); 
-                });
+                
+                });  
+
+                //document.getElementById("elementsp").addEventListener('click', function () {
+            
+                //});
             }
 
 
