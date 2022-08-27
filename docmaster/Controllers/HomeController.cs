@@ -327,17 +327,17 @@ namespace docmaster.Controllers
                 {
                     using (ExcelEngine excelEngine = new ExcelEngine())
                     {
-                        IApplication application = excelEngine.Excel;
-                        FileStream inputStream = new FileStream(payload.fullName, FileMode.Open, FileAccess.Read);
-                        IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+                        //IApplication application = excelEngine.Excel;
+                        //FileStream inputStream = new FileStream(payload.fullName, FileMode.Open, FileAccess.Read);
+                        //IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
 
-                        //Save the workbook to stream
-                        FileStream fileStream = new FileStream("/var/html/www/Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                        workbook.SaveAs(fileStream);
+                        ////Save the workbook to stream
+                        //FileStream fileStream = new FileStream("/var/html/www/Output.xlsx", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                        //workbook.SaveAs(fileStream);
 
-                        workbook.Close();
-                        excelEngine.Dispose();
-                        return new JsonResult("Went all the way!");
+                        //workbook.Close();
+                        //excelEngine.Dispose();
+                        return new JsonResult(payload.fullName);
                     }
 
                 }
