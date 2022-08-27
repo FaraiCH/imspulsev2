@@ -116,7 +116,7 @@
         <ejs-dialog isModal="true" visible="false" id="default_dialog4" target="#spreedsheetedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             <ejs-button id="elementsp" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
-            <ejs-spreadsheet id="spreadsheet" height="600px" allowOpen ="true"></ejs-spreadsheet>
+            <ejs-spreadsheet id="spreadsheet" saveUrl="/Index/SaveExcel" allowSave=true height="600px" allowOpen ="true"></ejs-spreadsheet>
         </e-content-template>
       
         </ejs-dialog>
@@ -254,18 +254,17 @@
 
                 document.getElementById("elementsp").addEventListener('click', function () {
 
-                    var documenteditorElement = document.getElementById("spreadsheet");
-                    container = documenteditorElement.ej2_instances[0];
-                    var fullName = container.serialize();
+                    var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet'); 
+                    var fullName = spreadsheet.saveAsJson();
                     var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
                     var strJson = JSON.stringify(payload);
                     $.ajax({
                         type: 'POST',
-                        url: '/Home/Demo/',              
+                        url: '/Home/SaveExcel/',              
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            alert(result);                  
+                            alert(result);          
                         }
                     });
                 });

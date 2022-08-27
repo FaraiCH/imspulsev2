@@ -353,7 +353,16 @@ namespace docmaster.Controllers
 
         public void SaveExcel(SaveSettings saveSettings)
         {
-         
+            ExcelEngine excelEngine = new ExcelEngine();
+            IApplication application = excelEngine.Excel;
+            // Convert Spreadsheet data as Stream 
+            Stream fileStream = Syncfusion.EJ2.Spreadsheet.Workbook.Save<Stream>(saveSettings);
+            IWorkbook workbook = application.Workbooks.Open(fileStream);
+            var filePath = "/var/www/html/" + "Sample" + ".xlsx";
+            FileStream outputStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            workbook.SaveAs(outputStream);
+            workbook.Close();
+            outputStream.Dispose();
 
         }
     
