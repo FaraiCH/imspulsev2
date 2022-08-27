@@ -254,8 +254,9 @@
 
                 document.getElementById("elementsp").addEventListener('click', function () {
 
-                    var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet'); 
-                    var fullName = spreadsheet.saveAsJson();
+                    var documenteditorElement = document.getElementById("spreadsheet");
+                    container = documenteditorElement.ej2_instances[0];
+                    var fullName = container.serialize();
                     var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
                     var strJson = JSON.stringify(payload);
                     $.ajax({
@@ -264,8 +265,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            alert(result);
-                            alert("Save Succesful");             
+                            alert(result);                  
                         }
                     });
                 });
