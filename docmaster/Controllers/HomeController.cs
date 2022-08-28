@@ -225,32 +225,25 @@ namespace docmaster.Controllers
         }
 
 
-     
-        [AcceptVerbs("Post")]
-        public string Import(IFormCollection data)
-        {
-            return "Hello" + data.Files.Count;
-        }
-
         public static void Exec(string cmd)
         {
-            //var escapedArgs = cmd.Replace("\"", "\\\"");
+            var escapedArgs = cmd.Replace("\"", "\\\"");
 
-            //using var process = new Process
-            //{
-            //    StartInfo = new ProcessStartInfo
-            //    {
-            //        RedirectStandardOutput = true,
-            //        UseShellExecute = false,
-            //        CreateNoWindow = true,
-            //        WindowStyle = ProcessWindowStyle.Hidden,
-            //        FileName = "/bin/bash",
-            //        Arguments = $"-c \"{escapedArgs}\""
-            //    }
-            //};
+            using var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "/bin/bash",
+                    Arguments = $"-c \"{escapedArgs}\""
+                }
+            };
 
-            //process.Start();
-            //process.WaitForExit();
+            process.Start();
+            process.WaitForExit();
         }
         [HttpPost]
         public IActionResult Demo2(string fullName)
@@ -351,6 +344,7 @@ namespace docmaster.Controllers
                 var filePath = filepaths;
                 FileStream outputStream = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
                 workbook.SaveAs(outputStream);
+                filepaths = string.Empty;
                 fileStream.Close();
                 workbook.Close();
                 outputStream.Dispose();
