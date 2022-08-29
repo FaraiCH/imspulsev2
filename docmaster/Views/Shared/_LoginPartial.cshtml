@@ -12,10 +12,11 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
       
+             <li><a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Dashboard</a></li>
         @if (User.IsInRole("Admin"))
         {
 
-            <li><a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Dashboard</a></li>
+           
             <li><a id="manage" class="nav-link text-dark" asp-controller="RoleManager" asp-action="Index" title="User Roles">Manage Roles</a></li>
             <li><a id="manage" class="nav-link text-dark" asp-controller="UserRoles" asp-action="Index" title="Manage Users">Manage Users</a></li>        
         }
