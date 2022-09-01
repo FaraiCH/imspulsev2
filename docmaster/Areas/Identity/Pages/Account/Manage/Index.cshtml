@@ -1,31 +1,80 @@
 ﻿@page
+@using docmaster.Backend
 @model IndexModel
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3>@ViewData["Title"]</h3>
+@{
+    
+    Spacing modelValue = new Spacing();
+    modelValue.cellSpacing = new double[] { 10, 10 };
+}
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating">
-                <input asp-for="Username" class="form-control" disabled />
-                <label asp-for="Username" class="form-label"></label>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
-        </form>
-    </div>
+    <div class="col-md-12">
+      <div>
+    <ejs-dashboardlayout id="dashboard_default" columns="3" cellSpacing="modelValue.cellSpacing" enableRtl="true">
+        <e-dashboardlayout-panels>
+         
+     
+            <e-dashboardlayout-panel id="Panel1" sizeX="2" sizeY="2" row="0" col="2" header="<div style='text-align:center'>Account Information</div>" content="<div class='content'></div>">
+            </e-dashboardlayout-panel>
+            <e-dashboardlayout-panel id="Panel2" sizeX="1" sizeY="2" row="0" col="0" header="<div style='text-align:center'>Subscription</div>" content="<div class='content'></div>">
+            </e-dashboardlayout-panel>
+            <e-dashboardlayout-panel id="Panel4" sizeX="2" sizeY="1" row="2" col="2" header="<div style='text-align:center'>Document Management</div>" content="<div class='content'></div>">
+            </e-dashboardlayout-panel>
+            <e-dashboardlayout-panel id="Panel6" sizeX="1" sizeY="1" row="2" col="0" header="<div style='text-align:center'>Coming Soon</div>" content="<div class='content'></div>">
+            </e-dashboardlayout-panel>
+        </e-dashboardlayout-panels>
+    </ejs-dashboardlayout>
 </div>
 
 
+    </div>
+</div>
+
+<style>
+    #dashboard_default .e-panel .e-panel-container .content {
+        font-weight: 600;
+        text-align: center;
+        margin-top: 10px;
+        line-height: 100%;
+    }
+
+    .e-dashboard-layout.e-control .e-panel .e-panel-container .e-panel-header {
+        color: rgba(0, 0, 0, 0.61);
+    }
+
+    .e-panel .e-header-text {
+        padding: 12px 0 12px 0;
+    }
+
+    #dashboard .e-panel-container .e-panel-header {
+        border-bottom: 1px solid #888383;
+    }
+
+    .e-dashboard-layout.e-control .e-panel:hover {
+        border: 0px;
+    }
+
+    .e-dashboard-layout.e-control .e-panel .e-panel-header {
+        font-size: 15px;
+        font-weight: 500;
+        height: 37px;
+        padding: 10px;
+        vertical-align: middle;
+        /* text-align: left; */
+        border-bottom: 0.5px solid rgba(0, 0, 0, .125);
+    }
+
+    .e-panel-header {
+        padding: 10px;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, .03);
+    }
+</style>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
