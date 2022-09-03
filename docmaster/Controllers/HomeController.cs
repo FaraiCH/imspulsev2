@@ -23,8 +23,8 @@ namespace docmaster.Controllers
 
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
-        //public string basePath = "/var/www/html/imspulse/bunch-box";
-        public string basePath = "C:/Testing";
+        public string basePath = "/var/www/html/imspulse/bunch-box";
+        //public string basePath = "C:/Testing";
         string root = @"wwwroot";
 
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
@@ -245,6 +245,12 @@ namespace docmaster.Controllers
             process.Start();
             process.WaitForExit();
         }
+        /// <summary>
+        /// Compare documents
+        /// Choose what do to with old document (Absolete or override)
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Demo2(string fullName)
         {
@@ -311,12 +317,23 @@ namespace docmaster.Controllers
             {
                 if (payload.path.Contains(".doc"))
                 {
+                    ///Get Old coument using path and convert to JSON
+                    int index = payload.path.LastIndexOf('.');
+                    string type = index > -1 && index < payload.path.Length - 1 ?
+                    payload.path.Substring(index) : ".docx";
+                    FileStream fileStreamPath = new FileStream(payload.path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    WordDocument olddocument = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+                    string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(olddocument);
+
+
                     Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
                     System.IO.File.Delete(payload.path);
                     FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                     document.CopyTo(file);
                     file.Close();
                     document.Close();
+                    if (sfdt == payload.fullName)
+                        return new JsonResult("Documents Match");
                 }
 
                 return new JsonResult("Document Successfully Saved!");
