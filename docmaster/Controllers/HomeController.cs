@@ -317,7 +317,7 @@ namespace docmaster.Controllers
             {
                 if (payload.path.Contains(".doc"))
                 {
-                    ///Get Old document using path and convert to JSON
+                    //Get Old document using path and convert to JSON
                     int index = payload.path.LastIndexOf('.');
                     string type = index > -1 && index < payload.path.Length - 1 ?
                     payload.path.Substring(index) : ".docx";
@@ -333,7 +333,7 @@ namespace docmaster.Controllers
                     file.Close();
                     document.Close();
               
-                    return new JsonResult(sfdt);
+                    return new JsonResult(olddocument);
                 }
 
                 return new JsonResult("Document Successfully Saved!");
