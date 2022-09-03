@@ -334,7 +334,7 @@ namespace docmaster.Controllers
                     var mynewDoc = newdoc.GetText();
                     if (mynewDoc != myDoc)
                     {
-                        return new JsonResult(mynewDoc.ToString());
+                        return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
                     }   
                    
                 }
