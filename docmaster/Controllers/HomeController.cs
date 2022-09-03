@@ -318,13 +318,10 @@ namespace docmaster.Controllers
                 if (payload.path.Contains(".doc"))
                 {
                     //Get Old document using path and convert to JSON
-                    int index = payload.path.LastIndexOf('.');
-                    string type = index > -1 && index < payload.path.Length - 1 ?
-                    payload.path.Substring(index) : ".docx";
-                    FileStream fileStreamPath = new FileStream(payload.path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                    WordDocument olddocument = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
-                    string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(olddocument);
+                    Aspose.Words.Document docu = new Aspose.Words.Document(payload.path);
 
+                    //Get Document Text
+                    var myDoc = docu.GetText();
 
                     Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
                     System.IO.File.Delete(payload.path);
@@ -333,7 +330,7 @@ namespace docmaster.Controllers
                     file.Close();
                     document.Close();
               
-                    return new JsonResult(olddocument);
+                    return new JsonResult(myDoc);
                 }
 
                 return new JsonResult("Document Successfully Saved!");
