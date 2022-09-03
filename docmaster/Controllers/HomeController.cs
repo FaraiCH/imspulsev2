@@ -332,7 +332,11 @@ namespace docmaster.Controllers
 
                     Aspose.Words.Document newdoc = new Aspose.Words.Document(payload.path);
                     var mynewDoc = newdoc.GetText();
-                    return new JsonResult(mynewDoc + "MMMMMMMMMMMMMMMMMMM" + myDoc);
+                    if (mynewDoc == myDoc)
+                    {
+                        return new JsonResult("These documents match!");
+                    }
+                   
                 }
 
                 return new JsonResult("Document Successfully Saved!");
