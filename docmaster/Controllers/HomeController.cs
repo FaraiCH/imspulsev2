@@ -329,8 +329,10 @@ namespace docmaster.Controllers
                     document.CopyTo(file);
                     file.Close();
                     document.Close();
-              
-                    return new JsonResult(myDoc);
+
+                    Aspose.Words.Document newdoc = new Aspose.Words.Document(payload.path);
+                    var mynewDoc = newdoc.GetText();
+                    return new JsonResult(mynewDoc + "MMMMMMMMMMMMMMMMMMM" + myDoc);
                 }
 
                 return new JsonResult("Document Successfully Saved!");
