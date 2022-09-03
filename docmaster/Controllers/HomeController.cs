@@ -333,7 +333,7 @@ namespace docmaster.Controllers
                     file.Close();
                     document.Close();
               
-                    return new JsonResult(payload.fullName);
+                    return new JsonResult(sfdt);
                 }
 
                 return new JsonResult("Document Successfully Saved!");
