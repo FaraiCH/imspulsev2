@@ -332,8 +332,20 @@ namespace docmaster.Controllers
 
                     Aspose.Words.Document newdoc = new Aspose.Words.Document(payload.path);
                     var mynewDoc = newdoc.GetText();
+
+                    //Check to see if document content was changed
                     if (mynewDoc != myDoc)
                     {
+                        string fullpath = payload.path;
+
+                        //Get Only Directory of Path
+                        string directoryName = Path.GetDirectoryName(fullpath);
+                        //Get Only File Name of Path
+                        string filename = Path.GetFileName(fullpath);
+                        //Check for Revision Field
+                        //Update Revision Field
+                        //Rename file on filemanager
+                        this.operation.ToCamelCase(this.operation.Rename(directoryName, filename, "New Name Yeah"));
                         return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
                     }   
                    
