@@ -18,7 +18,6 @@ using System.Diagnostics;
 
 namespace docmaster.Controllers
 {
-    [EnableCors("MyPolicy")]
     public class HomeController : Controller
     {
 

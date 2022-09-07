@@ -24,18 +24,6 @@ new Aspose.Words.License().SetLicense(stream2);
 new Aspose.Slides.License().SetLicense(stream3);
 var builder = WebApplication.CreateBuilder(args);
 var connetionString = builder.Configuration.GetConnectionString("Default");
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "MyPolicy",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
-        });
-});
 builder.Services.Configure<JsonOptions>(options =>
 {
     options.SerializerOptions.PropertyNameCaseInsensitive = true;
@@ -81,7 +69,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseCors("MyPolicy");
 app.UseAuthentication();;
 
 app.UseAuthorization();
