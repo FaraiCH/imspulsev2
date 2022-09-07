@@ -28,11 +28,13 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      builder =>
-                      {
-                          builder.WithOrigins("https://imspulse.com");
-                      });
+    options.AddPolicy(name: "MyPolicy",
+        policy =>
+        {
+            policy.WithOrigins("https://imspulse.com",
+                                "http://www.contoso.com")
+                    .WithMethods("PUT", "DELETE", "GET");
+        });
 });
 builder.Services.Configure<JsonOptions>(options =>
 {
@@ -79,7 +81,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseCors(MyAllowSpecificOrigins);
+app.UseCors();
 app.UseAuthentication();;
 
 app.UseAuthorization();
