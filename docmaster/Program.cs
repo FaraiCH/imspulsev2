@@ -31,9 +31,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "MyPolicy",
         policy =>
         {
-            policy.WithOrigins("https://imspulse.com",
-                                "http://www.contoso.com")
-                    .WithMethods("PUT", "DELETE", "GET");
+            policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
         });
 });
 builder.Services.Configure<JsonOptions>(options =>
@@ -81,7 +81,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseCors();
+app.UseCors("MyPolicy");
 app.UseAuthentication();;
 
 app.UseAuthorization();

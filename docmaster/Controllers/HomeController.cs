@@ -18,6 +18,7 @@ using System.Diagnostics;
 
 namespace docmaster.Controllers
 {
+    [EnableCors("MyPolicy")]
     public class HomeController : Controller
     {
 
@@ -50,7 +51,6 @@ namespace docmaster.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        [EnableCors("MyPolicy")]
         public object FileOperations([FromBody] FileManagerDirectoryContent args)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
@@ -101,7 +101,6 @@ namespace docmaster.Controllers
 
            
         }
-        [EnableCors("MyPolicy")]
 
         // uploads the file(s) into a specified path
         public async Task<IActionResult> Upload(string path, IList<IFormFile> uploadFiles, string action)
@@ -201,7 +200,6 @@ namespace docmaster.Controllers
         }
 
         // downloads the selected file(s) and folder(s)
-        [EnableCors("MyPolicy")]
         public IActionResult Download(string downloadInput)
         {
             FileManagerDirectoryContent args = JsonConvert.DeserializeObject<FileManagerDirectoryContent>(downloadInput);
@@ -209,7 +207,6 @@ namespace docmaster.Controllers
         }
 
         // gets the image(s) from the given path
-        [EnableCors("MyPolicy")]
         public IActionResult GetImage(FileManagerDirectoryContent args)
         {
             return this.operation.GetImage(args.Path, args.Id, false, null, null);
