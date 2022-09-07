@@ -346,7 +346,8 @@ namespace docmaster.Controllers
                         //Update Revision Field
                         //Rename file on filemanager
                         this.operation.ToCamelCase(this.operation.Rename(directoryName, filename, "New Name Yeah"));
-                        return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
+                        //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
+                        return new JsonResult(directoryName);
                     }   
                    
                 }
