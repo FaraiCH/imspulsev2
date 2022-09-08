@@ -345,10 +345,11 @@ namespace docmaster.Controllers
                         //Check for Revision Field
                         //Update Revision Field
                         //Rename file on filemanager
-                        this.operation.Rename(directoryName, filename, "New Name Yeah.docx");
+                        this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
                         //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
                         return new JsonResult(filename);
                     }   
+
                    
                 }
 

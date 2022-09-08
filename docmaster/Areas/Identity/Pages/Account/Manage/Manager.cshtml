@@ -455,6 +455,9 @@
             if (args.items[i].text == 'Decrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
             }
+             if (args.items[i].text == 'Edit') {
+                args.items[i].prefixIcon = 'e-icons e-fe-lock';
+            }
         }
     }
 
@@ -499,6 +502,7 @@
         .e-fe-lock::before {
             content: '\e735';
         }
+
 
         .e-empty-inner-content {
             display: none;
