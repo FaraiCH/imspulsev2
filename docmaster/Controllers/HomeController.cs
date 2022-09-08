@@ -345,9 +345,9 @@ namespace docmaster.Controllers
                         //Check for Revision Field
                         //Update Revision Field
                         //Rename file on filemanager
-                        operation.Rename(directoryName, filename, "New Name Yeah");
+                        this.operation.Rename(directoryName, filename, "New Name Yeah.docx");
                         //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
-                        return new JsonResult(directoryName);
+                        return new JsonResult(filename);
                     }   
                    
                 }
