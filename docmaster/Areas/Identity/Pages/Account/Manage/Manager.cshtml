@@ -453,10 +453,10 @@
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
             }
             if (args.items[i].text == 'Decrypt') {
-                args.items[i].prefixIcon = 'e-icons e-fe-lock';
+                args.items[i].prefixIcon = 'e-icons e-fe-unlock';
             }
              if (args.items[i].text == 'Edit') {
-                args.items[i].prefixIcon = 'e-icons e-fe-lock';
+                args.items[i].prefixIcon = 'e-icons e-fe-edit';
             }
         }
     }
@@ -500,9 +500,16 @@
     }
     <style>       
         .e-fe-lock::before {
-            content: '\e735';
+            content: '\e788';
         }
 
+         .e-fe-unlock::before {
+            content: '\e78b';
+        }
+
+        .e-fe-edit::before{
+            content: '\e740';
+        }
 
         .e-empty-inner-content {
             display: none;
