@@ -86,6 +86,7 @@ namespace docmaster.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Company")]
+            [RegularExpression(@"^[a-zA-Z ]*-([0-9]{4})")]
             public string Company { get; set; }
 
             [Required]
