@@ -86,7 +86,7 @@ namespace docmaster.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Company")]
-            [RegularExpression(@"^[a-zA-Z ]*-([0-9]{4})")]
+            [RegularExpression(@"^[a-zA-Z ]*-([0-9]{4})", ErrorMessage = "Company name must have a unique 4-digit key. Example: IMSPulse-1234")]
             public string Company { get; set; }
 
             [Required]
