@@ -352,7 +352,7 @@ namespace docmaster.Controllers
                         else
                         {
                             diff = set1.Except(set2).ToList();
-                            add = "Content was changed or removed from this document. See Details: ";
+                            add = "Content was added to this document. See Details: ";
                         }
 
                       
