@@ -336,6 +336,19 @@ namespace docmaster.Controllers
                     //Check to see if document content was changed
                     if (mynewDoc != myDoc)
                     {
+                       
+                        List<string> diff;
+                        IEnumerable<string> set1 = mynewDoc.Split(' ').Distinct();
+                        IEnumerable<string> set2 = myDoc.Split(' ').Distinct();
+
+                        if (set2.Count() > set1.Count())
+                        {
+                            diff = set2.Except(set1).ToList();
+                        }
+                        else
+                        {
+                            diff = set1.Except(set2).ToList();
+                        }
                         string fullpath = payload.path;
 
                         //Get Only Directory of Path
@@ -347,7 +360,7 @@ namespace docmaster.Controllers
                         //Rename file on filemanager
                         this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
                         //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
-                        return new JsonResult(filename);
+                        return new JsonResult(diff);
                     }   
 
                    
