@@ -349,6 +349,8 @@ namespace docmaster.Controllers
                         {
                             diff = set1.Except(set2).ToList();
                         }
+
+                        var result = string.Join(",", diff);
                         string fullpath = payload.path;
 
                         //Get Only Directory of Path
@@ -360,7 +362,7 @@ namespace docmaster.Controllers
                         //Rename file on filemanager
                         this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
                         //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
-                        return new JsonResult(diff);
+                        return new JsonResult(result);
                     }   
 
                    
