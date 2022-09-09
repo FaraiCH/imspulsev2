@@ -1,21 +1,16 @@
-﻿
-using Aspose.Cells;
-using docmaster.Areas.Identity.Data;
+﻿using docmaster.Areas.Identity.Data;
 using docmaster.Models;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.EJ2.DocumentEditor;
-using Syncfusion.EJ2.FileManager;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
 using Syncfusion.EJ2.Spreadsheet;
 using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace docmaster.Controllers
 {
@@ -342,7 +337,7 @@ namespace docmaster.Controllers
                         IEnumerable<string> set1 = mynewDoc.Split(' ').Distinct();
                         IEnumerable<string> set2 = myDoc.Split(' ').Distinct();
                         string add = string.Empty;
-                       ;
+                       
 
                         if (set2.Count() > set1.Count())
                         {
