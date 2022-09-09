@@ -337,11 +337,10 @@ namespace docmaster.Controllers
                     //Check to see if document content was changed
                     if (mynewDoc != myDoc)
                     {
-                        string s2 = Regex.Replace(myDoc, @"[^A-Z]+", String.Empty);
-                        string s1 = Regex.Replace(mynewDoc, @"[^A-Z]+", String.Empty);
+                       
                         List<string> diff;
-                        IEnumerable<string> set1 = s1.Split(' ').Distinct();
-                        IEnumerable<string> set2 = s2.Split(' ').Distinct();
+                        IEnumerable<string> set1 = mynewDoc.Split(' ').Distinct();
+                        IEnumerable<string> set2 = myDoc.Split(' ').Distinct();
                         string add = string.Empty;
                        ;
 
