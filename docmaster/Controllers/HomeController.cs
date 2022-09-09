@@ -15,6 +15,7 @@ using Syncfusion.EJ2.Spreadsheet;
 using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace docmaster.Controllers
 {
@@ -340,17 +341,23 @@ namespace docmaster.Controllers
                         List<string> diff;
                         IEnumerable<string> set1 = mynewDoc.Split(' ').Distinct();
                         IEnumerable<string> set2 = myDoc.Split(' ').Distinct();
+                        string add = string.Empty;
+                       ;
 
                         if (set2.Count() > set1.Count())
                         {
                             diff = set2.Except(set1).ToList();
+                            add = "Content was changed or removed from this document. See Details: ";
                         }
                         else
                         {
                             diff = set1.Except(set2).ToList();
+                            add = "Content was changed or removed from this document. See Details: ";
                         }
 
+                      
                         var result = string.Join(",", diff);
+
                         string fullpath = payload.path;
 
                         //Get Only Directory of Path
@@ -361,8 +368,9 @@ namespace docmaster.Controllers
                         //Update Revision Field
                         //Rename file on filemanager
                         this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
+
                         //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
-                        return new JsonResult(result);
+                        return new JsonResult(add + result);
                     }   
 
                    
