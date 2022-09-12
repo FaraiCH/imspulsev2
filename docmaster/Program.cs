@@ -76,7 +76,7 @@ app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "register",
+    pattern: "login",
     defaults: new { area = "Identity", controller = "Account", action = "Login" });
 app.MapRazorPages();
 
