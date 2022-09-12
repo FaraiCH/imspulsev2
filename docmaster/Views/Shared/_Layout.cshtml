@@ -18,19 +18,38 @@
     <script src="https://cdn.syncfusion.com/ej2/20.2.36/dist/ej2.min.js"></script>
 </head>
 <body>
-    <header>
-       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">docmaster</a>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                 <partial name="_LoginPartial.cshtml" />
+       <header class="header">
+        {% component 'MyBulli' %}
+      <div class="navbar-area">
+
+        <div class="container">
+
+          <div class="row align-items-center">
+            <div class="col-lg-12">
+
+              <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="http://imspulse.com">
+                  <img src="http://imspulse.com/storage/app/media/imscc.png" alt="Logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">docmaster</a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                     <partial name="_LoginPartial.cshtml" />
+                </div>
+                <!-- navbar collapse -->
+              </nav>
+              <!-- navbar -->
             </div>
           </div>
-        </nav>
+          <!-- row -->
+        </div>
+        <!-- container -->
+      </div>
+      <!-- navbar area -->
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
