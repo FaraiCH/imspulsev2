@@ -78,13 +78,9 @@ app.UseAuthentication();;
 app.UseAuthorization();
 app.UseAuthentication();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{area=Manager}/{controller=Home}/{action=Index}/{id?}");
-    endpoints.MapRazorPages().RequireAuthorization();
-});
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 using (var scope = app.Services.CreateScope())
