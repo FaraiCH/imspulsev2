@@ -77,11 +77,11 @@ namespace docmaster.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "FirstName")]
+            [Display(Name = "First Name")]
             public string FirstName { get; set; }
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "LasttName")]
+            [Display(Name = "Last Name")]
             public string LastName { get; set; }
             [Required]
             [DataType(DataType.Text)]
