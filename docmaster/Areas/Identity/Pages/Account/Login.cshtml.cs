@@ -89,7 +89,7 @@ namespace docmaster.Areas.Identity.Pages.Account
         {
             if (User.Identity.IsAuthenticated)
             {
-                Response.Redirect("/Identity/Account/Manage");
+                Response.Redirect("/");
             }
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
@@ -108,7 +108,7 @@ namespace docmaster.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/Identity/Account/Manage");
+            returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
