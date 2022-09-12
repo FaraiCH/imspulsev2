@@ -76,8 +76,7 @@ app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "login",
-    defaults: new { area = "Identity", controller = "Account", action = "Login" });
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 using (var scope = app.Services.CreateScope())
