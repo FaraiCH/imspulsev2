@@ -38,6 +38,10 @@ builder.Services.AddDefaultIdentity<docmasterUser>(options => options.SignIn.Req
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
+builder.Services.AddMvc().AddRazorPagesOptions(options =>
+{
+    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+});
 //DB Context
 //builder.Services.AddDbContext<AppDbContext>(options => {
 //    var connetionString = builder.Configuration.GetConnectionString("Default");
@@ -74,9 +78,13 @@ app.UseAuthentication();;
 app.UseAuthorization();
 app.UseAuthentication();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{area=Manager}/{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages().RequireAuthorization();
+});
 app.MapRazorPages();
 
 using (var scope = app.Services.CreateScope())
