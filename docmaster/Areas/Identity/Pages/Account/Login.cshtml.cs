@@ -89,7 +89,7 @@ namespace docmaster.Areas.Identity.Pages.Account
         {
             if (User.Identity.IsAuthenticated)
             {
-                Response.Redirect("/");
+                Response.Redirect("/Identity/Account/Manage");
             }
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
