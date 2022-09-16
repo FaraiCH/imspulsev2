@@ -303,7 +303,7 @@
                     data: payload, //remove JSON.stringify
                     success: function (result) {
                         var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];  
-                        pdfViewer.onload(result);
+                        pdfViewer.load(result);
                         var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         dialog.show();               
                     }
