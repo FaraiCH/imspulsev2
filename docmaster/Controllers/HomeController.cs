@@ -303,6 +303,7 @@ namespace docmaster.Controllers
         {
             var docBytes = System.IO.File.ReadAllBytes(fullName);
             string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
+            ViewBag.DocumentPath = fullName;
             return (docBase64);
         }
         public IActionResult Opened(IFormCollection openRequest)
