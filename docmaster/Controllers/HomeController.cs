@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager.Base;
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
+using Syncfusion.EJ2.PdfViewer;
 using Syncfusion.EJ2.Spreadsheet;
 using Syncfusion.Presentation;
 using Syncfusion.XlsIO;
@@ -286,6 +287,7 @@ namespace docmaster.Controllers
                     fs.Close();
                     return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
                 }
+
                 return new JsonResult("");
          
             }
@@ -297,6 +299,12 @@ namespace docmaster.Controllers
           
         }
 
+        public string PDFView(string fullName)
+        {
+            var docBytes = System.IO.File.ReadAllBytes(fullName);
+            string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
+            return (docBase64);
+        }
         public IActionResult Opened(IFormCollection openRequest)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
