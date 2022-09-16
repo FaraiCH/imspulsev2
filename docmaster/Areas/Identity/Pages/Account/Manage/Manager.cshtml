@@ -128,7 +128,7 @@
             <ejs-button id="elementpdf" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
             <ejs-pdfviewer id="pdfviewer"
                 style="height:600px"
-                serviceUrl="/Home/PDFView"
+                serviceUrl="/Home/PdfViewer"
                 enableToolbar="false">
             </ejs-pdfviewer>
         </e-content-template>
@@ -303,7 +303,7 @@
                     data: payload, //remove JSON.stringify
                     success: function (result) {
                         var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];  
-                        pdfViewer.load(result, null);
+                        pdfViewer.onload(result);
                         var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         dialog.show();               
                     }
