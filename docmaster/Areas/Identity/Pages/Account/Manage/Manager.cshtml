@@ -240,7 +240,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            alert(result);                  
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000);                  
                         }
                     });
                 });
@@ -281,7 +281,7 @@
                             url: "/Home/SaveExcel", 
                             data: { JSONData: JSON.stringify(response.jsonObject.Workbook), fileName: args.fileDetails[0].name, saveType: "xlsx",  PDFLayoutSettings: JSON.stringify(pdfSettings), path: fullName }, 
                             success: function (result) { 
-                                alert(result);
+                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000);               
                             } 
                         }) 
                     }); 
@@ -351,7 +351,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
-                            alert(result);
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
                             dialog.hide();
                         }
                     });
@@ -374,7 +374,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
-                            alert(result);
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
                             dialog.hide();
                         }
                     });
@@ -438,7 +438,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            alert(result);                  
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000);                   
                         }
                     });
                 });
@@ -479,7 +479,7 @@
                             url: "/Home/SaveExcel", 
                             data: { JSONData: JSON.stringify(response.jsonObject.Workbook), fileName: args.fileDetails[0].name, saveType: "xlsx",  PDFLayoutSettings: JSON.stringify(pdfSettings), path: fullName }, 
                             success: function (result) { 
-                                alert(result);
+                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
                             } 
                         }) 
                     }); 
