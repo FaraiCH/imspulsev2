@@ -217,12 +217,10 @@
                             }
                         }
                                     
-                        container.documentEditor.open(result);   
-                    
+                        container.documentEditor.open(result);                      
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
                         dialog.show();
-
-                    
+                   
                     }
                 });
 
@@ -288,9 +286,6 @@
                 
                 }); 
 
-                //document.getElementById("elementsp").addEventListener('click', function () {
-            
-                //});
             }
 
             if (args.fileDetails[0].name.includes('.pdf')) {
@@ -418,9 +413,7 @@
                         container.documentEditor.open(result);   
                     
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
-                        dialog.show();
-
-                    
+                        dialog.show();                   
                     }
                 });
 
@@ -454,8 +447,7 @@
                     data: payload, //remove JSON.stringify
                     success: function (result) {
                         var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');           
-                       
-                        
+                                       
                         spreadsheet.openFromJson({file: result}); // open the file into Spreadsheet
                             
                         var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
@@ -486,9 +478,6 @@
                 
                 });  
 
-                //document.getElementById("elementsp").addEventListener('click', function () {
-            
-                //});
             }
             if (args.fileDetails[0].name.includes('.pdf')) {
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
@@ -503,8 +492,7 @@
                         //pdfViewer.load(result);
                         //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         //dialog.show();    
-                        toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 20000);
-                    
+                        toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 20000);                   
                     }
                 });
 
@@ -522,14 +510,10 @@
                         //pdfViewer.load(result);
                         //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         //dialog.show();    
-
                          toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 20000);
                     }
                 });
             }
-            
-
-
           
         }
  
