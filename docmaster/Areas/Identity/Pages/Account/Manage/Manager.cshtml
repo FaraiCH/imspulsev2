@@ -549,7 +549,6 @@
             }
         }
 
-        $('.e-addressbar-li').remove();
     }
 
     function onOverlayClick() {
@@ -636,7 +635,9 @@
             display: none;
         }
 
- 
+        .e-dropdown-popup.e-submenu ul .e-item:nth-child(1) {
+            display: none;
+        }
         #default_dialog3 {
             height: 100%;
             width: 100%;
