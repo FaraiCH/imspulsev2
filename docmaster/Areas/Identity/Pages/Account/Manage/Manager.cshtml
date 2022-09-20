@@ -153,7 +153,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
                             dialog.hide();
                         }
                     });
@@ -176,7 +176,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
                             dialog.hide();
                         }
                     });
@@ -238,7 +238,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000);                  
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);                  
                         }
                     });
                 });
@@ -279,7 +279,7 @@
                             url: "/Home/SaveExcel", 
                             data: { JSONData: JSON.stringify(response.jsonObject.Workbook), fileName: args.fileDetails[0].name, saveType: "xlsx",  PDFLayoutSettings: JSON.stringify(pdfSettings), path: fullName }, 
                             success: function (result) { 
-                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000);               
+                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);               
                             } 
                         }) 
                     }); 
@@ -302,7 +302,7 @@
                         //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         //dialog.show();    
                         
-                         toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 20000);
+                         toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 3000);
                     }
                 });
 
@@ -321,7 +321,7 @@
                         //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         //dialog.show();    
 
-                         toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 20000);
+                        toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The Presentation Editor is in future plans. However, as of now, there is no editor to handle presentation manipulation", 'Warning', 3000);
                     }
                 });
             }
@@ -346,7 +346,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
                             dialog.hide();
                         }
                     });
@@ -369,7 +369,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function(result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
                             dialog.hide();
                         }
                     });
@@ -431,7 +431,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000);                   
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);                   
                         }
                     });
                 });
@@ -471,7 +471,7 @@
                             url: "/Home/SaveExcel", 
                             data: { JSONData: JSON.stringify(response.jsonObject.Workbook), fileName: args.fileDetails[0].name, saveType: "xlsx",  PDFLayoutSettings: JSON.stringify(pdfSettings), path: fullName }, 
                             success: function (result) { 
-                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 20000); 
+                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
                             } 
                         }) 
                     }); 
@@ -510,7 +510,7 @@
                         //pdfViewer.load(result);
                         //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
                         //dialog.show();    
-                         toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 20000);
+                         toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The Presentation Editor is in future plans. However, as of now, there is no editor to handle presentation manipulation", 'Warning', 3000);
                     }
                 });
             }
