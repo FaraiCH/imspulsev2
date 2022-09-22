@@ -238,7 +238,11 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);                  
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);
+                                var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                                dialog.hide();
+                                var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                                fileObj.renameFile();
                         }
                     });
                 });
@@ -303,8 +307,7 @@
                         //dialog.show();    
                         
                          toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 3000);
-                        var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                        fileObj.renameFile();
+                  
                         //fileObj.refresh();
                     }
                 });
@@ -434,7 +437,11 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);                   
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);  
+                            var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                            dialog.hide();
+                            var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                            fileObj.renameFile();
                         }
                     });
                 });
