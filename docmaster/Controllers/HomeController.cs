@@ -374,8 +374,8 @@ namespace docmaster.Controllers
                         //Rename file on filemanager
                         this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
 
-                        return new JsonResult(mynewDoc);
-                        //return new JsonResult(add + result);
+                        //return new JsonResult(mynewDoc);
+                        return new JsonResult(add + result);
                     }   
 
                    
