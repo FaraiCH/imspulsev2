@@ -239,10 +239,12 @@
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
                             toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);
+                            if (result.includes('Document Successfully Saved!')) {
                                 var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
                                 dialog.hide();
                                 var fileObj = document.getElementById("filemanager").ej2_instances[0];
                                 fileObj.renameFile();
+                            }
                         }
                     });
                 });
@@ -437,11 +439,15 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);  
-                            var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                            dialog.hide();
-                            var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                            fileObj.renameFile();
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);
+                            
+                            if (result.includes('Document Successfully Saved!')) {
+                                var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                                dialog.hide();
+                                var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                                fileObj.renameFile();
+                            }
+                         
                         }
                     });
                 });
