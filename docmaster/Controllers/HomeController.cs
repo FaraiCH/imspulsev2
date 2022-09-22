@@ -1,4 +1,5 @@
-﻿using docmaster.Areas.Identity.Data;
+﻿using Aspose.Words;
+using docmaster.Areas.Identity.Data;
 using docmaster.Models;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
@@ -325,7 +326,7 @@ namespace docmaster.Controllers
                     Aspose.Words.Document docu = new Aspose.Words.Document(payload.path);
 
                     //Get Document Text
-                    var myDoc = docu.GetText();
+                    var myDoc = docu.ToString(SaveFormat.Text);
 
                     Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
                     System.IO.File.Delete(payload.path);
@@ -335,7 +336,8 @@ namespace docmaster.Controllers
                     document.Close();
 
                     Aspose.Words.Document newdoc = new Aspose.Words.Document(payload.path);
-                    var mynewDoc = newdoc.GetText();
+                    var mynewDoc = newdoc.ToString(SaveFormat.Text);
+                    
 
                     //Check to see if document content was changed
                     if (mynewDoc != myDoc)
@@ -372,8 +374,8 @@ namespace docmaster.Controllers
                         //Rename file on filemanager
                         this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
 
-                        //return new JsonResult(docu.ToString(Aspose.Words.SaveFormat.Text));
-                        return new JsonResult(add + result);
+                        return new JsonResult(mynewDoc);
+                        //return new JsonResult(add + result);
                     }   
 
                    
