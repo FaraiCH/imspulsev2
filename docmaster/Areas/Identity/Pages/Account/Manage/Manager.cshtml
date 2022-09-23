@@ -121,7 +121,17 @@
       
         </ejs-dialog>
 </div>
-
+<div class="toast_container" style="width:400px;margin:0 auto;">
+    <ejs-toast id="revtoast" extendedTimeout="20000" width="300" height="150">
+        <e-toast-position X="Center" Y="Center"></e-toast-position>
+        <e-content-template>
+            <p><img alt='Laura' class='toast-img' src='https://ej2.syncfusion.com/demos/src/toast/resource/laura.png' /><span class="name">Anjolie Stokes</span></p>
+            <div class="content">
+                <p>Thanks for update!</p>
+            </div>
+        </e-content-template>
+    </ejs-toast>
+</div>
 <div id="pdfedit">
         <ejs-dialog isModal="true" visible="false" id="default_dialog5" target="#pdfedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
@@ -240,10 +250,12 @@
                         success: function (result) {
                             toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             if (!result.includes('Document Successfully Saved!')) {
-                                var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                                dialog.hide();
-                                var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                                fileObj.renameFile();
+                                var toast = document.getElementById('revtoast').ej2_instances[0];
+                                toast.show();
+                                //var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                                //dialog.hide();
+                                //var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                                //fileObj.renameFile();
                             }
                         }
                     });
@@ -333,10 +345,7 @@
                     }
                 });
             }
-
-
-          
-        
+       
         }
     }
     function menuClick(args) {
@@ -442,10 +451,12 @@
                             toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             
                             if (!result.includes('Document Successfully Saved!')) {
-                                var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                                dialog.hide();
-                                var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                                fileObj.renameFile();
+                                var toast = document.getElementById('revtoast').ej2_instances[0];
+                                toast.show();
+                                //var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                                //dialog.hide();
+                                //var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                                //fileObj.renameFile();
                             }
                          
                         }
