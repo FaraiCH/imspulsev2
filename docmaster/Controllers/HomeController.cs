@@ -1,4 +1,5 @@
 ﻿using Aspose.Words;
+using Aspose.Words.Drawing;
 using docmaster.Areas.Identity.Data;
 using docmaster.Models;
 using Microsoft.AspNetCore.Http.Features;
@@ -315,11 +316,12 @@ namespace docmaster.Controllers
         }
 
         [HttpPost]
-        public IActionResult Demo([FromBody] PayloadModel payload)
+        public async Task<IActionResult> Demo([FromBody] PayloadModel payload)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             try
             {
+                var user =  await _userManager.GetUserAsync(this.User);
                 if (payload.path.Contains(".doc"))
                 {
                     //Get Old document using path and convert to JSON
@@ -331,9 +333,12 @@ namespace docmaster.Controllers
                     Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
                     System.IO.File.Delete(payload.path);
                     FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                   
                     document.CopyTo(file);
                     file.Close();
                     document.Close();
+
+                    var original = Path.GetFileName(payload.path);
 
                     Aspose.Words.Document newdoc = new Aspose.Words.Document(payload.path);
                     var mynewDoc = newdoc.ToString(SaveFormat.Text);
@@ -363,17 +368,55 @@ namespace docmaster.Controllers
                       
                         var result = string.Join(" ", diff);
 
-                        string fullpath = payload.path;
+                        if (!Directory.Exists(this.basePath + "/" + user.Company + "/Absolete/"))
+                        {
+                            Directory.CreateDirectory(this.basePath + "/" + user.Company + "/Absolete/");
+                        }
 
-                        //Get Only Directory of Path
-                        string directoryName = Path.GetDirectoryName(fullpath);
-                        //Get Only File Name of Path
-                        string filename = Path.GetFileName(fullpath);
-                        //Check for Revision Field
-                        //Update Revision Field
-                        //Rename file on filemanager
-                        this.operation.Rename(fullpath, filename, "New Name Yeah.docx");
+                        string watermarkText = "OBSOLETE";
 
+                        // Create a watermark shape. This will be a WordArt shape.
+                        // You are free to try other shape types as watermarks.
+                        Aspose.Words.Drawing.Shape watermark = new Aspose.Words.Drawing.Shape(docu, ShapeType.TextPlainText);
+
+                        // Set up the text of the watermark.
+                        watermark.TextPath.Text = watermarkText;
+                        watermark.TextPath.FontFamily = "Arial Black";
+                        watermark.TextPath.Bold = true;
+                        watermark.Width = 600;
+                        watermark.Height = 100;
+
+                        // Text will be directed from the bottom-left to the top-right corner.
+                        watermark.Rotation = -40;
+
+                        // Remove the following two lines if you need a solid black text.
+                        watermark.Fill.Color = System.Drawing.Color.Red;
+                        // Try LightGray to get more Word-style watermark
+                        watermark.StrokeColor = System.Drawing.Color.Red;
+                        //// Try LightGray to get more Word-style watermark
+                        // Place the watermark in the page center.
+                        watermark.RelativeHorizontalPosition = RelativeHorizontalPosition.Page;
+                        watermark.RelativeVerticalPosition = RelativeVerticalPosition.Page;
+                        watermark.WrapType = WrapType.None;
+                        watermark.VerticalAlignment = VerticalAlignment.Center;
+                        watermark.HorizontalAlignment = Aspose.Words.Drawing.HorizontalAlignment.Center;
+
+                        // Create a new paragraph and append the watermark to this paragraph.
+                        Paragraph watermarkPara = new Paragraph(docu);
+                        watermarkPara.AppendChild(watermark);
+
+                        // Insert the watermark into all headers of each document section.
+                        foreach (Section sect in docu.Sections)
+                        {
+                            // There could be up to three different headers in each section, since we want
+                            // the watermark to appear on all pages, insert into all headers.
+                            insertWatermarkIntoHeader(watermarkPara, sect, HeaderFooterType.HeaderPrimary);
+                            insertWatermarkIntoHeader(watermarkPara, sect, HeaderFooterType.HeaderFirst);
+                            insertWatermarkIntoHeader(watermarkPara, sect, HeaderFooterType.HeaderEven);
+                        }
+                        docu.Protect(Aspose.Words.ProtectionType.ReadOnly, "@Paradice1");
+
+                        docu.Save(this.basePath + "/" + user.Company + "/Absolete/" + original);
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
                     }   
@@ -389,6 +432,22 @@ namespace docmaster.Controllers
                 return new JsonResult(e.Message);
             }
           
+        }
+
+        static void insertWatermarkIntoHeader(Paragraph watermarkPara, Section sect, HeaderFooterType headerType)
+        {
+            HeaderFooter header = sect.HeadersFooters[headerType];
+            if (header == null)
+            {
+                // There is no header of the specified type in the current section, create it.
+                header = new HeaderFooter(sect.Document, headerType);
+                sect.HeadersFooters.Add(header);
+            }
+
+            // Insert a clone of the watermark into the header.
+            header.AppendChild(watermarkPara.Clone(true));
+
+
         }
 
         public IActionResult SaveExcel(SaveSettings saveSettings)
