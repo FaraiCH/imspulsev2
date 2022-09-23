@@ -259,6 +259,11 @@
                                     dialog.hide();
                                     var fileObj = document.getElementById("filemanager").ej2_instances[0];
                                     fileObj.renameFile();
+                                    toast.hide();
+                                });
+                                $("#norev").unbind('click').bind('click', function() {
+                                    toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                                    toast.hide();
                                 });
                             }
                         }
