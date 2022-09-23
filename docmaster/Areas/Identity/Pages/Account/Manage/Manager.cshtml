@@ -231,7 +231,7 @@
                                     
                         container.documentEditor.open(result);  
                         @{
-                            if (User.IsInRole("Admin"))
+                            if (!User.IsInRole("Admin"))
                             {
                                 <text>
                                     container.documentEditor.isReadOnly = true;
@@ -448,7 +448,14 @@
                         }
                                     
                         container.documentEditor.open(result);   
-                    
+                        @{
+                            if (!User.IsInRole("Admin"))
+                            {
+                                <text>
+                                    container.documentEditor.isReadOnly = true;
+                                </text>                               
+                            }
+                        }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
                         dialog.show();                   
                     }
