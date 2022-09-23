@@ -254,10 +254,12 @@
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
-                                //var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                                //dialog.hide();
-                                //var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                                //fileObj.renameFile();
+                                $("#yesrev").unbind('click').bind('click', function() {
+                                    var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                                    dialog.hide();
+                                    var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                                    fileObj.renameFile();
+                                });
                             }
                         }
                     });
@@ -584,12 +586,7 @@
 
     }
 
-    $("#yesrev").unbind('click').bind('click', function() {
-        var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-        dialog.hide();
-        var fileObj = document.getElementById("filemanager").ej2_instances[0];
-        fileObj.renameFile();
-    });
+ 
     
 </script>
 
