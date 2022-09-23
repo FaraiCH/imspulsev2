@@ -105,18 +105,11 @@
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             <ejs-button id="element" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
-             <ejs-toast id="revtoast" extendedTimeout="10000" width="300" height="150">
-                <e-toast-position X="Center" Y="Center"></e-toast-position>
-                <e-content-template>
-                    <p><img alt='Laura' class='toast-img' src='https://ej2.syncfusion.com/demos/src/toast/resource/laura.png' /><span class="name">Anjolie Stokes</span></p>
-                    <div class="content">
-                        <p>Thanks for update!</p>
-                    </div>
-                </e-content-template>
-            </ejs-toast>
             <ejs-documenteditorcontainer enableToolbar=false height="600px" id="doccontainer"></ejs-documenteditorcontainer>
-        </e-content-template>    
+        </e-content-template>
+      
     </ejs-dialog>
+
 </div>
 
 <div id="spreedsheetedit">
@@ -128,7 +121,17 @@
       
         </ejs-dialog>
 </div>
-
+<div class="toast_container" style="width:400px;margin:0 auto;">
+    <ejs-toast id="revtoast" extendedTimeout="10000" width="300" height="150">
+        <e-toast-position X="Center" Y="Center"></e-toast-position>
+        <e-content-template>
+            <p><img alt='Laura' class='toast-img' src='https://ej2.syncfusion.com/demos/src/toast/resource/laura.png' /><span class="name">Anjolie Stokes</span></p>
+            <div class="content">
+                <p>Thanks for update!</p>
+            </div>
+        </e-content-template>
+    </ejs-toast>
+</div>
 <div id="pdfedit">
         <ejs-dialog isModal="true" visible="false" id="default_dialog5" target="#pdfedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
