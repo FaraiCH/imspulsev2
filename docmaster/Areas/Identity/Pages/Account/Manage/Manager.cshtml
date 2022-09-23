@@ -13,7 +13,7 @@
     var num = 0.00;
 
     @if (SignInManager.IsSignedIn(User))
-    {   if(User.IsInRole("Admin"))
+    {   if(User.IsInRole("SuperUser"))
         {
             myPath = "";
         }
@@ -40,14 +40,14 @@
 
 }
 
- @if(!User.IsInRole("Admin"))
+ @if(!User.IsInRole("SuperUser"))
 {
         <div class="alert alert-warning" role="alert">
           <p>Your company has currently used @num MB of space.</p>
         </div>
 }else{
      <div class="alert alert-info" role="alert">
-          <p>You are the administrator. You have full access to all company documents</p>
+          <p>You are the Super User. You have full access to all company documents</p>
         </div>
 }
 <div class="control-section">
@@ -229,7 +229,15 @@
                             }
                         }
                                     
-                        container.documentEditor.open(result);                      
+                        container.documentEditor.open(result);  
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                <text>
+                                    container.documentEditor.isReadOnly = true;
+                                </text>                               
+                            }
+                        }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
                         dialog.show();
                    
@@ -608,6 +616,7 @@
  
     
 </script>
+
 
 
     @if (ViewData["Message"] != null)

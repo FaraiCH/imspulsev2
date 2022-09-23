@@ -13,14 +13,14 @@ namespace docmaster.Controllers
         {
             _roleManager = roleManager;
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperUser")]
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
         }
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperUser")]
         public async Task<IActionResult> AddRole(string roleName)
         {
             if (roleName != null)
