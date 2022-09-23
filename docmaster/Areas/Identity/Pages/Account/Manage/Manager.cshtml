@@ -127,8 +127,8 @@
             <p><img alt='IMS Pulse Team' height="60px" width="60px" class='toast-img' src='https://imspulse.com/storage/app/media/favourite.png' /><span class="name"> IMS Pulse Team</span></p>
             <div class="content">
                 <p>We have noticed that you made a change to this document. Do you want to qulaify it as a Revision?</p>
-                <button class="btn btn-success">Yes</button>
-                <button class="btn btn-danger">No</button>
+                <button id="yes" class="btn btn-success">Yes</button>
+                <button id="no" class="btn btn-danger">No</button>
             </div>
         </e-content-template>
     </ejs-toast>
@@ -250,14 +250,20 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                            
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
-                                //var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                                //dialog.hide();
-                                //var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                                //fileObj.renameFile();
+                                 $("#yes").unbind('click').bind('click', function () {
+                                    var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
+                                    dialog.hide();
+                                    var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                                    fileObj.renameFile();
+                                 }
+                                $("#no").unbind('click').bind('click', function () {
+                                    toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                                }
+                               
                             }
                         }
                     });
