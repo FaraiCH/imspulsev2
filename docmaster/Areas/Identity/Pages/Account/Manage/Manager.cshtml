@@ -125,9 +125,10 @@
     <ejs-toast id="revtoast" extendedTimeout="10000" width="300" height="150">
         <e-toast-position X="Center" Y="Center"></e-toast-position>
         <e-content-template>
-            <p><img alt='Laura' class='toast-img' src='https://ej2.syncfusion.com/demos/src/toast/resource/laura.png' /><span class="name">Anjolie Stokes</span></p>
-            <div class="content">
-                <p>Thanks for update!</p>
+            <p>IMS Pulse Noted a Change in the Document. Do you wish to save this as a Revision?</p>
+            <div>
+                <button class="float-left">Yes</button>
+                <button class="float-right">No</button>
             </div>
         </e-content-template>
     </ejs-toast>
@@ -248,7 +249,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                            //toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
@@ -448,7 +449,7 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                            //toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
