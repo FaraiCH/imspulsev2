@@ -150,13 +150,6 @@
  
 <script>
 
-    $(document).ready(function() {
-        $("#mypassword2").hide();
-        $("#mypassword").hide();
-        $("#encry").hide();
-        $("#decry").hide();
-        $(".toast_container").hide();
-    });
 
     function toolbarClick(args) {
         if (args.item.text === 'Encrypt') {
@@ -558,6 +551,11 @@
 
 
      function onCreate(args) {
+        $("#mypassword2").hide();
+        $("#mypassword").hide();
+        $("#encry").hide();
+        $("#decry").hide();
+        $(".toast_container").hide();
         for (var i = 0; i < args.items.length; i++) {
             if (args.items[i].text == 'Encrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
