@@ -103,7 +103,7 @@
 <div id="docedit">
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
-            if (!User.IsInRole("Admin")){
+            @if (!User.IsInRole("Admin")){
                             <ejs-button id="element" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
             }
 
@@ -117,7 +117,7 @@
 <div id="spreedsheetedit">
         <ejs-dialog isModal="true" visible="false" id="default_dialog4" target="#spreedsheetedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
-             if (!User.IsInRole("Admin")){
+             @if (!User.IsInRole("Admin")){
                              <ejs-button id="elementsp" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
              }
 
@@ -142,7 +142,7 @@
 <div id="pdfedit">
         <ejs-dialog isModal="true" visible="false" id="default_dialog5" target="#pdfedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
-              if (!User.IsInRole("Admin"))
+              @if (!User.IsInRole("Admin"))
                 {
                     <ejs-button id="elementpdf" title="Save your work online." class="btn btn-primary" content="Save Document"></ejs-button>
                 }
