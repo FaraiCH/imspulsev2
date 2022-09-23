@@ -124,9 +124,9 @@
     <ejs-toast id="revtoast" extendedTimeout="10000" width="300" height="200">
         <e-toast-position X="Left" Y="Top"></e-toast-position>
         <e-content-template>
-            <p><img alt='IMS Pulse Team' height="60px" width="60px" class='toast-img' src='https://imspulse.com/storage/app/media/favourite.png' /><span class="name"> IMS Pulse Team</span></p>
+            <p><img alt='Revision Master' height="60px" width="60px" class='toast-img' src='https://imspulse.com/storage/app/media/favourite.png' /><span class="name"> IMS Pulse Team</span></p>
             <div class="content">
-                <p>We have noticed that you made a change to this document. Do you want to qulaify it as a Revision?</p>
+                <p>Hi! &#128512; I noticed that you made a change to this document. Do you want to qualify it as a Revision?</p>
                 <button id="yesrev" class="btn btn-success">Yes</button>
                 <button id="norev" class="btn btn-danger">No</button>
             </div>
@@ -249,8 +249,7 @@
                         url: '/Home/Demo/',              
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
-                        success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                        success: function (result) {                       
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
@@ -267,6 +266,8 @@
                                     var toast = document.getElementById('revtoast').ej2_instances[0];
                                     toast.hide();
                                 });
+                            }else{
+                                   toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             }
                         }
                     });
@@ -459,8 +460,8 @@
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
                         success: function (result) {
-                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
-                            
+                          
+     
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
@@ -477,6 +478,8 @@
                                     var toast = document.getElementById('revtoast').ej2_instances[0];
                                     toast.hide();
                                 });
+                            }else{
+                                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             }
                          
                         }
