@@ -42,13 +42,13 @@
 
   <ItemGroup>
     <Reference Include="Aspose.Cells">
-      <HintPath>..\..\..\Users\Farai Chakarisa BT\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Cells.dll</HintPath>
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Cells.dll</HintPath>
     </Reference>
     <Reference Include="Aspose.Slides">
-      <HintPath>..\..\..\Users\Farai Chakarisa BT\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Slides.dll</HintPath>
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Slides.dll</HintPath>
     </Reference>
     <Reference Include="Aspose.Words">
-      <HintPath>..\..\..\Users\Farai Chakarisa BT\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Words.dll</HintPath>
+      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Words.dll</HintPath>
     </Reference>
   </ItemGroup>
 
