@@ -73,7 +73,7 @@
          <ejs-dialog created="made" visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
                 <div class="unpro">
-                    <div class='form-group'><label for='p.e-breadcrumb-menussword'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword'></div>
+                    <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword'></div>
                     <button id="encry" class="btn btn-outline-primary float-end">Protect</button>
                 </div>
                
@@ -82,7 +82,7 @@
       
         </ejs-dialog>
         
-             <ejs-dialog created="made" visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
+        <ejs-dialog created="made2" visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
             <e-content-template>
              <div class="unpro">
                 <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword2'></div>
@@ -160,9 +160,14 @@
 
     function made() {
         var dialog = document.getElementById("default_dialog").ej2_instances[0];                
-        var dialog2 = document.getElementById("default_dialog2").ej2_instances[0];                
+              
         dialog.hide();
-        dialog2.hide();
+      
+    }
+    function made2(){
+        var dialog = document.getElementById("default_dialog2").ej2_instances[0];                
+              
+        dialog.hide();
     }
     function toolbarClick(args) {
         if (args.item.text === 'Encrypt') {
