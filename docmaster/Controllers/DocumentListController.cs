@@ -13,9 +13,10 @@ namespace docmaster.Controllers
         {
             return "value";
         }
-        [HttpGet("Company={company}&WichType={passdoc}")]
-        public ActionResult<string> Passowrddoc(string company, string passdoc)
+        [HttpGet("Company={company}&WichType={passdoc}&Mode={mode}")]
+        public ActionResult<string> Get(string company, string passdoc, string mode)
         {
+            
             return "document password";
         }
     }
