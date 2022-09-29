@@ -22,7 +22,7 @@ namespace docmaster.Controllers
              
                 foreach (string f in Directory.GetFiles(d))
                 {
-                    FileFormatInfo info = FileFormatUtil.DetectFileFormat(d + "Document.doc");
+                    //FileFormatInfo info = FileFormatUtil.DetectFileFormat(d + "Document.doc");
                     documents.Add(new Tuple<string, string, string>(d, "something", "something"));
                 }
                   
