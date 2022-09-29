@@ -17,7 +17,8 @@ namespace docmaster.Controllers
         public async Task<ActionResult<string>> GetDocument(string company, string passdoc, string mode)
         {
             var documents = new List<Tuple<string, string, string>>();
-            string[] directory = Directory.GetFiles("/vaw/www/html/imspulse/bunch-box/" + company + "/", "*", System.IO.SearchOption.AllDirectories);       
+            string[] directory = Directory.GetFiles("/var/www/html/imspulse/bunch-box/" + company, "*", System.IO.SearchOption.AllDirectories);
+            //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
             foreach (string f in directory)
             {
                 //FileFormatInfo info = FileFormatUtil.DetectFileFormat(d + "Document.doc");
