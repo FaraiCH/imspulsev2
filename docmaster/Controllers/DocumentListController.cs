@@ -17,16 +17,11 @@ namespace docmaster.Controllers
         public async Task<ActionResult<string>> GetDocument(string company, string passdoc, string mode)
         {
             var documents = new List<Tuple<string, string, string>>();
-            foreach (string d in Directory.GetDirectories("/var/www/html/imspulse/bunch-box/" + company))
+            string[] directory = Directory.GetFiles("/vaw/www/html/imspulse/bunch-box/" + company + "/", "*", System.IO.SearchOption.AllDirectories);       
+            foreach (string f in directory)
             {
-             
-                foreach (string f in Directory.GetFiles(d))
-                {
-                    //FileFormatInfo info = FileFormatUtil.DetectFileFormat(d + "Document.doc");
-                    documents.Add(new Tuple<string, string, string>(f, "something", "something"));
-                }
-                  
-             
+                //FileFormatInfo info = FileFormatUtil.DetectFileFormat(d + "Document.doc");
+                documents.Add(new Tuple<string, string, string>(f, "something", "something"));
             }
             string json = JsonConvert.SerializeObject(new
             {
