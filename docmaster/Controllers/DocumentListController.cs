@@ -21,8 +21,11 @@ namespace docmaster.Controllers
             //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
             foreach (string f in directory)
             {
-                //FileFormatInfo info = FileFormatUtil.DetectFileFormat(d + "Document.doc");
-                documents.Add(new Tuple<string, string, string>(f, "something", "something"));
+                FileFormatInfo info = FileFormatUtil.DetectFileFormat(f);
+                if(info.IsEncrypted == true)
+                {
+                    documents.Add(new Tuple<string, string, string>(f,"Encrypted", "1"));
+                }              
             }
             string json = JsonConvert.SerializeObject(new
             {
