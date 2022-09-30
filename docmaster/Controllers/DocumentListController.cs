@@ -1,5 +1,6 @@
 ﻿using Aspose.Words;
 using docmaster.Areas.Identity.Data;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,12 +8,14 @@ using Newtonsoft.Json;
 
 namespace docmaster.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class DocumentListController : ControllerBase
     {
         UserManager<docmasterUser> _userManager;
         // GET api/values/5
+        [EnableCors("*")]
         [HttpGet("Company={company}&WichType={passdoc}&Mode={mode}")]
         public async Task<ActionResult<string>> GetDocument(string company, string passdoc, string mode)
         {
