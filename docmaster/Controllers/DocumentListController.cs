@@ -15,7 +15,6 @@ namespace docmaster.Controllers
     {
         UserManager<docmasterUser> _userManager;
         // GET api/values/5
-        [EnableCors("*")]
         [HttpGet("Company={company}&WichType={passdoc}&Mode={mode}")]
         public async Task<ActionResult<string>> GetDocument(string company, string passdoc, string mode)
         {
