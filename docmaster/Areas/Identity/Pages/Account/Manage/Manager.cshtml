@@ -104,7 +104,7 @@
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             @if (User.IsInRole("Admin")){
-                            <ejs-button id="element" title="Save your work online." class="btn btn-primary" content="Save Document"></ejs-button>
+                            <ejs-button id="element" title="Save your work online."  class="btn btn-primary" content="Save Document"></ejs-button>
                             <ejs-button id="revelement" title="Add Revision field" class="btn btn-primary" content="Insert Revision Field"></ejs-button>
             }
 
@@ -253,9 +253,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -300,14 +300,6 @@
                         }
                     });
                 });
-
-                $("#revelement").unbind('click').bind('click', function() {
-                    var documenteditorElement = document.getElementById("doccontainer");
-                    container = documenteditorElement.ej2_instances[0];
-                    container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision' + ' \\* MERGEFORMAT');
-                
-                }
-
             }
 
             if (args.fileDetails[0].name.includes('.xls')) {
@@ -479,9 +471,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
