@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7kUduKoESbRrt6SfV2Nit7PqG4MBJDiCTUZDEKnAxqM=",
+  "Hash": "TO8/JwS5+LVq12uqUmtG+GU/zO64hB+oerOuy0EHsnU=",
   "Source": "docmaster",
   "BasePath": "_content/docmaster",
   "Mode": "Default",
@@ -714,12 +714,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\testing\\imspulsev2\\docmaster\\wwwroot\\favicon.png",
+      "Identity": "C:\\testing\\imspulsev2\\docmaster\\wwwroot\\favicon.ico",
       "SourceId": "docmaster",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\testing\\imspulsev2\\docmaster\\wwwroot\\",
       "BasePath": "_content/docmaster",
-      "RelativePath": "favicon.png",
+      "RelativePath": "favicon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -728,7 +728,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.png"
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
       "Identity": "C:\\testing\\imspulsev2\\docmaster\\wwwroot\\js\\site.js",
