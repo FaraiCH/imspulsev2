@@ -52,7 +52,7 @@
 }
 <div class="control-section">
     <div class="sample-container" id="container" style="padding:10px">
-            <ejs-filemanager maxFileSize="233332" id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="toolbarClick" toolbarCreate="onCreate" menuClick="menuClick" fileOpen="onFileOpen">
+            <ejs-filemanager beforePopupClose="popUpClose" maxFileSize="233332" id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="toolbarClick" toolbarCreate="onCreate" menuClick="menuClick" fileOpen="onFileOpen">
                 <e-filemanager-navigationpanesettings></e-filemanager-navigationpanesettings>
             <e-filemanager-ajaxsettings url="/Home/FileOperations"
                                         downloadUrl="/Home/Download"
@@ -159,6 +159,12 @@
  
 <script>
 
+    function popUpClose(args){
+        if (args.popupName == 'Rename') { 
+            alert(args.popupModule.element); 
+        } 
+    }
+
     function made() {
         var dialog = document.getElementById("default_dialog").ej2_instances[0];                
               
@@ -253,9 +259,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                            <text>
-                                                                container.documentEditor.isReadOnly = true;
-                                                            </text>                               
+                                <text>
+                                    container.documentEditor.isReadOnly = true;
+                                </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -263,7 +269,11 @@
                    
                     }
                 });
-             
+                  $("#revelement").unbind('click').bind('click', function() {
+                        var documenteditorElement = document.getElementById("doccontainer");
+                        container = documenteditorElement.ej2_instances[0];
+                        container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision No' + ' \\* MERGEFORMAT');
+                    });
 
                 $("#element").unbind('click').bind('click', function () {
 
@@ -498,9 +508,7 @@
                         url: '/Home/Demo/',              
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
-                        success: function (result) {
-                          
-     
+                        success: function (result) { 
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
@@ -519,8 +527,7 @@
                                 });
                             }else{
                                 toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
-                            }
-                         
+                            }                        
                         }
                     });
                 });
