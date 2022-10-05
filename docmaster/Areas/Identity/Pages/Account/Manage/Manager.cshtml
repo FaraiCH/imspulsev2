@@ -105,7 +105,7 @@
         <e-content-template>
             @if (User.IsInRole("Admin")){
                             <ejs-button id="element" title="Save your work online."  class="btn btn-primary" content="Save Document"></ejs-button>
-                            <button id="revelement" title="Add A Revision Field to Automate Revision No" onclick="myRevision()">Add Revision Field</button>
+                            <ejs-button id="revelement" title="Add Revision field" class="btn btn-primary" content="Insert Revision Field"></ejs-button>
             }
 
             <ejs-documenteditorcontainer enableToolbar=false height="600px" id="doccontainer"></ejs-documenteditorcontainer>
@@ -158,9 +158,9 @@
 </div>
  
 <script>
-    document.getElementById("revelement").addEventListener('click', function() {
-        alert("You clicked me");
-    }
+$("#revelement").unbind('click').bind('click', function() {
+    alert("You clicked me!");
+});
     function made() {
         var dialog = document.getElementById("default_dialog").ej2_instances[0];                
               
