@@ -417,7 +417,7 @@ namespace docmaster.Controllers
                         docu.Protect(Aspose.Words.ProtectionType.ReadOnly, "@Paradice1");
 
                         docu.Save(this.basePath + "/" + user.Company + "/Absolete/" + original);
-                       
+                        newdoc.Save(payload.path);
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
                     }   
