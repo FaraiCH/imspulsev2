@@ -482,7 +482,9 @@
                 });
 
                 $("#revelement").unbind('click').bind('click', function() {
-                    alert("You clicked me!");
+                    var documenteditorElement = document.getElementById("doccontainer");
+                    container = documenteditorElement.ej2_instances[0];
+                    container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision No' + ' \\* MERGEFORMAT');
                 });
                 $("#element").unbind('click').bind('click', function () {
 
