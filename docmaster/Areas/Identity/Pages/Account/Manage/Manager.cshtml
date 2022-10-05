@@ -159,6 +159,9 @@
  
 <script>
 
+document.getElementById("revelement").addEventListener('click', function() {
+    alert('You clicked me');
+};
     function made() {
         var dialog = document.getElementById("default_dialog").ej2_instances[0];                
               
@@ -253,9 +256,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                                    <text>
+                                                        container.documentEditor.isReadOnly = true;
+                                                    </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -263,9 +266,7 @@
                    
                     }
                 });
-                document.getElementById("revelement").addEventListener('click', function() {
-                    alert('You clicked me');
-                }
+             
 
                 $("#element").unbind('click').bind('click', function () {
 
@@ -473,9 +474,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                                    <text>
+                                                        container.documentEditor.isReadOnly = true;
+                                                    </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
