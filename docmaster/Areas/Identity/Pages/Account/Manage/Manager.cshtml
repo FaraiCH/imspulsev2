@@ -160,11 +160,10 @@
 <script>
 
     function popUpClose(args){
-
+        alert(args.fileName);
         if (args.popupName == 'Rename') { 
             var arr = [].slice.call(args.popupModule.element.getElementsByTagName('input'));
             alert(arr[0].value); 
-            alert(arr[1].value); 
         } 
     }
 
@@ -262,9 +261,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                        <text>
-                                            container.documentEditor.isReadOnly = true;
-                                        </text>                               
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -484,9 +483,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                        <text>
-                                            container.documentEditor.isReadOnly = true;
-                                        </text>                               
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
