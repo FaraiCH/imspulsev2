@@ -160,9 +160,6 @@
 <script>
 
     function popUpClose(args){
-        if (args.fileDetails[0].isFile){
-            alert(args.fileDetails[0].filterPath)
-        }
         if (args.popupName == 'Rename') { 
             var arr = [].slice.call(args.popupModule.element.getElementsByTagName('input'));
             alert(arr[0].value); 
