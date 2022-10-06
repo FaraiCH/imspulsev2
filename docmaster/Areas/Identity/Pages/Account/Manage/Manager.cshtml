@@ -162,7 +162,7 @@
     function popUpClose(args){
         if (args.popupName == 'Rename') { 
             var arr = [].slice.call(args.popupModule.element.getElementsByTagName('input'));
-            alert(arr[0].value); 
+            alert(arr[0].value + ' ' + args.fileDetails[0].filterPath); 
         } 
     }
 
