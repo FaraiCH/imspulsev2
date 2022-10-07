@@ -162,12 +162,18 @@
     function onSuccess(args){
 
         if(args.action=="rename"){
-
-            alert(args.result.files[0].name);
-            alert(args.result.files[0].filterPath);
-           
+            var formData = { fullName: args.result.files[0].name, path: args.result.files[0].filterPath };
+            var strJson = JSON.stringify(formData)
+            $.ajax({
+                type: 'POST',
+                url: '/Home/Revision/',
+                contentType: 'application/json', 
+                data: strJson,
+                success: function(result) {
+                    toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
+                }
+            });         
         }
-
     }
 
     function made() {

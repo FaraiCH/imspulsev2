@@ -585,6 +585,11 @@ namespace docmaster.Controllers
 
         }
 
+        public IActionResult Revision([FromBody] ProtectModel payload)
+        {
+            return new JsonResult(payload.path);
+        }
+
         internal static Syncfusion.EJ2.DocumentEditor.FormatType GetFormatType(string format)
         {
             if (string.IsNullOrEmpty(format))
