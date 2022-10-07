@@ -587,7 +587,37 @@ namespace docmaster.Controllers
 
         public IActionResult Revision([FromBody] ProtectModel payload)
         {
-            return new JsonResult(payload.path);
+            // Open an existing document.
+            string path = "/var/www/html/imspulse/bunch-box/" + payload.path + "/" + payload.fullName;
+            Document doc = new Document(path);
+
+            DocumentBuilder builder = new DocumentBuilder(doc);
+
+            foreach (string fieldName in doc.MailMerge.GetFieldNames())
+            {
+
+                builder.MoveToMergeField(fieldName, false, false);
+
+                builder.StartBookmark(fieldName);
+
+                builder.MoveToMergeField(fieldName, true, false);
+
+                builder.EndBookmark(fieldName);
+
+            }
+
+            // Trim trailing and leading whitespaces mail merge values
+            doc.MailMerge.TrimWhitespaces = false;
+
+            // Fill the fields in the document with user data.
+            doc.MailMerge.Execute(
+                new string[] { "Revision No" },
+                new object[] { Path.GetFileNameWithoutExtension(path) }
+                );
+
+            doc.Save(path);
+            
+            return new JsonResult("Revision Successful");
         }
 
         internal static Syncfusion.EJ2.DocumentEditor.FormatType GetFormatType(string format)
