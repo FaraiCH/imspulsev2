@@ -283,7 +283,7 @@
                   $("#revelement").unbind('click').bind('click', function() {
                         var documenteditorElement = document.getElementById("doccontainer");
                         container = documenteditorElement.ej2_instances[0];
-                        container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision');
+                        container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision' + ' \\* MERGEFORMAT');
                     });
 
                 $("#element").unbind('click').bind('click', function () {
@@ -505,7 +505,7 @@
                 $("#revelement").unbind('click').bind('click', function() {
                     var documenteditorElement = document.getElementById("doccontainer");
                     container = documenteditorElement.ej2_instances[0];
-                    container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision');
+                    container.documentEditor.editor.insertField('MERGEFIELD ' + 'Revision' + ' \\* MERGEFORMAT');
                 });
                 $("#element").unbind('click').bind('click', function () {
 
