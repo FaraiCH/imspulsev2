@@ -8,6 +8,8 @@ C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\HarfBuzzSharp.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
+C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\System.Net.Http.Formatting.dll
+C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\System.Web.Http.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -58,6 +60,7 @@ C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualSt
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MySqlConnector.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.Common.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.Configuration.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.DependencyResolver.Core.dll

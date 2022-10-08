@@ -611,23 +611,23 @@ namespace docmaster.Controllers
 
             // Fill the fields in the document with user data.
             doc.MailMerge.Execute(
-                new string[] { "Revision No" },
+                new string[] { "Revision" },
                 new object[] { Path.GetFileNameWithoutExtension(path) }
                 );
 
-            //foreach (Bookmark bookmark in doc.Range.Bookmarks)
-            //{
-            //    // Retrieve the field name and the merged field value using the bookmark.
+            foreach (Bookmark bookmark in doc.Range.Bookmarks)
+            {
+                // Retrieve the field name and the merged field value using the bookmark.
 
-            //    string fieldName = bookmark.Name;
+                string fieldName = bookmark.Name;
 
-            //    string fieldValue = bookmark.Text;
+                string fieldValue = bookmark.Text;
 
-            //    doc.Range.Replace(fieldValue, Path.GetFileNameWithoutExtension(path));
+                doc.Range.Replace(fieldValue, Path.GetFileNameWithoutExtension(path));
 
-            //    // Send the document in Word format to the client browser with an option to save to disk or open inside the current browser.
-                
-            //}
+                // Send the document in Word format to the client browser with an option to save to disk or open inside the current browser.
+
+            }
 
             doc.Save(path);
             
