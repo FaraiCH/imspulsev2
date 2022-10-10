@@ -590,7 +590,7 @@ namespace docmaster.Controllers
             // Open an existing document.
             string path = "/var/www/html/imspulse/bunch-box/" + payload.path + "/" + payload.fullName;
             Document doc = new Document(path);
-
+            string fieldValue = String.Empty;
             DocumentBuilder builder = new DocumentBuilder(doc);
 
             foreach (string fieldName in doc.MailMerge.GetFieldNames())
@@ -615,12 +615,12 @@ namespace docmaster.Controllers
 
             foreach (Bookmark bookmark in doc.Range.Bookmarks)
             {
-
-                string fieldValue = bookmark.Text;
-
-                doc.Range.Replace(fieldValue, Path.GetFileNameWithoutExtension(path));
-
+                if(bookmark.Name == "Revision")
+                {
+                    fieldValue = bookmark.Text;
+                }               
             }
+            doc.Range.Replace(fieldValue, Path.GetFileNameWithoutExtension(path));
             doc.Save(path);
             
             
