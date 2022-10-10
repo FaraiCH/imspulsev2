@@ -591,47 +591,12 @@ namespace docmaster.Controllers
             string path = "/var/www/html/imspulse/bunch-box/" + payload.path + "/" + payload.fullName;
             Document doc = new Document(path);
 
-            DocumentBuilder builder = new DocumentBuilder(doc);
-
-            foreach (string fieldName in doc.MailMerge.GetFieldNames())
-            {
-
-                builder.MoveToMergeField(fieldName, false, false);
-
-                builder.StartBookmark(fieldName);
-
-                builder.MoveToMergeField(fieldName, true, false);
-
-                builder.EndBookmark(fieldName);
-
-            }
-
-            // Trim trailing and leading whitespaces mail merge values
-            doc.MailMerge.TrimWhitespaces = false;
-
-            // Fill the fields in the document with user data.
             doc.MailMerge.Execute(
                 new string[] { "Revision" },
                 new object[] { Path.GetFileNameWithoutExtension(path) }
                 );
-
-            foreach (Bookmark bookmark in doc.Range.Bookmarks)
-            {
-                // Retrieve the field name and the merged field value using the bookmark.
-
-                string fieldName = bookmark.Name;
-
-                string fieldValue = bookmark.Text;
-
-                doc.Range.Replace(fieldValue, Path.GetFileNameWithoutExtension(path));
-
-                // Send the document in Word format to the client browser with an option to save to disk or open inside the current browser.
-
-            }
-
             doc.Save(path);
-            
-            
+                     
             return new JsonResult("Revision Successful");
         }
 
