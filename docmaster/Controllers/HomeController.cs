@@ -306,8 +306,6 @@ namespace docmaster.Controllers
             string filename = Path.GetFileNameWithoutExtension(fullName);
             string docFile = justPath + "/" + filename + ".doc";
             Document docu = new Aspose.Words.Document(fullName);
-            docu.Save(docFile);
-
             //int index = docFile.LastIndexOf('.');
             //string type = index > -1 && index < docFile.Length - 1 ?
             //docFile.Substring(index) : ".docx";
