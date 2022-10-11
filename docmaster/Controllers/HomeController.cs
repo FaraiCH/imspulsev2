@@ -305,7 +305,7 @@ namespace docmaster.Controllers
             string justPath = Path.GetDirectoryName(fullName);
             string filename = Path.GetFileNameWithoutExtension(fullName);
             string docFile = justPath + "/" + filename + ".docx";
-            Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
+            Document docu = new Document(fullName);
             docu.Save(docFile);
 
             //int index = docFile.LastIndexOf('.');
@@ -316,7 +316,7 @@ namespace docmaster.Controllers
             //string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
             //document.Dispose();
             //fileStreamPath.Close();
-            return new JsonResult(docu.ToString(SaveFormat.Text));
+            return new JsonResult(docFile);
         }
         public IActionResult Opened(IFormCollection openRequest)
         {
