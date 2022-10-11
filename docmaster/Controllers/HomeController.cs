@@ -316,7 +316,7 @@ namespace docmaster.Controllers
             //string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
             //document.Dispose();
             //fileStreamPath.Close();
-            return new JsonResult(docFile);
+            return new JsonResult(fullName + "***********" + docFile);
         }
         public IActionResult Opened(IFormCollection openRequest)
         {
