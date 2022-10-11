@@ -372,12 +372,11 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        alert(result);
-                        //var documenteditorElement = document.getElementById("docpdf");
-                        //container = documenteditorElement.ej2_instances[0];
-                        //container.documentEditor.open(result);                                     
-                        //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
-                        //dialog.show();
+                        var documenteditorElement = document.getElementById("docpdf");
+                        container = documenteditorElement.ej2_instances[0];
+                        container.documentEditor.open(result);                                     
+                        var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
+                        dialog.show();
                     }
                 });
 
