@@ -266,9 +266,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                                    <text>
+                                                        container.documentEditor.isReadOnly = true;
+                                                    </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -368,15 +368,16 @@
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
                     type: 'POST',
-                    url: '/Home/Demo2/',
+                    url: '/Home/PDFView/',
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        var documenteditorElement = document.getElementById("docpdf");
-                        container = documenteditorElement.ej2_instances[0];
-                        container.documentEditor.open(result);                                     
-                        var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
-                        dialog.show();
+                        alert(result);
+                        //var documenteditorElement = document.getElementById("docpdf");
+                        //container = documenteditorElement.ej2_instances[0];
+                        //container.documentEditor.open(result);                                     
+                        //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
+                        //dialog.show();
                     }
                 });
 
@@ -485,9 +486,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                                    <text>
+                                                        container.documentEditor.isReadOnly = true;
+                                                    </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                

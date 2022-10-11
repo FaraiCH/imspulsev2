@@ -291,22 +291,7 @@ namespace docmaster.Controllers
                 }
                 if (fullName.Contains("pdf"))
                 {
-                    string justPath = Path.GetDirectoryName(fullName);
-                    //string filename = Path.GetFileNameWithoutExtension(fullName);
-                    //string docFile = justPath + "/" + filename  + ".docx";
-                    //Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
-                    //docu.Save(docFile);
-
-                    //int index = docFile.LastIndexOf('.');
-                    //string type = index > -1 && index < docFile.Length - 1 ?
-                    //docFile.Substring(index) : ".docx";
-                    //FileStream fileStreamPath = new FileStream(docFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                    //WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
-                    //string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
-                    //document.Dispose();
-                    //fileStreamPath.Close();
-                    //return new JsonResult(sfdt);
-                    return new JsonResult(justPath);
+                  
                 }
 
                 return new JsonResult("");
@@ -320,11 +305,24 @@ namespace docmaster.Controllers
           
         }
 
-        public string PDFView(string fullName)
+        public IActionResult PDFView(string fullName)
         {
-            var docBytes = System.IO.File.ReadAllBytes(fullName);
-            string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
-            return (docBase64);
+            string justPath = Path.GetDirectoryName(fullName);
+            //string filename = Path.GetFileNameWithoutExtension(fullName);
+            //string docFile = justPath + "/" + filename  + ".docx";
+            //Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
+            //docu.Save(docFile);
+
+            //int index = docFile.LastIndexOf('.');
+            //string type = index > -1 && index < docFile.Length - 1 ?
+            //docFile.Substring(index) : ".docx";
+            //FileStream fileStreamPath = new FileStream(docFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            //WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+            //string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+            //document.Dispose();
+            //fileStreamPath.Close();
+            //return new JsonResult(sfdt);
+            return new JsonResult(justPath);
         }
         public IActionResult Opened(IFormCollection openRequest)
         {
