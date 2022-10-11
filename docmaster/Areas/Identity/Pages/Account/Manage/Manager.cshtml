@@ -147,11 +147,7 @@
                 {
                     <ejs-button id="elementpdf" title="Save your work online." class="btn btn-primary" content="Save Document"></ejs-button>
                 }
-            <ejs-pdfviewer id="pdfviewer"
-                style="height:600px"
-                serviceUrl="/Home/PdfViewer"
-                enableToolbar="false">
-            </ejs-pdfviewer>
+           <ejs-documenteditorcontainer enableToolbar=false height="600px" id="docpdf"></ejs-documenteditorcontainer>
         </e-content-template>
       
         </ejs-dialog>
@@ -372,18 +368,15 @@
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
                     type: 'POST',
-                    url: '/Home/PDFView/',
+                    url: '/Home/Demo2/',
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        //var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];  
-                        //pdfViewer.load(result);
-                        //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
-                        //dialog.show();    
-                        
-                         toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The PDF Editor is in future plans. However, as of now, there is no editor to handle pdf manipulation", 'Warning', 3000);
-                  
-                        //fileObj.refresh();
+                        var documenteditorElement = document.getElementById("docpdf");
+                        container = documenteditorElement.ej2_instances[0];
+                        container.documentEditor.open(result);                                     
+                        var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
+                        dialog.show();
                     }
                 });
 

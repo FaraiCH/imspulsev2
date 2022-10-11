@@ -289,6 +289,24 @@ namespace docmaster.Controllers
                     fs.Close();
                     return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
                 }
+                if (fullName.Contains("pdf"))
+                {
+                    string justPath = Path.GetDirectoryName(fullName);
+                    string filename = Path.GetFileNameWithoutExtension(fullName);
+                    string docFile = justPath + "/" + filename  + ".docx";
+                    Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
+                    docu.Save(docFile);
+
+                    int index = docFile.LastIndexOf('.');
+                    string type = index > -1 && index < docFile.Length - 1 ?
+                    docFile.Substring(index) : ".docx";
+                    FileStream fileStreamPath = new FileStream(docFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+                    string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+                    document.Dispose();
+                    fileStreamPath.Close();
+                    return new JsonResult(sfdt);
+                }
 
                 return new JsonResult("");
          
