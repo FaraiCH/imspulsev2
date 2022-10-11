@@ -289,6 +289,7 @@ namespace docmaster.Controllers
                     fs.Close();
                     return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
                 }
+
                 return new JsonResult("");
          
             }
@@ -300,21 +301,11 @@ namespace docmaster.Controllers
           
         }
 
-        public IActionResult PDFView(string fullName)
+        public string PDFView(string fullName)
         {
-            string justPath = Path.GetDirectoryName(fullName);
-            string filename = Path.GetFileNameWithoutExtension(fullName);
-            string docFile = justPath + "/" + filename + ".doc";
-            Document docu = new Aspose.Words.Document(fullName);
-            //int index = docFile.LastIndexOf('.');
-            //string type = index > -1 && index < docFile.Length - 1 ?
-            //docFile.Substring(index) : ".docx";
-            //FileStream fileStreamPath = new FileStream(docFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            //WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
-            //string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
-            //document.Dispose();
-            //fileStreamPath.Close();
-            return new JsonResult(fullName + "***********" + docFile);
+            var docBytes = System.IO.File.ReadAllBytes(fullName);
+            string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
+            return (docBase64);
         }
         public IActionResult Opened(IFormCollection openRequest)
         {
