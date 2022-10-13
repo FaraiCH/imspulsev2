@@ -11,6 +11,7 @@ namespace docmaster.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyPolicy")]
     public class DocumentListController : ControllerBase
     {
         UserManager<docmasterUser> _userManager;
