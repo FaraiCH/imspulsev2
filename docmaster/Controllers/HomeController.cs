@@ -2,6 +2,7 @@
 using Aspose.Words.Drawing;
 using docmaster.Areas.Identity.Data;
 using docmaster.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ using System.Diagnostics;
 
 namespace docmaster.Controllers
 {
+    [EnableCors("MyPolicy")]
     public class HomeController : Controller
     {
 
