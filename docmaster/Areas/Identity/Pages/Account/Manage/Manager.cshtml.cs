@@ -3,7 +3,6 @@ using docmaster.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySqlConnector;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Pdf.Parsing;
@@ -53,26 +52,6 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
-
-            //Retrieve all rows
-            using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
-            {
-                await conn.OpenAsync();
-                using (var cmd = new MySqlCommand("SELECT * FROM farai_document_revisions", conn))
-                {
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        while (await reader.ReadAsync())
-                        {
-                            ViewData["first"] = reader.GetString(0);
-                            ViewData["second"] = reader.GetString(1);
-                            ViewData["third"] = reader.GetString(2);
-                            ViewData["fourth"] = reader.GetString(3);
-                        }
-                    }
-                }
-                                             
             }
 
             return Page();
