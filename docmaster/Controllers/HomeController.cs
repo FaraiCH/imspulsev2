@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 using Newtonsoft.Json;
 using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager.Base;
@@ -419,7 +420,30 @@ namespace docmaster.Controllers
                         docu.Protect(Aspose.Words.ProtectionType.ReadOnly, "@Paradice1");
 
                         docu.Save(this.basePath + "/" + user.Company + "/Absolete/" + original);
-                        
+
+                        using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+                        {
+                            await conn.OpenAsync();
+
+                            // Insert some data
+                            using (var cmd = new MySqlCommand())
+                            {
+                                cmd.Connection = conn;
+                                cmd.CommandText = "INSERT INTO farai_document_revisions (document_name, content, company, user_name, email) VALUES (@document_name, @content, @company, @user_name, @email)";
+                                cmd.Parameters.AddWithValue("@document_name", payload.path);
+                                cmd.Parameters.AddWithValue("@content", result);
+                                cmd.Parameters.AddWithValue("@company", user.Company);
+                                cmd.Parameters.AddWithValue("@user_name", user.UserName);
+                                cmd.Parameters.AddWithValue("@email", user.Email);
+                                await cmd.ExecuteNonQueryAsync();
+                            }
+
+                            //// Retrieve all rows
+                            //using (var cmd = new MySqlCommand("SELECT some_field FROM data", conn))
+                            //using (var reader = await cmd.ExecuteReaderAsync())
+                            //    while (await reader.ReadAsync())
+                            //        Console.WriteLine(reader.GetString(0));
+                        }
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
                     }   
