@@ -156,7 +156,21 @@
       
         </ejs-dialog>
 </div>
- 
+
+@if (ViewData["first"] != null)
+{
+       <table>
+                <tr>
+                    <td>
+                            @ViewData["first"]
+                            @ViewData["second"]
+                            @ViewData["third"] 
+                            @ViewData["fourth"] 
+                    </td>
+                </tr>
+            </table>
+}
+
 <script>
 
     function onSuccess(args){
