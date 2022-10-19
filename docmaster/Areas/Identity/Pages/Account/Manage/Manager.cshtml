@@ -193,7 +193,7 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
                 dialog.show();
-                document.getElementById("encry").addEventListener('click', function() {
+                $("#encry").unbind('click').bind('click', function() {
                     var pas2 = document.getElementById('mypassword');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "encrypt" };
                     var strJson = JSON.stringify(formData)
@@ -216,7 +216,7 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog2").ej2_instances[0];
                 dialog.show();
-                document.getElementById("decry").addEventListener('click', function() {
+                $("#decry").unbind('click').bind('click', function() {
                     var pas2 = document.getElementById('mypassword2');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "decrypt" };
                     var strJson = JSON.stringify(formData)
@@ -415,7 +415,7 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
                 dialog.show();
-                document.getElementById("encry").addEventListener('click', function() {
+                 $("#encry").unbind('click').bind('click', function() {
                     var pas2 = document.getElementById('mypassword');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "encrypt" };
                     var strJson = JSON.stringify(formData)
@@ -438,7 +438,7 @@
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog2").ej2_instances[0];
                 dialog.show();
-                document.getElementById("decry").addEventListener('click', function() {
+                $("#decry").unbind('click').bind('click', function() {
                     var pas2 = document.getElementById('mypassword2');
                     var formData = { fullName: pas2.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: "decrypt" };
                     var strJson = JSON.stringify(formData)
