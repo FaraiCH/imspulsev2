@@ -568,7 +568,7 @@ namespace docmaster.Controllers
                         using (var cmd = new MySqlCommand())
                         {
                             cmd.Connection = conn;
-                            cmd.CommandText = "INSERT INTO farai_document_passwords (document_path, password, company, user_name) VALUES (@document_path, @content, @company, @user_name)";
+                            cmd.CommandText = "INSERT INTO farai_document_passwords (document_path, password, company, user_name) VALUES (@document_path, @password, @company, @user_name)";
                             cmd.Parameters.AddWithValue("@document_path", payload.path);
                             cmd.Parameters.AddWithValue("@password", payload.fullName);
                             cmd.Parameters.AddWithValue("@company", user.Company);
