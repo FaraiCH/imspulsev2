@@ -2,9 +2,11 @@
 using Aspose.Words.Drawing;
 using docmaster.Areas.Identity.Data;
 using docmaster.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 using Newtonsoft.Json;
 using Syncfusion.EJ2.DocumentEditor;
 using Syncfusion.EJ2.FileManager.Base;
@@ -17,6 +19,7 @@ using System.Diagnostics;
 
 namespace docmaster.Controllers
 {
+    [EnableCors("MyPolicy")]
     public class HomeController : Controller
     {
 
@@ -417,7 +420,30 @@ namespace docmaster.Controllers
                         docu.Protect(Aspose.Words.ProtectionType.ReadOnly, "@Paradice1");
 
                         docu.Save(this.basePath + "/" + user.Company + "/Absolete/" + original);
-                        
+
+                        using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+                        {
+                            await conn.OpenAsync();
+
+                            // Insert some data
+                            using (var cmd = new MySqlCommand())
+                            {
+                                cmd.Connection = conn;
+                                cmd.CommandText = "INSERT INTO farai_document_revisions (document_name, content, company, user_name, email) VALUES (@document_name, @content, @company, @user_name, @email)";
+                                cmd.Parameters.AddWithValue("@document_name", payload.path);
+                                cmd.Parameters.AddWithValue("@content", result);
+                                cmd.Parameters.AddWithValue("@company", user.Company);
+                                cmd.Parameters.AddWithValue("@user_name", user.UserName);
+                                cmd.Parameters.AddWithValue("@email", user.Email);
+                                await cmd.ExecuteNonQueryAsync();
+                            }
+
+                            //// Retrieve all rows
+                            //using (var cmd = new MySqlCommand("SELECT some_field FROM data", conn))
+                            //using (var reader = await cmd.ExecuteReaderAsync())
+                            //    while (await reader.ReadAsync())
+                            //        Console.WriteLine(reader.GetString(0));
+                        }
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
                     }   
@@ -483,11 +509,12 @@ namespace docmaster.Controllers
 
         }
     
-        public IActionResult Protect([FromBody] ProtectModel payload)
+        public async Task<IActionResult> Protect([FromBody] ProtectModel payload)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string basepath = "/var/www/html/imspulse/bunch-box";
+            var user = await _userManager.GetUserAsync(this.User);
             //string basepath = "C:/Testing";
             try
             {
@@ -532,6 +559,24 @@ namespace docmaster.Controllers
                             }
                         }
                       
+                    }
+                    using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+                    {
+                        await conn.OpenAsync();
+
+                        // Insert some data
+                        using (var cmd = new MySqlCommand())
+                        {
+                            cmd.Connection = conn;
+                            cmd.CommandText = "INSERT INTO farai_document_passwords (document_path, password, company, user_name) VALUES (@document_path, @password, @company, @user_name)";
+                            cmd.Parameters.AddWithValue("@document_path", payload.path);
+                            cmd.Parameters.AddWithValue("@password", payload.fullName);
+                            cmd.Parameters.AddWithValue("@company", user.Company);
+                            cmd.Parameters.AddWithValue("@user_name", user.UserName);
+                            await cmd.ExecuteNonQueryAsync();
+                        }
+
+   
                     }
                     return new JsonResult("Encrypt Successful");
                 }
