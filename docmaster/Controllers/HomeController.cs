@@ -509,11 +509,12 @@ namespace docmaster.Controllers
 
         }
     
-        public IActionResult Protect([FromBody] ProtectModel payload)
+        public async Task<IActionResult> Protect([FromBody] ProtectModel payload)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             string basepath = "/var/www/html/imspulse/bunch-box";
+            var user = await _userManager.GetUserAsync(this.User);
             //string basepath = "C:/Testing";
             try
             {
@@ -558,6 +559,24 @@ namespace docmaster.Controllers
                             }
                         }
                       
+                    }
+                    using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+                    {
+                        await conn.OpenAsync();
+
+                        // Insert some data
+                        using (var cmd = new MySqlCommand())
+                        {
+                            cmd.Connection = conn;
+                            cmd.CommandText = "INSERT INTO farai_document_passwords (document_path, password, company, user_name) VALUES (@document_name, @content, @company, @user_name)";
+                            cmd.Parameters.AddWithValue("@document_path", payload.path);
+                            cmd.Parameters.AddWithValue("@password", payload.fullName);
+                            cmd.Parameters.AddWithValue("@company", user.Company);
+                            cmd.Parameters.AddWithValue("@user_name", user.UserName);
+                            await cmd.ExecuteNonQueryAsync();
+                        }
+
+   
                     }
                     return new JsonResult("Encrypt Successful");
                 }
