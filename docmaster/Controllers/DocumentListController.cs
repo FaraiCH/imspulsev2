@@ -19,12 +19,14 @@ namespace docmaster.Controllers
         [HttpGet("Company={company}&WichType={passdoc}&Mode={mode}")]
         public async Task<ActionResult<string>> GetDocument(string company, string passdoc, string mode)
         {
-            var documents = new List<Tuple<string, int, string>>();
+            var documents = new List<Tuple<string, int, int>>();
             int counter = 0;
+            int total = 0;
             string[] directory = Directory.GetFiles("/var/www/html/imspulse/bunch-box/" + company, "*", System.IO.SearchOption.AllDirectories);
             //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
             foreach (string f in directory)
             {
+                total++;
                 FileFormatInfo info = FileFormatUtil.DetectFileFormat(f);
                 if(info.IsEncrypted == true)
                 {
@@ -33,7 +35,7 @@ namespace docmaster.Controllers
                 }              
             }
 
-            documents.Add(new Tuple<string, int, string>("Documents Protected", counter, "1"));
+            documents.Add(new Tuple<string, int, int>("Documents Protected", counter, total));
             string json = JsonConvert.SerializeObject(new
             {
                 documents
