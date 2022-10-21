@@ -278,9 +278,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                                        <text>
+                                                            container.documentEditor.isReadOnly = true;
+                                                        </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -500,9 +500,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    container.documentEditor.isReadOnly = true;
-                                                </text>                               
+                                                        <text>
+                                                            container.documentEditor.isReadOnly = true;
+                                                        </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -690,7 +690,11 @@
             };
         </script>
     }
-    <style>       
+    <style>
+        .toast_container{
+            z-index: 7777;
+            position: fixed;
+        }
         .e-fe-lock::before {
             content: '\e788';
         }
