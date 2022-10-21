@@ -309,18 +309,15 @@
                         success: function (result) {                       
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
-                                var documenteditorElement = document.getElementById("doccontainer");
-                                container = documenteditorElement.ej2_instances[0];
                                 toast.show();
                                 $("#yesrev").unbind('click').bind('click', function() {
                                     var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                                    dialog.hide();
-                                   
+                                    dialog.hide();                                 
                                     var fileObj = document.getElementById("filemanager").ej2_instances[0];
                                     fileObj.renameFile();
                                     var toast = document.getElementById('revtoast').ej2_instances[0];
                                     toast.hide();
-                                    container.documentEditor.refresh();
+           
                                 });
                                 $("#norev").unbind('click').bind('click', function() {
                                     toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
