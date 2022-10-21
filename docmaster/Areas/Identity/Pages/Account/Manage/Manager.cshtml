@@ -306,20 +306,20 @@
                         url: '/Home/Demo/',              
                         contentType: 'application/json', // remove this line
                         data: strJson, //remove JSON.stringify
-                        success: function (result) {                       
+                        success: function (result) {  
+                            var fileObj = document.getElementById("filemanager").ej2_instances[0];
+                            var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
                             if (!result.includes('Document Successfully Saved!')) {
                                 var toast = document.getElementById('revtoast').ej2_instances[0];
                                 toast.show();
                                 $("#yesrev").unbind('click').bind('click', function() {
-                                    var dialog = document.getElementById("default_dialog3").ej2_instances[0]; 
-                                    dialog.hide(); 
-                                    dialog.refresh();
-                                    var fileObj = document.getElementById("filemanager").ej2_instances[0];
-                                    fileObj.renameFile();
-                                
+                                    
+                                    dialog.hide();                                 
+                                   
+                                    fileObj.renameFile();                              
                                     var toast = document.getElementById('revtoast').ej2_instances[0];
                                     toast.hide();
-                                    toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
+                                   
            
                                 });
                                 $("#norev").unbind('click').bind('click', function() {
@@ -330,6 +330,8 @@
                             }else{
                                    toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 3000);
                             }
+
+                            fileObj.refreshLayout();
                         }
                     });
                 });
