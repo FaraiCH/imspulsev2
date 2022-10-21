@@ -19,6 +19,13 @@
         }
         else
         {
+            if (!User.IsInRole("Admin"))
+            {
+                files = new string[] { "Details", "|", "Edit" };
+                folder = new string[] { "Details" };
+                items = new string[] { "Edit","Refresh", "View", "Details", "SortBy" };
+                layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
+            }
             myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
 
             DirectoryInfo info = new DirectoryInfo(@"/var/www/html/imspulse/bunch-box" + myPath);
