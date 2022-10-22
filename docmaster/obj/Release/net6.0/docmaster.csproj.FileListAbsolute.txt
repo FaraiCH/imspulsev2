@@ -313,3 +313,4 @@ C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.Slides.xml
 C:\testing\imspulsev2\docmaster\bin\Release\net6.0\System.Net.Http.Formatting.dll
 C:\testing\imspulsev2\docmaster\bin\Release\net6.0\System.Web.Http.dll
 C:\testing\imspulsev2\docmaster\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
+C:\Testing\imspulsev2\docmaster\bin\Release\net6.0\Aspose.PDF.dll
