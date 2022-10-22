@@ -23,6 +23,7 @@ stream.Seek(0, SeekOrigin.Begin);
 new Aspose.Cells.License().SetLicense(stream);
 new Aspose.Words.License().SetLicense(stream2);
 new Aspose.Slides.License().SetLicense(stream3);
+new Aspose.Pdf.License().SetLicense(stream4);
 var builder = WebApplication.CreateBuilder(args);
 var connetionString = builder.Configuration.GetConnectionString("Default");
 
