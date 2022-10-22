@@ -256,37 +256,24 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        var documenteditorElement = document.getElementById("doccontainer");
-                        container = documenteditorElement.ej2_instances[0];
-                        container.documentEditor.keyDown = function (args) {
-                            var keyCode = args.event.which || args.event.keyCode;
+                    if (!result.includes('Password protected')) {
+                            var documenteditorElement = document.getElementById("doccontainer");
+                            container = documenteditorElement.ej2_instances[0];
 
-                            var isCtrlKey = (args.event.ctrlKey || args.event.metaKey) ? true : ((keyCode === 17) ? true : false);
-
-                            var isAltKey = args.event.altKey ? args.event.altKey : ((keyCode === 18) ? true : false);
-
-                            // 83 is the character code for 'S'
-                            if (isCtrlKey && !isAltKey && keyCode === 83) {
-                                //To prevent default save operation, set the isHandled property to true
-                                args.isHandled = true;
-                                container.documentEditor.save(args.fileDetails[0].name, 'Docx');
-                                args.event.preventDefault();
-                            } else if (isCtrlKey && isAltKey && keyCode === 83) {
-                                container.documentEditor.save(args.fileDetails[0].name, 'Docx');
+                            container.documentEditor.open(result);
+                            @{
+                                if (!User.IsInRole("Admin"))
+                                {
+                                    <text>
+                                    container.documentEditor.isReadOnly = true;
+                                </text>                               
+                                }
                             }
+                            var dialog = document.getElementById("default_dialog3").ej2_instances[0];
+                            dialog.show();
+                        } else {
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Error', 3000);
                         }
-                                    
-                        container.documentEditor.open(result);  
-                        @{
-                            if (!User.IsInRole("Admin"))
-                            {
-                                                                        <text>
-                                                                            container.documentEditor.isReadOnly = true;
-                                                                        </text>                               
-                            }
-                        }
-                        var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
-                        dialog.show();
                    
                     }
                 });
@@ -486,37 +473,25 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        var documenteditorElement = document.getElementById("doccontainer");
-                        container = documenteditorElement.ej2_instances[0];
-                        container.documentEditor.keyDown = function (args) {
-                            var keyCode = args.event.which || args.event.keyCode;
+                        if (!result.includes('Password protected')) {
+                            var documenteditorElement = document.getElementById("doccontainer");
+                            container = documenteditorElement.ej2_instances[0];
 
-                            var isCtrlKey = (args.event.ctrlKey || args.event.metaKey) ? true : ((keyCode === 17) ? true : false);
-
-                            var isAltKey = args.event.altKey ? args.event.altKey : ((keyCode === 18) ? true : false);
-
-                            // 83 is the character code for 'S'
-                            if (isCtrlKey && !isAltKey && keyCode === 83) {
-                                //To prevent default save operation, set the isHandled property to true
-                                args.isHandled = true;
-                                container.documentEditor.save(args.fileDetails[0].name, 'Docx');
-                                args.event.preventDefault();
-                            } else if (isCtrlKey && isAltKey && keyCode === 83) {
-                                container.documentEditor.save(args.fileDetails[0].name, 'Docx');
+                            container.documentEditor.open(result);
+                            @{
+                                if (!User.IsInRole("Admin"))
+                                {
+                                    <text>
+                                    container.documentEditor.isReadOnly = true;
+                                </text>                               
+                                }
                             }
+                            var dialog = document.getElementById("default_dialog3").ej2_instances[0];
+                            dialog.show();
+                        } else {
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Error', 3000);
                         }
-                                    
-                        container.documentEditor.open(result);   
-                        @{
-                            if (!User.IsInRole("Admin"))
-                            {
-                                                                        <text>
-                                                                            container.documentEditor.isReadOnly = true;
-                                                                        </text>                               
-                            }
-                        }
-                        var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
-                        dialog.show();                   
+                                          
                     }
                 });
 

@@ -299,7 +299,7 @@ namespace docmaster.Controllers
             catch (Exception ex)
             {
 
-                return new JsonResult(ex.Message);
+                return new JsonResult("Password protected");
             }
           
         }
