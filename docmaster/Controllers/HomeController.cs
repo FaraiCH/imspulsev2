@@ -308,8 +308,10 @@ namespace docmaster.Controllers
         {
             var docBytes = System.IO.File.ReadAllBytes(fullName);
             string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
-            Aspose.Pdf.Document document = new Aspose.Pdf.Document(fullName);
-            document.Save("/var/www/html/imspulse/bunch-box/HJ/test.docx");
+            SautinSoft.PdfFocus f = new SautinSoft.PdfFocus();
+            f.OpenPdf(fullName);
+            if (f.PageCount > 0)
+                f.ToWord("/var/www/html/imspulse/bunch-box/HJ/test.docx");
             return (docBase64);
         }
         public IActionResult Opened(IFormCollection openRequest)

@@ -45,14 +45,14 @@
     <Reference Include="Aspose.Cells">
       <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Cells.dll</HintPath>
     </Reference>
-    <Reference Include="Aspose.PDF">
-      <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\netstandard2.1\Aspose.PDF.dll</HintPath>
-    </Reference>
     <Reference Include="Aspose.Slides">
       <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Slides.dll</HintPath>
     </Reference>
     <Reference Include="Aspose.Words">
       <HintPath>..\..\..\Users\User\Videos\Aspose.Total_dll_only_Downloadly.ir\net2.0\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="SautinSoft.PdfFocus">
+      <HintPath>D:\Download\Sautinsoft_PDF_Focus_Net_7.1.9.17_Downloadly.ir\Sautinsoft PDF Focus Net 7.1.9.17\Bin\Net Standard 2.0\SautinSoft.PdfFocus.dll</HintPath>
     </Reference>
   </ItemGroup>
 
