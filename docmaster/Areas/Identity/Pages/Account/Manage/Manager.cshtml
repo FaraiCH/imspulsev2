@@ -135,7 +135,7 @@
         </ejs-dialog>
 </div>
 
-    <ejs-toast class="hidden" id="revtoast" target="#default_dialog3" extendedTimeout="15000" width="300" height="200">
+    <ejs-toast class="hidden" id="revtoast" target="#default_dialog3" extendedTimeout="10000" width="300" height="200">
         <e-toast-position X="Center" Y="Top"></e-toast-position>
         <e-content-template>
             <p><img alt='Revision Master' height="60px" width="60px" class='toast-img' src='https://imspulse.com/storage/app/media/favourite.png' /><span class="name"> IMS Pulse Team</span></p>
@@ -244,6 +244,8 @@
         }
 
         if (args.item.text === 'Edit') {
+            var toast = document.getElementById('revtoast').ej2_instances[0];
+            toast.hide();
                    
             if (args.fileDetails[0].name.includes('.doc')) {
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
@@ -278,9 +280,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                                    <text>
-                                                                        container.documentEditor.isReadOnly = true;
-                                                                    </text>                               
+                                                                        <text>
+                                                                            container.documentEditor.isReadOnly = true;
+                                                                        </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -473,6 +475,8 @@
           
         }
         if (args.item.text === 'Edit') {
+            var toast = document.getElementById('revtoast').ej2_instances[0];
+            toast.hide();
             if (args.fileDetails[0].name.includes('.doc')) {
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
                 var payload = { fullName: fullName }; // change name
@@ -506,9 +510,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                                    <text>
-                                                                        container.documentEditor.isReadOnly = true;
-                                                                    </text>                               
+                                                                        <text>
+                                                                            container.documentEditor.isReadOnly = true;
+                                                                        </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
