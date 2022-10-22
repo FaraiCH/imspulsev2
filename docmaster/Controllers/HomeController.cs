@@ -308,10 +308,6 @@ namespace docmaster.Controllers
         {
             var docBytes = System.IO.File.ReadAllBytes(fullName);
             string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
-            SautinSoft.PdfFocus f = new SautinSoft.PdfFocus();
-            f.OpenPdf(fullName);
-        
-            f.ToWord("/var/www/html/imspulse/bunch-box/HJ/test.docx");
             return (docBase64);
         }
         public IActionResult Opened(IFormCollection openRequest)

@@ -285,11 +285,10 @@ C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\n
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Cells.dll
+C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.PDF.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Slides.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Words.dll
-C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\SautinSoft.PdfFocus.dll
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Cells.xml
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Slides.xml
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Aspose.Words.xml
-C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\SautinSoft.PdfFocus.xml
 C:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\docmaster.deps.json

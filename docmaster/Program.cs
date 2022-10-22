@@ -17,7 +17,7 @@ string LData = "PExpY2Vuc2U+CjxEYXRhPgo8TGljZW5zZWRUbz5BdmVQb2ludDwvTGljZW5zZWRU
 Stream stream = new MemoryStream(Convert.FromBase64String(LData));
 Stream stream2 = new MemoryStream(Convert.FromBase64String(LData));
 Stream stream3 = new MemoryStream(Convert.FromBase64String(LData));
-Stream stream4 = new MemoryStream(Convert.FromBase64String(LData));
+
 
 stream.Seek(0, SeekOrigin.Begin);
 new Aspose.Cells.License().SetLicense(stream);
