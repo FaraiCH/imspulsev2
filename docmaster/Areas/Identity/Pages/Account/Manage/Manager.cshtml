@@ -264,9 +264,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                    <text>
-                                    container.documentEditor.isReadOnly = true;
-                                </text>                               
+                                        <text>
+                                        container.documentEditor.isReadOnly = true;
+                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -336,13 +336,18 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');           
-                       
-                        
-                        spreadsheet.openFromJson({file: result}); // open the file into Spreadsheet
-                            
-                        var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
-                        dialog.show();               
+                        if (!result.includes('Password protected')) {
+                            var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
+
+
+                            spreadsheet.openFromJson({ file: result }); // open the file into Spreadsheet
+
+                            var dialog = document.getElementById("default_dialog4").ej2_instances[0];
+                            dialog.show();
+                        } else {
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Error', 3000);
+                        }
+                                    
                     }
                 });
                 $("#elementsp").unbind('click').bind('click', function () { 
@@ -481,9 +486,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                    <text>
-                                    container.documentEditor.isReadOnly = true;
-                                </text>                               
+                                        <text>
+                                        container.documentEditor.isReadOnly = true;
+                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -546,12 +551,17 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');           
-                                       
-                        spreadsheet.openFromJson({file: result}); // open the file into Spreadsheet
-                            
-                        var dialog = document.getElementById("default_dialog4").ej2_instances[0];                
-                        dialog.show();               
+                         if (!result.includes('Password protected')) {
+                            var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
+
+
+                            spreadsheet.openFromJson({ file: result }); // open the file into Spreadsheet
+
+                            var dialog = document.getElementById("default_dialog4").ej2_instances[0];
+                            dialog.show();
+                        } else {
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Error', 3000);
+                        }               
                     }
                 });
 
