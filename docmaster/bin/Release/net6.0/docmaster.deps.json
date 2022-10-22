@@ -38,7 +38,6 @@
           "Syncfusion.XlsIORenderer.Net.Core": "20.2.0.36",
           "Syncfusion.XpsToPdfConverter.Net.Core": "20.2.0.36",
           "Aspose.Cells": "20.1.0.0",
-          "Aspose.PDF": "22.3.0.0",
           "Aspose.Slides": "20.1.0.0",
           "Aspose.Words": "20.1.0.0"
         },
@@ -2762,14 +2761,6 @@
           }
         }
       },
-      "Aspose.PDF/22.3.0.0": {
-        "runtime": {
-          "Aspose.PDF.dll": {
-            "assemblyVersion": "22.3.0.0",
-            "fileVersion": "22.3.0.0"
-          }
-        }
-      },
       "Aspose.Slides/20.1.0.0": {
         "runtime": {
           "Aspose.Slides.dll": {
@@ -4286,11 +4277,6 @@
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
     "Aspose.Cells/20.1.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aspose.PDF/22.3.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
