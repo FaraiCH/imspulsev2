@@ -134,8 +134,8 @@
       
         </ejs-dialog>
 </div>
-<div class="toast_container" style="width:400px;margin:0 auto;">
-    <ejs-toast class="hidden" id="revtoast" extendedTimeout="10000" width="300" height="200">
+
+    <ejs-toast class="hidden" id="revtoast" target="#default_dialog3" extendedTimeout="10000" width="300" height="200">
         <e-toast-position X="Left" Y="Top"></e-toast-position>
         <e-content-template>
             <p><img alt='Revision Master' height="60px" width="60px" class='toast-img' src='https://imspulse.com/storage/app/media/favourite.png' /><span class="name"> IMS Pulse Team</span></p>
@@ -146,7 +146,7 @@
             </div>
         </e-content-template>
     </ejs-toast>
-</div>
+
 <div id="pdfedit">
         <ejs-dialog isModal="true" visible="false" id="default_dialog5" target="#pdfedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
@@ -278,9 +278,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                                        <text>
-                                                                            container.documentEditor.isReadOnly = true;
-                                                                        </text>                               
+                                                                    <text>
+                                                                        container.documentEditor.isReadOnly = true;
+                                                                    </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -506,9 +506,9 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                                        <text>
-                                                                            container.documentEditor.isReadOnly = true;
-                                                                        </text>                               
+                                                                    <text>
+                                                                        container.documentEditor.isReadOnly = true;
+                                                                    </text>                               
                             }
                         }
                         var dialog = document.getElementById("default_dialog3").ej2_instances[0];                
@@ -697,14 +697,6 @@
         </script>
     }
     <style>
-        .toast_container{
-            z-index: 77777;
-            position: fixed;
-        }
-        #revtoast{
-            z-index: 77777;
-            position: fixed;
-        }
         .e-fe-lock::before {
             content: '\e788';
         }
@@ -770,6 +762,14 @@
             bottom: 0px;
             top: 0px;
             z-index: 0
+        }
+
+        #docedit{
+             z-index: 0;
+        }
+
+        .toast_container{
+             z-index: 1;
         }
         
         #mypassword{
