@@ -141,13 +141,13 @@ namespace docmaster.Areas.Identity.Pages.Account
                     conn.Open();
                
                     //// Retrieve all rows
-                    using (var cmd = new MySqlCommand("SELECT * FROM imspulse.backend_users", conn))
+                    using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_statuses", conn))
                     {
                         using (var reader = await cmd.ExecuteReaderAsync())
                         {
                             while (await reader.ReadAsync())
                             {
-                                passwordCom = reader.GetString(5);
+                                passwordCom = reader.GetString(3);
                               
                                 if(Input.Company == passwordCom)
                                 {
@@ -220,6 +220,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                         }
                         else
                         {
+                            ViewData["Data"] = "The Company Does Not Exist On This Platform";
                             ModelState.AddModelError(Input.Company, "The Company Does Not Exist On This Platform");
                         }
 

@@ -582,3 +582,6 @@ C:\testing\imspulsev2\docmaster\bin\Debug\net6.0\runtimes\linux-arm\native\libSk
 C:\testing\imspulsev2\docmaster\bin\Debug\net6.0\runtimes\linux-arm64\native\libSkiaSharp.so
 C:\testing\imspulsev2\docmaster\bin\Debug\net6.0\runtimes\linux-musl-x64\native\libSkiaSharp.so
 C:\testing\imspulsev2\docmaster\bin\Debug\net6.0\runtimes\linux-x64\native\libSkiaSharp.so
+C:\Testing\imspulsev2\docmaster\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Testing\imspulsev2\docmaster\bin\Debug\net6.0\System.Web.Http.dll
+C:\Testing\imspulsev2\docmaster\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
