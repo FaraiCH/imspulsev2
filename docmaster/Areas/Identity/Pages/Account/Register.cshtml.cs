@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using MySqlConnector;
 
 namespace docmaster.Areas.Identity.Pages.Account
 {
@@ -129,67 +130,105 @@ namespace docmaster.Areas.Identity.Pages.Account
         {
             try
             {
+                string passwordCom = null;
+                int counter = 0;
                 returnUrl ??= Url.Content("~/");
                 ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-                if (ModelState.IsValid)
+                
+
+                using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
                 {
-                    var user = new docmasterUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Company = Input.Company };
-
-                    var result = await _userManager.CreateAsync(user, Input.Password);
-
-                    if (result.Succeeded)
+                    conn.Open();
+               
+                    //// Retrieve all rows
+                    using (var cmd = new MySqlCommand("SELECT * FROM imspulse.backend_users", conn))
                     {
-                        string folderName = "/var/www/html/imspulse/bunch-box/" + Input.Company;
-                        string QMSName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/QMS";
-                        string OperationsName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Operations";
-                        string ResourcesName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Resources";
-                        // If directory does not exist, create it
-                        if (!Directory.Exists(folderName))
+                        using (var reader = await cmd.ExecuteReaderAsync())
                         {
-                            Directory.CreateDirectory(folderName);
-                            if (!Directory.Exists(QMSName))
+                            while (await reader.ReadAsync())
                             {
-                                Directory.CreateDirectory(QMSName);
-                            }
-                            if (!Directory.Exists(OperationsName))
-                            {
-                                Directory.CreateDirectory(OperationsName);
-                            }
-                            if (!Directory.Exists(ResourcesName))
-                            {
-                                Directory.CreateDirectory(ResourcesName);
+                                passwordCom = reader.GetString(5);
+                              
+                                if(Input.Company == passwordCom)
+                                {
+                                    counter++;
+                                }
                             }
                         }
-                        _logger.LogInformation("User created a new account with password.");
+                    }
 
-                        var userId = await _userManager.GetUserIdAsync(user);
-                        await _userManager.AddToRoleAsync(user, "Basic");
-                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                        var callbackUrl = Url.Page(
-                            "/Account/ConfirmEmail",
-                            pageHandler: null,
-                            values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                            protocol: Request.Scheme);
-
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                        if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                    if (ModelState.IsValid)
+                    {
+                        if (counter > 0)
                         {
-                            return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                            var user = new docmasterUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Company = Input.Company };
+
+                            var result = await _userManager.CreateAsync(user, Input.Password);
+
+                            if (result.Succeeded)
+                            {
+                                string folderName = "/var/www/html/imspulse/bunch-box/" + Input.Company;
+                                string QMSName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/QMS";
+                                string OperationsName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Operations";
+                                string ResourcesName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Resources";
+                                // If directory does not exist, create it
+                                if (!Directory.Exists(folderName))
+                                {
+                                    Directory.CreateDirectory(folderName);
+                                    if (!Directory.Exists(QMSName))
+                                    {
+                                        Directory.CreateDirectory(QMSName);
+                                    }
+                                    if (!Directory.Exists(OperationsName))
+                                    {
+                                        Directory.CreateDirectory(OperationsName);
+                                    }
+                                    if (!Directory.Exists(ResourcesName))
+                                    {
+                                        Directory.CreateDirectory(ResourcesName);
+                                    }
+                                }
+                                _logger.LogInformation("User created a new account with password.");
+
+                                var userId = await _userManager.GetUserIdAsync(user);
+                                await _userManager.AddToRoleAsync(user, "Basic");
+                                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                                var callbackUrl = Url.Page(
+                                    "/Account/ConfirmEmail",
+                                    pageHandler: null,
+                                    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                                    protocol: Request.Scheme);
+
+                                await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                                if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                                {
+                                    return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                                }
+                                else
+                                {
+                                    await _signInManager.SignInAsync(user, isPersistent: false);
+                                    return LocalRedirect(returnUrl);
+                                }
+                            }
+                            foreach (var error in result.Errors)
+                            {
+                                ModelState.AddModelError(string.Empty, error.Description);
+                            }
                         }
                         else
                         {
-                            await _signInManager.SignInAsync(user, isPersistent: false);
-                            return LocalRedirect(returnUrl);
+                            ModelState.AddModelError(Input.Company, "The Company Does Not Exist On This Platform");
                         }
+
                     }
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
+
+
+
                 }
+          
             }
             catch (Exception ex)
             {
