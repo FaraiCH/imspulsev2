@@ -42,7 +42,7 @@ builder.Services.Configure<JsonOptions>(options =>
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
 
-builder.Services.AddDefaultIdentity<docmasterUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
+builder.Services.AddDefaultIdentity<docmasterUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>();
 
 // Add services to the container.
