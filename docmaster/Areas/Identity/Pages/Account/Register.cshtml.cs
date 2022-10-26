@@ -220,7 +220,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                         }
                         else
                         {
-                            ViewData["Data"] = "The Company Does Not Exist On This Platform";
+                            TempData["ErrorMes"] = "Company did not match. Please Make sure you use the same company name and pin you registered with";
                             ModelState.AddModelError(Input.Company, "The Company Does Not Exist On This Platform");
                         }
 
