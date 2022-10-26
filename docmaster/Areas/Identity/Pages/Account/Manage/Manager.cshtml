@@ -336,7 +336,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        if (!result.includes('Password protected')) {
+                        if (!result.includes('Error')) {
                             var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
 
 
@@ -478,7 +478,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        if (!result.includes('Password protected')) {
+                        if (!result.includes('Error')) {
                             var documenteditorElement = document.getElementById("doccontainer");
                             container = documenteditorElement.ej2_instances[0];
 
