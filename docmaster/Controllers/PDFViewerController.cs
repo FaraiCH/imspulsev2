@@ -280,7 +280,7 @@ namespace docmaster.Controllers
                 byte[] byteArray = Convert.FromBase64String(base64String);
 
                 MemoryStream ms = new MemoryStream(byteArray);
-                var path = _hostingEnvironment.ContentRootPath;
+                var path = "/var/www/html";
                 System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
             }
             return Content(string.Empty);
