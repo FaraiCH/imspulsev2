@@ -405,12 +405,9 @@
                 var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
  
                 pdfViewer.ajaxRequestInitiate = (args) => { 
-                    pdfViewer.serverActionSettings.download = "SaveDocument"; 
-                    pdfViewer.download(); 
-                    pdfViewer.serverActionSettings.download = "Download"; 
                     if (args.JsonData.action == 'SaveDocument') { 
                         args.JsonData['path'] = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name; 
-                     pdfViewer.setJsonData(args.JsonData); 
+                        pdfViewer.setJsonData(args.JsonData); 
                     } 
                 }; 
     

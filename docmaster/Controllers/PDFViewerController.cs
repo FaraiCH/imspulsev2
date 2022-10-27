@@ -268,7 +268,8 @@ namespace docmaster.Controllers
             Console.WriteLine(documentPath);
             return documentPath;
         }
-
+        [HttpPost]
+        [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
         public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject)
         {
             PdfRenderer pdfviewer = new PdfRenderer(_cache);
@@ -280,7 +281,7 @@ namespace docmaster.Controllers
                 MemoryStream ms = new MemoryStream(byteArray);
                 System.IO.File.WriteAllBytes(jsonObject["path"], byteArray);
             }
-            return Content(string.Empty);
+            return new JsonResult("Success");
         }
 
         //GET api/values
