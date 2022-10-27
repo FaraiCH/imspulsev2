@@ -405,14 +405,15 @@
                 pdfViewer.serverActionSettings.download = "SaveDocument";
                 pdfViewer.download();
                 pdfViewer.serverActionSettings.download = "Download";
-                alert("I'm in");
-                //pdfViewer.ajaxRequestInitiate = (args) => { 
-                //    if (args.JsonData.action == 'SaveDocument') { 
-                //        args.JsonData['path'] = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name; 
+               
+                pdfViewer.ajaxRequestInitiate = (args) => { 
+                    if (args.JsonData.action == 'SaveDocument') { 
+                        args.JsonData['path'] = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name; 
                     
-                //        pdfViewer.setJsonData(args.JsonData); 
-                //    } 
-                //}; 
+                        pdfViewer.setJsonData(args.JsonData); 
+                    } 
+                }; 
+                alert("I'm in");
     
             });
             if (args.fileDetails[0].name.includes('.ppt')) {

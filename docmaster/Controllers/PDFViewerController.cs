@@ -281,7 +281,7 @@ namespace docmaster.Controllers
 
                 MemoryStream ms = new MemoryStream(byteArray);
                 var path = "/var/www/html";
-                System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
+                System.IO.File.WriteAllBytes(jsonObject["path"], byteArray);
             }
             return Content(string.Empty);
         } 
