@@ -268,7 +268,8 @@ namespace docmaster.Controllers
             Console.WriteLine(documentPath);
             return documentPath;
         }
-
+        [HttpPost("SaveDocument")]
+        [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
         public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject) 
         {
             PdfRenderer pdfviewer = new PdfRenderer(_cache);
