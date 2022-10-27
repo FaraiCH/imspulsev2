@@ -268,7 +268,7 @@ namespace docmaster.Controllers
             Console.WriteLine(documentPath);
             return documentPath;
         }
-        [HttpPost("SaveDocument")]
+        [HttpPost]
         [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
         public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject) 
         {
