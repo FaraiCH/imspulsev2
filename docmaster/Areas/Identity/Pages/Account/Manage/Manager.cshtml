@@ -402,9 +402,9 @@
 
                 var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];              
                 //var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
-                pdfViewer.serverActionSettings.download = "SaveDocument";
-                pdfViewer.download();
-                pdfViewer.serverActionSettings.download = "Download";
+                //pdfViewer.serverActionSettings.download = "SaveDocument";
+                //pdfViewer.download();
+                //pdfViewer.serverActionSettings.download = "Download";
                
                 pdfViewer.ajaxRequestInitiate = (args) => { 
                     if (args.JsonData.action == 'SaveDocument') { 
