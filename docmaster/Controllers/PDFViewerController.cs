@@ -268,9 +268,8 @@ namespace docmaster.Controllers
             Console.WriteLine(documentPath);
             return documentPath;
         }
-        [HttpPost]
-        [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
-        public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject)
+
+        public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject) 
         {
             PdfRenderer pdfviewer = new PdfRenderer(_cache);
             string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
@@ -278,14 +277,16 @@ namespace docmaster.Controllers
             if (base64String != null || base64String != string.Empty)
             {
                 byte[] byteArray = Convert.FromBase64String(base64String);
-                MemoryStream ms = new MemoryStream(byteArray);
-                System.IO.File.WriteAllBytes(jsonObject["path"], byteArray);
-            }
-            return new JsonResult("Success");
-        }
 
-        //GET api/values
-        [HttpGet]
+                MemoryStream ms = new MemoryStream(byteArray);
+                var path = _hostingEnvironment.ContentRootPath;
+                System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
+            }
+            return Content(string.Empty);
+        } 
+ 
+        //GET api/values
+        [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
