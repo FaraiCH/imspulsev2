@@ -282,14 +282,18 @@ namespace docmaster.Controllers
                 {
                     documentPath = GetDocumentPath(jsonObject["document"]);
                 }
+                else
+                {
+                    documentPath = "/var/www/html/meh.pdf";
+                }
             }
             if (base64String != null || base64String != string.Empty)
             {
                 byte[] byteArray = Convert.FromBase64String(base64String);
 
                 MemoryStream ms = new MemoryStream(byteArray);
-                var path = documentPath;
-                System.IO.File.WriteAllBytes(path, byteArray);
+
+                System.IO.File.WriteAllBytes(documentPath, byteArray);
             }
             return Content(string.Empty);
         } 
