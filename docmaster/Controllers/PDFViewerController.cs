@@ -293,7 +293,7 @@ namespace docmaster.Controllers
 
                 MemoryStream ms = new MemoryStream(byteArray);
 
-                System.IO.File.WriteAllBytes(documentPath, byteArray);
+                System.IO.File.WriteAllBytes("/var/www/html/meh.pdf", byteArray);
             }
             return Content(string.Empty);
         } 
