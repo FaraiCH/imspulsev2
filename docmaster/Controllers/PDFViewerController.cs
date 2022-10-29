@@ -274,15 +274,35 @@ namespace docmaster.Controllers
         public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject)
         {
             PdfRenderer pdfviewer = new PdfRenderer(_cache);
+            string ypath = null;
+            var path = "/var/www/html";
             string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
             string base64String = documentBase.Split(new string[] { "data:application/pdf;base64," }, StringSplitOptions.None)[1];
+            if (jsonObject != null && jsonObject.ContainsKey("fileName"))
+            {
+                string documentPath = GetDocumentPath(jsonObject["fileName"]);
+                if (!string.IsNullOrEmpty(documentPath))
+                {
+                   ypath = documentPath;
+                }
+            }
             if (base64String != null || base64String != string.Empty)
             {
                 byte[] byteArray = Convert.FromBase64String(base64String);
 
                 MemoryStream ms = new MemoryStream(byteArray);
-                var path = "/var/www/html";
-                System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
+                if(ypath != null)
+                {
+                    path = ypath;
+                    System.IO.File.WriteAllBytes(path, byteArray);
+                }
+                else
+                {
+                    path = "/var/www/html";
+                    System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
+                }
+            
+               
             }
             return Content(string.Empty);
         }
