@@ -264,9 +264,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                            <text>
-                                            container.documentEditor.isReadOnly = true;
-                                        </text>                               
+                                                <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -401,12 +401,11 @@
             
             $("#elementpdf").unbind('click').bind('click', function () {
 
-                var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];              
-                //var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name 
-                pdfViewer.serverActionSettings.download = 'SaveDocument'; 
-                pdfViewer.download(); 
-                pdfViewer.serverActionSettings.download = 'Download'; 
-              
+                var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+                pdfViewer.serverActionSettings.download = "SaveDocument";
+                pdfViewer.download();
+                pdfViewer.serverActionSettings.download = "Download";
+                alert("Done");
             });
             if (args.fileDetails[0].name.includes('.ppt')) {
                 var fullName = "/var/www/html/imspulse/bunch-box" + args.fileDetails[0].filterPath + args.fileDetails[0].name;
@@ -498,9 +497,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                            <text>
-                                            container.documentEditor.isReadOnly = true;
-                                        </text>                               
+                                                <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
