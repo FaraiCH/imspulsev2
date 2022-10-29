@@ -376,6 +376,7 @@
             }
 
             if (args.fileDetails[0].name.includes('.pdf')) {
+           
                 var fullName = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
@@ -402,19 +403,13 @@
 
                 var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];              
                 //var payload = { "fullName": fullName, "path": "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name }; // change name
-                pdfViewer.serverActionSettings.download = "SaveDocument";
-                pdfViewer.download();
-                pdfViewer.serverActionSettings.download = "Download";
-               
-                //pdfViewer.ajaxRequestInitiate = (args) => { 
-                //    if (args.JsonData.action == 'SaveDocument') { 
-                //        args.JsonData['path'] = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name; 
-                    
-                //        pdfViewer.setJsonData(args.JsonData); 
-                //    } 
-                //}; 
-                alert("I'm in");
-    
+                //pdfViewer.serverActionSettings.download = "SaveDocument";              
+                pdfViewer.ajaxRequestInitiate = (args) => { 
+                    if (args.JsonData.action == 'SaveDocument') { 
+                        args.JsonData['path'] = "/var/www/html/imspulse/bunch-box"+ args.fileDetails[0].filterPath + args.fileDetails[0].name;                     
+                        pdfViewer.setJsonData(args.JsonData); 
+                    } 
+                }; 
             });
             if (args.fileDetails[0].name.includes('.ppt')) {
                 var fullName = "/var/www/html/imspulse/bunch-box" + args.fileDetails[0].filterPath + args.fileDetails[0].name;
