@@ -301,7 +301,7 @@ namespace docmaster.Controllers
 
                 MemoryStream ms = new MemoryStream(byteArray);
 
-                System.IO.File.WriteAllBytes(str + "/ouptut.pdf", byteArray);
+                System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
                              
             }
             return Content(string.Empty);
