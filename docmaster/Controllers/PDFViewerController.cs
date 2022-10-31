@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using docmaster.Areas.Identity.Data;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
@@ -13,11 +15,12 @@ namespace docmaster.Controllers
     [ApiController]
     public class PdfViewerController : ControllerBase
     {
-        private Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
+        UserManager<docmasterUser> _userManager;
+        private Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
         //Initialize the memory cache object   
         public IMemoryCache _cache;
  
-                 public PdfViewerController(Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, IMemoryCache cache)
+        public PdfViewerController(Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, IMemoryCache cache)
         {
             _hostingEnvironment = hostingEnvironment;
             _cache = cache;
@@ -271,38 +274,35 @@ namespace docmaster.Controllers
         [HttpPost("SaveDocument")]
         [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
         [Route("[controller]/SaveDocument")]
-        public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject)
+        public async Task<IActionResult> SaveDocument([FromBody] Dictionary<string, string> jsonObject)
         {
             PdfRenderer pdfviewer = new PdfRenderer(_cache);
-            string ypath = null;
-            var path = "/var/www/html";
+            var user = await _userManager.GetUserAsync(this.User);
+            var path = "/var/www/html/imspulse/bunch-box/" + user.Company;
             string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
             string base64String = documentBase.Split(new string[] { "data:application/pdf;base64," }, StringSplitOptions.None)[1];
-            if (jsonObject != null && jsonObject.ContainsKey("fileName"))
+
+            DirectoryInfo d = new DirectoryInfo(path); //Assuming Test is your Folder
+
+            FileInfo[] Files = d.GetFiles("*.pdf"); //Getting Text files
+            string str = path;
+
+            foreach (FileInfo file in Files)
             {
-                string documentPath = GetDocumentPath(jsonObject["fileName"]);
-                if (!string.IsNullOrEmpty(documentPath))
+               if(jsonObject["documentId"] == file.Name)
                 {
-                   ypath = documentPath;
+                    str = file.DirectoryName;
                 }
             }
+
             if (base64String != null || base64String != string.Empty)
             {
                 byte[] byteArray = Convert.FromBase64String(base64String);
 
                 MemoryStream ms = new MemoryStream(byteArray);
-                if(ypath != null)
-                {
-                    path = ypath;
-                    System.IO.File.WriteAllBytes(path, byteArray);
-                }
-                else
-                {
-                    path = "/var/www/html";
-                    System.IO.File.WriteAllBytes(path + "/ouptut.pdf", byteArray);
-                }
-            
-               
+
+                System.IO.File.WriteAllBytes(str + "/ouptut.pdf", byteArray);
+                             
             }
             return Content(string.Empty);
         }
