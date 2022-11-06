@@ -301,7 +301,7 @@ namespace docmaster.Controllers
             catch (Exception ex)
             {
 
-                return new JsonResult("Error " + ex.Message);
+                return new JsonResult("Error Message: " + ex.Message);
             }
           
         }

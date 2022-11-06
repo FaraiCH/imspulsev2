@@ -257,7 +257,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                    if (!result.includes('Error')) {
+                    if (!result.includes('Error Message')) {
                             var documenteditorElement = document.getElementById("doccontainer");
                             container = documenteditorElement.ej2_instances[0];
 
@@ -337,7 +337,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        if (!result.includes('Error')) {
+                        if (!result.includes('Error Message')) {
                             var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
 
 
@@ -490,7 +490,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                        if (!result.includes('Error')) {
+                        if (!result.includes('Error Message')) {
                             var documenteditorElement = document.getElementById("doccontainer");
                             container = documenteditorElement.ej2_instances[0];
 
@@ -563,7 +563,7 @@
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function (result) {
-                         if (!result.includes('Error')) {
+                         if (!result.includes('Error Message')) {
                             var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
                             spreadsheet.openFromJson({ file: result }); // open the file into Spreadsheet
 
