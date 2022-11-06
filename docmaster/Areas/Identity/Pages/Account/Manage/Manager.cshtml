@@ -339,7 +339,7 @@
                     success: function (result) {
                         if (!result.includes('Error Message')) {
                             var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
-
+                            spreadsheet.hideFileMenuItems(['Save As', 'Open']);
 
                             spreadsheet.openFromJson({ file: result }); // open the file into Spreadsheet
 
@@ -565,6 +565,7 @@
                     success: function (result) {
                          if (!result.includes('Error Message')) {
                             var spreadsheet = ej.base.getComponent(document.getElementById('spreadsheet'), 'spreadsheet');
+                            spreadsheet.hideFileMenuItems(['Save As', 'Open']);
                             spreadsheet.openFromJson({ file: result }); // open the file into Spreadsheet
 
                             var dialog = document.getElementById("default_dialog4").ej2_instances[0];

@@ -441,11 +441,6 @@ namespace docmaster.Controllers
                                 await cmd.ExecuteNonQueryAsync();
                             }
 
-                            //// Retrieve all rows
-                            //using (var cmd = new MySqlCommand("SELECT some_field FROM data", conn))
-                            //using (var reader = await cmd.ExecuteReaderAsync())
-                            //    while (await reader.ReadAsync())
-                            //        Console.WriteLine(reader.GetString(0));
                         }
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
@@ -543,6 +538,7 @@ namespace docmaster.Controllers
                         Aspose.Cells.Workbook workt = new Aspose.Cells.Workbook(basepath + payload.path, getum3);
                         workt.Settings.Password = payload.fullName;
                         workt.Save(basepath + payload.path);
+                      
                      
                     }
                     else if (payload.path.Contains(".ppt"))
