@@ -129,7 +129,7 @@
                              <ejs-button id="elementsp" title="Save your work online." cssClass="btn btn-primary" content="Save Document"></ejs-button>
              }
 
-            <ejs-spreadsheet id="spreadsheet" saveUrl="/Home/SaveExcel" allowSave=true height="600px" allowOpen ="true"></ejs-spreadsheet>
+            <ejs-spreadsheet id="spreadsheet" saveUrl="/Home/SaveExcel" allowSave=true height="600px" allowOpen ="true" fileMenuBeforeOpen="fileMenuBeforeOpen"></ejs-spreadsheet>
         </e-content-template>
       
         </ejs-dialog>
@@ -190,6 +190,9 @@
               
         dialog.hide();
       
+    }
+    function fileMenuBeforeOpen(){
+        this.hideFileMenuItems(['Save As', 'Open']);
     }
     function made2(){
         var dialog = document.getElementById("default_dialog2").ej2_instances[0];                
