@@ -5,10 +5,10 @@
 @inject SignInManager<docmasterUser> SignInManager
 @inject UserManager<docmasterUser> UserManager
 @{
-    string[] files = new string[] { "Details", "|", "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
-    string[] folder = new string[] { "Open", "|", "Details" , "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
-    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Details", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "SortBy" };
-    string[] layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
+    string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
+    string[] folder = new string[] { "Open", "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
+    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "SortBy" };
+    string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
 
@@ -21,10 +21,10 @@
         {
             if (!User.IsInRole("Admin"))
             {
-                files = new string[] { "Details", "|", "Edit" };
-                folder = new string[] { "Details" };
-                items = new string[] { "Edit","Refresh", "View", "Details", "SortBy" };
-                layout = new string[] { "SortBy", "View", "Refresh", "|", "Details" };
+                files = new string[] { "Edit" };
+                folder = new string[] { };
+                items = new string[] { "Edit","Refresh", "View", "SortBy" };
+                layout = new string[] { "SortBy", "View", "Refresh" };
             }
             myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
 
