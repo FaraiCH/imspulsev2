@@ -264,7 +264,7 @@ namespace docmaster.Controllers
             {
                 if (fullName.Contains(".doc"))
                 {
-                    Aspose.Words.Document docu = new Aspose.Words.Document(fullName);
+                    Aspose.Words.Document docu = new Aspose.Words.Document("/var/www/html/imspulse/bunch-box" + fullName);
 
                     int index = fullName.LastIndexOf('.');
                     string type = index > -1 && index < fullName.Length - 1 ?
@@ -281,7 +281,7 @@ namespace docmaster.Controllers
 
                     ExcelEngine excelEngine = new ExcelEngine();
                     IWorkbook workbook;
-                    FileStream fs = System.IO.File.Open(fullName, FileMode.Open); // converting excel file to stream 
+                    FileStream fs = System.IO.File.Open("/var/www/html/imspulse/bunch-box" + fullName, FileMode.Open); // converting excel file to stream 
                     workbook = excelEngine.Excel.Workbooks.Open(fs, ExcelOpenType.Automatic); // coverting stream to XlsIO workbook 
                     MemoryStream outputStream = new MemoryStream();
                     workbook.SaveAs(outputStream);
@@ -306,7 +306,7 @@ namespace docmaster.Controllers
 
         public string PDFView(string fullName)
         {
-            var docBytes = System.IO.File.ReadAllBytes(fullName);
+            var docBytes = System.IO.File.ReadAllBytes("/var/www/html/imspulse/bunch-box" + fullName);
             string docBase64 = "data:application/pdf;base64," + Convert.ToBase64String(docBytes);
             return (docBase64);
         }
@@ -325,25 +325,26 @@ namespace docmaster.Controllers
             try
             {
                 var user =  await _userManager.GetUserAsync(this.User);
-                if (payload.path.Contains(".doc"))
+                var fullpath = "/var/www/html/imspulse/bunch-box" + payload.path;
+                if (fullpath.Contains(".doc"))
                 {
                     //Get Old document using path and convert to JSON
-                    Aspose.Words.Document docu = new Aspose.Words.Document(payload.path);
+                    Aspose.Words.Document docu = new Aspose.Words.Document(fullpath);
 
                     //Get Document Text
                     var myDoc = docu.ToString(SaveFormat.Text);
 
                     Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
                     System.IO.File.Delete(payload.path);
-                    FileStream file = new FileStream(payload.path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                    FileStream file = new FileStream(fullpath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                    
                     document.CopyTo(file);
                     file.Close();
                     document.Close();
 
-                    var original = Path.GetFileName(payload.path);
+                    var original = Path.GetFileName(fullpath);
 
-                    Aspose.Words.Document newdoc = new Aspose.Words.Document(payload.path);
+                    Aspose.Words.Document newdoc = new Aspose.Words.Document(fullpath);
                     var mynewDoc = newdoc.ToString(SaveFormat.Text);
                     
 
@@ -430,7 +431,7 @@ namespace docmaster.Controllers
                             {
                                 cmd.Connection = conn;
                                 cmd.CommandText = "INSERT INTO farai_document_revisions (document_name, content, company, user_name, email) VALUES (@document_name, @content, @company, @user_name, @email)";
-                                cmd.Parameters.AddWithValue("@document_name", payload.path);
+                                cmd.Parameters.AddWithValue("@document_name", fullpath);
                                 cmd.Parameters.AddWithValue("@content", result);
                                 cmd.Parameters.AddWithValue("@company", user.Company);
                                 cmd.Parameters.AddWithValue("@user_name", user.UserName);
@@ -482,7 +483,7 @@ namespace docmaster.Controllers
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             try
             {
-                var filepaths = this.Request.Form["path"];
+                var filepaths = "/var/www/html/imspulse/bunch-box" + this.Request.Form["path"];
                 ExcelEngine excelEngine = new ExcelEngine();
                 IApplication application = excelEngine.Excel;
                 System.IO.File.Delete(filepaths);
