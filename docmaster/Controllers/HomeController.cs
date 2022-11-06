@@ -257,31 +257,33 @@ namespace docmaster.Controllers
         public IActionResult Demo2(string fullName)
         {
             Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
-         
-            if (fullName == null)
+            var fullpath = "/var/www/html/imspulse/bunch-box" + fullName;
+
+
+            if (fullpath == null)
                 return null;
             try
             {
-                if (fullName.Contains(".doc"))
+                if (fullpath.Contains(".doc"))
                 {
-                    Aspose.Words.Document docu = new Aspose.Words.Document("/var/www/html/imspulse/bunch-box" + fullName);
+                    Aspose.Words.Document docu = new Aspose.Words.Document(fullpath);
 
-                    int index = fullName.LastIndexOf('.');
-                    string type = index > -1 && index < fullName.Length - 1 ?
-                    fullName.Substring(index) : ".docx";
-                    FileStream fileStreamPath = new FileStream(fullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    int index = fullpath.LastIndexOf('.');
+                    string type = index > -1 && index < fullpath.Length - 1 ?
+                    fullpath.Substring(index) : ".docx";
+                    FileStream fileStreamPath = new FileStream(fullpath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                     WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
                     string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
                     document.Dispose();
                     fileStreamPath.Close();
                     return new JsonResult(sfdt);
                 }
-                if (fullName.Contains(".xls"))
+                if (fullpath.Contains(".xls"))
                 {
 
                     ExcelEngine excelEngine = new ExcelEngine();
                     IWorkbook workbook;
-                    FileStream fs = System.IO.File.Open("/var/www/html/imspulse/bunch-box" + fullName, FileMode.Open); // converting excel file to stream 
+                    FileStream fs = System.IO.File.Open(fullpath, FileMode.Open); // converting excel file to stream 
                     workbook = excelEngine.Excel.Workbooks.Open(fs, ExcelOpenType.Automatic); // coverting stream to XlsIO workbook 
                     MemoryStream outputStream = new MemoryStream();
                     workbook.SaveAs(outputStream);
