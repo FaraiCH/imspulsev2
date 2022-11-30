@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj": {}
+    "D:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj": {}
   },
   "projects": {
-    "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj": {
+    "D:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
+        "projectUniqueName": "D:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
         "projectName": "docmaster",
-        "projectPath": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
+        "projectPath": "D:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Testing\\imspulsev2\\docmaster\\obj\\",
+        "outputPath": "D:\\Testing\\imspulsev2\\docmaster\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

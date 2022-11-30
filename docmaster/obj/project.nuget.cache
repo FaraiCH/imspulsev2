@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jr0udOCLOxxfjKj+VyV05mGQ1QTFcQWkRVOz4OSOZilhivNVe8kYXuspLKwJyjQ8Dfgsfx/ZjVzrzIF2LDiprg==",
+  "dgSpecHash": "fcXvO3yg17q3lK/9/rrHKdsKcP1zyTHY9khcbPKFJ5FPv+BkuemrextYQrrT8QJWRMSqhb2BdrdBz4zLqXIkkg==",
   "success": true,
-  "projectFilePath": "C:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
+  "projectFilePath": "D:\\Testing\\imspulsev2\\docmaster\\docmaster.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\harfbuzzsharp\\2.8.2-preview.209\\harfbuzzsharp.2.8.2-preview.209.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2-preview.209\\harfbuzzsharp.nativeassets.macos.2.8.2-preview.209.nupkg.sha512",
