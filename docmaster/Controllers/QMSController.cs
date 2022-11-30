@@ -26,8 +26,8 @@ namespace docmaster.Controllers
             DirectoryInfo re = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Resources");
             DirectoryInfo q = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/QMS");
             FileInfo[] directoryre = re.GetFiles("*", System.IO.SearchOption.AllDirectories);
-            FileInfo[] directoryop = re.GetFiles("*", System.IO.SearchOption.AllDirectories);
-            FileInfo[] directoryqms = re.GetFiles("*", System.IO.SearchOption.AllDirectories);
+            FileInfo[] directoryop = op.GetFiles("*", System.IO.SearchOption.AllDirectories);
+            FileInfo[] directoryqms = q.GetFiles("*", System.IO.SearchOption.AllDirectories);
             //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
             foreach (FileInfo f in directoryre)
             {
