@@ -16,7 +16,7 @@ namespace docmaster.Controllers
         UserManager<docmasterUser> _userManager;
 
         [HttpGet("DocumnetAll={company}")]
-        public async Task<ActionResult<string>> GetAll(string company, string passdoc, string mode)
+        public async Task<ActionResult<string>> GetAll(string company)
         {
             var documents = new List<Tuple<string, int, int, int>>();
             int operations = 0;
