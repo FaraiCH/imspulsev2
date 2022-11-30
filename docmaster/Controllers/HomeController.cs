@@ -337,7 +337,7 @@ namespace docmaster.Controllers
                     var myDoc = docu.ToString(SaveFormat.Text);
 
                     Stream document = WordDocument.Save(payload.fullName, Syncfusion.EJ2.DocumentEditor.FormatType.Docx);
-                    System.IO.File.Delete(payload.path);
+                    System.IO.File.Delete(fullpath);
                     FileStream file = new FileStream(fullpath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                    
                     document.CopyTo(file);
