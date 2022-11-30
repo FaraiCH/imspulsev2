@@ -22,25 +22,48 @@ namespace docmaster.Controllers
             int operations = 0;
             int resources = 0;
             int qms = 0;
-            DirectoryInfo op = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Operations");
-            DirectoryInfo re = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Resources");
-            DirectoryInfo q = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/QMS");
-            FileInfo[] directoryre = re.GetFiles("*", System.IO.SearchOption.AllDirectories);
-            FileInfo[] directoryop = op.GetFiles("*", System.IO.SearchOption.AllDirectories);
-            FileInfo[] directoryqms = q.GetFiles("*", System.IO.SearchOption.AllDirectories);
-            //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
-            foreach (FileInfo f in directoryre)
+            try
             {
-                resources++;
+                if (!Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/Operations"))
+                {
+                    DirectoryInfo op = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Operations");
+                    FileInfo[] directoryop = op.GetFiles("*", System.IO.SearchOption.AllDirectories);
+                    foreach (FileInfo f in directoryop)
+                    {
+                        operations++;
+                    }
+
+                }
+                if (!Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/Resources"))
+                {
+                    DirectoryInfo re = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Resources");
+                    FileInfo[] directoryre = re.GetFiles("*", System.IO.SearchOption.AllDirectories);
+                    foreach (FileInfo f in directoryre)
+                    {
+                        resources++;
+                    }
+                }
+                if (!Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/QMS"))
+                {
+                    DirectoryInfo q = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/QMS");
+                    FileInfo[] directoryqms = q.GetFiles("*", System.IO.SearchOption.AllDirectories);
+                    foreach (FileInfo f in directoryqms)
+                    {
+                        qms++;
+                    }
+                }             
+             
+                //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
+                        
             }
-            foreach (FileInfo f in directoryqms)
+            catch (Exception)
             {
-                qms++;
+
+                operations = 0;
+                resources = 0;
+                qms = 0;
             }
-            foreach (FileInfo f in directoryop)
-            {
-                operations++;
-            }
+          
 
             documents.Add(new Tuple<string, int, int, int>("RE QMS OP", resources, qms, operations));
             string json = JsonConvert.SerializeObject(new
