@@ -454,7 +454,7 @@ namespace docmaster.Controllers
 
             catch (Exception e)
             {
-                return new JsonResult(e.Message);
+                return new JsonResult(e.ToString());
             }
           
         }
