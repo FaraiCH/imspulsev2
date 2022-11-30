@@ -44,7 +44,7 @@ namespace docmaster.Controllers
             return json;
         }
 
-        [HttpGet("DocumnetAll&Company={company}")]
+        [HttpGet("DocumnetAll={company}")]
         public async Task<ActionResult<string>> GetAll(string company, string passdoc, string mode)
         {
             var documents = new List<Tuple<string, int, int, int>>();
