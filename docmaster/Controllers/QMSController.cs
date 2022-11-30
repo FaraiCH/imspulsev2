@@ -24,7 +24,7 @@ namespace docmaster.Controllers
             int qms = 0;
             try
             {
-                if (!Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/Operations"))
+                if (Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/Operations"))
                 {
                     DirectoryInfo op = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Operations");
                     FileInfo[] directoryop = op.GetFiles("*", System.IO.SearchOption.AllDirectories);
@@ -34,7 +34,7 @@ namespace docmaster.Controllers
                     }
 
                 }
-                if (!Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/Resources"))
+                if (Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/Resources"))
                 {
                     DirectoryInfo re = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/Resources");
                     FileInfo[] directoryre = re.GetFiles("*", System.IO.SearchOption.AllDirectories);
@@ -43,7 +43,7 @@ namespace docmaster.Controllers
                         resources++;
                     }
                 }
-                if (!Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/QMS"))
+                if (Directory.Exists("/var/www/html/imspulse/bunch-box/" + company + "/QMS"))
                 {
                     DirectoryInfo q = new DirectoryInfo("/var/www/html/imspulse/bunch-box/" + company + "/QMS");
                     FileInfo[] directoryqms = q.GetFiles("*", System.IO.SearchOption.AllDirectories);
