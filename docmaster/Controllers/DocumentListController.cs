@@ -22,39 +22,18 @@ namespace docmaster.Controllers
             var documents = new List<Tuple<string, int, int>>();
             int counter = 0;
             int total = 0;
-            
-            if(company == string.Empty)
+            string[] directory = Directory.GetFiles("/var/www/html/imspulse/bunch-box/" + company, "*", System.IO.SearchOption.AllDirectories);
+            //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
+            foreach (string f in directory)
             {
-                string[] directory = Directory.GetFiles("/var/www/html/imspulse/bunch-box/" + company, "*", System.IO.SearchOption.AllDirectories);
-                //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
-                foreach (string f in directory)
+                total++;
+                FileFormatInfo info = FileFormatUtil.DetectFileFormat(f);
+                if(info.IsEncrypted == true)
                 {
-                    total++;
-                    FileFormatInfo info = FileFormatUtil.DetectFileFormat(f);
-                    if (info.IsEncrypted == true)
-                    {
-                        //Count All encrypted documents
-                        counter++;
-                    }
-                }
+                    //Count All encrypted documents
+                    counter ++;
+                }              
             }
-            else
-            {
-                string[] directory = Directory.GetFiles("/var/www/html/imspulse/bunch-box/" + "HJ", "*", System.IO.SearchOption.AllDirectories);
-                //string[] directory = Directory.GetFiles(@"C:\Testing\", "*", System.IO.SearchOption.AllDirectories);       
-                foreach (string f in directory)
-                {
-                    total++;
-                    FileFormatInfo info = FileFormatUtil.DetectFileFormat(f);
-                    if (info.IsEncrypted == true)
-                    {
-                        //Count All encrypted documents
-                        counter++;
-                    }
-                }
-            }
-     
-       
 
             documents.Add(new Tuple<string, int, int>("Documents Protected", counter, total));
             string json = JsonConvert.SerializeObject(new
