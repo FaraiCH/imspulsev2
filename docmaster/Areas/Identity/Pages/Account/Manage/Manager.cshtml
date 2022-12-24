@@ -169,7 +169,12 @@
 <script>
 
     function onSuccess(args){
+        var filemanagerElement = document.getElementById("filemanager");
 
+        var fileObj = filemanagerElement.ej2_instances[0];
+
+        fileObj.deleteFiles("Obsolete");
+      
         if(args.action=="rename"){
             var formData = { fullName: args.result.files[0].name, path: args.result.files[0].filterPath };
             var strJson = JSON.stringify(formData)
