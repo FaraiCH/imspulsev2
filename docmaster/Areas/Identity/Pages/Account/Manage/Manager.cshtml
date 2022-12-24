@@ -169,11 +169,19 @@
 <script>
 
     function onSuccess(args){
-        var filemanagerElement = document.getElementById("filemanager");
 
-        var fileObj = filemanagerElement.ej2_instances[0];
+        $.ajax({
+            type: 'POST',
+            url: '/Home/Hide/',
+            success: function(result) {
+                var filemanagerElement = document.getElementById("filemanager");
 
-        fileObj.deleteFiles(["Absolete", "QMS"]);
+                var fileObj = filemanagerElement.ej2_instances[0];
+
+                fileObj.deleteFiles(result);
+            }
+        });
+
       
         if(args.action=="rename"){
             var formData = { fullName: args.result.files[0].name, path: args.result.files[0].filterPath };

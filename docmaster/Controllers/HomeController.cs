@@ -671,6 +671,12 @@ namespace docmaster.Controllers
             return new JsonResult("Revision Successful");
         }
 
+        public IActionResult Hide()
+        {
+            string[] folders = new string[]{"Absolete", "QMS"};
+            return new JsonResult(folders);
+        }
+
         internal static Syncfusion.EJ2.DocumentEditor.FormatType GetFormatType(string format)
         {
             if (string.IsNullOrEmpty(format))
