@@ -673,7 +673,7 @@ namespace docmaster.Controllers
 
         public IActionResult Hide()
         {
-            string[] folders = new string[]{"Absolete", "QMS"};
+            string[] folders = new string[]{"Absolete", "Resources"};
             return new JsonResult(folders);
         }
 
