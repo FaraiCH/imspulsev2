@@ -671,10 +671,58 @@ namespace docmaster.Controllers
             return new JsonResult("Revision Successful");
         }
 
-        public IActionResult Hide()
+
+        public async Task<IActionResult> Hide()
         {
-            string[] folders = new string[]{"Absolete", "Resources"};
+            string[] folders = new string[] { };
+            var user = await _userManager.GetUserAsync(this.User);
+            int counter = 0;
+            using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+            {
+                conn.Open();
+
+                //// Retrieve all rows
+                using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens", conn))
+                {
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var company = reader.GetString(2);
+
+                            if (user.Company == company)
+                            {
+                                folders[counter] = reader.GetString(2);  
+                            }
+                            counter++;
+                        }
+                    }
+                }
+            }
+            
             return new JsonResult(folders);
+        }
+
+        public async Task<IActionResult> Hide2([FromBody] ProtectModel payload)
+        {
+            var user = await _userManager.GetUserAsync(this.User);
+            using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+            {
+                await conn.OpenAsync();
+
+                // Insert some data
+                using (var cmd = new MySqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO farai_document_hiddens (document_path, name) VALUES (@document_path, @name)";
+                    cmd.Parameters.AddWithValue("@document_path", payload.path);
+                    cmd.Parameters.AddWithValue("@name", user.Company);
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+
+            }
+            return new JsonResult("Successfully Hidden");
         }
 
         internal static Syncfusion.EJ2.DocumentEditor.FormatType GetFormatType(string format)
