@@ -169,33 +169,20 @@
 <script>
 
     function onSuccess(args){
+        $.ajax({
+            type: 'POST',
+            url: '/Home/Hide/',
+            success: function(result) {
 
-         setTimeout(function () {
-            var filemanagerElement = document.getElementById("filemanager");
-			var elements = filemanagerElement.querySelectorAll(".e-large-icons .e-list-text");
-			for(var i=0; i< elements.length; i++){             
-                alert(elements[i].innerText)                
-			}
-        },100);
-
-        //$.ajax({
-        //    type: 'POST',
-        //    url: '/Home/Hide/',
-        //    success: function(result) {
-
-        //        var filemanagerElement = document.getElementById("filemanager");
-
-        //        var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
-
-        //        for (var i = 0; i < elements.length; i++) {
-
-        //            if (elements[0].innerText == "QMS") {
-        //                elements[0].hidden = true;
-        //            }
-
-        //        }
-        //    });
-        //});
+                var filemanagerElement = document.getElementById("filemanager");
+			    var elements = filemanagerElement.querySelectorAll(".e-large-icons .e-list-text");
+			    for(var i=0; i< elements.length; i++){             
+                    if (elements[i].innerText == "QMS") {
+                        elements[i].hidden = true;
+                    }              
+			    }
+            });
+        });
 
       
         if(args.action=="rename"){
