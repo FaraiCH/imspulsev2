@@ -169,15 +169,14 @@
 <script>
 
     function onSuccess(args){
-        $.ajax({
-            type: 'POST',
+        $.ajax({      
             url: '/Home/Hide/',
+            type: 'GET',
             success: function(result) {
                 var filemanagerElement = document.getElementById("filemanager");
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
                 console.log(result);
-			    for(var i=0; i< elements.length; i++){
-                  
+			    for(var i=0; i< elements.length; i++){                
                     if (elements[i].innerText == "QMS") {
                         elements[i].hidden = true;
                     }              

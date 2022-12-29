@@ -688,7 +688,6 @@ namespace docmaster.Controllers
                     {
                         while (await reader.ReadAsync())
                         {
-
                             folders[counter] = reader.GetString(1);  
                           
                             counter++;
