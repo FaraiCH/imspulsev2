@@ -176,7 +176,7 @@
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
 			    for(var i=0; i< elements.length; i++){                   
                     for (var j = 0; j < result.length; j++) {
-                        alert(elements.result.files[0].filterPath);
+                        alert(elements[i].path);
                         if (elements[i].innerText == result[j]) {
                             elements[i].hidden = true;
                         } 
