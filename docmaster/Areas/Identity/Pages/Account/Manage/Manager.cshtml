@@ -174,11 +174,7 @@
             url: '/Home/Hide/',
             success: function(result) {
                 mainer = args.querySelectorAll(".e-layout-content .e-list-item");
-                for (var i = 0; i < mainer.length; i++) {
-                    alert(mainer[i].innerTex);
-                }
-
-                var filemanagerElement = document.getElementById("filemanager");
+                alert(mainer[i].innerTex);
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
 			    for(var i=0; i< elements.length; i++){ 
                     
