@@ -176,10 +176,13 @@
             success: function(result) {
                 var filemanagerElement = document.getElementById("filemanager");
 
-                var fileObj = filemanagerElement.ej2_instances[0];
+                var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
 
-                fileObj.deleteFiles(result);
-            }
+                for(var i=0; i < elements.length; i++){
+
+                    if(elements[0].innerText == "QMS")
+                        elements[0].hidden = true;
+                }
         });
 
       
