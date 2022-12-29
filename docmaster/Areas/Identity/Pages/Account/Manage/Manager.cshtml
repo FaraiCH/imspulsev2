@@ -175,7 +175,7 @@
             success: function(result) {
                 var filemanagerElement = document.getElementById("filemanager");
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
-                  console.log(elements);
+                console.log(result);
 			    for(var i=0; i< elements.length; i++){
                   
                     if (elements[i].innerText == "QMS") {
@@ -284,9 +284,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                    <text>
-                                                                    container.documentEditor.isReadOnly = true;
-                                                                </text>                               
+                                                                        <text>
+                                                                        container.documentEditor.isReadOnly = true;
+                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -530,9 +530,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                    <text>
-                                                                    container.documentEditor.isReadOnly = true;
-                                                                </text>                               
+                                                                        <text>
+                                                                        container.documentEditor.isReadOnly = true;
+                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
