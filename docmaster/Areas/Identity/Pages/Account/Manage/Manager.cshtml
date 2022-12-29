@@ -173,12 +173,21 @@
             type: 'POST',
             url: '/Home/Hide/',
             success: function(result) {
+                mainer = args.querySelectorAll(".e-layout-content .e-list-item");
+                for (var i = 0; i < mainer.length; i++) {
+                    alert(mainer[i].innerTex);
+                }
+
                 var filemanagerElement = document.getElementById("filemanager");
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
-			    for(var i=0; i< elements.length; i++){             
-                    if (elements[i].innerText == "QMS") {
-                        elements[i].hidden = true;
-                    }              
+			    for(var i=0; i< elements.length; i++){ 
+                    
+                    for (var j = 0; j < result.length; j++) {
+                        if (elements[i].innerText == result[j]) {
+                            elements[i].hidden = true;
+                        } 
+                    }
+                                
 			    }
             }
         });
@@ -282,9 +291,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                <text>
-                                                                container.documentEditor.isReadOnly = true;
-                                                            </text>                               
+                                                                                    <text>
+                                                                                    container.documentEditor.isReadOnly = true;
+                                                                                </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -528,9 +537,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                <text>
-                                                                container.documentEditor.isReadOnly = true;
-                                                            </text>                               
+                                                                                    <text>
+                                                                                    container.documentEditor.isReadOnly = true;
+                                                                                </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
