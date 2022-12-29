@@ -175,11 +175,14 @@
             success: function(result) {
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
                 alert(elements[0].path);
-			    for(var i=0; i< elements.length; i++){                    
+			    for(var i=0; i< elements.length; i++){ 
+                    
+                    if (elements[i].innerText == "QMS") {
+                         elements[i].hidden = true;
+                    } 
+
                     for (var j = 0; j < result.length; j++) {                       
-                        if (elements[i].innerText == "QMS") {
-                            elements[i].hidden = true;
-                        } 
+                       
                     }
                                 
 			    }
