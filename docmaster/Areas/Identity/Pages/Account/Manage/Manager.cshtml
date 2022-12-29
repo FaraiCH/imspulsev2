@@ -176,7 +176,7 @@
                 var filemanagerElement = document.getElementById("filemanager");
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
 			    for(var i=0; i< elements.length; i++){
-                    alert(elements[i].filterPath);
+                    console.log(elements[i]);
                     if (elements[i].innerText == "QMS") {
                         elements[i].hidden = true;
                     }              
