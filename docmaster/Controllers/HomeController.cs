@@ -672,7 +672,7 @@ namespace docmaster.Controllers
         }
 
 
-        public async Task<IActionResult> Hide()
+        public async Task<string> Hide()
         {
             string fold = string.Empty;
 
@@ -693,7 +693,7 @@ namespace docmaster.Controllers
                 }
             }
 
-            return new JsonResult(fold);
+            return fold;
         }
 
         public async Task<IActionResult> Hide2([FromBody] ProtectModel payload)
