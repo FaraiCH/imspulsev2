@@ -43,28 +43,6 @@
     {
         myPath = "";
     }
-
-    string fold = null;
-    int counter = 0;
-    using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
-    {
-        conn.Open();
-
-        //// Retrieve all rows
-        using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens", conn))
-        {
-            using (var reader = await cmd.ExecuteReaderAsync())
-            {
-                while (await reader.ReadAsync())
-                {
-                    fold += reader.GetString(1);  
-                          
-                    counter++;
-                }
-            }
-        }
-    }
-
 }
 
  @if(!User.IsInRole("SuperUser"))
@@ -189,12 +167,10 @@
 <script>
 
     function onSuccess(args){
-        var folders = @fold;
         var filemanagerElement = document.getElementById("filemanager");
 		var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
                
 		for(var i=0; i < elements.length; i++){
-            console.log(folders);
             if (elements[i].innerText == "QMS") {
                 elements[i].hidden = true;
             }              
