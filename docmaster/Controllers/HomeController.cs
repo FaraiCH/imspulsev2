@@ -671,6 +671,31 @@ namespace docmaster.Controllers
             return new JsonResult("Revision Successful");
         }
 
+
+        public async Task<IActionResult> Hide()
+        {
+            string fold = string.Empty;
+
+            using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+            {
+                conn.Open();
+
+                //// Retrieve all rows
+                using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens", conn))
+                {
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            fold += reader.GetString(1);
+                        }
+                    }
+                }
+            }
+
+            return new JsonResult(fold);
+        }
+
         public async Task<IActionResult> Hide2([FromBody] ProtectModel payload)
         {
             var user = await _userManager.GetUserAsync(this.User);
