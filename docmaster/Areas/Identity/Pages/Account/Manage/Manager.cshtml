@@ -1,6 +1,7 @@
 ﻿@page
 @model docmaster.Areas.Identity.Pages.Account.Manage.ManagerModel
 @using Microsoft.AspNetCore.Identity
+@using MySqlConnector
 @using docmaster.Areas.Identity.Data
 @inject SignInManager<docmasterUser> SignInManager
 @inject UserManager<docmasterUser> UserManager
@@ -43,7 +44,26 @@
         myPath = "";
     }
 
+    string[] folders = new string[] { };
+    int counter = 0;
+    using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+    {
+        conn.Open();
 
+        //// Retrieve all rows
+        using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens", conn))
+        {
+            using (var reader = await cmd.ExecuteReaderAsync())
+            {
+                while (await reader.ReadAsync())
+                {
+                    folders[counter] = reader.GetString(1);  
+                          
+                    counter++;
+                }
+            }
+        }
+    }
 
 }
 
@@ -169,11 +189,12 @@
 <script>
 
     function onSuccess(args){
+        var folders = @folders;
         var filemanagerElement = document.getElementById("filemanager");
 		var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
                
 		for(var i=0; i < elements.length; i++){
-                console.log(elements[i].innerText);
+            console.log(folders);
             if (elements[i].innerText == "QMS") {
                 elements[i].hidden = true;
             }              
@@ -276,9 +297,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                        <text>
-                                                                        container.documentEditor.isReadOnly = true;
-                                                                    </text>                               
+                                                                            <text>
+                                                                            container.documentEditor.isReadOnly = true;
+                                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -522,9 +543,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                        <text>
-                                                                        container.documentEditor.isReadOnly = true;
-                                                                    </text>                               
+                                                                            <text>
+                                                                            container.documentEditor.isReadOnly = true;
+                                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
