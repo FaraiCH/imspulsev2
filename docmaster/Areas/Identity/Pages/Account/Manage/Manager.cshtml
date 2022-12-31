@@ -11,7 +11,7 @@
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
-
+    
     @if (SignInManager.IsSignedIn(User))
     {   if(User.IsInRole("SuperUser"))
         {
@@ -169,28 +169,15 @@
 <script>
 
     function onSuccess(args){
-        var formData = { fullName: 'name', path: 'path' };
-        var strJson = JSON.stringify(formData)
-        $.ajax({
-            type: 'POST',
-            url: '/Home/Hide/',
-            contentType: 'application/json', 
-            data: strJson,
-            success: function(result) {
-
-                var filemanagerElement = document.getElementById("filemanager");
-			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
+        var filemanagerElement = document.getElementById("filemanager");
+		var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
                
-			    for(var i=0; i < elements.length; i++){
-                     console.log(elements[i].innerText);
-                    if (elements[i].innerText == "QMS") {
-                        elements[i].hidden = true;
-                    }              
-			    }
-            }
-        });
-
-      
+		for(var i=0; i < elements.length; i++){
+                console.log(elements[i].innerText);
+            if (elements[i].innerText == "QMS") {
+                elements[i].hidden = true;
+            }              
+		}      
         if(args.action=="rename"){
             var formData = { fullName: args.result.files[0].name, path: args.result.files[0].filterPath };
             var strJson = JSON.stringify(formData)
