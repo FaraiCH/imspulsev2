@@ -175,7 +175,7 @@
             success: function(result) {
                 var filemanagerElement = document.getElementById("filemanager");
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
-                console.log(result);
+         
 			    for(var i=0; i< elements.length; i++){                
                     if (elements[i].innerText == "Resources") {
                         elements[i].hidden = true;
