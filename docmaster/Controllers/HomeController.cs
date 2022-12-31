@@ -672,7 +672,7 @@ namespace docmaster.Controllers
         }
 
 
-        public async Task<IActionResult> Hide()
+        public async Task<IActionResult> Hide([FromBody] ProtectModel payload)
         {
             string[] folders = new string[] { };
             var user = await _userManager.GetUserAsync(this.User);

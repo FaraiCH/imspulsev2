@@ -169,10 +169,15 @@
 <script>
 
     function onSuccess(args){
+        var formData = { fullName: 'name', path: 'path' };
+        var strJson = JSON.stringify(formData)
         $.ajax({
             type: 'POST',
             url: '/Home/Hide/',
+            contentType: 'application/json', 
+            data: strJson,
             success: function(result) {
+
                 var filemanagerElement = document.getElementById("filemanager");
 			    var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
                
