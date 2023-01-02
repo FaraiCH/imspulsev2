@@ -180,7 +180,7 @@
         ajax.onSuccess = function (data) { 
             myarray = data.split(" ");
             for (var j = 0; j < myarray.length; j++) {
-                alert(myarray[j].substring(myarray[j].lastIndexOf('/')) + 1);
+                alert(myarray[j].substring(myarray[j].lastIndexOf('/') + 1));
             }
             var filemanagerElement = document.getElementById("filemanager");
 			var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
