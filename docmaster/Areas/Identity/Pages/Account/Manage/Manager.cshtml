@@ -178,16 +178,17 @@
         }); 
         ajax.send(); 
         ajax.onSuccess = function (data) { 
+            alert(data);
             var filemanagerElement = document.getElementById("filemanager");
 			var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
-            console.log(elements[i].innerText);
-			for(var i=0; i < elements.length; i++){
-                 
+           
+			for(var i=0; i < elements.length; i++){               
                 if (elements[i].innerText == "QMS") {
                     elements[i].hidden = true;
                 }              
 			}
         }; 
+
       
         if(args.action=="rename"){
             var formData = { fullName: args.result.files[0].name, path: args.result.files[0].filterPath };
@@ -287,9 +288,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                    <text>
-                                                                    container.documentEditor.isReadOnly = true;
-                                                                </text>                               
+                                                                        <text>
+                                                                        container.documentEditor.isReadOnly = true;
+                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -533,9 +534,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                    <text>
-                                                                    container.documentEditor.isReadOnly = true;
-                                                                </text>                               
+                                                                        <text>
+                                                                        container.documentEditor.isReadOnly = true;
+                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
