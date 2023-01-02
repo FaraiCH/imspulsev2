@@ -46,6 +46,11 @@ namespace docmaster.Areas.Identity.Pages.Account.Manage
             process.Start();
             process.WaitForExit();
         }
+
+        public IActionResult OnPostGetAjax(string name)
+        {
+            return new JsonResult("Hello " + name);
+        }
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
