@@ -697,7 +697,7 @@ namespace docmaster.Controllers
             return new JsonResult(fold);
         }
 
-        public async Task<IActionResult> Hide2([FromBody] ProtectModel payload)
+        public async Task<IActionResult> Hide2([FromBody] string fullName)
         {
             var user = await _userManager.GetUserAsync(this.User);
             using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
@@ -709,7 +709,7 @@ namespace docmaster.Controllers
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "INSERT INTO farai_document_hiddens (document_path, name) VALUES (@document_path, @name)";
-                    cmd.Parameters.AddWithValue("@document_path", payload.path);
+                    cmd.Parameters.AddWithValue("@document_path", fullName);
                     cmd.Parameters.AddWithValue("@name", user.Company);
 
                     await cmd.ExecuteNonQueryAsync();
