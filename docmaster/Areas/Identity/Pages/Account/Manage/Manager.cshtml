@@ -679,10 +679,7 @@
         }
         
         if(args.item.text === 'Hide'){
-            var fullName = args.fileDetails[0].filterPath;
-            if (args.fileDetails[0].isFile) {
-                fullName = args.fileDetails[0].filterPath + args.fileDetails[0].name;
-            }       
+            var fullName = args.fileDetails[0].filterPath + args.fileDetails[0].name;      
             let ajax = new ej.base.Ajax({ 
                 url: '/Home/Hide2', 
                 data: JSON.stringify(fullName),  // pass the string value  
