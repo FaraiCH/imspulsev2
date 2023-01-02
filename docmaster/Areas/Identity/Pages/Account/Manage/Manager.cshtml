@@ -179,7 +179,9 @@
         ajax.send(); 
         ajax.onSuccess = function (data) { 
             myarray = data.split(" ");
-            alert(myarray);
+            for (var j = 0; j < myarray.length; j++) {
+                alert(myarray[j]);
+            }
             var filemanagerElement = document.getElementById("filemanager");
 			var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
            
@@ -289,9 +291,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                        <text>
-                                                                                        container.documentEditor.isReadOnly = true;
-                                                                                    </text>                               
+                                                                                                        <text>
+                                                                                                        container.documentEditor.isReadOnly = true;
+                                                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -539,9 +541,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                        <text>
-                                                                                        container.documentEditor.isReadOnly = true;
-                                                                                    </text>                               
+                                                                                                        <text>
+                                                                                                        container.documentEditor.isReadOnly = true;
+                                                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
