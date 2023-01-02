@@ -719,6 +719,23 @@ namespace docmaster.Controllers
             return new JsonResult("Successfully Hidden");
         }
 
+        public async Task<IActionResult> UnHide([FromBody] string fullName)
+        {
+            var user = await _userManager.GetUserAsync(this.User);
+            using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+            {
+                conn.Open();
+
+                //// Retrieve all rows
+                using (var cmd = new MySqlCommand("Delete * FROM imspulse.farai_document_hiddens WHERE document_path='" + fullName + "'", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            return new JsonResult("Successfully Unhid Item");
+        }
+
         internal static Syncfusion.EJ2.DocumentEditor.FormatType GetFormatType(string format)
         {
             if (string.IsNullOrEmpty(format))
