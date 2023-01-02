@@ -192,15 +192,13 @@
                     @foreach (var p in rows)
                     {
                         <tr>
-                            <form>
-                                <td>
-                                    <input type='hidden' value=@p["document_path"] name="hider" class='form-control' id='hider'>
-                                    @p["document_path"]                               
-                                </td>
-                                <td>
-                                    <button type="submit" id="comhide" class="btn btn-info">Unhide</button>
-                                </td>
-                            </form>                          
+
+                            <td>
+                                @p["document_path"]                               
+                            </td>
+                            <td>
+                                <button onclick="onHidden(@p["document_path"])" id="comhide" class="btn btn-info">Unhide</button>
+                            </td>                     
                         </tr>                    
                     }
                    
@@ -337,9 +335,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                                            <text>
-                                                                                                            container.documentEditor.isReadOnly = true;
-                                                                                                        </text>                               
+                                                                                                                <text>
+                                                                                                                container.documentEditor.isReadOnly = true;
+                                                                                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -518,21 +516,6 @@
 
             var dialog = document.getElementById("default_dialog7").ej2_instances[0];
             dialog.show();
-
-            $("#comhide").unbind('click').bind('click', function () {
-                var hider = document.getElementById("hider");
-                var fullName = hider.value;      
-                let ajax = new ej.base.Ajax({ 
-                    url: '/Home/UnHide', 
-                    data: JSON.stringify(fullName),  // pass the string value  
-                    type: 'POST', 
-                    contentType: 'application/json' 
-                }); 
-                ajax.send(); 
-                ajax.onSuccess = function (data) { 
-                    toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                }; 
-            });
         }
     }
     function menuClick(args) {
@@ -604,9 +587,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                                            <text>
-                                                                                                            container.documentEditor.isReadOnly = true;
-                                                                                                        </text>                               
+                                                                                                                <text>
+                                                                                                                container.documentEditor.isReadOnly = true;
+                                                                                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -787,6 +770,20 @@
 
     function onOverlayClick() {
        
+    }
+
+    function onHidden(meh) {
+        var fullName = meh;      
+        let ajax = new ej.base.Ajax({ 
+            url: '/Home/UnHide', 
+            data: JSON.stringify(fullName),  // pass the string value  
+            type: 'POST', 
+            contentType: 'application/json' 
+        }); 
+        ajax.send(); 
+        ajax.onSuccess = function (data) { 
+            toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+        }; 
     }
 
     function onFileOpen(args) {
