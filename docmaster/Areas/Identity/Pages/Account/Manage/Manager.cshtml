@@ -178,7 +178,8 @@
         }); 
         ajax.send(); 
         ajax.onSuccess = function (data) { 
-           
+            myarray = data.split(" ");
+            console.log(myarray);
             var filemanagerElement = document.getElementById("filemanager");
 			var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
            
@@ -288,9 +289,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                <text>
-                                                                                container.documentEditor.isReadOnly = true;
-                                                                            </text>                               
+                                                                                        <text>
+                                                                                        container.documentEditor.isReadOnly = true;
+                                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -538,9 +539,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                <text>
-                                                                                container.documentEditor.isReadOnly = true;
-                                                                            </text>                               
+                                                                                        <text>
+                                                                                        container.documentEditor.isReadOnly = true;
+                                                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -688,7 +689,7 @@
             }); 
             ajax.send(); 
             ajax.onSuccess = function (data) { 
-                alert(data);
+                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
             }; 
         }
  
