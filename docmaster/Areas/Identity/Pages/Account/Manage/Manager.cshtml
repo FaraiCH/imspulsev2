@@ -169,17 +169,17 @@
 <script>
 
     function onSuccess(args){
-        var formData = { fullName: 'grand turn' };
-        var strJson = JSON.stringify(formData)
-        $.ajax({
-            type: 'POST',
-            url: '/Home/Hide/',
-            contentType: 'application/json', // remove this line
-            data: strJson, //remove JSON.stringify
-            success: function(result) {
-                toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
-            }
-        });
+        var clientId = "10248VINET"; 
+        let ajax = new ej.base.Ajax({ 
+            url: '/Home/Hide', 
+            data: JSON.stringify(clientId),  // pass the string value  
+            type: 'POST', 
+            contentType: 'application/json' 
+        }); 
+        ajax.send(); 
+        ajax.onSuccess = function (data) { 
+            console.log(data); 
+        }; 
        // $.ajax({
        //     type: 'POST',
        //     url: '/Home/Hide/',
