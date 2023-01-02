@@ -5,7 +5,7 @@
 @inject SignInManager<docmasterUser> SignInManager
 @inject UserManager<docmasterUser> UserManager
 @{
-    string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Hide", "|", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
+    string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
     string[] folder = new string[] { "Open", "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
     string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
@@ -710,6 +710,10 @@
              if (args.items[i].text == 'Edit') {
                 args.items[i].prefixIcon = 'e-icons e-fe-edit';
             }
+
+            if (args.items[i].text == 'Hide') {
+                args.items[i].prefixIcon = 'e-icons e-fe-hide';
+            }
         }
 
     }
@@ -765,6 +769,10 @@
 
         .e-fe-edit::before{
             content: '\e740';
+        }
+
+         .e-fe-hide::before{
+            content: '\e22b';
         }
 
         .e-empty-inner-content {
