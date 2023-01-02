@@ -682,7 +682,7 @@ namespace docmaster.Controllers
                 conn.Open();
 
                 //// Retrieve all rows
-                using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens WHERE name = " + user.Company , conn))
+                using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens WHERE name='" + user.Company + "'" , conn))
                 {
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
