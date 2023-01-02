@@ -688,7 +688,7 @@ namespace docmaster.Controllers
                     {
                         while (await reader.ReadAsync())
                         {
-                            fold += reader.GetString(1) + " ";
+                            fold += reader.GetString(1) + ";";
                         }
                     }
                 }
