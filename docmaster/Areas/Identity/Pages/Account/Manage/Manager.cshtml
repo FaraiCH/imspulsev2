@@ -288,9 +288,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                        <text>
-                                                                        container.documentEditor.isReadOnly = true;
-                                                                    </text>                               
+                                                                            <text>
+                                                                            container.documentEditor.isReadOnly = true;
+                                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -454,6 +454,10 @@
         if(args.item.text === 'Hide'){
             var fullName = args.fileDetails[0].filterPath;
             var payload = { fullName: fullName }; // change name
+            if (args.fileDetails[0].isFile) {
+               fullName = args.fileDetails[0].filterPath + args.fileDetails[0].name;
+               payload = { fullName: fullName };
+            }       
             $.ajax({
                 type: 'POST',
                 url: '/Home/Hide2/',
@@ -534,9 +538,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                        <text>
-                                                                        container.documentEditor.isReadOnly = true;
-                                                                    </text>                               
+                                                                            <text>
+                                                                            container.documentEditor.isReadOnly = true;
+                                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
