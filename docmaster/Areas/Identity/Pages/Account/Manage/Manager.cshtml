@@ -178,17 +178,18 @@
         }); 
         ajax.send(); 
         ajax.onSuccess = function (data) { 
-            myarray = data.split(" ");
-            for (var j = 0; j < myarray.length; j++) {
-                alert(myarray[j].substring(myarray[j].lastIndexOf('/') + 1));
-            }
+            myarray = data.split(" ");          
             var filemanagerElement = document.getElementById("filemanager");
 			var elements = filemanagerElement.querySelectorAll(".e-layout-content .e-list-item");
            
-			for(var i=0; i < elements.length; i++){               
-                if (elements[i].innerText == "QMS") {
-                    elements[i].hidden = true;
-                }              
+			for(var i=0; i < elements.length; i++){
+                for (var j = 0; j < myarray.length; j++) {
+                    var filefolder = myarray[j].substring(myarray[j].lastIndexOf('/') + 1);
+                    if (elements[i].innerText == filefolder) {
+                        elements[i].hidden = true;
+                    } 
+                }
+                            
 			}
         }; 
 
