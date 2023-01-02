@@ -1,6 +1,8 @@
 ﻿@page
 @model docmaster.Areas.Identity.Pages.Account.Manage.ManagerModel
 @using Microsoft.AspNetCore.Identity
+@using MySqlConnector
+@using System.Data
 @using docmaster.Areas.Identity.Data
 @inject SignInManager<docmasterUser> SignInManager
 @inject UserManager<docmasterUser> UserManager
@@ -11,7 +13,7 @@
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
-
+    DataRow[] rows = new DataRow[]{};
     @if (SignInManager.IsSignedIn(User))
     {   if(User.IsInRole("SuperUser"))
         {
@@ -43,7 +45,18 @@
         myPath = "";
     }
 
+    using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+    {
+        conn.Open();
 
+        //// Retrieve all rows
+        using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens WHERE name='" + UserManager.GetUserAsync(User).Result.Company + "'" , conn))
+        {
+            var dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            rows = dt.AsEnumerable().ToArray();
+        }
+    }
 
 }
 
@@ -175,6 +188,17 @@
                         <td>Unhide</td>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach (var p in rows)
+                    {
+                        <tr>
+                            <td>@p["document_path"]</td>
+                            <td>Unhide</td>
+                        </tr>
+                     
+                    }
+                   
+                </tbody>
             </table>
         </e-content-template>
       
