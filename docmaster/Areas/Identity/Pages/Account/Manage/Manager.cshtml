@@ -7,7 +7,7 @@
 @{
     string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
     string[] folder = new string[] { "Open", "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
-    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "SortBy" };
+    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
@@ -165,6 +165,21 @@
         </ejs-dialog>
 </div>
 
+<div id="spreedsheetedit">
+        <ejs-dialog isModal="true" visible="false" id="default_dialog7" target="#mytable" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Showing Hidden Items">
+        <e-content-template>
+            <table id="mytable" class="table table-data">
+                <thead>
+                    <tr>
+                        <td>Hidden Item</td>
+                        <td>Unhide</td>
+                    </tr>
+                </thead>
+            </table>
+        </e-content-template>
+      
+        </ejs-dialog>
+</div>
 
 <script>
 
@@ -456,21 +471,22 @@
        
         }
         if(args.item.text === 'Hide'){
-            var fullName = args.fileDetails[0].filterPath;
-            var payload = { fullName: fullName }; // change name
-            if (args.fileDetails[0].isFile) {
-               fullName = args.fileDetails[0].filterPath + args.fileDetails[0].name;
-               payload = { fullName: fullName };
-            }       
-            $.ajax({
-                type: 'POST',
-                url: '/Home/Hide2/',
-                // contentType: 'application/json', // remove this line
-                data: payload, //remove JSON.stringify
-                success: function (result) {
-                     toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
-                }
-            });
+            var fullName = args.fileDetails[0].filterPath + args.fileDetails[0].name;      
+            let ajax = new ej.base.Ajax({ 
+                url: '/Home/Hide2', 
+                data: JSON.stringify(fullName),  // pass the string value  
+                type: 'POST', 
+                contentType: 'application/json' 
+            }); 
+            ajax.send(); 
+            ajax.onSuccess = function (data) { 
+                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+            }; 
+        }
+
+        if(args.item.text === 'Show Hidden'){
+            var dialog = document.getElementById("default_dialog7").ej2_instances[0];
+            dialog.show();
         }
     }
     function menuClick(args) {
@@ -714,6 +730,11 @@
             if (args.items[i].text == 'Hide') {
                 args.items[i].prefixIcon = 'e-icons e-fe-hide';
             }
+
+            
+            if (args.items[i].text == 'Show Hidden') {
+                args.items[i].prefixIcon = 'e-icons e-fe-hidden';
+            }
         }
 
     }
@@ -771,8 +792,12 @@
             content: '\e740';
         }
 
-         .e-fe-hide::before{
+        .e-fe-hide::before{
             content: '\e815';
+        }  
+        
+        .e-fe-hidden::before{
+            content: '\e7de';
         }
 
         .e-empty-inner-content {
