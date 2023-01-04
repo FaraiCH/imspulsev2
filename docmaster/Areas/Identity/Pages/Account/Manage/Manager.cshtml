@@ -237,16 +237,16 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                        <text>
-                                            elements[i].hidden = true;
-                                        </text>
+                                <text>
+                                    elements[i].hidden = true;
+                                </text>
                             }
                             else
                             {
                                         
-                                        <text>
-                                            elements[i].classList.add("myhidden");
-                                        </text>
+                                <text>
+                                    elements[i].classList.add("myhidden");
+                                </text>
                             }
                         }
                       
@@ -355,9 +355,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                    <text>
-                                                        container.documentEditor.isReadOnly = true;
-                                                    </text>                               
+                                    <text>
+                                        container.documentEditor.isReadOnly = true;
+                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -536,16 +536,15 @@
 
             var dialog = document.getElementById("default_dialog7").ej2_instances[0];
             dialog.show();
-            alert(@count); 
             @{
                 @foreach (var p in rows)
                 {
-                    
+                    var manny = 0;
                     <text>
                          
-                        $("#comhide @count").unbind('click').bind('click', function () {
+                        $("#comhide @manny").unbind('click').bind('click', function () {
                            
-                            var hider = document.getElementById("hider @count");
+                            var hider = document.getElementById("hider @manny");
                             var fullName = hider.value;  
                             alert(fullName)
                             let ajax = new ej.base.Ajax({ 
@@ -561,7 +560,7 @@
                         });
                     </text>
 
-                    count--;
+                    manny++;
                 }
             }
        
