@@ -539,15 +539,12 @@
             @{
                 var manny = 0;
                 @foreach (var p in rows)
-                {
-                   
-                    <text>
-                         
+                {                  
+                    <text>                        
                         $("#comhide_@manny").unbind('click').bind('click', function () {
                            
                             var hider = document.getElementById("hider_@manny");
                             var fullName = hider.value;  
-                            alert(fullName)
                             let ajax = new ej.base.Ajax({ 
                                 url: '/Home/UnHide', 
                                 data: JSON.stringify(fullName),  // pass the string value  
