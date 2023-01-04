@@ -537,9 +537,10 @@
             var dialog = document.getElementById("default_dialog7").ej2_instances[0];
             dialog.show();
             @{
+                var manny = 0;
                 @foreach (var p in rows)
                 {
-                    var manny = 0;
+                   
                     <text>
                          
                         $("#comhide_@manny").unbind('click').bind('click', function () {
