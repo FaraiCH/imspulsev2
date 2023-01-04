@@ -726,13 +726,13 @@ namespace docmaster.Controllers
                 await conn.OpenAsync();
 
                 // Insert some data
-                using (var cmd = new MySqlCommand())
+                using (var cmd = new MySqlCommand("DELETE FROM imspulse.farai_document_hiddens WHERE document_path='" + fullName + "'", conn))
                 {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "DELETE * FROM imspulse.farai_document_hiddens WHERE name='" + fullName + "'";
-                    await cmd.ExecuteNonQueryAsync();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+             
+                    }
                 }
-
             }
             return new JsonResult("Successfully Unhid Item");
         }
