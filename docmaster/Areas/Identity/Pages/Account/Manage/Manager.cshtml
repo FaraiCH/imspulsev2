@@ -231,7 +231,21 @@
                 for (var j = 0; j < myarray.length; j++) {
                     var filefolder = myarray[j].substring(myarray[j].lastIndexOf('/') + 1);
                     if (elements[i].innerText == filefolder) {
-                        elements[i].hidden = true;
+                        @{
+                            if (!User.IsInRole("Admin"))
+                            {
+                                        <text>
+                                             element.classList.add("myhidden");
+                                        </text>
+                            }
+                            else
+                            {
+                                         <text>
+                                              elements[i].hidden = true;
+                                        </text>
+                            }
+                        }
+                      
                     } 
                 }
                             
@@ -337,9 +351,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                    <text>
-                                        container.documentEditor.isReadOnly = true;
-                                    </text>                               
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -605,9 +619,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                    <text>
-                                        container.documentEditor.isReadOnly = true;
-                                    </text>                               
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -915,6 +929,9 @@
         }
         #mypassword2{
              -webkit-text-security: disc;
+        }
+        .myhidden{
+            background: red;
         }
        
     </style>
