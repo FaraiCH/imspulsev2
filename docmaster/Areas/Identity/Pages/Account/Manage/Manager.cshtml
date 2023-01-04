@@ -253,16 +253,16 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                <text>
-                                    elements[i].hidden = true;
-                                </text>
+                                    <text>
+                                        elements[i].hidden = true;
+                                    </text>
                             }
                             else
                             {
                                         
-                                <text>
-                                    elements[i].classList.add("myhidden");
-                                </text>
+                                    <text>
+                                        elements[i].classList.add("myhidden");
+                                    </text>
                             }
                         }
                       
@@ -371,9 +371,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                    <text>
-                                        container.documentEditor.isReadOnly = true;
-                                    </text>                               
+                                        <text>
+                                            container.documentEditor.isReadOnly = true;
+                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -394,11 +394,12 @@
             
                     var documenteditorElement = document.getElementById("doccontainer");
                     container = documenteditorElement.ej2_instances[0];
-                    var selection = container.documentEditor.editor.selection;
+                    var selection = container.documentEditor.selection;
                     // Get the current text color
                     var textColor = selection.characterFormat.textColor;
                     // Get the background color of the document
-                    var bgColor = container.documentEditor.editor.backgroundColor;
+                    var bgColor = container.documentEditor.backgroundColor;
+                    alert(bgColor);
                     // If the text color is the same as the background color, set it to black (unhide the text)
                     // Otherwise, set it to the background color (hide the text)
                     selection.characterFormat.textColor = (textColor === bgColor) ? '#000000' : bgColor;
@@ -568,25 +569,25 @@
             dialog.show();
             @{
                 var manny = 0;
-                @foreach (var p in rows)
+                    @foreach (var p in rows)
                 {                  
-                    <text>                        
-                        $("#comhide_@manny").unbind('click').bind('click', function () {
-                           
-                            var hider = document.getElementById("hider_@manny");
-                            var fullName = hider.value;  
-                            let ajax = new ej.base.Ajax({ 
-                                url: '/Home/UnHide', 
-                                data: JSON.stringify(fullName),  // pass the string value  
-                                type: 'POST', 
-                                contentType: 'application/json' 
-                            }); 
-                            ajax.send(); 
-                            ajax.onSuccess = function (data) { 
-                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                            }; 
-                        });
-                    </text>
+                        <text>                        
+                            $("#comhide_@manny").unbind('click').bind('click', function () {
+                               
+                                var hider = document.getElementById("hider_@manny");
+                                var fullName = hider.value;  
+                                let ajax = new ej.base.Ajax({ 
+                                    url: '/Home/UnHide', 
+                                    data: JSON.stringify(fullName),  // pass the string value  
+                                    type: 'POST', 
+                                    contentType: 'application/json' 
+                                }); 
+                                ajax.send(); 
+                                ajax.onSuccess = function (data) { 
+                                    toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                                }; 
+                            });
+                        </text>
 
                     manny++;
                 }
@@ -663,9 +664,9 @@
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                    <text>
-                                                        container.documentEditor.isReadOnly = true;
-                                                    </text>                               
+                                                        <text>
+                                                            container.documentEditor.isReadOnly = true;
+                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
