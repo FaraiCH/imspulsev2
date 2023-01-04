@@ -234,15 +234,16 @@
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                        <text>
-                                             element.classList.add("myhidden");
-                                        </text>
+                                <text>
+                                    elements[i].hidden = true;
+                                </text>
                             }
                             else
                             {
-                                         <text>
-                                              elements[i].hidden = true;
-                                        </text>
+                                        
+                                <text>
+                                    element.classList.add("myhidden");
+                                </text>
                             }
                         }
                       
