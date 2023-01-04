@@ -398,12 +398,12 @@
                     // Get the current text color
                     var textColor = selection.characterFormat.fontColor;
                     // Get the background color of the document
-                    var bgColor = container.documentEditor.viewer.backgroundColor;
+                    //var bgColor = container.documentEditor.viewer.backgroundColor;
 
-                    alert(bgColor);
+                    alert(textColor);
                     // If the text color is the same as the background color, set it to black (unhide the text)
                     // Otherwise, set it to the background color (hide the text)
-                    selection.characterFormat.textColor = (textColor === bgColor) ? '#000000' : bgColor;
+                    selection.characterFormat.fontColor = '#000000';
                 });
 
                 $("#element").unbind('click').bind('click', function () {
