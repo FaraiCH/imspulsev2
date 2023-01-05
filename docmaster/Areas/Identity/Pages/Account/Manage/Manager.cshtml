@@ -75,12 +75,12 @@
 {
     @if(!User.IsInRole("SuperUser"))
     {       
-        <div class="alert alert-warning" role="alert" style="font-size:6px">
+        <div class="alert alert-warning" role="alert">
             @if (User.IsInRole("Admin"))
             {
                 if (User.IsInRole("Basic"))
                 {
-                    <p>You are the admin of your company. However, you have a basic subscription.</p>
+                    <p style="font-size:6px">You are the admin of your company. However, you have a basic subscription.</p>
                     <p>Here is what you have access to:</p>
                     <p>1. You are limited to only 50MB of domain space for your documents. </p>
                     <p>2. Use Online Document Editors to View, Edit and Save Documents. </p>
