@@ -18,10 +18,7 @@
     <script src="https://cdn.syncfusion.com/ej2/20.2.36/dist/ej2.min.js"></script>
 </head>
 <body>
-    @{
-        DateTime date = new DateTime();
-    }
-       <header class="header">
+    <header class="header">
       <div class="navbar-area">
 
         <div class="container">
@@ -60,14 +57,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-              <table class="footer" align="center" width="570" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td class="content-cell" align="center">
-                        &copy; @date.Year - IMS Pulse in Partner with EC Integrated Solutions - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </td>
-                </tr>
-            </table>
-           
+
+            &copy; @DateTime.Now.Year - IMS Pulse in Partner with EC Integrated Solutions - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+      
         </div>
     </footer>
     <script src="~/assets/js/count-up.min.js"></script>
