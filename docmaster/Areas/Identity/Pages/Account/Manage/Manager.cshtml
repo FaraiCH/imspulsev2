@@ -75,7 +75,7 @@
 {
     @if(!User.IsInRole("SuperUser"))
     {       
-        <div class="alert alert-warning" role="alert">
+        <div class="alert alert-warning" role="alert" style="font-size:8px">
             @if (User.IsInRole("Admin"))
             {
                 if (User.IsInRole("Basic"))
