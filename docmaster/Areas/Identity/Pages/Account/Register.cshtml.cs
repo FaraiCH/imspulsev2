@@ -175,7 +175,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                                 // If directory does not exist, create it
                                 if (!Directory.Exists(folderName))
                                 {
-                                    await _userManager.AddToRoleAsync(user, "Basic");
+                                    await _userManager.AddToRoleAsync(user, "Admin");
                                     Directory.CreateDirectory(folderName);
                                     if (!Directory.Exists(QMSName))
                                     {
@@ -192,7 +192,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                                 }
                                 else
                                 {
-                                    await _userManager.AddToRoleAsync(user, "Admin");
+                                    await _userManager.AddToRoleAsync(user, "Basic");
                                 }
                                 _logger.LogInformation("User created a new account with password.");                           
                             
