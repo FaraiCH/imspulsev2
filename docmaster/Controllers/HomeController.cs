@@ -133,7 +133,6 @@ namespace docmaster.Controllers
                                 uploadResponse = operation.Upload(path, uploadFiles, action, null);
                             }
 
-
                         }
                         else if (this.User.IsInRole("Premium"))
                         {

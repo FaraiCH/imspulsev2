@@ -29,6 +29,16 @@
                 items = new string[] { "Edit","Refresh", "View", "SortBy" };
                 layout = new string[] { "SortBy", "View", "Refresh" };
             }
+            else
+            {
+                if (User.IsInRole("Basic"))
+                {
+                    files = new string[] { "Edit" };
+                    folder = new string[] { };
+                    items = new string[] { "Edit","Refresh", "View", "SortBy" };
+                    layout = new string[] { "SortBy", "View", "Refresh" };
+                }
+            }
             myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
 
             DirectoryInfo info = new DirectoryInfo(@"/var/www/html/imspulse/bunch-box" + myPath);
@@ -68,19 +78,36 @@
         <div class="alert alert-warning" role="alert">
             @if (User.IsInRole("Admin"))
             {
-            <p>You are the admin of your company.</p>
-            <p>Here is what you have access to:</p>
-            <p>1. Use Online Document Editors to View, Edit and Save Documents. </p>
-            <p>2. Encrypt documents to protect content from being seen. </p>
-            <p>3. Hide documents and folders from any none admin users. </p>
-            <p>4. Automatically allocate documents to Obselete folders when revised. </p>
-            <p>5. Overite documents on upload. </p>
-        }
-        else
-        {
-            <p>You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
-        }
-        <p>Your company has currently used @num MB of space.</p>
+                if (User.IsInRole("Basic"))
+                {
+                    <p>You are the admin of your company. However, you have a basic subscription.</p>
+                    <p>Here is what you have access to:</p>
+                    <p>1. You are limited to only 50MB of domain space for your documents. </p>
+                    <p>2. Use Online Document Editors to View, Edit and Save Documents. </p>
+                    <p>3. Automatically allocate documents to Obselete folders when revised. </p>
+                    <br />
+                    <p>Here's what you don't have access to.</p>
+                    <p>1. You cannot encrypt documents.</p>
+                    <p>2. You cannot hide documents or folders</p>
+                    <p>Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
+                }
+                else
+                {
+                    <p>You are the admin of your company.</p>
+                    <p>Here is what you have access to:</p>
+                    <p>1. Use Online Document Editors to View, Edit and Save Documents. </p>
+                    <p>2. Encrypt documents to protect content from being seen. </p>
+                    <p>3. Hide documents and folders from any none admin users. </p>
+                    <p>4. Automatically allocate documents to Obselete folders when revised. </p>
+                    <p>5. Overite documents on upload. </p>
+                }
+           
+            }
+            else
+            {
+                <p>You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
+            }
+            <p>Your company has currently used @num MB of space.</p>
         </div>
     }
     else
@@ -146,7 +173,7 @@
             @if (User.IsInRole("Admin")){
                             <ejs-button id="element" title="Save your work online."  class="btn btn-primary" content="Save Document"></ejs-button>
                             <ejs-button id="revelement" title="Add Revision field" class="btn btn-primary" content="Insert Revision Field"></ejs-button>
-                            <ejs-button id="hidetext" title="Hide/Unhide Text in Document" class="btn btn-primary" content="Hide/Unhide Text"></ejs-button>
+                           @* <ejs-button id="hidetext" title="Hide/Unhide Text in Document" class="btn btn-primary" content="Hide/Unhide Text"></ejs-button>*@
             }
 
             <ejs-documenteditorcontainer enableToolbar=false height="600px" id="doccontainer"></ejs-documenteditorcontainer>

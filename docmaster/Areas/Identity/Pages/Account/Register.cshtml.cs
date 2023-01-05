@@ -158,6 +158,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                         }
                     }
 
+
                     if (ModelState.IsValid)
                     {
                         if (counter > 0)
@@ -176,6 +177,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                                 if (!Directory.Exists(folderName))
                                 {
                                     await _userManager.AddToRoleAsync(user, "Admin");
+                                    await _userManager.AddToRoleAsync(user, "Basic");
                                     Directory.CreateDirectory(folderName);
                                     if (!Directory.Exists(QMSName))
                                     {
