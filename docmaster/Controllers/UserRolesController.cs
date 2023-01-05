@@ -16,7 +16,7 @@ namespace docmaster.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperUser")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -37,7 +37,7 @@ namespace docmaster.Controllers
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperUser")]
         public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
