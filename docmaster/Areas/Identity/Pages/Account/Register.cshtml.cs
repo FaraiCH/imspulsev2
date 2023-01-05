@@ -132,6 +132,7 @@ namespace docmaster.Areas.Identity.Pages.Account
             {
                 string passwordCom = null;
                 int counter = 0;
+                int comp = 0;
                 returnUrl ??= Url.Content("~/");
                 ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
                 
@@ -164,7 +165,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                             var user = new docmasterUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Company = Input.Company };
 
                             var result = await _userManager.CreateAsync(user, Input.Password);
-
+                            var userId = await _userManager.GetUserIdAsync(user);
                             if (result.Succeeded)
                             {
                                 string folderName = "/var/www/html/imspulse/bunch-box/" + Input.Company;
@@ -174,6 +175,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                                 // If directory does not exist, create it
                                 if (!Directory.Exists(folderName))
                                 {
+                                    await _userManager.AddToRoleAsync(user, "Basic");
                                     Directory.CreateDirectory(folderName);
                                     if (!Directory.Exists(QMSName))
                                     {
@@ -188,10 +190,12 @@ namespace docmaster.Areas.Identity.Pages.Account
                                         Directory.CreateDirectory(ResourcesName);
                                     }
                                 }
-                                _logger.LogInformation("User created a new account with password.");
-
-                                var userId = await _userManager.GetUserIdAsync(user);
-                                await _userManager.AddToRoleAsync(user, "Basic");
+                                else
+                                {
+                                    await _userManager.AddToRoleAsync(user, "Admin");
+                                }
+                                _logger.LogInformation("User created a new account with password.");                           
+                            
                                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                                 var callbackUrl = Url.Page(
