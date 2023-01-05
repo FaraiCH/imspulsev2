@@ -8,6 +8,7 @@ D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\HarfBuzzSharp.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNet.Identity.Core.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\System.Net.Http.Formatting.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\System.Web.Http.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
