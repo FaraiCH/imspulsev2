@@ -113,75 +113,22 @@ namespace docmaster.Controllers
             double fCount = GetDirectorySize(this.basePath + "/" + user.Company);
             foreach (var item in uploadFiles)
             {
+          
+
                 if (item.FileName.Contains(".doc") || item.FileName.Contains(".xls") || item.FileName.Contains(".xls") || item.FileName.Contains(".csv") || item.FileName.Contains(".ppt") || item.FileName.Contains(".pdf") || item.FileName.Contains(".vsd") || item.FileName.Contains(".pub") || item.FileName.Contains(".txt"))
-                {          
-               
-                    if (!this.User.IsInRole("Master"))
+                {
+                    var folders = (item.FileName).Split('/');
+                    // checking the folder upload
+                    if (folders.Length > 1)
                     {
-                        if (this.User.IsInRole("Basic"))
+                        for (var i = 0; i < folders.Length - 1; i++)
                         {
-
-                            if (fCount > 50)
+                            string newDirectoryPath = Path.Combine(this.basePath + path, folders[i]);
+                            if (!Directory.Exists(newDirectoryPath))
                             {
-                                Response.Clear();
-                                Response.ContentType = "application/json; charset=utf-8";
-                                Response.StatusCode = Convert.ToInt32("1111");
-                                Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached the maximum uploads allowed on Basic Subscription. Upgrade plan";
+                                this.operation.ToCamelCase(this.operation.Create(path, folders[i]));
                             }
-                            else
-                            {
-                                uploadResponse = operation.Upload(path, uploadFiles, action, null);
-                            }
-
-                        }
-                        else if (this.User.IsInRole("Premium"))
-                        {
-                            if (fCount > 350)
-                            {
-                                Response.Clear();
-                                Response.ContentType = "application/json; charset=utf-8";
-                                Response.StatusCode = Convert.ToInt32("1111");
-                                Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached the maximum uploads allowed on Premium Subscription. Upgrade plan";
-                            }
-                            else
-                            {
-                                uploadResponse = operation.Upload(path, uploadFiles, action, null);
-                            }
-
-                        }
-                        else if (this.User.IsInRole("Ultimate"))
-                        {
-                            if (fCount > 1000)
-                            {
-                                Response.Clear();
-                                Response.ContentType = "application/json; charset=utf-8";
-                                Response.StatusCode = Convert.ToInt32("1111");
-                                Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached your limit";
-                            }
-                            else
-                            {
-                                uploadResponse = operation.Upload(path, uploadFiles, action, null);
-                            }
-                        }
-                        else
-                        {
-
-                            Response.Clear();
-                            Response.ContentType = "application/json; charset=utf-8";
-                            Response.StatusCode = Convert.ToInt32("1111");
-                            Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You do not have permissions to upload anything.";
-
-                        }
-                    }
-                    else
-                    {
-                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
-                        if (uploadResponse.Error != null)
-                        {
-                            Response.Clear();
-                            Response.ContentType = "application/json; charset=utf-8";
-                            Response.StatusCode = Convert.ToInt32(uploadResponse.Error.Code);
-                            Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = uploadResponse.Error.Message;
+                            path += folders[i] + "/";
                         }
                     }
 
@@ -195,7 +142,79 @@ namespace docmaster.Controllers
                 }
 
             }
-     
+
+            if (!this.User.IsInRole("Master"))
+            {
+                if (this.User.IsInRole("Basic"))
+                {
+
+                    if (fCount > 50)
+                    {
+                        Response.Clear();
+                        Response.ContentType = "application/json; charset=utf-8";
+                        Response.StatusCode = Convert.ToInt32("1111");
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached the maximum uploads allowed on Basic Subscription. Upgrade plan";
+                    }
+                    else
+                    {
+
+                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                    }
+
+                }
+                else if (this.User.IsInRole("Premium"))
+                {
+                    if (fCount > 350)
+                    {
+                        Response.Clear();
+                        Response.ContentType = "application/json; charset=utf-8";
+                        Response.StatusCode = Convert.ToInt32("1111");
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached the maximum uploads allowed on Premium Subscription. Upgrade plan";
+                    }
+                    else
+                    {
+
+                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                    }
+
+                }
+                else if (this.User.IsInRole("Ultimate"))
+                {
+                    if (fCount > 1000)
+                    {
+                        Response.Clear();
+                        Response.ContentType = "application/json; charset=utf-8";
+                        Response.StatusCode = Convert.ToInt32("1111");
+                        Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You have reached your limit";
+                    }
+                    else
+                    {
+
+                        uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                    }
+                }
+                else
+                {
+
+                    Response.Clear();
+                    Response.ContentType = "application/json; charset=utf-8";
+                    Response.StatusCode = Convert.ToInt32("1111");
+                    Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = "You do not have permissions to upload anything.";
+
+                }
+            }
+            else
+            {
+                uploadResponse = operation.Upload(path, uploadFiles, action, null);
+                if (uploadResponse.Error != null)
+                {
+                    Response.Clear();
+                    Response.ContentType = "application/json; charset=utf-8";
+                    Response.StatusCode = Convert.ToInt32(uploadResponse.Error.Code);
+                    Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = uploadResponse.Error.Message;
+                }
+            }
+
             return Content("");
         }
 
