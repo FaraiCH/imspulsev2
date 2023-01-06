@@ -270,6 +270,29 @@ else
 <script>
 
     function onSuccess(args){
+        var fileObject = document.getElementById("filemanager").ej2_instances[0];
+        document.getElementById('filemanager_tb_upload').onclick = function (args) {
+            args.stopPropagation();
+        };
+        var items = [{ text: 'Folder' }, { text: 'Files' }];
+        var drpDownBtn = new ej.splitbuttons.DropDownButton(
+        {
+            items: items,
+            select: (args) => {
+            if (args.item.text === 'Folder') {
+                fileObject.uploadSettings.directoryUpload = true;
+            } else {
+                fileObject.uploadSettings.directoryUpload = false;
+            }
+            setTimeout(function () {
+                let uploadBtn = document.querySelector('.e-file-select-wrap button');
+                uploadBtn.click();
+            }, 100);
+            }
+        },
+        '#filemanager_tb_upload'
+        );
+
         var clientId = "10248VINET"; 
         let ajax = new ej.base.Ajax({ 
             url: '/Home/Hide', 
@@ -859,28 +882,7 @@ else
 
 
      function onCreate(args) {
-        var fileObject = document.getElementById("filemanager").ej2_instances[0];
-        document.getElementById('filemanager_tb_upload').onclick = function (args) {
-            args.stopPropagation();
-        };
-        var items = [{ text: 'Folder' }, { text: 'Files' }];
-            var drpDownBtn = new ej.splitbuttons.DropDownButton(
-            {
-                items: items,
-                select: (args) => {
-                if (args.item.text === 'Folder') {
-                    fileObject.uploadSettings.directoryUpload = true;
-                } else {
-                    fileObject.uploadSettings.directoryUpload = false;
-                }
-                setTimeout(function () {
-                    let uploadBtn = document.querySelector('.e-file-select-wrap button');
-                    uploadBtn.click();
-                }, 100);
-                }
-            },
-            '#filemanager_tb_upload'
-            );
+   
         for (var i = 0; i < args.items.length; i++) {
             if (args.items[i].text == 'Encrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
