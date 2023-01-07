@@ -267,7 +267,7 @@ namespace docmaster.Controllers
         }
         /// <summary>
         /// Compare documents
-        /// Choose what do to with old document (Absolete or override)
+        /// Choose what do to with old document (Obsolete or override)
         /// </summary>
         /// <param name="fullName"></param>
         /// <returns></returns>
@@ -392,9 +392,9 @@ namespace docmaster.Controllers
                       
                         var result = string.Join(" ", diff);
 
-                        if (!Directory.Exists(this.basePath + "/" + user.Company + "/Absolete/"))
+                        if (!Directory.Exists(this.basePath + "/" + user.Company + "/Obsolete/"))
                         {
-                            Directory.CreateDirectory(this.basePath + "/" + user.Company + "/Absolete/");
+                            Directory.CreateDirectory(this.basePath + "/" + user.Company + "/Obsolete/");
                         }
 
                         string watermarkText = "OBSOLETE";
@@ -440,7 +440,7 @@ namespace docmaster.Controllers
                         }
                         docu.Protect(Aspose.Words.ProtectionType.ReadOnly, "@Paradice1");
 
-                        docu.Save(this.basePath + "/" + user.Company + "/Absolete/" + original);
+                        docu.Save(this.basePath + "/" + user.Company + "/Obsolete/" + original);
 
                         using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
                         {

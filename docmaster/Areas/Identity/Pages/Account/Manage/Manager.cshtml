@@ -99,7 +99,7 @@
                     <p style="font-size:11px">2. Encrypt documents to protect content from being seen. </p>
                     <p style="font-size:11px">3. Hide documents and folders from any none admin users. </p>
                     <p style="font-size:11px">4. Automatically allocate documents to Obselete folders when revised. </p>
-                    <p style="font-size:11px">5. Overite documents on upload. </p>
+                    <p style="font-size:11px">5. Overwrite documents on upload. </p>
                 }
            
             }
@@ -954,15 +954,7 @@ else
             display: none; 
         } 
  
-        /*Style to hide the root folder from breadcrumb*/ 
-        .filemanager .e-address .e-address-list-item:nth-child(1) { 
-            display: none; 
-        } 
- 
-        /*Style to hide the icon from breadcrumb*/ 
-        .filemanager .e-address .e-address-list-item:nth-child(2) .e-icons { 
-            display: none; 
-        } 
+      
         .filemanager .e-grid .e-content .e-rowcell .e-fe-text {
 
             background: #1C547C;
@@ -975,13 +967,7 @@ else
 
         }
 
-        .filemanager .e-addressbar-ul li:nth-child(1){
-            display: none;
-        }
-
-        .e-dropdown-popup.e-submenu ul .e-item:nth-child(1) {
-            display: none;
-        }
+      
 
         .filemanager .e-toolbar .e-toolbar-items{
             background: #1C547C;
@@ -1054,5 +1040,22 @@ else
                 ul.e-list-parent.e-ul .e-level-2 { 
                 display: none; 
             } 
+            /*Style to hide the root folder from breadcrumb*/ 
+            .filemanager .e-address .e-address-list-item:nth-child(1) { 
+                display: none; 
+            } 
+ 
+            /*Style to hide the icon from breadcrumb*/ 
+            .filemanager .e-address .e-address-list-item:nth-child(2) .e-icons { 
+                display: none; 
+            } 
+
+            .filemanager .e-addressbar-ul li:nth-child(1){
+                display: none;
+            }
+
+            .e-dropdown-popup.e-submenu ul .e-item:nth-child(1) {
+                display: none;
+            }
            </style>         
         }
