@@ -135,42 +135,7 @@ namespace docmaster.Areas.Identity.Pages.Account
          
             try
             {
-                var content = "<p>Hi Farai,</p>" + "<p>You have successfully registered your Document Management Account.</p>" +
-                    "<p>We sincerely hope you enjoy our product range.</p><br><p>Regards</p><p>The IMS Pulse Team</p>";
 
-                var emailData = new EmailDataModel
-                {
-                    EmailToId = "faraichaka@gmail.com",
-                    EmailToName = "Farai",
-                    EmailSubject = "Test Email",
-                    EmailBody =
-
-                    "<table class='wrapper layout-primary' width='100 %' cellpadding='0' cellspacing='0'>" +
-                        "<tr>" +
-                            "<td align='center'>" +
-                                "<table class='content' width='100%' cellpadding='0' cellspacing='0'>" +
-                                    "<tr>" +
-                                        "<td width='100%' cellpadding='0' cellspacing='0'>" +
-                                            "<table class='inner-body' align='center' width='570' cellpadding='0' cellspacing='0'>" +
-                                                "<tr>" +
-                                                    "<td class='content-cell text-center' >"+               
-                                                        "<img style='width: 100%' src='http://imspulse.com/storage/app/media/imscc.png' alt='Image'>"+
-                                                    "</td>"+
-                                                "</tr>"+
-
-                                                "<tr>"+
-                                                    "<td class='content-cell'>"+
-                                                        content +
-                                                    "</td>"+
-                                                "</ tr >"+
-                                            "</ table >"+
-                                        "</ td >"+
-                                    "</ tr >"+
-                                "</ table >"+
-                            "</ td >"+
-                        "</ tr >"+
-                    "</ table > "
-                };
                 string passwordCom = null;
                 int counter = 0;
                 int comp = 0;
@@ -210,6 +175,42 @@ namespace docmaster.Areas.Identity.Pages.Account
                             var userId = await _userManager.GetUserIdAsync(user);
                             if (result.Succeeded)
                             {
+                                var content = $"<p>Hi {user.FirstName},</p>" + "<p>You have successfully registered your Document Management Account.</p>" +
+                                "<p>We sincerely hope you enjoy our product range.</p><br><p>Regards</p><p>The IMS Pulse Team</p>";
+
+                                var emailData = new EmailDataModel
+                                {
+                                    EmailToId = user.Email,
+                                    EmailToName = user.FirstName,
+                                    EmailSubject = "Document Manager Registration Successful",
+                                    EmailBody =
+
+                                    "<table class='wrapper layout-primary' width='100 %' cellpadding='0' cellspacing='0'>" +
+                                        "<tr>" +
+                                            "<td align='center'>" +
+                                                "<table class='content' width='100%' cellpadding='0' cellspacing='0'>" +
+                                                    "<tr>" +
+                                                        "<td width='100%' cellpadding='0' cellspacing='0'>" +
+                                                            "<table class='inner-body' align='center' width='570' cellpadding='0' cellspacing='0'>" +
+                                                                "<tr>" +
+                                                                    "<td class='content-cell text-center' >" +
+                                                                        "<img style='width: 100%' src='http://imspulse.com/storage/app/media/imscc.png' alt='Image'>" +
+                                                                    "</td>" +
+                                                                "</tr>" +
+
+                                                                "<tr>" +
+                                                                    "<td class='content-cell'>" +
+                                                                        content +
+                                                                    "</td>" +
+                                                                "</ tr >" +
+                                                            "</ table >" +
+                                                        "</ td >" +
+                                                    "</ tr >" +
+                                                "</ table >" +
+                                            "</ td >" +
+                                        "</ tr >" +
+                                    "</ table > "
+                                };
                                 string folderName = "/var/www/html/imspulse/bunch-box/" + Input.Company;
                                 string QMSName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/QMS";
                                 string OperationsName = "/var/www/html/imspulse/bunch-box/" + Input.Company + "/Operations";

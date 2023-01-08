@@ -77,14 +77,14 @@ namespace docmaster.Areas.Identity.Pages.Account
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
 
-                var content = "<p>Hi Farai,</p>" + $"Please reset your password by <a class='btn btn-success' href= '{HtmlEncoder.Default.Encode(callbackUrl)}'> clicking here </a>." +
+                var content = $"<p>Hi {user.FirstName},</p>" + $"Please reset your password by <a class='btn btn-success' href= '{HtmlEncoder.Default.Encode(callbackUrl)}'> clicking here </a>." +
                 "<br><p>Regards</p><p>The IMS Pulse Team</p>";
 
                 var emailData = new EmailDataModel
                 {
-                    EmailToId = "faraichaka@gmail.com",
-                    EmailToName = "Farai",
-                    EmailSubject = "Test Email",
+                    EmailToId = user.Email,
+                    EmailToName = user.FirstName,
+                    EmailSubject = "Document Manager Password Reset",
                     EmailBody =
 
                     "<table class='wrapper layout-primary' width='100 %' cellpadding='0' cellspacing='0'>" +
@@ -114,10 +114,10 @@ namespace docmaster.Areas.Identity.Pages.Account
                     "</ table > "
                 };
                 _emailService.SendEmail(emailData);
-                await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                //await _emailSender.SendEmailAsync(
+                //    Input.Email,
+                //    "Reset Password",
+                //    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
