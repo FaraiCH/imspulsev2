@@ -73,49 +73,59 @@
 
 @if (!User.IsInRole("Suspended"))
 {
-    @if(!User.IsInRole("SuperUser"))
-    {       
-        <div class="alert alert-warning" role="alert">
-            @if (User.IsInRole("Admin"))
-            {
-                if (User.IsInRole("Basic"))
-                {
-                    <p style="font-size:11px">You are the admin of your company. However, you have a basic subscription.</p>
-                    <p style="font-size:11px">Here is what you have access to:</p>
-                    <p style="font-size:11px">1. You are limited to only 50MB of domain space for your documents. </p>
-                    <p style="font-size:11px">2. Use Online Document Editors to View, Edit and Save Documents. </p>
-                    <p style="font-size:11px">3. Automatically allocate documents to Obselete folders when revised. </p>
-                    <br />
-                    <p style="font-size:11px">Here's what you don't have access to.</p>
-                    <p style="font-size:11px">1. You cannot encrypt documents.</p>
-                    <p style="font-size:11px">2. You cannot hide documents or folders</p>
-                    <p style="font-size:11px">Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
-                }
-                else
-                {
-                    <p style="font-size:11px">You are the admin of your company.</p>
-                    <p style="font-size:11px">Here is what you have access to:</p>
-                    <p style="font-size:11px">1. Use Online Document Editors to View, Edit and Save Documents. </p>
-                    <p style="font-size:11px">2. Encrypt documents to protect content from being seen. </p>
-                    <p style="font-size:11px">3. Hide documents and folders from any none admin users. </p>
-                    <p style="font-size:11px">4. Automatically allocate documents to Obselete folders when revised. </p>
-                    <p style="font-size:11px">5. Overwrite documents on upload. </p>
-                }
+    <p>To view your subscription and the features you have access to, please click <button id="myview" onclick="getem" class="btn btn-primary">here</button>.</p>
+    <ejs-dialog isModal="true" visible="false" id="default_dialog10" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
+        <e-content-template>
+            @if(!User.IsInRole("SuperUser"))
+            {       
+                <div class="alert alert-warning" role="alert">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        if (User.IsInRole("Basic"))
+                        {
+                            <p style="font-size:11px">You are the admin of your company. However, you have a basic subscription.</p>
+                            <p style="font-size:11px">Here is what you have access to:</p>
+                            <p style="font-size:11px">1. You are limited to only 50MB of domain space for your documents. </p>
+                            <p style="font-size:11px">2. Use Online Document Editors to View, Edit and Save Documents. </p>
+                            <p style="font-size:11px">3. Automatically allocate documents to Obselete folders when revised. </p>
+                            <br />
+                            <p style="font-size:11px">Here's what you don't have access to.</p>
+                            <p style="font-size:11px">1. You cannot encrypt documents.</p>
+                            <p style="font-size:11px">2. You cannot hide documents or folders</p>
+                            <p style="font-size:11px">Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
+                        }
+                        else
+                        {
+                            <p style="font-size:11px">You are the admin of your company.</p>
+                            <p style="font-size:11px">Here is what you have access to:</p>
+                            <p style="font-size:11px">1. Use Online Document Editors to View, Edit and Save Documents. </p>
+                            <p style="font-size:11px">2. Encrypt documents to protect content from being seen. </p>
+                            <p style="font-size:11px">3. Hide documents and folders from any none admin users. </p>
+                            <p style="font-size:11px">4. Automatically allocate documents to Obselete folders when revised. </p>
+                            <p style="font-size:11px">5. Overwrite documents on upload. </p>
+                        }
            
+                    }
+                    else
+                    {
+                        <p style="font-size:11px">You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
+                    }
+                    
+                </div>
             }
-            else
-            {
-                <p style="font-size:11px">You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
-            }
-            <p style="font-size:11px">Your company has currently used @num MB of space.</p>
-        </div>
-    }
-    else
+        else
+        {
+            <div class="alert alert-info" role="alert">
+                <p style="font-size:11px">You are the Super User. You have full access to all company documents</p>
+                <p style="font-size:11px">You have full access to all IMS Pulse Features:</p>
+            </div>
+        }
+        </e-content-template>
+      
+    </ejs-dialog>
+    @if (!User.IsInRole("SuperUser"))
     {
-        <div class="alert alert-info" role="alert">
-            <p style="font-size:11px">You are the Super User. You have full access to all company documents</p>
-            <p style="font-size:11px">You have full access to all IMS Pulse Features:</p>
-        </div>
+        <p><p style="font-size:11px">Your company has currently used <span class="btn btn-dark">@num</span>MB of space.</p></p>
     }
     <div class="control-section">
     <div class="sample-container" id="container" style="padding:10px">
@@ -268,6 +278,11 @@ else
 
 
 <script>
+
+    function getem(){
+        var dialog = document.getElementById("default_dialog10").ej2_instances[0];
+        dialog.show();
+    }
     function onSuccess(args){
    
 
@@ -597,6 +612,7 @@ else
             }); 
             ajax.send(); 
             ajax.onSuccess = function (data) { 
+                
                 toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
             }; 
         }
@@ -605,27 +621,29 @@ else
 
             var dialog = document.getElementById("default_dialog7").ej2_instances[0];
             dialog.show();
+            $("#mytable").load(location.href + " #mytable");
             @{
                 var manny = 0;
-                                                                                    @foreach (var p in rows)
+                @foreach (var p in rows)
                 {                  
-                                                                                        <text>                        
-                                                                                            $("#comhide_@manny").unbind('click').bind('click', function () {
+                    <text>                        
+                        $("#comhide_@manny").unbind('click').bind('click', function () {
                                                                                                
-                                                                                                var hider = document.getElementById("hider_@manny");
-                                                                                                var fullName = hider.value;  
-                                                                                                let ajax = new ej.base.Ajax({ 
-                                                                                                    url: '/Home/UnHide', 
-                                                                                                    data: JSON.stringify(fullName),  // pass the string value  
-                                                                                                    type: 'POST', 
-                                                                                                    contentType: 'application/json' 
-                                                                                                }); 
-                                                                                                ajax.send(); 
-                                                                                                ajax.onSuccess = function (data) { 
-                                                                                                    toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                                                                                                }; 
-                                                                                            });
-                                                                                        </text>
+                            var hider = document.getElementById("hider_@manny");
+                            var fullName = hider.value;  
+                            let ajax = new ej.base.Ajax({ 
+                                url: '/Home/UnHide', 
+                                data: JSON.stringify(fullName),  // pass the string value  
+                                type: 'POST', 
+                                contentType: 'application/json' 
+                            }); 
+                            ajax.send(); 
+                            ajax.onSuccess = function (data) {
+                                $("#mytable").load(location.href + " #mytable");
+                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                            }; 
+                        });
+                    </text>
 
                     manny++;
                 }
@@ -854,6 +872,38 @@ else
             ajax.onSuccess = function (data) { 
                 toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
             }; 
+        }
+
+        if(args.item.text === 'Show Hidden'){
+
+            var dialog = document.getElementById("default_dialog7").ej2_instances[0];
+            dialog.show();
+            @{
+                var many = 0;
+                @foreach (var p in rows)
+                {                  
+                    <text>                        
+                        $("#comhide_@manny").unbind('click').bind('click', function () {
+                                                                                               
+                            var hider = document.getElementById("hider_@many");
+                            var fullName = hider.value;  
+                            let ajax = new ej.base.Ajax({ 
+                                url: '/Home/UnHide', 
+                                data: JSON.stringify(fullName),  // pass the string value  
+                                type: 'POST', 
+                                contentType: 'application/json' 
+                            }); 
+                            ajax.send(); 
+                            ajax.onSuccess = function (data) { 
+                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                            }; 
+                        });
+                    </text>
+
+                    many++;
+                }
+            }
+       
         }
  
     }
