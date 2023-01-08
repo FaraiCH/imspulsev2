@@ -169,7 +169,8 @@
             
       
         </ejs-dialog>
-
+        <br>
+        <br>
         @if (!User.IsInRole("SuperUser"))
         {
             <p>Your company has currently used <span class="btn btn-dark">@num</span> <b>MB</b> of space.</p>
@@ -244,8 +245,8 @@
         </ejs-dialog>
 </div>
 
-<div id="myhides">
-        <ejs-dialog isModal="true" visible="false" id="default_dialog7" target="#myhides" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Showing Hidden Items">
+    <div id="myhides">
+        <ejs-dialog isModal="true" visible="false" id="default_dialog7" target="#maincon" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Showing Hidden Items">
         <e-content-template>
             <table id="mytable" class="table table-data">
                 <thead>
@@ -295,6 +296,10 @@ else
     }
     function onSuccess(args){
    
+        $("#myview").unbind('click').bind('click', function() {
+            var dialog = document.getElementById("default_dialog10").ej2_instances[0];
+            dialog.show();
+        });
         var clientId = "10248VINET"; 
         let ajax = new ej.base.Ajax({ 
             url: '/Home/Hide', 
@@ -627,7 +632,6 @@ else
         }
 
         if(args.item.text === 'Show Hidden'){
-
             var dialog = document.getElementById("default_dialog7").ej2_instances[0];
             dialog.refresh();
             dialog.show();
