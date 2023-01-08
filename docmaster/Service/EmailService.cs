@@ -25,7 +25,7 @@ namespace docmaster.Service
                 emailMessage.To.Add(emailTo);
                 emailMessage.Subject = emailData.EmailSubject;
                 BodyBuilder emailBodyBuilder = new BodyBuilder();
-                emailBodyBuilder.TextBody = emailData.EmailBody;
+                emailBodyBuilder.HtmlBody = emailData.EmailBody;
                 emailMessage.Body = emailBodyBuilder.ToMessageBody();
                 SmtpClient emailClient = new SmtpClient();
                 emailClient.Connect(_emailSettings.Host, _emailSettings.Port, _emailSettings.UseSSL);
