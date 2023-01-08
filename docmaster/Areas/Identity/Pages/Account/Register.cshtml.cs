@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using MySqlConnector;
+using docmaster.Service;
+using docmaster.Models;
 
 namespace docmaster.Areas.Identity.Pages.Account
 {
@@ -31,13 +33,14 @@ namespace docmaster.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<docmasterUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
+        IEmailService _emailService = null;
         public RegisterModel(
             UserManager<docmasterUser> userManager,
             IUserStore<docmasterUser> userStore,
             SignInManager<docmasterUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IEmailService emailService)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +48,7 @@ namespace docmaster.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _emailService = emailService;   
         }
 
         /// <summary>
@@ -128,8 +132,16 @@ namespace docmaster.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+         
             try
             {
+                var emailData = new EmailDataModel
+                {
+                    EmailToId = "faraichaka@gmail.com",
+                    EmailToName = "Farai",
+                    EmailSubject = "Test Email",
+                    EmailBody = "This is working"
+                };
                 string passwordCom = null;
                 int counter = 0;
                 int comp = 0;
@@ -196,6 +208,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                                 {
                                     await _userManager.AddToRoleAsync(user, "Basic");
                                 }
+                                _emailService.SendEmail(emailData);
                                 _logger.LogInformation("User created a new account with password.");                           
                             
                                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

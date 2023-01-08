@@ -608,3 +608,6 @@ D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\refint\docmaster.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\docmaster.pdb
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\docmaster.genruntimeconfig.cache
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\ref\docmaster.dll
+D:\Testing\imspulsev2\docmaster\bin\Release\net6.0\MailKit.dll
+D:\Testing\imspulsev2\docmaster\bin\Release\net6.0\MimeKit.dll
+D:\Testing\imspulsev2\docmaster\bin\Release\net6.0\BouncyCastle.Crypto.dll

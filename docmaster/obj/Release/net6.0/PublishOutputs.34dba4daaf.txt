@@ -7,6 +7,7 @@ D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\docmaster.runtimec
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\docmaster.pdb
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\HarfBuzzSharp.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MailKit.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\System.Net.Http.Formatting.dll
@@ -49,6 +50,7 @@ D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualSt
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MimeKit.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\MySqlConnector.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
@@ -62,6 +64,7 @@ D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.ProjectModel
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.Protocol.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\NuGet.Versioning.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\SkiaSharp.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\SkiaSharp.HarfBuzz.dll
 D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\PubTmp\Out\Syncfusion.Compression.Portable.dll
