@@ -74,7 +74,7 @@
 @if (!User.IsInRole("Suspended"))
 {
     <p>To view your subscription and the features you have access to, please click <button id="myview" class="btn btn-primary">here</button></p>
-    <ejs-dialog isModal="true" visible="false" id="default_dialog10" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
+    <ejs-dialog isModal="true" visible="false" id="default_dialog10" style="max-width: 80%" height="700px" header="Document Management Subscription and Permissions"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             @if(!User.IsInRole("SuperUser"))
             {       
@@ -83,32 +83,32 @@
                     {
                         if (User.IsInRole("Basic"))
                         {
-                            <p style="font-size:11px">You are the admin of your company. However, you have a basic subscription.</p>
-                            <p style="font-size:11px">Here is what you have access to:</p>
-                            <p style="font-size:11px">1. You are limited to only 50MB of domain space for your documents. </p>
-                            <p style="font-size:11px">2. Use Online Document Editors to View, Edit and Save Documents. </p>
-                            <p style="font-size:11px">3. Automatically allocate documents to Obselete folders when revised. </p>
+                            <p>You are the admin of your company. However, you have a basic subscription.</p>
+                            <p>Here is what you have access to:</p>
+                            <p>1. You are limited to only 50MB of domain space for your documents. </p>
+                            <p>2. Use Online Document Editors to View, Edit and Save Documents. </p>
+                            <p>3. Automatically allocate documents to Obselete folders when revised. </p>
                             <br />
-                            <p style="font-size:11px">Here's what you don't have access to.</p>
-                            <p style="font-size:11px">1. You cannot encrypt documents.</p>
-                            <p style="font-size:11px">2. You cannot hide documents or folders</p>
-                            <p style="font-size:11px">Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
+                            <p>Here's what you don't have access to.</p>
+                            <p>1. You cannot encrypt documents.</p>
+                            <p>2. You cannot hide documents or folders</p>
+                            <p>Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
                         }
                         else
                         {
-                            <p style="font-size:11px">You are the admin of your company.</p>
-                            <p style="font-size:11px">Here is what you have access to:</p>
-                            <p style="font-size:11px">1. Use Online Document Editors to View, Edit and Save Documents. </p>
-                            <p style="font-size:11px">2. Encrypt documents to protect content from being seen. </p>
-                            <p style="font-size:11px">3. Hide documents and folders from any none admin users. </p>
-                            <p style="font-size:11px">4. Automatically allocate documents to Obselete folders when revised. </p>
-                            <p style="font-size:11px">5. Overwrite documents on upload. </p>
+                            <p>You are the admin of your company.</p>
+                            <p>Here is what you have access to:</p>
+                            <p>1. Use Online Document Editors to View, Edit and Save Documents. </p>
+                            <p>2. Encrypt documents to protect content from being seen. </p>
+                            <p>3. Hide documents and folders from any none admin users. </p>
+                            <p>4. Automatically allocate documents to Obselete folders when revised. </p>
+                            <p>5. Overwrite documents on upload. </p>
                         }
            
                     }
                     else
                     {
-                        <p style="font-size:11px">You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
+                        <p>You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
                     }
                     
                 </div>
@@ -116,8 +116,8 @@
         else
         {
             <div class="alert alert-info" role="alert">
-                <p style="font-size:11px">You are the Super User. You have full access to all company documents</p>
-                <p style="font-size:11px">You have full access to all IMS Pulse Features:</p>
+                <p>You are the Super User. You have full access to all company documents</p>
+                <p>You have full access to all IMS Pulse Features:</p>
             </div>
         }
         </e-content-template>
