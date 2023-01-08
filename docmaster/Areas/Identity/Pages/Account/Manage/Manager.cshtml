@@ -168,7 +168,10 @@
       
         </ejs-dialog>
 
-   
+        @if (!User.IsInRole("SuperUser"))
+        {
+            <p>Your company has currently used <span class="btn btn-dark">@num</span> <b>MB</b> of space.</p>
+        }
     </div>
     <iframe id="my_iframe" style="display:none;"></iframe>
 
@@ -265,11 +268,10 @@
         </e-content-template>
       
         </ejs-dialog>
+        <br>
+       
     </div>
-    @if (!User.IsInRole("SuperUser"))
-    {
-        <p>Your company has currently used <span class="btn btn-dark">@num</span> <b>MB</b> of space.</p>
-    }
+  
 }
 else
 {
