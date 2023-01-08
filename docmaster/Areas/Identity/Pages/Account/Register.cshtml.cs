@@ -145,23 +145,23 @@ namespace docmaster.Areas.Identity.Pages.Account
                     EmailSubject = "Test Email",
                     EmailBody =
 
-                    "<table class='wrapper layout - primary' width='100 % ' cellpadding='0' cellspacing='0'>" +
+                    "<table class='wrapper layout-primary' width='100 %' cellpadding='0' cellspacing='0'>" +
                         "<tr>" +
-                            "< td align ='center' >" +
-                                "< table class='content' width='100%' cellpadding='0' cellspacing='0'>" +
+                            "<td align='center'>" +
+                                "<table class='content' width='100%' cellpadding='0' cellspacing='0'>" +
                                     "<tr>" +
-                                        "< td class='body' width='100%' cellpadding='0' cellspacing='0'>" +
+                                        "<td width='100%' cellpadding='0' cellspacing='0'>" +
                                             "<table class='inner-body' align='center' width='570' cellpadding='0' cellspacing='0'>" +
                                                 "<tr>" +
-                                                    "< td class='content-cell text-center' >"+               
-                                                        "<img style = 'width: 100%' src='http://imspulse.com/storage/app/media/imscc.png' alt='Image'>"+
+                                                    "<td class='content-cell text-center' >"+               
+                                                        "<img style='width: 100%' src='http://imspulse.com/storage/app/media/imscc.png' alt='Image'>"+
                                                     "</td>"+
                                                 "</tr>"+
 
                                                 "<tr>"+
-                                                    "< td class='content - cell'>"+
+                                                    "<td class='content-cell'>"+
                                                         content +
-                                                    "</ td >"+
+                                                    "</td>"+
                                                 "</ tr >"+
                                             "</ table >"+
                                         "</ td >"+
