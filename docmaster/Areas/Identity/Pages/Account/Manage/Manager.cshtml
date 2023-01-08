@@ -123,10 +123,7 @@
         </e-content-template>
       
     </ejs-dialog>
-    @if (!User.IsInRole("SuperUser"))
-    {
-        <p><p style="font-size:11px">Your company has currently used <span class="btn btn-dark">@num</span>MB of space.</p></p>
-    }
+  
     <div class="control-section">
     <div class="sample-container" id="container" style="padding:10px">
             <ejs-filemanager success="onSuccess" maxFileSize="233332" id="filemanager" allowDragAndDrop="true" Path="@myPath" cssClass="filemanager" toolbarClick="toolbarClick" toolbarCreate="onCreate" menuClick="menuClick" fileOpen="onFileOpen">
@@ -269,6 +266,10 @@
       
         </ejs-dialog>
     </div>
+    @if (!User.IsInRole("SuperUser"))
+    {
+        <p>Your company has currently used <span class="btn btn-dark">@num</span> <b>MB</b> of space.</p>
+    }
 }
 else
 {
