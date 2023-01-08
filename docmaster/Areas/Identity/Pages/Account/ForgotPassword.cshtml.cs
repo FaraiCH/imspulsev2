@@ -77,7 +77,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
 
-                var content = "<p>Hi Farai,</p>" + $"Please reset your password by < a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > clicking here </ a >." +
+                var content = "<p>Hi Farai,</p>" + $"Please reset your password by <a class='btn btn-success' href = '{HtmlEncoder.Default.Encode(callbackUrl)}'> clicking here </a>." +
                 "<br><p>Regards</p><p>The IMS Pulse Team</p>";
 
                 var emailData = new EmailDataModel
