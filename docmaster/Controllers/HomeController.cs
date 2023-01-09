@@ -480,8 +480,8 @@ namespace docmaster.Controllers
 
                                         var emailData = new EmailDataModel
                                         {
-                                            EmailToId = user.Email,
-                                            EmailToName = user.FirstName,
+                                            EmailToId = reader.GetString(4),
+                                            EmailToName = reader.GetString(2),
                                             EmailSubject = "Document Has Been Amended",
                                             EmailBody =
 
