@@ -480,7 +480,7 @@ namespace docmaster.Controllers
 
                                         var emailData = new EmailDataModel
                                         {
-                                            EmailToId = "faraichaka@gmail.com",
+                                            EmailToId = user.Email,
                                             EmailToName = user.FirstName,
                                             EmailSubject = "Document Has Been Amended",
                                             EmailBody =
