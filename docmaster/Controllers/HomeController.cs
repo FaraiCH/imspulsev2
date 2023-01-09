@@ -473,7 +473,7 @@ namespace docmaster.Controllers
                                         var content = $"<p>Hi {reader.GetString(2)},</p>" + $"<p>A document has been edited by your admin</p>" +
                                             $"<p>Please see the details bellow:</p>" +
                                             "<br>" +
-                                            $"<p>Document: {result}</p>" +
+                                            $"<p>Document: {original}</p>" +
                                             "<br>" +
                                             $"<p style='color:red'>For security reasons, we cannot show you the content of what has been amended. You can log into to IMS Pulse to see the latest revision on the dashboard.</p>" +
                                             "<br><p>Regards</p><p>The IMS Pulse Team</p>";
@@ -512,7 +512,6 @@ namespace docmaster.Controllers
                                             "</ table > "
                                         };
                                         _emailService.SendEmail(emailData);
-                                        return new JsonResult(emailData.EmailToId);
 
                                     }
 
