@@ -463,7 +463,7 @@ namespace docmaster.Controllers
                             }
 
                             //// Retrieve all rows
-                            using (var cmd = new MySqlCommand("SELECT * FROM imspulse.AspNetUsers WHERE company='" + user.Company + "'", conn))
+                            using (var cmd = new MySqlCommand("SELECT * FROM imspulse.AspNetUsers WHERE Company='" + user.Company + "'", conn))
                             {
                                 using (var reader = await cmd.ExecuteReaderAsync())
                                 {
