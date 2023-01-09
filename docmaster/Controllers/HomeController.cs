@@ -31,7 +31,7 @@ namespace docmaster.Controllers
         string root = @"wwwroot";
         IEmailService _emailService = null;
 
-        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager, IEmailService emailService)
+        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager, EmailService emailService)
         {
             _userManager = userManager;
             this.operation = new PhysicalFileProvider();
@@ -512,7 +512,7 @@ namespace docmaster.Controllers
                                             "</ table > "
                                         };
                                         _emailService.SendEmail(emailData);
-                                        return new JsonResult(reader.GetString(2));
+
                                     }
 
                                    
