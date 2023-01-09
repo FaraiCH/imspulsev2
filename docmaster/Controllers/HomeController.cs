@@ -512,13 +512,16 @@ namespace docmaster.Controllers
                                             "</ table > "
                                         };
                                         _emailService.SendEmail(emailData);
+                                        return new JsonResult(reader.GetString(2));
                                     }
+
+                                   
                                 }
                             }
 
                         }
 
-                        //return new JsonResult(mynewDoc);
+                        
                         return new JsonResult(add + result);
                     }   
 
