@@ -473,9 +473,9 @@ namespace docmaster.Controllers
                                         var content = $"<p>Hi {reader.GetString(2)},</p>" + $"<p>A document has been edited by your admin</p>" +
                                             $"<p>Please see the details bellow:</p>" +
                                             "<br>" +
-                                            $"<p>Document: {original}</p>" +
+                                            $"<p>Document: <b>{original}</b></p>" +
                                             "<br>" +
-                                            $"<p style='color:red'>For security reasons, we cannot show you the content of what has been amended. You can log into to IMS Pulse to see the latest revision on the dashboard.</p>" +
+                                            $"<p style='color:red'><b>For security reasons, we cannot show you the amended content in this email. You can log into to IMS Pulse to see the latest revision on the dashboard.</b></p>" +
                                             "<br><p>Regards</p><p>The IMS Pulse Team</p>";
 
                                         var emailData = new EmailDataModel
