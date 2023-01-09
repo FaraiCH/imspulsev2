@@ -462,12 +462,6 @@ namespace docmaster.Controllers
                                 await cmd.ExecuteNonQueryAsync();
                             }
 
-                        }
-
-                        using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
-                        {
-                            await conn.OpenAsync();
-
                             //// Retrieve all rows
                             using (var cmd = new MySqlCommand("SELECT * FROM imspulse.AspNetUsers WHERE company='" + user.Company + "'", conn))
                             {
@@ -480,7 +474,7 @@ namespace docmaster.Controllers
                                             $"<p>Please see the details bellow:</p>" +
                                             "<br>" +
                                             $"<p>Document: {result}</p>" +
-                                            "<br>"+
+                                            "<br>" +
                                             $"<p style='color:red'>For security reasons, we cannot show you the content of what has been amended. You can log into to IMS Pulse to see the latest revision on the dashboard.</p>" +
                                             "<br><p>Regards</p><p>The IMS Pulse Team</p>";
 
@@ -521,7 +515,9 @@ namespace docmaster.Controllers
                                     }
                                 }
                             }
+
                         }
+
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
                     }   
