@@ -34,9 +34,9 @@ namespace docmaster.Controllers
         public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager, EmailService emailService)
         {
             _userManager = userManager;
-            this.operation = new PhysicalFileProvider();
-            this.operation.RootFolder(this.basePath);
             _emailService = emailService;
+            this.operation = new PhysicalFileProvider();
+            this.operation.RootFolder(this.basePath);   
         }
 
         public IActionResult Index()
