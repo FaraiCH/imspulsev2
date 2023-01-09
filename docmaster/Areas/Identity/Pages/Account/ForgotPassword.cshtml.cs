@@ -82,7 +82,7 @@ namespace docmaster.Areas.Identity.Pages.Account
 
                 var emailData = new EmailDataModel
                 {
-                    EmailToId = "faraichaka@gmail.com",
+                    EmailToId = user.Email,
                     EmailToName = user.FirstName,
                     EmailSubject = "Document Manager Password Reset",
                     EmailBody =

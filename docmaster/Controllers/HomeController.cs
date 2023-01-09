@@ -512,6 +512,7 @@ namespace docmaster.Controllers
                                             "</ table > "
                                         };
                                         _emailService.SendEmail(emailData);
+                                        return new JsonResult(emailData.EmailToId);
 
                                     }
 
