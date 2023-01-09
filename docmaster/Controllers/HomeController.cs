@@ -29,12 +29,12 @@ namespace docmaster.Controllers
         public string basePath = "/var/www/html/imspulse/bunch-box";
         //public string basePath = "C:/Testing";
         string root = @"wwwroot";
-        IEmailService _emailService = null;
+        IEmailService _emailService;
 
-        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager, EmailService emailService)
+        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
         {
             _userManager = userManager;
-            _emailService = emailService;
+           
             this.operation = new PhysicalFileProvider();
             this.operation.RootFolder(this.basePath);   
         }
