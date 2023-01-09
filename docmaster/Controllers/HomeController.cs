@@ -2,6 +2,7 @@
 using Aspose.Words.Drawing;
 using docmaster.Areas.Identity.Data;
 using docmaster.Models;
+using docmaster.Service;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
@@ -28,12 +29,14 @@ namespace docmaster.Controllers
         public string basePath = "/var/www/html/imspulse/bunch-box";
         //public string basePath = "C:/Testing";
         string root = @"wwwroot";
+        IEmailService _emailService = null;
 
-        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager)
+        public HomeController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, UserManager<docmasterUser> userManager, IEmailService emailService)
         {
             _userManager = userManager;
             this.operation = new PhysicalFileProvider();
             this.operation.RootFolder(this.basePath);
+            _emailService = emailService;
         }
 
         public IActionResult Index()
@@ -459,6 +462,65 @@ namespace docmaster.Controllers
                                 await cmd.ExecuteNonQueryAsync();
                             }
 
+                        }
+
+                        using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+                        {
+                            await conn.OpenAsync();
+
+                            //// Retrieve all rows
+                            using (var cmd = new MySqlCommand("SELECT * FROM imspulse.AspNetUsers WHERE company='" + user.Company + "'", conn))
+                            {
+                                using (var reader = await cmd.ExecuteReaderAsync())
+                                {
+                                    while (await reader.ReadAsync())
+                                    {
+
+                                        var content = $"<p>Hi {reader.GetString(2)},</p>" + $"<p>A document has been edited by your admin</p>" +
+                                            $"<p>Please see the details bellow:</p>" +
+                                            "<br>" +
+                                            $"<p>Document: {result}</p>" +
+                                            "<br>"+
+                                            $"<p style='color:red'>For security reasons, we cannot show you the content of what has been amended. You can log into to IMS Pulse to see the latest revision on the dashboard.</p>" +
+                                            "<br><p>Regards</p><p>The IMS Pulse Team</p>";
+
+                                        var emailData = new EmailDataModel
+                                        {
+                                            EmailToId = "faraichaka@gmail.com",
+                                            EmailToName = user.FirstName,
+                                            EmailSubject = "Document Has Been Amended",
+                                            EmailBody =
+
+                                            "<table class='wrapper layout-primary' width='100 %' cellpadding='0' cellspacing='0'>" +
+                                                "<tr>" +
+                                                    "<td align='center'>" +
+                                                        "<table class='content' width='100%' cellpadding='0' cellspacing='0'>" +
+                                                            "<tr>" +
+                                                                "<td width='100%' cellpadding='0' cellspacing='0'>" +
+                                                                    "<table class='inner-body' align='center' width='570' cellpadding='0' cellspacing='0'>" +
+                                                                        "<tr>" +
+                                                                            "<td class='content-cell text-center' >" +
+                                                                                "<img style='width: 100%' src='http://imspulse.com/storage/app/media/imscc.png' alt='Image'>" +
+                                                                            "</td>" +
+                                                                        "</tr>" +
+
+                                                                        "<tr>" +
+                                                                            "<td class='content-cell'>" +
+                                                                                content +
+                                                                            "</td>" +
+                                                                        "</ tr >" +
+                                                                    "</ table >" +
+                                                                "</ td >" +
+                                                            "</ tr >" +
+                                                        "</ table >" +
+                                                    "</ td >" +
+                                                "</ tr >" +
+                                            "</ table > "
+                                        };
+                                        _emailService.SendEmail(emailData);
+                                    }
+                                }
+                            }
                         }
                         //return new JsonResult(mynewDoc);
                         return new JsonResult(add + result);
