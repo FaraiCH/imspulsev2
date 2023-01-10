@@ -19,5 +19,7 @@ public class docmasterUser : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string Company { get; set; }
+
+    public DateTime created_at { get; set; }
 }
 
