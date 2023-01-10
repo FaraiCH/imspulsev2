@@ -304,7 +304,7 @@ else
 
 <script>
     $(document).ready(function(){
-        $(".unpro").hide(3000);
+      
     });
     function getem(){
     
@@ -936,7 +936,7 @@ else
 
 
      function onCreate(args) {
-        
+        $(".unpro").hide(3000);
         for (var i = 0; i < args.items.length; i++) {
             if (args.items[i].text == 'Encrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
