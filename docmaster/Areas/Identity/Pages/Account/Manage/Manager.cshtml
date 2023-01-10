@@ -70,9 +70,15 @@
     }
 
 }
-<p>@UserManager.GetUserAsync(User).Result.created_at</p>
+@if(UserManager.GetUserAsync(User).Result.created_at.AddDays(30) >= DateTime.Now && !User.IsInRole("Premium"))
+{
+    <h2 class="btn btn-danger">You trial period has reached its end. Please upgrade your plan with the help of the IMS Pulse Team to continue using our services.</h2>
+}
+else
+{
 
-@if (!User.IsInRole("Suspended"))
+
+    @if (!User.IsInRole("Suspended"))
 {
     <p>To view your subscription and the features you have access to, please click <button id="myview" class="viewbutton btn btn-primary">here</button></p>
  
@@ -287,6 +293,12 @@ else
 {
     <h2 class="btn btn-danger">Your Account Has Been Suspended. Please Contact The IMS Pulse Team For Further Details.</h2>
 }
+
+
+}
+
+
+
 
 
 
