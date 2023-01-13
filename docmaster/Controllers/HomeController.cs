@@ -757,7 +757,7 @@ namespace docmaster.Controllers
             string basepath = "/var/www/html/imspulse/bunch-box";
             var user = await _userManager.GetUserAsync(this.User);
 
-            if (payload.state.Contains(".doc"))
+            if (payload.state.Contains("doc"))
             {
                 Aspose.Words.Document docu = new Aspose.Words.Document();
 
@@ -766,7 +766,7 @@ namespace docmaster.Controllers
                 return new JsonResult("Word Creation Successful");
 
             }
-            else if (payload.state.Contains(".xls"))
+            else if (payload.state.Contains("xls"))
             {
 
                 Aspose.Cells.Workbook worsk = new Aspose.Cells.Workbook();
