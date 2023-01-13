@@ -115,12 +115,13 @@ namespace docmaster.Controllers
             foreach (var file in uploadFiles)
             {
                 var folders = (file.FileName).Split('/');
+                string fileName = folders[folders.Length - 1];
                 // checking the folder upload
                 if (folders.Length > 1)
                 {
                     for (var i = 0; i < folders.Length - 1; i++)
                     {
-                        string newDirectoryPath = Path.Combine(this.basePath + path, folders[i]);
+                        string newDirectoryPath = Path.Combine((this.basePath + path), fileName);
                         if (!Directory.Exists(newDirectoryPath))
                         {
                             this.operation.ToCamelCase(this.operation.Create(path, folders[i]));
