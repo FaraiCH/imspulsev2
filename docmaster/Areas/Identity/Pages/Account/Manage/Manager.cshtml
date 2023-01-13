@@ -355,16 +355,16 @@ else
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                                <text>
-                                                                    elements[i].hidden = true;
-                                                                </text>
+                                                                    <text>
+                                                                        elements[i].hidden = true;
+                                                                    </text>
                             }
                             else
                             {
                                         
-                                                                <text>
-                                                                    elements[i].classList.add("myhidden");
-                                                                </text>
+                                                                    <text>
+                                                                        elements[i].classList.add("myhidden");
+                                                                    </text>
                             }
                         }
                       
@@ -415,6 +415,7 @@ else
             dialog.show();
 
             $("#makedocument").unbind('click').bind('click', function() {
+                alert("I'm in");
                 var docname = document.getElementById('docname');
                 var documenttype = document.getElementById('documenttype');
                 var formData = { fullName: docname.value, path: args.fileDetails[0].filterPath, state: documenttype.value };
@@ -499,9 +500,9 @@ else
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                    <text>
-                                                        container.documentEditor.isReadOnly = true;
-                                                    </text>                               
+                                                        <text>
+                                                            container.documentEditor.isReadOnly = true;
+                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -697,25 +698,25 @@ else
             dialog.show();
             @{
                 var manny = 0;
-                                                @foreach (var p in rows)
+                                                    @foreach (var p in rows)
                 {                  
-                                                    <text>                        
-                                                        $("#comhide_@manny").unbind('click').bind('click', function () {
-                                                                                                                                               
-                                                            var hider = document.getElementById("hider_@manny");
-                                                            var fullName = hider.value;  
-                                                            let ajax = new ej.base.Ajax({ 
-                                                                url: '/Home/UnHide', 
-                                                                data: JSON.stringify(fullName),  // pass the string value  
-                                                                type: 'POST', 
-                                                                contentType: 'application/json' 
-                                                            }); 
-                                                            ajax.send(); 
-                                                            ajax.onSuccess = function (data) {
-                                                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                                                            }; 
-                                                        });
-                                                    </text>
+                                                        <text>                        
+                                                            $("#comhide_@manny").unbind('click').bind('click', function () {
+                                                                                                                                                   
+                                                                var hider = document.getElementById("hider_@manny");
+                                                                var fullName = hider.value;  
+                                                                let ajax = new ej.base.Ajax({ 
+                                                                    url: '/Home/UnHide', 
+                                                                    data: JSON.stringify(fullName),  // pass the string value  
+                                                                    type: 'POST', 
+                                                                    contentType: 'application/json' 
+                                                                }); 
+                                                                ajax.send(); 
+                                                                ajax.onSuccess = function (data) {
+                                                                    toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                                                                }; 
+                                                            });
+                                                        </text>
 
                     manny++;
                 }
@@ -792,9 +793,9 @@ else
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                                                                                                        <text>
-                                                                                                                                                                            container.documentEditor.isReadOnly = true;
-                                                                                                                                                                        </text>                               
+                                                                                                                                                                            <text>
+                                                                                                                                                                                container.documentEditor.isReadOnly = true;
+                                                                                                                                                                            </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -952,25 +953,25 @@ else
             dialog.show();
             @{
                 var many = 0;
-                                @foreach (var p in rows)
+                                    @foreach (var p in rows)
                 {                  
-                                    <text>                        
-                                        $("#comhide_@manny").unbind('click').bind('click', function () {
-                                                                                                                                               
-                                            var hider = document.getElementById("hider_@many");
-                                            var fullName = hider.value;  
-                                            let ajax = new ej.base.Ajax({ 
-                                                url: '/Home/UnHide', 
-                                                data: JSON.stringify(fullName),  // pass the string value  
-                                                type: 'POST', 
-                                                contentType: 'application/json' 
-                                            }); 
-                                            ajax.send(); 
-                                            ajax.onSuccess = function (data) { 
-                                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                                            }; 
-                                        });
-                                    </text>
+                                        <text>                        
+                                            $("#comhide_@manny").unbind('click').bind('click', function () {
+                                                                                                                                                   
+                                                var hider = document.getElementById("hider_@many");
+                                                var fullName = hider.value;  
+                                                let ajax = new ej.base.Ajax({ 
+                                                    url: '/Home/UnHide', 
+                                                    data: JSON.stringify(fullName),  // pass the string value  
+                                                    type: 'POST', 
+                                                    contentType: 'application/json' 
+                                                }); 
+                                                ajax.send(); 
+                                                ajax.onSuccess = function (data) { 
+                                                    toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                                                }; 
+                                            });
+                                        </text>
 
                     many++;
                 }
