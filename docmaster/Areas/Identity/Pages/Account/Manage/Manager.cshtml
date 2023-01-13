@@ -164,8 +164,8 @@ else
                 <div class="form-group dropdown-field">
                      <label for='documenttype'>Document Type</label>
                     <select name="documenttype" id="documenttype" class="form-control custom-select">
-                        <option value="word"><i class="e-icons e-fe-word" ></i> Word (.docx)</option>
-                        <option value="excel"><i class="e-icons e-fe-excel"></i> Excel (.xlsx)</option>
+                        <option value="docx"><i class="e-icons e-fe-word" ></i> Word (.docx)</option>
+                        <option value="xlsx"><i class="e-icons e-fe-excel"></i> Excel (.xlsx)</option>
                         <option value="pdf"><i class="e-icons e-fe-pdf"></i> PDF (.pdf)</option>
                     </select>
                 </div>
@@ -415,7 +415,20 @@ else
             dialog.show();
 
             $("#makedocument").unbind('click').bind('click', function() {
-               
+                var docname = document.getElementById('docname');
+                var documenttype = document.getElementById('documenttype');
+                var formData = { fullName: docname.value, path: args.fileDetails[0].filterPath, state: documenttype.value };
+                var strJson = JSON.stringify(formData)
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/CreateDocument/',
+                    contentType: 'application/json', // remove this line
+                    data: strJson, //remove JSON.stringify
+                    success: function(result) {
+                        toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
+                        dialog.hide();
+                    }
+                });
             });
         }
         if (args.item.text === 'Encrypt') {

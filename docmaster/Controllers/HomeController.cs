@@ -750,6 +750,35 @@ namespace docmaster.Controllers
             return new JsonResult("Revision Successful");
         }
 
+        public async Task<IActionResult> CreateDocument([FromBody] ProtectModel payload)
+        {
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box/");
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            string basepath = "/var/www/html/imspulse/bunch-box";
+            var user = await _userManager.GetUserAsync(this.User);
+
+            if (payload.state.Contains(".doc"))
+            {
+                Aspose.Words.Document docu = new Aspose.Words.Document();
+
+                docu.Save(basepath + payload.path + "/" + payload.fullName);
+
+                return new JsonResult("Word Creation Successful");
+
+            }
+            else if (payload.state.Contains(".xls"))
+            {
+
+                Aspose.Cells.Workbook worsk = new Aspose.Cells.Workbook();
+
+                worsk.Save(basepath + payload.path + "/" + payload.fullName);
+
+                return new JsonResult("Excel Creation Successful");
+
+            }
+            return new JsonResult("Document Not Supported");
+        }
+
 
         public async Task<IActionResult> Hide([FromBody] string clientId)
         {
