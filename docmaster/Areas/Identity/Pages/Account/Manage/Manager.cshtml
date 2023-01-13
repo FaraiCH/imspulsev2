@@ -167,10 +167,12 @@ else
             <ejs-dialog visible="false" id="create_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
  
-                <div class='form-group'><label for='docname'>Name:</label>
+                <div class='form-group'>
+                    <label for='docname'>Name:</label>
                     <input type='text' value='' name="docname" class='form-control' id='docname'>
                 </div>
                 <div class="form-group dropdown-field">
+                     <label for='documenttype'>Document Type</label>
                     <select name="documenttype" id="documenttype" class="form-control custom-select">
                         <option value="word"><i class="e-icons e-fe-word" ></i> Word (.docx)</option>
                         <option value="excel"><i class="e-icons e-fe-excel"></i> Excel (.xlsx)</option>
