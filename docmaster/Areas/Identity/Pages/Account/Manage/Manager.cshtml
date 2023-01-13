@@ -9,7 +9,7 @@
 @{
     string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
     string[] folder = new string[] { "Open", "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
-    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
+    string[] items = new string[] { "Create", "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
@@ -158,6 +158,26 @@ else
                 <div class="unpro">
                     <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword'></div>
                     <button id="encry" class="btn btn-outline-primary float-end">Protect</button>
+                </div>
+               
+               
+            </e-content-template>
+      
+        </ejs-dialog>
+            <ejs-dialog visible="false" id="create_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
+            <e-content-template>
+                <div class="unpro">
+                    <div class='form-group'><label for='password'>Password:</label>
+                        <input type='text' value='' name="mypass" class='form-control' id='mypassword'>
+                     </div>
+                    <div class="form-group dropdown-field">
+                        <select name="document" id="document" class="form-control custom-select">
+                            <option value="word"><span class="e-icons e-fe-word" ></span> Word (.docx)</option>
+                            <option value="excel"><span class="e-icons e-fe-excel"></span> Excel (.xlsx)</option>
+                            <option value="pdf"><span class="e-icons e-fe-pdf"></span> PDF (.pdf)</option>
+                        </select>
+                    </div>
+                    <button id="makedocument" class="btn btn-primary float-end">Create Document</button>
                 </div>
                
                
@@ -331,16 +351,16 @@ else
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                <text>
-                                                    elements[i].hidden = true;
-                                                </text>
+                                                                <text>
+                                                                    elements[i].hidden = true;
+                                                                </text>
                             }
                             else
                             {
                                         
-                                                <text>
-                                                    elements[i].classList.add("myhidden");
-                                                </text>
+                                                                <text>
+                                                                    elements[i].classList.add("myhidden");
+                                                                </text>
                             }
                         }
                       
@@ -385,6 +405,15 @@ else
         dialog.hide();
     }
     function toolbarClick(args) {
+        if(args.item.text === 'Create'){
+
+            var dialog = document.getElementById("create_dialog").ej2_instances[0];
+            dialog.show();
+
+            $("#makedocument").unbind('click').bind('click', function() {
+               
+            });
+        }
         if (args.item.text === 'Encrypt') {
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
@@ -453,9 +482,9 @@ else
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                                                                        <text>
-                                                                                                                                            container.documentEditor.isReadOnly = true;
-                                                                                                                                        </text>                               
+                                                    <text>
+                                                        container.documentEditor.isReadOnly = true;
+                                                    </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -651,25 +680,25 @@ else
             dialog.show();
             @{
                 var manny = 0;
-                                @foreach (var p in rows)
+                                                @foreach (var p in rows)
                 {                  
-                                    <text>                        
-                                        $("#comhide_@manny").unbind('click').bind('click', function () {
-                                                                                                                               
-                                            var hider = document.getElementById("hider_@manny");
-                                            var fullName = hider.value;  
-                                            let ajax = new ej.base.Ajax({ 
-                                                url: '/Home/UnHide', 
-                                                data: JSON.stringify(fullName),  // pass the string value  
-                                                type: 'POST', 
-                                                contentType: 'application/json' 
-                                            }); 
-                                            ajax.send(); 
-                                            ajax.onSuccess = function (data) {
-                                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                                            }; 
-                                        });
-                                    </text>
+                                                    <text>                        
+                                                        $("#comhide_@manny").unbind('click').bind('click', function () {
+                                                                                                                                               
+                                                            var hider = document.getElementById("hider_@manny");
+                                                            var fullName = hider.value;  
+                                                            let ajax = new ej.base.Ajax({ 
+                                                                url: '/Home/UnHide', 
+                                                                data: JSON.stringify(fullName),  // pass the string value  
+                                                                type: 'POST', 
+                                                                contentType: 'application/json' 
+                                                            }); 
+                                                            ajax.send(); 
+                                                            ajax.onSuccess = function (data) {
+                                                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                                                            }; 
+                                                        });
+                                                    </text>
 
                     manny++;
                 }
@@ -746,9 +775,9 @@ else
                             @{
                                 if (!User.IsInRole("Admin"))
                                 {
-                                                                                                                                                        <text>
-                                                                                                                                                            container.documentEditor.isReadOnly = true;
-                                                                                                                                                        </text>                               
+                                                                                                                                                                        <text>
+                                                                                                                                                                            container.documentEditor.isReadOnly = true;
+                                                                                                                                                                        </text>                               
                                 }
                             }
                             var dialog = document.getElementById("default_dialog3").ej2_instances[0];
@@ -906,25 +935,25 @@ else
             dialog.show();
             @{
                 var many = 0;
-                                    @foreach (var p in rows)
+                                @foreach (var p in rows)
                 {                  
-                                                    <text>                        
-                                                        $("#comhide_@manny").unbind('click').bind('click', function () {
-                                                                                                                               
-                                                            var hider = document.getElementById("hider_@many");
-                                                            var fullName = hider.value;  
-                                                            let ajax = new ej.base.Ajax({ 
-                                                                url: '/Home/UnHide', 
-                                                                data: JSON.stringify(fullName),  // pass the string value  
-                                                                type: 'POST', 
-                                                                contentType: 'application/json' 
-                                                            }); 
-                                                            ajax.send(); 
-                                                            ajax.onSuccess = function (data) { 
-                                                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
-                                                            }; 
-                                                        });
-                                                    </text>
+                                    <text>                        
+                                        $("#comhide_@manny").unbind('click').bind('click', function () {
+                                                                                                                                               
+                                            var hider = document.getElementById("hider_@many");
+                                            var fullName = hider.value;  
+                                            let ajax = new ej.base.Ajax({ 
+                                                url: '/Home/UnHide', 
+                                                data: JSON.stringify(fullName),  // pass the string value  
+                                                type: 'POST', 
+                                                contentType: 'application/json' 
+                                            }); 
+                                            ajax.send(); 
+                                            ajax.onSuccess = function (data) { 
+                                                toastObj = ejs.notifications.ToastUtility.show(data, 'Success', 2000); 
+                                            }; 
+                                        });
+                                    </text>
 
                     many++;
                 }
@@ -1012,7 +1041,16 @@ else
         .e-fe-edit::before{
             content: '\e740';
         }
-
+        .e-fe-word::before{
+            content: '\e7b0';
+        }
+        e-fe-excel::before{
+            content: '\e242'
+        }
+        e-fe-pdf::before{
+           content: '\e240'
+        }
+     
         .e-fe-hide::before{
             content: '\e815';
         }  
