@@ -9,7 +9,7 @@
 @{
     string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
     string[] folder = new string[] { "Open", "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
-    string[] items = new string[] { "Create", "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
+    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
@@ -154,7 +154,7 @@ else
 
         </ejs-filemanager>
 
-        <ejs-dialog visible="false" id="create_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
+@*        <ejs-dialog visible="false" id="create_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
  
                 <div class='form-group'>
@@ -175,7 +175,7 @@ else
                
             </e-content-template>
       
-        </ejs-dialog>
+        </ejs-dialog>*@
          <ejs-dialog created="made" visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
             <e-content-template>
                 <div class="unpro">
@@ -409,30 +409,7 @@ else
         dialog.hide();
     }
     function toolbarClick(args) {
-        if(args.item.text === 'Create'){
 
-            var dialog = document.getElementById("create_dialog").ej2_instances[0];
-            dialog.show();
-
-            $("#makedocument").unbind('click').bind('click', function() {
-              
-                var docname = document.getElementById('docname');
-                var documenttype = document.getElementById('documenttype');
-                alert(args.fileDetails[0].filterPath + args.fileDetails[0].name);
-                var formData = { fullName: docname.value, path: args.fileDetails[0].filterPath + args.fileDetails[0].name, state: documenttype.value };
-                var strJson = JSON.stringify(formData)
-                $.ajax({
-                    type: 'POST',
-                    url: '/Home/CreateDocument/',
-                    contentType: 'application/json', // remove this line
-                    data: strJson, //remove JSON.stringify
-                    success: function(result) {
-                        toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
-                        dialog.hide();
-                    }
-                });
-            });
-        }
         if (args.item.text === 'Encrypt') {
             if (args.fileDetails[0].isFile) {
                 var dialog = document.getElementById("default_dialog").ej2_instances[0];
