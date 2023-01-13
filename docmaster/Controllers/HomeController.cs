@@ -326,7 +326,7 @@ namespace docmaster.Controllers
             }
           
         }
-
+      
         public string PDFView(string fullName)
         {
             var docBytes = System.IO.File.ReadAllBytes("/var/www/html/imspulse/bunch-box" + fullName);
