@@ -183,7 +183,7 @@ namespace docmaster.Controllers
                 }
                 else if (this.User.IsInRole("Ultimate"))
                 {
-                    if (fCount > 1000)
+                    if (fCount > 100000)
                     {
                         Response.Clear();
                         Response.ContentType = "application/json; charset=utf-8";
