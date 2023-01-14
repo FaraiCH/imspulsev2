@@ -1,5 +1,6 @@
 ﻿using Aspose.Words;
 using docmaster.Areas.Identity.Data;
+using docmaster.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -45,10 +46,10 @@ namespace docmaster.Controllers
         }
 
 
-        [HttpGet("Data={docobject}&WichType={type}")]
-        public async Task<ActionResult<string>> GetDocData([FromBody] object[] docobject, string type)
+        [HttpGet("Data='{docobject}'&WichType={type}")]
+        public async Task<ActionResult<string>> GetDocData([FromBody] ProtectModel payload, string type)
         {
-            return new JsonResult(docobject);
+            return new JsonResult(payload.fullName);
         }
     }
 }
