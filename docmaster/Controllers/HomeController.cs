@@ -167,7 +167,7 @@ namespace docmaster.Controllers
                 }
                 else if (this.User.IsInRole("Premium"))
                 {
-                    if (fCount > 350)
+                    if (fCount > 500)
                     {
                         Response.Clear();
                         Response.ContentType = "application/json; charset=utf-8";
@@ -183,7 +183,7 @@ namespace docmaster.Controllers
                 }
                 else if (this.User.IsInRole("Ultimate"))
                 {
-                    if (fCount > 100000)
+                    if (fCount > 10000)
                     {
                         Response.Clear();
                         Response.ContentType = "application/json; charset=utf-8";
