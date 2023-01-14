@@ -45,6 +45,10 @@ namespace docmaster.Controllers
         }
 
 
-
+        [HttpGet("Data={docobject}&WichType={type}")]
+        public async Task<ActionResult<string>> GetDocData([FromBody] object[] docobject, string type)
+        {
+            return new JsonResult(docobject);
+        }
     }
 }
