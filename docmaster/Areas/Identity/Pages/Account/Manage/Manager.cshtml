@@ -334,30 +334,6 @@ else
     
     }
     function onSuccess(args){
-        if (!document.getElementById("filemanager_tb_upload").classList.contains("e-dropdown-btn")) {
-            var fileObject = document.getElementById("filemanager").ej2_instances[0];
-            document.getElementById('filemanager_tb_upload').onclick = function (args) {
-                args.stopPropagation();
-            };
-            var items = [{ text: 'Folder' }, { text: 'Files' }];
-            var drpDownBtn = new ej.splitbuttons.DropDownButton(
-                   {
-                     items: items,
-                     select: (args) => {
-                       if (args.item.text === 'Folder') {
-                         fileObject.uploadSettings.directoryUpload = true;
-                       } else {
-                         fileObject.uploadSettings.directoryUpload = false;
-                       }
-                       setTimeout(function () {
-                         let uploadBtn = document.querySelector('.e-file-select-wrap button');
-                         uploadBtn.click();
-                       }, 100);
-                     }
-                },
-                '#filemanager_tb_upload'
-            );
-        }
         var clientId = "10248VINET"; 
         let ajax = new ej.base.Ajax({ 
             url: '/Home/Hide', 
@@ -378,16 +354,16 @@ else
                         @{
                             if (!User.IsInRole("Admin"))
                             {
-                                                                                                <text>
-                                                                                                    elements[i].hidden = true;
-                                                                                                </text>
+                                <text>
+                                    elements[i].hidden = true;
+                                </text>
                             }
                             else
                             {
                                         
-                                                                                                <text>
-                                                                                                    elements[i].classList.add("myhidden");
-                                                                                                </text>
+                                <text>
+                                    elements[i].classList.add("myhidden");
+                                </text>
                             }
                         }
                       
@@ -1014,21 +990,15 @@ else
 
     function onFileOpen(args) {
         if (args.fileDetails.isFile) {
-            @{
-                if (User.IsInRole("Admin"))
-                {
-                    <text>
-                        if (args.fileDetails.name.includes('pdf')) {
-                            window.open('https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name, '_blank');
 
-                        }else{
-                            document.getElementById('my_iframe').src = 'https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name;
-                            alert(args.fileDetails.name + " is opened");
-                        }
-                    </text>
-                 
-                }
+            if (args.fileDetails.name.includes('pdf')) {
+                window.open('https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name, '_blank');
+
+            }else{
+                document.getElementById('my_iframe').src = 'https://imspulse.com/bunch-box' + args.fileDetails.filterPath + args.fileDetails.name;
+                alert(args.fileDetails.name + " is opened");
             }
+                   
   
         }
 
