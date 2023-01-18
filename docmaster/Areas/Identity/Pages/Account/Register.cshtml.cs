@@ -133,8 +133,8 @@ namespace docmaster.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
          
-            try
-            {
+            //try
+            //{
 
                 string passwordCom = null;
                 int counter = 0;
@@ -169,7 +169,7 @@ namespace docmaster.Areas.Identity.Pages.Account
                     {
                         if (counter > 0)
                         {
-                            var user = new docmasterUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Company = Input.Company };
+                            var user = new docmasterUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, Company = Input.Company, created_at = DateTime.Now };
 
                             var result = await _userManager.CreateAsync(user, Input.Password);
                             var userId = await _userManager.GetUserIdAsync(user);
@@ -279,12 +279,12 @@ namespace docmaster.Areas.Identity.Pages.Account
 
                 }
           
-            }
-            catch (Exception ex)
-            {
-                ViewData["Data"] = ex.Message;
+            //}
+            //catch (Exception ex)
+            //{
+            //    ViewData["Data"] = ex.Message;
                
-            }
+            //}
          
          
             // If we got this far, something failed, redisplay form
