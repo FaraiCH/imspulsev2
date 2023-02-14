@@ -611,3 +611,8 @@ D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\ref\docmaster.dll
 D:\Testing\imspulsev2\docmaster\bin\Release\net6.0\MailKit.dll
 D:\Testing\imspulsev2\docmaster\bin\Release\net6.0\MimeKit.dll
 D:\Testing\imspulsev2\docmaster\bin\Release\net6.0\BouncyCastle.Crypto.dll
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\staticwebassets\msbuild.docmaster.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\staticwebassets\msbuild.build.docmaster.props
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.docmaster.props
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.docmaster.props
+D:\Testing\imspulsev2\docmaster\obj\Release\net6.0\staticwebassets.pack.json

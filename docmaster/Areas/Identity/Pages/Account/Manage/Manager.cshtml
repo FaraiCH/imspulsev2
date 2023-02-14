@@ -887,17 +887,19 @@ else
                         dialog.show();
 
                         $.ajax({
-                            type: 'POST',
+                            type: 'GET',
                             url: 'https://producer.imspulse.com/Home/PDFConvert',
                             // contentType: 'application/json', // remove this line
                             data: payload, //remove JSON.stringify
                             success: function (result) {
-                        
+
                                 toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 4000);
                             }
                         });
                     }
                 });
+
+              
 
             }
             if (args.fileDetails[0].name.includes('.ppt')) {
