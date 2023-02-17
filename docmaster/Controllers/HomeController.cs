@@ -711,6 +711,7 @@ namespace docmaster.Controllers
         public IActionResult Revision([FromBody] ProtectModel payload)
         {
             // Open an existing document.
+            Exec("sudo chmod 775 -R /var/www/html/imspulse/bunch-box");
             string path = "/var/www/html/imspulse/bunch-box/" + payload.path + "/" + payload.fullName;
             Document doc = new Document(path);
             string fieldValue = String.Empty;
