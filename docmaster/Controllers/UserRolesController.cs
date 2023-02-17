@@ -11,12 +11,10 @@ namespace docmaster.Controllers
     {
         private readonly UserManager<docmasterUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly SignInManager<docmasterUser> _signer;
-        public UserRolesController(UserManager<docmasterUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<docmasterUser> signer)
+        public UserRolesController(UserManager<docmasterUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
-            _signer = signer;
         }
         [Authorize(Roles = "SuperUser")]
         public async Task<IActionResult> Index()
@@ -85,8 +83,7 @@ namespace docmaster.Controllers
                 ModelState.AddModelError("", "Cannot remove user existing roles");
                 return View(model);
             }
-            result = await _userManager.AddToRolesAsync(user, model.Where(x => x.Selected).Select(y => y.RoleName));      
-            await _signer.SignInAsync(user, false,null);
+            result = await _userManager.AddToRolesAsync(user, model.Where(x => x.Selected).Select(y => y.RoleName));
             if (!result.Succeeded)
             {
                 ModelState.AddModelError("", "Cannot add selected roles to user");
