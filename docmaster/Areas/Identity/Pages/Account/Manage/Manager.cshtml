@@ -334,11 +334,6 @@ else
     
     }
     function onSuccess(args){
-        var fileObject = document.getElementById("filemanager").ej2_instances[0];
-        fileObject.allowMultiSelection = true;
-        fileObject.allowedExtensions = [];
-
-        
         var clientId = "10248VINET"; 
         let ajax = new ej.base.Ajax({ 
             url: '/Home/Hide', 
