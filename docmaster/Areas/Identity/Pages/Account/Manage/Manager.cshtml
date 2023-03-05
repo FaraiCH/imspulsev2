@@ -345,8 +345,7 @@ else
                     items: items,
                     select: (args) => {
                         if (args.item.text === 'Folder') {
-                            alert("Folder");
-                            fileObject.uploadSettings.directoryUpload = true;
+                            fileObject.enableDirectoryUpload = true;
                         } else {
                             fileObject.uploadSettings.directoryUpload = false;
                         }
