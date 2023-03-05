@@ -335,7 +335,8 @@ else
     }
     function onSuccess(args){
         var fileObject = document.getElementById("filemanager").ej2_instances[0];
-        fileObject.enableDirectoryUpload = true;
+        fileObject.allowMultiSelection = true;
+        fileObject.allowedExtensions = [];
 
         
         var clientId = "10248VINET"; 
