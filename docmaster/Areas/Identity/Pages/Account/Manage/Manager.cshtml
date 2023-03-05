@@ -334,30 +334,10 @@ else
     
     }
     function onSuccess(args){
-        if (!document.getElementById("filemanager_tb_upload").classList.contains("e-dropdown-btn")) {
-            var fileObject = document.getElementById("filemanager").ej2_instances[0];
-            document.getElementById('filemanager_tb_upload').onclick = function (args) {
-                args.stopPropagation();
-            };
-            var items = [{ text: 'Folder' }, { text: 'Files' }];
-            var drpDownBtn = new ej.splitbuttons.DropDownButton(
-                {
-                    items: items,
-                    select: (args) => {
-                        if (args.item.text === 'Folder') {
-                            fileObject.enableDirectoryUpload = true;
-                        } else {
-                            fileObject.uploadSettings.directoryUpload = false;
-                        }
-                        setTimeout(function () {
-                            let uploadBtn = document.querySelector('.e-file-select-wrap button');
-                            uploadBtn.click();
-                        }, 100);
-                    }
-                },
-                '#filemanager_tb_upload'
-            );
-        }
+        var fileObject = document.getElementById("filemanager").ej2_instances[0];
+        fileObject.enableDirectoryUpload = true;
+
+        
         var clientId = "10248VINET"; 
         let ajax = new ej.base.Ajax({ 
             url: '/Home/Hide', 
