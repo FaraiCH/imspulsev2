@@ -8,3 +8,5 @@ Features include in the project are as follows:
 3. Online document editors that can be used fort Word (doc and docx), Excel (xls and xlsx) and PDF
 4. Comprehensive dashboard to monitor how many documents on the system visible, protected and which documents have been edited on the system
 5. Email functionalities to send to team mambers belonging to the same company about document revisions and changes.
+
+Please check www.imspulse.com for full website/system
