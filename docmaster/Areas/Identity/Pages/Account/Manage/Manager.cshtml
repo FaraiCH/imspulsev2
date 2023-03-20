@@ -415,17 +415,33 @@ else
                 var docname = document.getElementById('docname');
                 var fullName = fileObj.path + docname.value + "." + doctype.value;
                 var payload = { fullName: fullName }; // change name
-                $.ajax({
-                    type: 'POST',
-                    url: '/Home/CreateDocument/',
-                    // contentType: 'application/json', // remove this line
-                    data: payload, //remove JSON.stringify
-                    success: function(result) {
-                        toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000); 
-                        dialog.hide();
-                        fileObj.refresh();
-                    }
-                });
+
+                if(fullName.includes('.pdf')){
+                    $.ajax({
+                        type: 'POST',
+                        url: 'https://producer.imspulse.com/Home/PDFCreate',
+                        // contentType: 'application/json', // remove this line
+                        data: payload, //remove JSON.stringify
+                        success: function (result) {
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);
+                            dialog.hide();
+                            fileObj.refresh();
+                        }
+                    });
+
+                }else{
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/CreateDocument/',
+                        // contentType: 'application/json', // remove this line
+                        data: payload, //remove JSON.stringify
+                        success: function (result) {
+                            toastObj = ejs.notifications.ToastUtility.show(result, 'Success', 2000);
+                            dialog.hide();
+                            fileObj.refresh();
+                        }
+                    });
+                }           
 
             });
         }
