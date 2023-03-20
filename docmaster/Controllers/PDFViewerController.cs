@@ -17,7 +17,7 @@ namespace docmaster.Controllers
         //Initialize the memory cache object   
         public IMemoryCache _cache;
  
-                 public PdfViewerController(Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, IMemoryCache cache)
+        public PdfViewerController(Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, IMemoryCache cache)
         {
             _hostingEnvironment = hostingEnvironment;
             _cache = cache;
@@ -268,28 +268,28 @@ namespace docmaster.Controllers
             Console.WriteLine(documentPath);
             return documentPath;
         }
-        [HttpPost("SaveDocument")]
-        [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
-        [Route("[controller]/SaveDocument")]
-        public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject)
-        {
-            PdfRenderer pdfviewer = new PdfRenderer(_cache);
-            var path = "/var/www/html";
-            string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
-            string base64String = documentBase.Split(new string[] { "data:application/pdf;base64," }, StringSplitOptions.None)[1];
+        //[HttpPost("SaveDocument")]
+        //[Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
+        //[Route("[controller]/SaveDocument")]
+        //public ActionResult SaveDocument([FromBody] Dictionary<string, string> jsonObject)
+        //{
+        //    PdfRenderer pdfviewer = new PdfRenderer(_cache);
+        //    var path = "/var/www/html";
+        //    string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
+        //    string base64String = documentBase.Split(new string[] { "data:application/pdf;base64," }, StringSplitOptions.None)[1];
 
-            if (base64String != null || base64String != string.Empty)
-            {
-                byte[] byteArray = Convert.FromBase64String(base64String);
+        //    if (base64String != null || base64String != string.Empty)
+        //    {
+        //        byte[] byteArray = Convert.FromBase64String(base64String);
 
-                MemoryStream ms = new MemoryStream(byteArray);
+        //        MemoryStream ms = new MemoryStream(byteArray);
 
-                path = "/var/www/html";
-                System.IO.File.WriteAllBytes(path + $"/{jsonObject["documentId"]}", byteArray);
+        //        path = "/var/www/html";
+        //        System.IO.File.WriteAllBytes(path + $"/{jsonObject["documentId"]}", byteArray);
                              
-            }
-            return Content(string.Empty);
-        }
+        //    }
+        //    return Content(string.Empty);
+        //}
 
         //GET api/values
         [HttpGet]
