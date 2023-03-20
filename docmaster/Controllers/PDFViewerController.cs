@@ -6,8 +6,7 @@ using Syncfusion.EJ2.PdfViewer;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-
+ 
 namespace docmaster.Controllers
 {
     [Route("[controller]")]
@@ -226,44 +225,21 @@ namespace docmaster.Controllers
             pdfviewer.ClearCache(jsonObject);
             return this.Content("Document cache is cleared");
         }
-
-
-        public Dictionary<string, string> JsonConverterstring(jsonObjects results)
-        {
-            Dictionary<string, object> resultObjects = new Dictionary<string, object>();
-            resultObjects = results.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                .ToDictionary(prop => prop.Name, prop => prop.GetValue(results, null));
-            var emptyObjects = (from kv in resultObjects
-                                where kv.Value != null
-                                select kv).ToDictionary(kv => kv.Key, kv => kv.Value);
-            Dictionary<string, string> jsonResult = emptyObjects.ToDictionary(k => k.Key, k => k.Value.ToString());
-            return jsonResult;
-        }
-
-        //[HttpPost("Download")]
-        //[Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
-        //[Route("[controller]/Download")]
-        ////Post action for downloading the PDF documents
-        //public IActionResult Download([FromBody] Dictionary<string, string> jsonObject)
-        //{
-        //    //Initialize the PDF Viewer object with memory cache object
-        //    PdfRenderer pdfviewer = new PdfRenderer(_cache);
-        //    string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
-        //    return Content(documentBase);
-        //}
-
-        [HttpPost("Download")]
-        [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
-        [Route("[controller]/Download")]
-        public IActionResult Download([FromBody] jsonObjects responseData)
-        {
-            PdfRenderer pdfviewer = new PdfRenderer(_cache);
-            var jsonObject = JsonConverterstring(responseData);
-            string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
-            return Content(documentBase);
-        }
-
-        [HttpPost("PrintImages")]
+ 
+ 
+        [HttpPost("Download")]
+        [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
+        [Route("[controller]/Download")]
+        //Post action for downloading the PDF documents
+        public IActionResult Download([FromBody] Dictionary<string, string> jsonObject)
+        {
+            //Initialize the PDF Viewer object with memory cache object
+            PdfRenderer pdfviewer = new PdfRenderer(_cache);
+            string documentBase = pdfviewer.GetDocumentAsBase64(jsonObject);
+            return Content(documentBase);
+        }
+ 
+        [HttpPost("PrintImages")]
         [Microsoft.AspNetCore.Cors.EnableCors("MyPolicy")]
         [Route("[controller]/PrintImages")]
         //Post action for printing the PDF documents
@@ -310,65 +286,11 @@ namespace docmaster.Controllers
 
         //        path = "/var/www/html";
         //        System.IO.File.WriteAllBytes(path + $"/{jsonObject["documentId"]}", byteArray);
-
+                             
         //    }
         //    return Content(string.Empty);
         //}
 
-
-    }
-
-    public class jsonObjects
-    {
-        public string document { get; set; }
-        public string password { get; set; }
-        public string zoomFactor { get; set; }
-        public string isFileName { get; set; }
-        public string xCoordinate { get; set; }
-        public string yCoordinate { get; set; }
-        public string pageNumber { get; set; }
-        public string documentId { get; set; }
-        public string hashId { get; set; }
-        public string sizeX { get; set; }
-        public string sizeY { get; set; }
-        public string startPage { get; set; }
-        public string endPage { get; set; }
-        public string stampAnnotations { get; set; }
-        public string textMarkupAnnotations { get; set; }
-        public string stickyNotesAnnotation { get; set; }
-        public string shapeAnnotations { get; set; }
-        public string measureShapeAnnotations { get; set; }
-        public string action { get; set; }
-        public string pageStartIndex { get; set; }
-        public string pageEndIndex { get; set; }
-        public string fileName { get; set; }
-        public string elementId { get; set; }
-        public string pdfAnnotation { get; set; }
-        public string importPageList { get; set; }
-        public string uniqueId { get; set; }
-        public string data { get; set; }
-        public string viewPortWidth { get; set; }
-        public string viewportHeight { get; set; }
-        public string tilecount { get; set; }
-        public bool isCompletePageSizeNotReceived { get; set; }
-        public string freeTextAnnotation { get; set; }
-        public string signatureData { get; set; }
-        public string fieldsData { get; set; }
-        public string FormDesigner { get; set; }
-        public string inkSignatureData { get; set; }
-        public bool hideEmptyDigitalSignatureFields { get; set; }
-        public bool showDigitalSignatureAppearance { get; set; }
-        public bool digitalSignaturePresent { get; set; }
-        public string tileXCount { get; set; }
-        public string tileYCount { get; set; }
-        public string digitalSignaturePageList { get; set; }
-        public string annotationCollection { get; set; }
-        public string annotationsPageList { get; set; }
-        public string formFieldsPageList { get; set; }
-        public string isAnnotationsExist { get; set; }
-        public string isFormFieldAnnotationsExist { get; set; }
-        public string documentLiveCount { get; set; }
-        public string annotationDataFormat { get; set; }
-    }
+    }
 }
 
