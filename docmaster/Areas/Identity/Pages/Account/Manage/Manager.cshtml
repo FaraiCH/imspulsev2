@@ -413,7 +413,8 @@ else
             $("#makedocument").unbind('click').bind('click', function () {
                 var doctype = document.getElementById('documenttype');
                 var docname = document.getElementById('docname');
-                var fullName = fileObj.path + docname + "." + doctype;
+                var fullName = fileObj.path + docname.value + "." + doctype.value;
+                console.log(fullName);
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
                     type: 'POST',
