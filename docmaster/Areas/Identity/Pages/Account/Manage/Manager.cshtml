@@ -9,7 +9,7 @@
 @{
     string[] files = new string[] { "Rename", "|", "Cut",  "|", "Edit",  "|",  "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
     string[] folder = new string[] { "Open", "|", "Rename","|", "Cut", "|", "Copy", "|", "Paste", "|", "Hide", "|", "Delete", "|", "Encrypt", "|", "Decrypt" };
-    string[] items = new string[] { "Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
+    string[] items = new string[] { "New","Edit", "NewFolder", "Refresh", "Upload", "View", "Rename", "Cut", "Copy", "Paste", "Encrypt", "Decrypt", "Hide", "Show Hidden", "SortBy" };
     string[] layout = new string[] { "SortBy", "View", "Refresh", "|" };
     string myPath = null;
     var num = 0.00;
@@ -408,6 +408,11 @@ else
         dialog.hide();
     }
     function toolbarClick(args) {
+
+        if(args.item.text === 'New') {
+            var fileObj = document.getElementById("filemanager").ej2_instances[0];
+            console.log(fileObj.path);
+        }
 
         if (args.item.text === 'Encrypt') {
             if (args.fileDetails[0].isFile) {
