@@ -414,7 +414,6 @@ else
                 var doctype = document.getElementById('documenttype');
                 var docname = document.getElementById('docname');
                 var fullName = fileObj.path + docname.value + "." + doctype.value;
-                console.log(fullName);
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
                     type: 'POST',
@@ -996,6 +995,10 @@ else
      function onCreate(args) {
 
         for (var i = 0; i < args.items.length; i++) {
+
+            if (args.items[i].text == 'New') {
+                args.items[i].prefixIcon = 'e-icons e-fe-create';
+            }
             if (args.items[i].text == 'Encrypt') {
                 args.items[i].prefixIcon = 'e-icons e-fe-lock';
             }
@@ -1060,12 +1063,15 @@ else
             };
         </script>
     }
-    <style>
+    <style>  
+        .e-fe-create::before {
+            content: '\e80b';
+        }
         .e-fe-lock::before {
             content: '\e788';
         }
 
-         .e-fe-unlock::before {
+        .e-fe-unlock::before {
             content: '\e78b';
         }
 
