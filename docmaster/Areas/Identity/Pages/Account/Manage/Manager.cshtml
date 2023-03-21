@@ -681,6 +681,7 @@ else
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function(result) {
+                        toastObj = ejs.notifications.ToastUtility.show(result2, 'Error', 3000);
                         $.ajax({
                             type: 'POST',
                             url: '/Home/Demo2/',
