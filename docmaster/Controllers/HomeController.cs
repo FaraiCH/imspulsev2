@@ -320,7 +320,7 @@ namespace docmaster.Controllers
                     int index = fullpath.LastIndexOf('.');
                     string type = index > -1 && index < fullpath.Length - 1 ?
                     fullpath.Substring(index) : ".docx";
-                    FileStream fileStreamPath = new FileStream(fullpath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    FileStream fileStreamPath = new FileStream("/var/www/html/imspulse/bunch-box/Power.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                     WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
                     string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
                     document.Dispose();
