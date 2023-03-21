@@ -677,16 +677,37 @@ else
                 var payload = { fullName: fullName }; // change name
                 $.ajax({
                     type: 'POST',
-                    url: '/Home/PDFView/',
+                    url: 'https://producer.imspulse.com/Home/PowerCreate/',
                     // contentType: 'application/json', // remove this line
                     data: payload, //remove JSON.stringify
                     success: function(result) {
-                        //var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];  
-                        //pdfViewer.load(result);
-                        //var dialog = document.getElementById("default_dialog5").ej2_instances[0];                
-                        //dialog.show();    
-
-                        toastObj = ejs.notifications.ToastUtility.show("IMS PULSE TEAM: The Presentation Editor is in future plans. However, as of now, there is no editor to handle presentation manipulation", 'Warning', 3000);
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Home/Demo2/',
+                            // contentType: 'application/json', // remove this line
+                            data: payload, //remove JSON.stringify
+                            success: function(result2) {
+                                if (!result.includes('Error Message')) {
+                                    var documenteditorElement = document.getElementById("doccontainer");
+                                    container = documenteditorElement.ej2_instances[0];
+                                    container.documentEditor.open(result2);
+                                    @{
+                                        if (!User.IsInRole("Admin"))
+                                        {
+                                            <text>
+                                                container.documentEditor.isReadOnly = true;
+                                            </text>
+                                        }
+                                    }
+                                    var dialog = document.getElementById("default_dialog3").ej2_instances[0];
+                                    dialog.show();
+                                } else {
+                                    toastObj = ejs.notifications.ToastUtility.show(result2, 'Error', 3000);
+                                }
+                            }
+                             
+                        });
+                     
                     }
                 });
             }

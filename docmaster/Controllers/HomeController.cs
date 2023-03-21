@@ -315,6 +315,19 @@ namespace docmaster.Controllers
                     fs.Close();
                     return new JsonResult(Syncfusion.EJ2.Spreadsheet.Workbook.Open(open)); // Return Spreadsheet readable data 
                 }
+                if (fullpath.Contains(".ppt")) {
+                    Aspose.Words.Document docu = new Aspose.Words.Document("/var/www/html/imspulse/bunch-box/Power.docx");
+                    int index = fullpath.LastIndexOf('.');
+                    string type = index > -1 && index < fullpath.Length - 1 ?
+                    fullpath.Substring(index) : ".docx";
+                    FileStream fileStreamPath = new FileStream(fullpath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    WordDocument document = WordDocument.Load(fileStreamPath, GetFormatType(type.ToLower()));
+                    string sfdt = Newtonsoft.Json.JsonConvert.SerializeObject(document);
+                    document.Dispose();
+                    fileStreamPath.Close();
+                    return new JsonResult(sfdt);
+                }
+
 
                 return new JsonResult("");
          
@@ -780,7 +793,7 @@ namespace docmaster.Controllers
             return new JsonResult("Document Not Supported");
         }
 
-
+  
         public async Task<IActionResult> Hide([FromBody] string clientId)
         {
             string fold = string.Empty;
