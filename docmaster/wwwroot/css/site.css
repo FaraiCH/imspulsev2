@@ -33,3 +33,7 @@ body {
 myhides{
     display:none;
 }
+
+#docedit{
+    display: none;
+}

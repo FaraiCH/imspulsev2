@@ -223,9 +223,8 @@ else
     <ejs-dialog isModal="true" visible="false" id="default_dialog3" target="#docedit" style="max-width: 80%" height="700px"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
             @if (User.IsInRole("Admin")){
-                            <ejs-button id="element" title="Save your work online."  class="btn btn-primary" content="Save Document"></ejs-button>
-                            <ejs-button id="revelement" title="Add Revision field" class="btn btn-primary" content="Insert Revision Field"></ejs-button>
-                           @* <ejs-button id="hidetext" title="Hide/Unhide Text in Document" class="btn btn-primary" content="Hide/Unhide Text"></ejs-button>*@
+                <ejs-button id="element" title="Save your work online."  class="btn btn-primary" content="Save Document"></ejs-button>
+                <ejs-button id="revelement" title="Add Revision field" class="btn btn-primary" content="Insert Revision Field"></ejs-button>                  
             }
 
             <ejs-documenteditorcontainer enableToolbar=false height="600px" id="doccontainer"></ejs-documenteditorcontainer>
