@@ -1,399 +1,399 @@
 {
   "Files": [
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\docmaster.bundle.scp.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\docmaster.bundle.scp.css",
       "PackagePath": "staticwebassets\\docmaster.bundle.scp.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\LineIcons.2.0.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\LineIcons.2.0.css",
       "PackagePath": "staticwebassets\\assets\\css\\LineIcons.2.0.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\animate.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\animate.css",
       "PackagePath": "staticwebassets\\assets\\css\\animate.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\bootstrap-5.0.0-alpha-2.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\bootstrap-5.0.0-alpha-2.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\bootstrap-5.0.0-alpha-2.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\main.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\css\\main.css",
       "PackagePath": "staticwebassets\\assets\\css\\main.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.eot",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\LineIcons.eot"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\LineIcons.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.ttf",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\LineIcons.ttf"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.woff",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\LineIcons.woff"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.woff2",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\fonts\\LineIcons.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\LineIcons.woff2"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\images\\theme-preview.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\images\\theme-preview.png",
       "PackagePath": "staticwebassets\\assets\\images\\theme-preview.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\count-up\\count-up-img.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\count-up\\count-up-img.png",
       "PackagePath": "staticwebassets\\assets\\img\\count-up\\count-up-img.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\count-up\\count-up-img@2x.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\count-up\\count-up-img@2x.png",
       "PackagePath": "staticwebassets\\assets\\img\\count-up\\count-up-img@2x.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\count-up\\counter-shape.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\count-up\\counter-shape.svg",
       "PackagePath": "staticwebassets\\assets\\img\\count-up\\counter-shape.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Background.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Background.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\Background.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Com.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Com.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\Com.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Corrective.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Corrective.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\Corrective.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Nay.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Nay.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\Nay.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Risk.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Risk.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\Risk.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Upload.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\Upload.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\Upload.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\cloud.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\cloud.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\cloud.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\documents.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\documents.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\documents.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\imspulse.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\download\\imspulse.png",
       "PackagePath": "staticwebassets\\assets\\img\\download\\imspulse.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\favicon.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\favicon.svg",
       "PackagePath": "staticwebassets\\assets\\img\\favicon.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\footer\\footer-shape-1.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\footer\\footer-shape-1.svg",
       "PackagePath": "staticwebassets\\assets\\img\\footer\\footer-shape-1.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\hero\\hero-img.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\hero\\hero-img.png",
       "PackagePath": "staticwebassets\\assets\\img\\hero\\hero-img.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\hero\\hero-shape-1.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\hero\\hero-shape-1.svg",
       "PackagePath": "staticwebassets\\assets\\img\\hero\\hero-shape-1.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\hero\\map-bg.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\hero\\map-bg.svg",
       "PackagePath": "staticwebassets\\assets\\img\\hero\\map-bg.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\logo\\logo-2.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\logo\\logo-2.svg",
       "PackagePath": "staticwebassets\\assets\\img\\logo\\logo-2.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\logo\\logo.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\logo\\logo.svg",
       "PackagePath": "staticwebassets\\assets\\img\\logo\\logo.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\plan\\plan-img.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\plan\\plan-img.png",
       "PackagePath": "staticwebassets\\assets\\img\\plan\\plan-img.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\plan\\plan-shape.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\plan\\plan-shape.svg",
       "PackagePath": "staticwebassets\\assets\\img\\plan\\plan-shape.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\search\\search-img.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\search\\search-img.png",
       "PackagePath": "staticwebassets\\assets\\img\\search\\search-img.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\search\\search-img@2x.png",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\search\\search-img@2x.png",
       "PackagePath": "staticwebassets\\assets\\img\\search\\search-img@2x.png"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\search\\search-shape.svg",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\img\\search\\search-shape.svg",
       "PackagePath": "staticwebassets\\assets\\img\\search\\search-shape.svg"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\bootstrap.5.0.0.alpha-2-min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\bootstrap.5.0.0.alpha-2-min.js",
       "PackagePath": "staticwebassets\\assets\\js\\bootstrap.5.0.0.alpha-2-min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\count-up.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\count-up.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\count-up.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\main.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\main.js",
       "PackagePath": "staticwebassets\\assets\\js\\main.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\wow.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\assets\\js\\wow.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\css\\site.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\favicon.ico",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\js\\site.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\Testing\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\xampp\\imspulsev2\\docmaster\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

@@ -25,3 +25,11 @@ body {
     color: #fff;
     background-color: #1c547c
 }
+
+.main_dialog_holder{
+    display: none;
+}
+
+myhides{
+    display:none;
+}

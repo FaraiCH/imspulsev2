@@ -35,9 +35,9 @@
           "Syncfusion.XlsIO.Net.Core": "20.3.0.56",
           "Syncfusion.XlsIORenderer.Net.Core": "20.3.0.56",
           "Syncfusion.XpsToPdfConverter.Net.Core": "20.3.0.56",
-          "Aspose.Cells": "20.1.0.0",
-          "Aspose.Slides": "20.1.0.0",
-          "Aspose.Words": "20.1.0.0"
+          "Aspose.Cells": "20.3.0.0",
+          "Aspose.Slides": "20.3.0.0",
+          "Aspose.Words": "20.3.0.0"
         },
         "runtime": {
           "docmaster.dll": {}
@@ -2751,27 +2751,27 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Aspose.Cells/20.1.0.0": {
+      "Aspose.Cells/20.3.0.0": {
         "runtime": {
           "Aspose.Cells.dll": {
-            "assemblyVersion": "20.1.0.0",
-            "fileVersion": "20.1.0.0"
+            "assemblyVersion": "20.3.0.0",
+            "fileVersion": "20.3.0.0"
           }
         }
       },
-      "Aspose.Slides/20.1.0.0": {
+      "Aspose.Slides/20.3.0.0": {
         "runtime": {
           "Aspose.Slides.dll": {
-            "assemblyVersion": "20.1.0.0",
-            "fileVersion": "20.1.0.0"
+            "assemblyVersion": "20.3.0.0",
+            "fileVersion": "20.3.0.0"
           }
         }
       },
-      "Aspose.Words/20.1.0.0": {
+      "Aspose.Words/20.3.0.0": {
         "runtime": {
           "Aspose.Words.dll": {
-            "assemblyVersion": "20.1.0.0",
-            "fileVersion": "20.1.0.0"
+            "assemblyVersion": "20.3.0.0",
+            "fileVersion": "20.3.0.0"
           }
         }
       }
@@ -3647,140 +3647,140 @@
     "Syncfusion.Compression.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rvGwCRgrSqabB33OBA5YIhQGiqEggYGPk906V71ezW4+vSWIQ5evNkYpl/1vbTPT2Q+8bnRb7t0X/PNZ6Hrh6w==",
+      "sha512": "sha512-9iMA5AFoHAQi1hxkriiy50R1682ebaKSjVDWdBj6lGKQoMenOXEVMpetH8dUTihPto3BOGdGRcPphKyLJjiDgA==",
       "path": "syncfusion.compression.net.core/20.3.0.56",
       "hashPath": "syncfusion.compression.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.DocIO.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-j9lAfnHv7+Bvxh0YuvO7AIUU7tj1svO536JvCQ7IIwxyV/VQfIME3QQsDvt0+PR5xcla6gDDRap1sBj0kDtSxw==",
+      "sha512": "sha512-Guoma9e5Deftr6gwZzlX/NBnJ18E7J/jcT8a2HiipTU4sks/i80tQ2xSWdl1v3eWDWVDsnhJoG3vrlJIBH1wHw==",
       "path": "syncfusion.docio.net.core/20.3.0.56",
       "hashPath": "syncfusion.docio.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.DocIORenderer.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jnmtpWYU9xwLxi43NOpWIxMJKQut4yxhBm7Q0Po+SMe/gq+HovZAQ7D6PrwhajhQtqc9XA/wzNYSy0HRMw3mLA==",
+      "sha512": "sha512-HshHBhX2wjznxqR/zNmPzH67KPZ0y22AT0+I6823AN6gWDlrRxW89oczSfNfWS1Hmii4QonpNfhSyYVXBiSgHQ==",
       "path": "syncfusion.dociorenderer.net.core/20.3.0.56",
       "hashPath": "syncfusion.dociorenderer.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.AspNet.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fyadwWlmimTCKBVO3p3Uc9hk/Q+2J34ddKJ0uDhzr8W0NN2ZrGxvW+vZwaAs/LVUe5xkRcTFTSNGTMnZU3Sv9w==",
+      "sha512": "sha512-H+lAGMN5r9qXFu7iZ7BCxZ6gvkncgHwNKcdVEytUhhqECbQwedtFhHOsBsNSMJVyWL+A+PYj6NaszKaegFQmRA==",
       "path": "syncfusion.ej2.aspnet.core/20.3.0.56",
       "hashPath": "syncfusion.ej2.aspnet.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.GridExport.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sFxgsZQlQv7Fx11H4udH7Hu/fUuaLQGQuFqaxl2Jemu/ONFRff4OXdhUzUx+wmMIWxmx0wpLQkYWk8iA5Im1dw==",
+      "sha512": "sha512-V3+aVey9VEx1+1W8JmFFyAwWPmyMrbd34fUvkKABq1ne4J+s4C4ty4eu1nYfKCulpi/SyHaOr0nrmS+pOP1pNA==",
       "path": "syncfusion.ej2.gridexport.core/20.3.0.56",
       "hashPath": "syncfusion.ej2.gridexport.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.JavaScript/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-L3oG4Wtnp4suqF+fKkLVccX+MR2SwpHP1hlFwl2ryUrSPAwCTCl0aAILM4uDtqH7PID4OEpgDHCig+33lhiBXA==",
+      "sha512": "sha512-e+nQeVA/RInAIQAuu+PrrKcGSuX/rRs26bALXsi+8OGM8qO85li6b6FYosDQFTHuGkrDQWcwZHUeJkgcBLEogA==",
       "path": "syncfusion.ej2.javascript/20.3.0.56",
       "hashPath": "syncfusion.ej2.javascript.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.PdfViewer.AspNet.Core.Linux/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YguafbtiW94VqEWYcn2r8XYPCVd2fwR52p4v9cnfdr/p6dqfZenyNAKuqoYQ3JVg3R58J7N6Ckcow9yp4UTE6g==",
+      "sha512": "sha512-cVvTWsBswwdvW9zgBiiU2JHB85EQ8mwvMdGU/gFPn6AtHzQkP4dEgcglnP0nDoV7J/dBzNAjPNEhTTpSfWWgLA==",
       "path": "syncfusion.ej2.pdfviewer.aspnet.core.linux/20.3.0.56",
       "hashPath": "syncfusion.ej2.pdfviewer.aspnet.core.linux.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.SpellChecker.AspNet.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+oiSfMnayB21laW2QjvpbKNIwc9jTUfRwYpwgHZu9F9B/skBY3CQHW6AFTeICqDDLNtYOLPP5jUN30scDQXnSQ==",
+      "sha512": "sha512-aJOJBM2VzML0dTlrAcDayWqd9MNAXpZUtNrCZUetE8lEFdvlQw+HsKmK4OZctn19xMP8dCi4ClhZ/odf322xHQ==",
       "path": "syncfusion.ej2.spellchecker.aspnet.core/20.3.0.56",
       "hashPath": "syncfusion.ej2.spellchecker.aspnet.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.Spreadsheet.AspNet.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Zdou+umyp639iI2acEg/b9zLE8ZtSGPf9IgSLilbISvPByE8Mu1a6QspSe7YVFs1gVl+iQgmwAAjtYhotdkm5g==",
+      "sha512": "sha512-tPkj0ma8XmoEyCL0n/TEtMTKefRd1OsKTm6Du+7TDSSJ6LcQ1S5w0356gpE9NzL5xF2gJ6VSqgohcMc3PCX6iQ==",
       "path": "syncfusion.ej2.spreadsheet.aspnet.core/20.3.0.56",
       "hashPath": "syncfusion.ej2.spreadsheet.aspnet.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.EJ2.WordEditor.AspNet.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BODFOWtxD2y7D6Bekwd0+PEHZ4LaNIHMfaQyXjE4DXg4T3tNcWht9B9Vkie/azbfMRqvVjdwf1KiOT5P8m9xfQ==",
+      "sha512": "sha512-R0E1CeswMEXgNbrc9fe81hvjkxzLIqTgljAiXQXgNqg9jUGMj8GsCQkW1dx/oY4Dneu7jVJwFay54HFd5Qypew==",
       "path": "syncfusion.ej2.wordeditor.aspnet.core/20.3.0.56",
       "hashPath": "syncfusion.ej2.wordeditor.aspnet.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.Licensing/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lG5yRJ/Pb+9S94g9YBC92fuJH1IxnlngodLh124O5ujL4zJH45BSQ3tdKnnmLeivQXK1sMcPBO83KIGXySnbcw==",
+      "sha512": "sha512-tSym/jpNruSOuvDjheCP8dFjBSjKkfcBSvOU6NgTIHma2r597WrJGK94KXxKPX10YVMtirhlw8WO2DOF+G4Z/A==",
       "path": "syncfusion.licensing/20.3.0.56",
       "hashPath": "syncfusion.licensing.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.OfficeChart.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wJPFkqV0EVqPh9cCV1sYEB44TXGYQrpKYNf7Cw59LCl5det1YxIxDrdmJN5RYmaK4Yxry3bVBbpAfwprgn4xQQ==",
+      "sha512": "sha512-+aJL3X0903Hx3Ub/0p9wzl0mHdvh1+qc7nDDqPwIile2jPd9/mxdyqK7x3Xpzh5AoulsRRV5c1OCGnevHwNrGQ==",
       "path": "syncfusion.officechart.net.core/20.3.0.56",
       "hashPath": "syncfusion.officechart.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.Pdf.Imaging.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lRAy5O35ZWpIT0PoIRxlKGwtYqAV2dskhTiFqYDdMPHlK0sL+MmKgboimjMtG6OBq1xz5StFvLb1UXwx/kcIzg==",
+      "sha512": "sha512-n4EiH7gfiqplEvWc/Gjzv1D5jkup4SK3kHhlrjIX8rMPwTzmMKOgJKErwl+4rALUZPV+Kt+66w6AGMNb58TBew==",
       "path": "syncfusion.pdf.imaging.net.core/20.3.0.56",
       "hashPath": "syncfusion.pdf.imaging.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.Pdf.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9K60gCsFgTIWA510ELp+oCKL2pzXybI/4RFvHMN/4VgfxRv3Sw1n+WbxUB3AzHhMUaCWPjlsR/sybg1f9Jhdig==",
+      "sha512": "sha512-yUzJMdht5sdYr5rA+I9K4oMtWf0YzWj5J6UOHyJuOtJoIpI3R7/MyYamvuzWIyORNzudRda+N6KgxWNu/xwgJg==",
       "path": "syncfusion.pdf.net.core/20.3.0.56",
       "hashPath": "syncfusion.pdf.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.Presentation.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NDYNtdJefBiEv6dlCmiK95xfJiZzIvPAjEpb3S9K50c7GY4hF50gqCLmU7k/Gej/NgH27gzcGaU+J3f7tkDmSQ==",
+      "sha512": "sha512-EUFnRe3Ms9H+tvWEEQFUJCmMq1XqTEJsfj+p3EakWijYJYXVorypXa6uL4i9kEVm7vEp7QZ26eMfmCfnpvrdzA==",
       "path": "syncfusion.presentation.net.core/20.3.0.56",
       "hashPath": "syncfusion.presentation.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.PresentationRenderer.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gLdb3va0aY1V9cC46jt2vvf6sONn4YbHMIMOxXBwp8bUU4yrcqn/lvnGMnHsGOCUiN1iy60og7D+stHkBcc3dQ==",
+      "sha512": "sha512-yv79+cW2NFS9IB0JL8GNUJ7uRzqopqPrf2mNmgHqUr2hFD+VOWQ9t8DHzvlbX64FzSJ2U72IpecJjMY3ztxv4Q==",
       "path": "syncfusion.presentationrenderer.net.core/20.3.0.56",
       "hashPath": "syncfusion.presentationrenderer.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.SkiaSharpHelper.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nph5mcDYXJFuZNArVXErgoSBsbbibr1T1yf+1SBKYKNttaY74EKD0eBBBzaDBysFBC941tas2jRS98ZZJbh73A==",
+      "sha512": "sha512-ORWNHRAZq36dp5o8vf0De4gQcQAhk61lgtp5MuOPjBCvOKFTs1Ht8ryFlMPJw6u9DLjSGFN+j9XIu4nT0aFHYA==",
       "path": "syncfusion.skiasharphelper.net.core/20.3.0.56",
       "hashPath": "syncfusion.skiasharphelper.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.XlsIO.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IrJhoVG//iFwgqo10P9EZl56p3qLxj1X00jGCKM73q590MPptbvxRaeWaCvBrxmr4hRP7cuWZZv1204Sy7gfgw==",
+      "sha512": "sha512-aBsCEr8uCeoFKsUlwxCoabWekgMWG94OS7/cGAQzwGhKR4SEZ4hpMinY4yL+mdJomx+8inDilhA/P3VbibauPA==",
       "path": "syncfusion.xlsio.net.core/20.3.0.56",
       "hashPath": "syncfusion.xlsio.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.XlsIORenderer.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-e/eN9wgd+aNQsxgkubLUrBG7wKkG6L8Sxf4Bxd6NUR8eeUNEnpi/V/WFoP1sHQz1fBRxIVXE5uXdD7hsl7jKVQ==",
+      "sha512": "sha512-gD3Gh/cLA0EwVMq/S13Rmrdu000MBgNaRD5kyPX/dOxJz2/u8rKYM57wgP4sEXW5H8rBYmkLmZRsx9oc/dCMOQ==",
       "path": "syncfusion.xlsiorenderer.net.core/20.3.0.56",
       "hashPath": "syncfusion.xlsiorenderer.net.core.20.3.0.56.nupkg.sha512"
     },
     "Syncfusion.XpsToPdfConverter.Net.Core/20.3.0.56": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aH6v4X9gpjnnwvzAOOnJY8Edo/M9BhnpH+P11wib6uKJBSfZGpS6ekVsNPzYWNG+liV47IzQGZzN+4aRxI7jBQ==",
+      "sha512": "sha512-MJNxpzsVbXhQu0ExADPpe90UQhq2C7dVwRsvVX/5Dj+pKw49E5dTrycskdpxuanfbtt3K0bahMTNDx2FHbD/rw==",
       "path": "syncfusion.xpstopdfconverter.net.core/20.3.0.56",
       "hashPath": "syncfusion.xpstopdfconverter.net.core.20.3.0.56.nupkg.sha512"
     },
@@ -4344,17 +4344,17 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "Aspose.Cells/20.1.0.0": {
+    "Aspose.Cells/20.3.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Aspose.Slides/20.1.0.0": {
+    "Aspose.Slides/20.3.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Aspose.Words/20.1.0.0": {
+    "Aspose.Words/20.3.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

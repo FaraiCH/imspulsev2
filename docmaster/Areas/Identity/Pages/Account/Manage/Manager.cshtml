@@ -87,50 +87,61 @@ else
 
         <ejs-dialog isModal="true" visible="false" id="default_dialog10" target="#maincon" style="max-width: 80%" height="700px" header="Document Management Subscription and Permissions"  overlayClick="onOverlayClick"  showCloseIcon="true" header="Edit Document">
         <e-content-template>
-            @if(!User.IsInRole("SuperUser"))
-            {       
-                <div class="alert alert-warning" role="alert">
-                    @if (User.IsInRole("Admin"))
-                    {
-                        if (User.IsInRole("Basic"))
+                @if(!User.IsInRole("SuperUser"))
+                {       
+                    <div class="alert alert-warning" role="alert">
+                        @if (User.IsInRole("Admin"))
                         {
-                            <p>You are the admin of your company. However, you have a basic subscription.</p>
-                            <p>Here is what you have access to:</p>
-                            <p>1. You are limited to only 50MB of domain space for your documents. </p>
-                            <p>2. Use Online Document Editors to View, Edit and Save Documents. </p>
-                            <p>3. Automatically allocate documents to Obselete folders when revised. </p>
-                            <br />
-                            <p>Here's what you don't have access to.</p>
-                            <p>1. You cannot encrypt documents.</p>
-                            <p>2. You cannot hide documents or folders</p>
-                            <p>Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
+                            if (User.IsInRole("Basic"))
+                            {
+                                <p>You are the admin of your company. However, you have a basic subscription.</p>
+                                <p>Here is what you have access to:</p>
+                                <p>1. You are limited to only 50MB of domain space for your documents. </p>
+                                <p>2. Use Online Document Editors to View, Edit and Save Documents. </p>
+                                <p>3. Automatically allocate documents to Obselete folders when revised. </p>
+                                <br />
+                                <p>Here's what you don't have access to.</p>
+                                <p>1. You cannot encrypt documents.</p>
+                                <p>2. You cannot hide documents or folders</p>
+                                <p>Upgrade your plan to Premium or Ultimate to protect your documents and have greator space.</p>
+                            }
+                            else
+                            {
+                                <p>You are the admin of your company.</p>
+                                <p>Here is what you have access to:</p>
+                                <p>1. Use Online Document Editors to View, Edit and Save Documents. </p>
+                                <p>2. Encrypt documents to protect content from being seen. </p>
+                                <p>3. Hide documents and folders from any none admin users. </p>
+                                <p>4. Automatically allocate documents to Obselete folders when revised. </p>
+                                <p>5. Overwrite documents on upload. </p>
+                            }
+           
                         }
                         else
                         {
-                            <p>You are the admin of your company.</p>
-                            <p>Here is what you have access to:</p>
-                            <p>1. Use Online Document Editors to View, Edit and Save Documents. </p>
-                            <p>2. Encrypt documents to protect content from being seen. </p>
-                            <p>3. Hide documents and folders from any none admin users. </p>
-                            <p>4. Automatically allocate documents to Obselete folders when revised. </p>
-                            <p>5. Overwrite documents on upload. </p>
+                            <p>You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
                         }
-           
-                    }
-                    else
-                    {
-                        <p>You only have read only access. You can view authorised documents but cannot edit or manipulate.</p>
-                    }
                     
+                    </div>
+                }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    <p>You are the Super User. You have full access to all company documents</p>
+                    <p>You have full access to all IMS Pulse Features:</p>
                 </div>
             }
-        else
-        {
-            <div class="alert alert-info" role="alert">
-                <p>You are the Super User. You have full access to all company documents</p>
-                <p>You have full access to all IMS Pulse Features:</p>
-            </div>
-        }
+
+                    @if (!User.IsInRole("SuperUser"))
+                    {
+                        <p>Your company has currently used <span class="btn btn-dark">@num</span> <b>MB</b> of space.</p>
+
+
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <p>Documents in <span style="background: red; color:white;">red</span> are hidden from normal users. Click 'Show Hidden' on the toolbar to unhide.</p>
+                    }
         </e-content-template>
       
     </ejs-dialog>
@@ -154,60 +165,55 @@ else
 
         </ejs-filemanager>
 
-        <ejs-dialog visible="false" id="create_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
-            <e-content-template>
-                <div class='form-group'>
-                    <label for='docname'>Name:</label>
-                    <input type='text' value='' name="docname" class='form-control' id='docname'>
-                </div>
-                <div class="form-group dropdown-field">
-                     <label for='documenttype'>Document Type</label>
-                    <select name="documenttype" id="documenttype" class="form-control custom-select">
-                        <option value="docx"><i class="e-icons e-fe-word" ></i> Word (.docx)</option>
-                        <option value="xlsx"><i class="e-icons e-fe-excel"></i> Excel (.xlsx)</option>
-                        <option value="pdf"><i class="e-icons e-fe-pdf"></i> PDF (.pdf)</option>
-                    </select>
-                </div>
-                <button id="makedocument" class="btn btn-primary float-end">Create Document</button>              
-            </e-content-template>
-        </ejs-dialog>
+        <div class="main_dialog_holder">
+                    <ejs-dialog visible="false" id="create_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
+                        <e-content-template>
+                            <div class='form-group'>
+                                <label for='docname'>Name:</label>
+                                <input type='text' value='' name="docname" class='form-control' id='docname'>
+                            </div>
+                            <div class="form-group dropdown-field">
+                                <label for='documenttype'>Document Type</label>
+                                <select name="documenttype" id="documenttype" class="form-control custom-select">
+                                    <option value="docx"><i class="e-icons e-fe-word"></i> Word (.docx)</option>
+                                    <option value="xlsx"><i class="e-icons e-fe-excel"></i> Excel (.xlsx)</option>
+                                    <option value="pdf"><i class="e-icons e-fe-pdf"></i> PDF (.pdf)</option>
+                                </select>
+                            </div>
+                            <button id="makedocument" class="btn btn-primary float-end">Create Document</button>
+                        </e-content-template>
+                    </ejs-dialog>
+                    <ejs-dialog created="made" visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
+                        <e-content-template>
+                            <div class="unpro">
+                                <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword'></div>
+                                <button id="encry" class="btn btn-outline-primary float-end">Protect</button>
+                            </div>
 
-         <ejs-dialog created="made" visible="false" id="default_dialog" width="500px" target="#container" showCloseIcon="true" header="Protect Your Document">
-            <e-content-template>
-                <div class="unpro">
-                    <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword'></div>
-                    <button id="encry" class="btn btn-outline-primary float-end">Protect</button>
-                </div>
-               
-               
-            </e-content-template>
-      
-        </ejs-dialog>
+
+                        </e-content-template>
+
+                    </ejs-dialog>
+
+
+                    <ejs-dialog created="made2" visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
+                        <e-content-template>
+                            <div class="unpro">
+                                <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword2'></div>
+                                <button id="decry" class="btn btn-outline-warning float-end">Unprotect</button>
+                            </div>
+
+                        </e-content-template>
+
+
+                    </ejs-dialog>
+        </div>
+   
+
+
+        <br>
+        <br>
        
-        
-        <ejs-dialog created="made2" visible="false" id="default_dialog2" width="500px" target="#container" showCloseIcon="true" header="Unprotect Your Document">
-            <e-content-template>
-             <div class="unpro">
-                <div class='form-group'><label for='password'>Password:</label><input type='text' value='' name="mypass" class='form-control' id='mypassword2'></div>
-                <button id="decry" class="btn btn-outline-warning float-end">Unprotect</button>
-             </div>
-                  
-            </e-content-template>
-            
-      
-        </ejs-dialog>
-        <br>
-        <br>
-        @if (!User.IsInRole("SuperUser"))
-        {
-            <p>Your company has currently used <span class="btn btn-dark">@num</span> <b>MB</b> of space.</p>
-
-            
-        }
-        @if (User.IsInRole("Admin"))
-        {
-            <p>Documents in <span style="background: red; color:white;">red</span> are hidden from normal users. Click 'Show Hidden' on the toolbar to unhide.</p>    
-        }
         </div>
     <iframe id="my_iframe" style="display:none;"></iframe>
 
@@ -323,12 +329,6 @@ else
 
 
 <script>
-    $(document).ready(function(){
-      
-    });
-    function getem(){
-    
-    }
     function onSuccess(args){
         var clientId = "10248VINET"; 
         let ajax = new ej.base.Ajax({ 

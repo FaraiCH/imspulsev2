@@ -27,7 +27,7 @@ namespace docmaster.Controllers
         UserManager<docmasterUser> _userManager;
         public PhysicalFileProvider operation;
         public string basePath = "/var/www/html/imspulse/bunch-box";
-        //public string basePath = "C:/Testing";
+        //public string basePath = "C:/test";
         string root = @"wwwroot";
         IEmailService _emailService = null;
 
