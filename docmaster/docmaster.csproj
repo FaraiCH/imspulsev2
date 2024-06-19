@@ -8,43 +8,46 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="3.4.3" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
-    <PackageReference Include="SkiaSharp" Version="2.88.3" />
-    <PackageReference Include="Syncfusion.Compression.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.GridExport.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.JavaScript" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Linux" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.SpellChecker.AspNet.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.Spreadsheet.AspNet.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.EJ2.WordEditor.AspNet.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.OfficeChart.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.SkiaSharpHelper.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="20.3.0.56" />
-    <PackageReference Include="Syncfusion.XpsToPdfConverter.Net.Core" Version="20.3.0.56" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="Syncfusion.Compression.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.GridExport.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.JavaScript" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Linux" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.SpellChecker.AspNet.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.Spreadsheet.AspNet.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.EJ2.WordEditor.AspNet.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.Licensing" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.OfficeChart.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.SkiaSharpHelper.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="25.1.35" />
+    <PackageReference Include="Syncfusion.XpsToPdfConverter.Net.Core" Version="25.1.35" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Aspose.Cells">
-      <HintPath>..\..\..\Users\FaraiChakarisa\Documents\Aspose\Aspose.Cells_20.6\netstandard2.0\Aspose.Cells.dll</HintPath>
+      <HintPath>..\..\Aspose\Aspose.Cells_20.3\netstandard2.0\Aspose.Cells.dll</HintPath>
     </Reference>
     <Reference Include="Aspose.Slides">
-      <HintPath>..\..\..\Users\FaraiChakarisa\Documents\Aspose\Aspose.Slides.dll</HintPath>
+      <HintPath>..\..\Aspose\Aspose.Slides_20.3\Aspose.Slides\netstandard2.0\Aspose.Slides.dll</HintPath>
     </Reference>
     <Reference Include="Aspose.Words">
-      <HintPath>..\..\..\Users\FaraiChakarisa\Documents\Aspose\Aspose.Words.dll</HintPath>
+      <HintPath>..\..\Aspose\Aspose.Words_20.3\netstandard2.0\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words.Pdf2Word">
+      <HintPath>..\..\Aspose\Aspose.Words_20.3\netstandard2.0\Aspose.Words.Pdf2Word.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\imspulsev2\\docmaster\\docmaster.csproj": {}
+    "D:\\xampp\\htdocs\\imspulsev2\\docmaster\\docmaster.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\imspulsev2\\docmaster\\docmaster.csproj": {
+    "D:\\xampp\\htdocs\\imspulsev2\\docmaster\\docmaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\imspulsev2\\docmaster\\docmaster.csproj",
+        "projectUniqueName": "D:\\xampp\\htdocs\\imspulsev2\\docmaster\\docmaster.csproj",
         "projectName": "docmaster",
-        "projectPath": "C:\\xampp\\imspulsev2\\docmaster\\docmaster.csproj",
-        "packagesPath": "C:\\Users\\FaraiChakarisa\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\imspulsev2\\docmaster\\obj\\",
+        "projectPath": "D:\\xampp\\htdocs\\imspulsev2\\docmaster\\docmaster.csproj",
+        "packagesPath": "C:\\Users\\Farai\\.nuget\\packages\\",
+        "outputPath": "D:\\xampp\\htdocs\\imspulsev2\\docmaster\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\FaraiChakarisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Farai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,6 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\Public\\Documents\\Syncfusion\\ASP.NET Core - EJ2\\25.1.35\\nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +40,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -51,7 +57,7 @@
             },
             "Microsoft.AspNet.WebApi.Core": {
               "target": "Package",
-              "version": "[5.2.9, )"
+              "version": "[5.3.0, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -75,83 +81,83 @@
             },
             "SkiaSharp": {
               "target": "Package",
-              "version": "[2.88.3, )"
+              "version": "[2.88.8, )"
             },
             "Syncfusion.Compression.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.DocIO.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.DocIORenderer.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.AspNet.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.GridExport.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.JavaScript": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.PdfViewer.AspNet.Core.Linux": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.SpellChecker.AspNet.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.Spreadsheet.AspNet.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.EJ2.WordEditor.AspNet.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.Licensing": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.OfficeChart.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.Presentation.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.PresentationRenderer.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.SkiaSharpHelper.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.XlsIORenderer.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             },
             "Syncfusion.XpsToPdfConverter.Net.Core": {
               "target": "Package",
-              "version": "[20.3.0.56, )"
+              "version": "[25.1.35, )"
             }
           },
           "imports": [
@@ -173,7 +179,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
