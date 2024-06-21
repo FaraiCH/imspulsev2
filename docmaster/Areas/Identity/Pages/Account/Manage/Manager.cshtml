@@ -56,18 +56,18 @@
         myPath = "";
     }
 
-    using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
-    {
-        conn.Open();
+    // using (var conn = new MySqlConnection("Server=92.205.25.31; Database=imspulse; Uid=manny; Pwd=@Paradice1;"))
+    // {
+    //     conn.Open();
 
-        //// Retrieve all rows
-        using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens WHERE name='" + UserManager.GetUserAsync(User).Result.Company + "'" , conn))
-        {
-            var dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            rows = dt.AsEnumerable().ToArray();
-        }
-    }
+    //     //// Retrieve all rows
+    //     using (var cmd = new MySqlCommand("SELECT * FROM imspulse.farai_document_hiddens WHERE name='" + UserManager.GetUserAsync(User).Result.Company + "'" , conn))
+    //     {
+    //         var dt = new DataTable();
+    //         dt.Load(cmd.ExecuteReader());
+    //         rows = dt.AsEnumerable().ToArray();
+    //     }
+    // }
 
 }
 @if((UserManager.GetUserAsync(User).Result.created_at.AddDays(30) <= DateTime.Now) && (!User.IsInRole("Premium")))
