@@ -39,15 +39,15 @@
                     layout = new string[] { "SortBy", "View", "Refresh" };
                 }
             }
-            myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
+            // myPath = "/"+ UserManager.GetUserAsync(User).Result.Company + "/";
 
-            DirectoryInfo info = new DirectoryInfo(@"/var/www/html/imspulse/bunch-box" + myPath);
-            long size = 0;
-            foreach (string file in Directory.GetFiles(@"/var/www/html/imspulse/bunch-box" + myPath, "*.*", SearchOption.AllDirectories))
-            {
-                size += new FileInfo(file).Length;
-            }
-            num = Math.Round((double)size / (double)(1024 * 1024), 2);
+            // DirectoryInfo info = new DirectoryInfo(@"/var/www/html/imspulse/bunch-box" + myPath);
+            // long size = 0;
+            // foreach (string file in Directory.GetFiles(@"/var/www/html/imspulse/bunch-box" + myPath, "*.*", SearchOption.AllDirectories))
+            // {
+            //     size += new FileInfo(file).Length;
+            // }
+            // num = Math.Round((double)size / (double)(1024 * 1024), 2);
         }
 
     }
